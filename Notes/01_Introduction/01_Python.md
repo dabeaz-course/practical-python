@@ -183,6 +183,4 @@ exercise work. For example:
 >>>
 ```
 
-\[ **[Solution](soln1_1.html)** | **[Next](ex1_2.html)** |
-**[Index](index.html)** \]
-
+[Next]("02_Hello_World.html")
