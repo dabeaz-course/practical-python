@@ -214,4 +214,4 @@ Try it:
 >>>
 ```
 
-[Next]("07_Functions")
+[Next](07_Functions)
