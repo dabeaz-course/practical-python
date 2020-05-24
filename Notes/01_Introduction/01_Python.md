@@ -59,9 +59,9 @@ shell.  This is Python's native environment.  If you are able to use
 Python in the shell, you will be able to use virtually everywhere
 else.
 
-## Exercises
+## Exercises 1.1
 
-### Using Python as a Calculator
+### (a) Using Python as a Calculator
 
 On your machine, start Python and use it as a calulator to solve the
 following problem.
@@ -87,7 +87,7 @@ broker takes their 20% cut?
 >>>
 ```
 
-### Getting help
+### (b) Getting help
 
 Use the `help()` command to get help on the `abs()` function. Then use
 `help()` to get help on the `round()` function. Type `help()` just by
@@ -103,7 +103,7 @@ Followup: Go to <http://docs.python.org> and find the documentation for
 the `abs()` function (hint: it’s found under the library reference
 related to built-in functions).
 
-### Cutting and Pasting
+### (c) Cutting and Pasting
 
 As you've noticed, this course is structured as a series of traditional
 web pages where you are encouraged to try interactive code samples by typing them
@@ -141,7 +141,7 @@ Warning: It is never possible to paste more than one Python command
 (statements that appear after `>>>`) to the basic Python shell at a
 time. You have to paste each command one at a time.
 
-### Where is My Bus?
+### (d) Where is My Bus?
 
 If you’ve made it this far, try something more advanced and type these
 statements to find out how long people waiting on the corner of Clark
