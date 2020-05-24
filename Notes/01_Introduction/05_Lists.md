@@ -402,4 +402,4 @@ example, a list that consists entirely of numbers or a list of text
 strings.  Mixing different kinds of data together in the same list is
 often a good way to make your head explode so it's best avoided.
 
-[Next]("06_Files.html")
+[Next]("06_Files")

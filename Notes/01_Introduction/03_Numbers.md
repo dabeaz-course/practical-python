@@ -232,4 +232,4 @@ Months 309
 
 While you’re at it, fix the program to correct the for overpayment that occurs in the last month.
 
-[Next]("04_Strings.html")
+[Next]("04_Strings")
