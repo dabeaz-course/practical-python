@@ -1,6 +1,8 @@
 # 1.4 Strings
 
-## Notes
+This section covers the basics of text manipulation.
+
+## Reading
 
 ### Representing Text
 

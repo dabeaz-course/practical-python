@@ -1,6 +1,9 @@
 # 1.7 Introduction to Functions
 
-## Notes
+As your programs start to get larger, you'll want to get organized.  This section
+introduces functions.  Error handling with exceptions is also introduced.
+
+## Reading
 
 ### Custom Functions
 

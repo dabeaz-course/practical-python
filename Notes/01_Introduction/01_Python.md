@@ -1,8 +1,8 @@
 # 1.1 Python
 
-In this part, we'll start with the absolute basics.
+In this part, we'll start with the absolute basics of Python.
 
-## Notes
+## Reading
 
 ### What is Python?
 

@@ -1,6 +1,8 @@
-# 1.3 Numbers and Booleans
+# 1.3 Numbers 
 
-## Notes
+This section covers some basics of performing mathematical calculations in Python.
+
+## Reading
 
 ### Types of Numbers
 

@@ -1,6 +1,8 @@
 # 1.6 File Management
 
-## Notes
+This section discusses the basics of working with files.
+
+## Reading
 
 ### File Input and Output
 

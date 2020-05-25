@@ -1,10 +1,20 @@
 # 1.5 Lists
 
-## Notes
+This section introduces lists, one of Python's basic objects for storing collections of data.
 
-### String Splitting
+## Reading
 
-Strings can represent fields of data. We can work with each field by splitting the string into a list.
+### Creating a List
+
+Use square brackets to create a list:
+
+```python
+names = [ 'Elwood', 'Jake', 'Curtis' ]
+nums = [ 39, 38, 42, 65, 111]
+```
+
+Sometimes lists are created by other methods.  For example, a string can be split into a
+list using the `split()` method:
 
 ```pycon
 >>> line = 'GOOG,100,490.10'
@@ -14,18 +24,9 @@ Strings can represent fields of data. We can work with each field by splitting t
 >>>
 ```
 
-A common use case for this splitting is when reading data from a file. You might read each line as text and then split the text into columns.
-
 ### List operations
 
-Use square brackets to create a list:
-
-```python
-names = [ 'Elwood', 'Jake', 'Curtis' ]
-nums = [ 39, 38, 42, 65, 111]
-```
-
-It can hold items of any type. Add a new item using `append()`:
+Lists can hold items of any type. Add a new item using `append()`:
 
 ```python
 names.append('Murphy')    # Adds at end
@@ -84,7 +85,7 @@ s = [1, 2, 3]
 s * 3   # [1, 2, 3, 1, 2, 3, 1, 2, 3]
 ```
 
-### List Iteration & Search
+### List Iteration and Search
 
 Iterating over the list contents.
 

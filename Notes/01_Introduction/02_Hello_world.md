@@ -1,6 +1,9 @@
 # 1.2 A First Python Program
 
-## Notes
+This section discusses the creation of your first program, running the interpreter,
+and some basic debugging.
+
+## Reading
 
 ### Running Python
 
