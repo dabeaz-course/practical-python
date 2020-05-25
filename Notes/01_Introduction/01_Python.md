@@ -59,7 +59,7 @@ shell.  This is Python's native environment.  If you are able to use
 Python in the shell, you will be able to use virtually everywhere
 else.
 
-## Exercises 1.1
+## Exercises
 
 ### (a) Using Python as a Calculator
 

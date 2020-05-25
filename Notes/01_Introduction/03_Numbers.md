@@ -2,8 +2,6 @@
 
 This section covers some basics of performing mathematical calculations in Python.
 
-## Reading
-
 ### Types of Numbers
 
 Python has 4 types of numbers:
@@ -95,11 +93,10 @@ c = -1.345e-10
 ```
 
 Floats are represented as double precision using the native CPU representation [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754).
+This is the same as the `double` type in the programming language C.
 
 > 17 digits or precision
 > Exponent from -308 to 308
-
-This is the same as the `double` type in the programming language C.
 
 Be aware that floating point numbers are inexact when representing decimals.
 
@@ -128,7 +125,6 @@ abs(x)     Absolute Value
 ```
 
 Theses are the same operators as Integers, except for the bit-wise operators.
-
 Additional math functions are found in the `math` module.
 
 ```python
@@ -161,7 +157,7 @@ Try it out.
 >>>
 ```
 
-## Exercise 1.3
+## Exercises
 
 ### (a) Dave's mortgage
 
@@ -198,7 +194,6 @@ When you run the new program, it should report a total payment of `929,965.62` o
 ### (c) Making an Extra Payment Calculator
 
 Modify the program so that extra payment information can be more generally handled.
-
 Make it so that the user can set these variables:
 
 ```python
@@ -214,7 +209,6 @@ How much will Dave pay if he pays an extra $1000/month for 4 years starting in y
 ### (d) Making a table
 
 Modify the program to print out a table showing the month, total paid so far, and the remaining principal. 
-
 The output should look something like this:
 
 ```bash

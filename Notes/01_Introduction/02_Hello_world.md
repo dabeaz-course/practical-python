@@ -194,11 +194,10 @@ Comments are denoted by `#` and extend to the end of the line.
 
 ### Variables
 
-A variable is a name for a value.
-
-You can use letters (lower and upper-case) from a to z. As well as the character underscore `_`.
-
-Numbers can also be part of the name of a variable, except as the first character.
+A variable is a name for a value. You can use letters (lower and
+upper-case) from a to z. As well as the character underscore `_`.
+Numbers can also be part of the name of a variable, except as the
+first character.
 
 ```python
 height = 442 # valid
@@ -221,7 +220,6 @@ height = 'Really tall' # A string
 ### Case Sensitivity
 
 Python is case sensitive. Upper and lower-case letters are considered different letters.
-
 These are all different variables:
 
 ```python
@@ -240,7 +238,6 @@ WHILE x < 0:   # ERROR
 ### Looping
 
 Looping is a way to execute a set of instructions any number of times.
-
 There are many ways to accomplish this in Python, one of them is the `while` statement:
 
 ```python
@@ -257,7 +254,6 @@ The statements below the `while` will execute as long as the expression after th
 ### Indentation
 
 Indentation in Python is used to denote a set of statements that go together.
-
 From our previous example:
 
 ```python
@@ -277,25 +273,15 @@ The indentation means that the following statements go together under the `while
     num_bills = num_bills * 2
 ```
 
-Because the next statement is not indented, it means that it does not belong to the previous set.
+Because the next statement is not indented, it means that it does not
+belong to the previous set.  The empty line is just for
+readability. It does not affect the execution.
 
-```python
-print('Number of days', days)
-```
+### Indentation best practices
 
-The empty line is just for readability. It does not affect the execution.
-
-### Blocks
-
-A block is a set of statements grouped together.
-
-In our previous example, the statements within the `while` form a *block*.
-
-```python
-  print(day, num_bills, num_bills * bill_thickness)
-  day = day + 1
-  num_bills = num_bills * 2
-```
+* Use spaces instead of tabs.
+* Use 4 spaces per level.
+* Use a Python-aware editor.
 
 Indentation within the block must be consistent.
 
@@ -306,17 +292,6 @@ while num_bills * bill_thickness < sears_height:
     num_bills = num_bills * 2
 ```
 
-The character colon `:` indicates the start of a block and must be present.
-
-```python
-while num_bills * bill_thickness < sears_height:
-```
-
-### Indentation best practices
-
-* Use spaces instead of tabs.
-* Use 4 spaces per level.
-* Use a Python-aware editor.
 
 ### Conditionals
 
@@ -324,10 +299,10 @@ The `if` statement is used to execute a conditional:
 
 ```python
 if a > b:
-    # `a` is greater than `b`
+    # a is greater than b
     print('Computer says no')
 else:
-    # `a` is lower or equal to `b`
+    # a is lower or equal to b
     print('Computer says yes')
 ```
 
@@ -337,13 +312,13 @@ You can check for multiple conditions with the `elif`.
 
 ```python
 if a > b:
-    # `a` is greater than `b`
+    # a is greater than b
     print('Computer says no')
 elif a == b:
-     # `a` is equal to `b`
+     # a is equal to b
     print('Computer says yes')
 else:
-    # `a` is lower to `b`
+    # a is lower to b
     print('Computer says maybe')
 ```
 
@@ -406,16 +381,12 @@ print('Your name is', name)
 ```
 
 `input` prints a prompt to the user and returns the response.
-
 This is useful for small programs, learning exercises or simple debugging.
-
 It is not widely used for real programs.
 
 ### `pass` statement
 
-Sometimes you need to specify an empty block.
-
-The keyword `pass` is used for it.
+Sometimes you need to specify an empty block. The keyword `pass` is used for it.
 
 ```python
 if a > b:
@@ -426,7 +397,7 @@ else:
 
 This is also called a "no-op" statement. It does nothing. It serves as a placeholder for statements. Possibly to be added later.
 
-## Exercises 1.2
+## Exercises
 
 ### (a) The Bouncing Ball
 
