@@ -1,4 +1,4 @@
-# 2.5 `collections` module
+# 2.5 collections module
 
 The `collections` module provides a number of useful objects for data handling.
 This part briefly introduces some of these features.
