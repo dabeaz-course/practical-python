@@ -45,22 +45,22 @@ e = 0b10001111  # Binary
 
 Common operations:
 
-| | |
-| ---- | ---- |
-| + | Add |
-| - | Subtract |
-| * | Multiply |
-| / | Divide |
-| // | Floor divide |
-| % | Modulo |
-| ** | Power |
-| << | Bit shift left |
-| >> | Bit shift right |
-| & | Big-wise AND |
-| &#124; | Bit-wise OR |
-| ^ | Bit-wise XOR |
-| ~ | Bit-wise NOT |
-| abs(x) | Absolute value |
+```
+x + y      Add
+x - y      Subtract
+x * y      Multiply
+x / y      Divide
+x // y     Floor Divide
+x % y      Modulo
+x ** y     Power
+x << n     Bit shift left  
+x >> n     Bit shift right
+x & y      Bit-wise AND
+x | y      Bit-wise OR
+x ^ y      Bit-wise XOR
+~x         Bit-wise NOT
+abs(x)     Absolute value
+```
 
 ### Comparisons
 
@@ -114,16 +114,16 @@ This is **not a Python issue**, but the underlying floating point hardware on th
 
 Common Operations:
 
-| | |
-| ---- | ---- |
-| + | Add |
-| - | Subtract |
-| * | Multiply |
-| / | Divide |
-| // | Floor divide |
-| % | Modulo (remainder) |
-| ** | Power |
-| abs(x) | Absolute value |
+```
+x + y      Add
+x - y      Subtract
+x * y      Multiply
+x / y      Divide
+x // y     Floor Divide
+x % y      Modulo
+x ** y     Power
+abs(x)     Absolute Value
+```
 
 Theses are the same operators as Integers, except for the bit-wise operators.
 

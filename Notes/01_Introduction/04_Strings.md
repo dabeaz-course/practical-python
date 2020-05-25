@@ -26,15 +26,14 @@ Triple quotes capture all text enclosed in multiple lines.
 
 ### String escape codes
 
-| | |
-| ---- | ---- |
-| `'\n'` | Line feed |
-| `'\r'` | Carriage return |
-| `'\t'` | Tab |
-| `'\''` | Literal single quote |
-| `'\"'` | Literal double quote |
-| `'\\'` | Backslash |
-
+```
+'\n'      Line feed
+'\r'      Carriage return
+'\t'      Tab
+'\''      Literal single quote
+'\"'      Literal double quote
+'\\'`     Literal backslash
+```
 These codes are inspired by C.
 
 ### String Representation
@@ -118,24 +117,23 @@ t = s.replace('Hello' , 'Hallo')
 
 **More string methods:**
 
-| | |
-| ---- | ---- |
-| s.endswith(suffix) | # Check if string ends with suffix |
-| s.find(t) | # First occurrence of t in s |
-| s.index(t) | # First occurrence of t in s |
-| s.isalpha() | # Check if characters are alphabetic |
-| s.isdigit() | # Check if characters are numeric |
-| s.islower() | # Check if characters are lower-case |
-| s.isupper() | # Check if characters are upper-case |
-| s.join(slist) | # Joins lists using s as delimiter |
-| s.lower() | # Convert to lower case |
-| s.replace(old,new) | # Replace text |
-| s.rfind(t) | # Search for t from end of string |
-| s.rindex(t) | # Search for t from end of string |
-| s.split([delim]) | # Split string into list of substrings |
-| s.startswith(prefix) | # Check if string starts with prefix |
-| s.strip() | # Strip leading/trailing space |
-| s.upper() | # Convert to upper case |
+```python
+s.endswith(suffix)     # Check if string ends with suffix
+s.find(t)              # First occurrence of t in s
+s.index(t)             # First occurrence of t in s
+s.isalpha()            # Check if characters are alphabetic
+s.isdigit()            # Check if characters are numeric
+s.islower()            # Check if characters are lower-case
+s.isupper()            # Check if characters are upper-case
+s.join(slist)          # Joins lists using s as delimiter
+s.lower()              # Convert to lower case
+s.replace(old,new)     # Replace text
+s.rfind(t)             # Search for t from end of string
+s.rindex(t)            # Search for t from end of string
+s.split([delim])       # Split string into list of substrings
+s.startswith(prefix)   # Check if string starts with prefix
+s.strip()              # Strip leading/trailing space
+s.upper()              # Convert to upper case
 
 ### String Mutability
 
