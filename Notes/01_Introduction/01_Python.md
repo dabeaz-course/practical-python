@@ -2,8 +2,6 @@
 
 In this part, we'll start with the absolute basics of Python.
 
-## Reading
-
 ### What is Python?
 
 Python is an interpreted high level programming language.  It is often classified as a

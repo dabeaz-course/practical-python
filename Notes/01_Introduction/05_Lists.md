@@ -2,8 +2,6 @@
 
 This section introduces lists, one of Python's basic objects for storing collections of data.
 
-## Reading
-
 ### Creating a List
 
 Use square brackets to create a list:
@@ -156,7 +154,7 @@ s.sort()                    # ['bar', 'foo', 'spam']
 Specifically, lists don't represent vectors/matrices as in MATLAB, Octave, IDL, etc.
 However, there are some packages to help you with that (e.g. numpy).
 
-## Exercises 1.5
+## Exercises
 
 In this exercise, we experiment with Python's list datatype. In the last exercise, you worked with strings containing stock symbols.
 

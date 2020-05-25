@@ -3,8 +3,6 @@
 As your programs start to get larger, you'll want to get organized.  This section
 introduces functions.  Error handling with exceptions is also introduced.
 
-## Reading
-
 ### Custom Functions
 
 Use functions for code you want to reuse. Here is a function definition:
@@ -100,8 +98,7 @@ Traceback (most recent call last):
 RuntimeError: What a kerfuffle
 ```
 
-
-## Exercises 1.7
+## Exercises
 
 ### (a) Defining a function
 

@@ -3,8 +3,6 @@
 This section discusses the creation of your first program, running the interpreter,
 and some basic debugging.
 
-## Reading
-
 ### Running Python
 
 Python programs run inside an interpreter.

@@ -2,8 +2,6 @@
 
 This section covers the basics of text manipulation.
 
-## Reading
-
 ### Representing Text
 
 String are text literals written in programs with quotes.
@@ -28,6 +26,9 @@ Triple quotes capture all text enclosed in multiple lines.
 
 ### String escape codes
 
+Escape codes are used to represent control characters and characters that can't be easily typed
+at the keyboard.  Here are some common escape codes:
+
 ```
 '\n'      Line feed
 '\r'      Carriage return
@@ -36,7 +37,6 @@ Triple quotes capture all text enclosed in multiple lines.
 '\"'      Literal double quote
 '\\'`     Literal backslash
 ```
-These codes are inspired by C.
 
 ### String Representation
 
@@ -45,9 +45,9 @@ Each character represents a raw unicode code point.
 <!-- TODO: Add Picture of following characters -->
 
 ```python
-a = '\xf1'        # a = 'ñ'
-b = '\u2200'      # b = '∀'
-c = '\U0001D122'  # c = '𝄢'
+a = '\xf1'          # a = 'ñ'
+b = '\u2200'        # b = '∀'
+c = '\U0001D122'    # c = '𝄢'
 d = '\N{FORALL}'    # d = '∀'
 ```
 
@@ -114,10 +114,12 @@ Replacing text.
 
 ```python
 s = 'Hello world'
-t = s.replace('Hello' , 'Hallo')
+t = s.replace('Hello' , 'Hallo')   # 'Hallo world'
 ```
 
 **More string methods:**
+
+Strings have a wide variety of other methods for testing and manipulating the text data:
 
 ```python
 s.endswith(suffix)     # Check if string ends with suffix
@@ -136,11 +138,11 @@ s.split([delim])       # Split string into list of substrings
 s.startswith(prefix)   # Check if string starts with prefix
 s.strip()              # Strip leading/trailing space
 s.upper()              # Convert to upper case
+```
 
 ### String Mutability
 
-Strings are "immutable". They are read only.
-
+Strings are "immutable" or read-only.
 Once created, the value can't be changed.
 
 ```python
@@ -198,7 +200,7 @@ data = text.encode('utf-8') # text -> bytes
 
 ### Raw Strings
 
-String with uninterpreted backslash.
+Raw strings are strings with uninterpreted backslash.  They are little by prefixing the initial quote with a lowercase "r".
 
 ```python
 >>> rs = r'c:\newdata\test' # Raw (uninterpreted backslash)
@@ -206,12 +208,12 @@ String with uninterpreted backslash.
 'c:\\newdata\\test'
 ```
 
-String is the literal text, exactly as typed.
+The string is the literal text, exactly as typed.
 This is useful in situations where the backslash has special significance. Example: filename, regular expressions, etc.
 
 ### f-Strings
 
-String with formatted expression substitution.
+A string with formatted expression substitution.
 
 ```python
 >>> name = 'IBM'
@@ -226,9 +228,9 @@ String with formatted expression substitution.
 >>>
 ```
 
-**Note: Requires Python 3.6 or newer.**
+**Note: This requires Python 3.6 or newer.**
 
-## Exercises 1.4
+## Exercises
 
 
 In this exercise, we experiment with operations on Python's string type.

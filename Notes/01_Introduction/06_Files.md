@@ -2,8 +2,6 @@
 
 This section discusses the basics of working with files.
 
-## Reading
-
 ### File Input and Output
 
 Open a file.
@@ -81,7 +79,7 @@ with open('outfile', 'wt') as f:
     ...
 ```
 
-## Exercises 1.6
+## Exercises
 
 This exercise depends on a file `Data/portfolio.csv`.  The file contains a list of lines with information on a portfolio of stocks.
 Locate the file and look at its contents:
@@ -91,7 +89,7 @@ Locate the file and look at its contents:
 *Note: Make sure you are running Python in a location where you can access the `portfolio.csv` file.
 You can find out where Python thinks it's running by doing this:
 
-```python
+```pycon
 >>> import os
 >>> os.getcwd()
 '/Users/beazley/Desktop/practical-python' # Output vary
