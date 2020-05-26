@@ -476,4 +476,4 @@ an identifying filename and line number.
 * Run the program successfully
 
 
-\[ [Contents](../Contents) \] \| \[ [Previous (1.1 Python)](01_Python) \] \| \[ [Next (1.3 Numbers)](02_Numbers) \]
+[Contents](../Contents) \| [Previous (1.1 Python)](01_Python) \| [Next (1.3 Numbers)](03_Numbers)
