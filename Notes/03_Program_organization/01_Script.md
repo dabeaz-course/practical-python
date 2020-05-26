@@ -1,4 +1,4 @@
-# 3.1 Python Scripting
+# 3.1 Scripting
 
 In this part we look more closely at the practice of writing Python
 scripts.
@@ -233,7 +233,7 @@ for row in report:
 
 In this exercise, we’re going take this program and organize it a little more strongly around the use of functions.
 
-### (a) Structuring a program as a collection of functions
+### Exercise 3.1: Structuring a program as a collection of functions
 
 Modify your `report.py` program so that all major operations,
 including calculations and output, are carried out by a collection of
@@ -242,7 +242,7 @@ functions. Specifically:
 * Create a function `print_report(report)` that prints out the report.
 * Change the last part of the program so that it is nothing more than a series of function calls and no other computation.
 
-### (b) Creating a function for program execution
+### Exercise 3.2: Creating a function for program execution
 
 Take the last part of your program and package it into a single function `portfolio_report(portfolio_filename, prices_filename)`.
 Have the function work so that the following function call creates the report as before:
@@ -272,4 +272,4 @@ For example, try these statements interactively after running your program:
 >>>
 ```
 
-[Next](02_More_functions)
+[Contents](../Contents) \| [Previous (2.7 Object Model)](../02_Working_with_data/07_Objects) \| [Next (3.2 More on Functions)](02_More_functions)

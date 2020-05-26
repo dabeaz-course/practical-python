@@ -301,7 +301,7 @@ resources are released. `with` only works with certain objects.
 
 ## Exercises
 
-### (a) Raising exceptions
+### Exercise 3.8: Raising exceptions
 
 The `parse_csv()` function you wrote in the last section allows
 user-specified columns to be selected, but that only works if the
@@ -336,7 +336,7 @@ headers, but simultaneously specifying that there are no headers).
 
 This indicates a programming error on the part of the calling code.
 
-### (b) Catching exceptions
+### Exercise 3.9: Catching exceptions
 
 The `parse_csv()` function you wrote is used to process the entire
 contents of a file.  However, in the real-world, it’s possible that
@@ -373,7 +373,7 @@ Row 7: Reason invalid literal for int() with base 10: ''
 >>>
 ```
 
-### (c) Silencing Errors
+### Exercise 3.10: Silencing Errors
 
 Modify the `parse_csv()` function so that parsing error messages can be silenced if explicitly desired by the user.
 For example:
@@ -390,4 +390,4 @@ most programs.  As a general rule, you shouldn’t silently ignore
 errors.  Instead, it’s better to report problems and to give the user
 an option to the silence the error message if they choose to do so.
 
-[Next](04_Modules)
+[Contents](../Contents) \| [Previous (3.2 More on Functions)](02_More_functions) \| [Next (3.4 Modules)](04_Modules)

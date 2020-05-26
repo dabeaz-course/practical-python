@@ -253,7 +253,7 @@ our goal.
 
 Start this exercise by creating a new file called `fileparse.py`. This is where we will be doing our work.
 
-### (a) Reading CSV Files
+### Exercise 3.3: Reading CSV Files
 
 To start, let’s just focus on the problem of reading a CSV file into a
 list of dictionaries.  In the file `fileparse.py`, define a simple
@@ -300,7 +300,7 @@ Hint: `python3 -i fileparse.py`.
 This is great except that you can’t do any kind of useful calculation with the data because everything is represented as a string.
 We’ll fix this shortly, but let’s keep building on it.
 
-### (b) Building a Column Selector
+### Exercise 3.4: Building a Column Selector
 
 In many cases, you’re only interested in selected columns from a CSV file, not all of the data.
 Modify the `parse_csv()` function so that it optionally allows user-specified columns to be picked out as follows:
@@ -318,7 +318,7 @@ Modify the `parse_csv()` function so that it optionally allows user-specified co
 >>>
 ```
 
-An example of a column selector was given in Section 2.5.
+An example of a column selector was given in [Exercise 2.23](../02_Working_with_data/06_List_comprehension).
 However, here’s one way to do it:
 
 ```python
@@ -394,7 +394,7 @@ When you read a row of data from the file, the indices are used to filter it:
 >>>
 ```
 
-### (c) Performing Type Conversion
+### Exercise 3.5: Performing Type Conversion
 
 Modify the `parse_csv()` function so that it optionally allows type-conversions to be applied to the returned data.
 For example:
@@ -410,7 +410,7 @@ For example:
 >>>
 ```
 
-You already explored this in Exercise 2.7.  You'll need to insert the
+You already explored this in [Exercise 2.24](../02_Working_with_data/07_Objects).  You'll need to insert the
 following fragment of code into your solution:
 
 ```python
@@ -420,7 +420,7 @@ if types:
 ...
 ```
 
-### (d) Working with Headers
+### Exercise 3.6: Working with Headers
 
 Some CSV files don’t include any header information.
 For example, the file `prices.csv` looks like this:
@@ -448,7 +448,7 @@ line of data isn’t interpreted as a header line.  Also, you’ll need to
 make sure you don’t create dictionaries as there are no longer any
 column names to use for keys.
 
-### (e) Picking a different column delimitier
+### Exercise 3.7: Picking a different column delimitier
 
 Although CSV files are pretty common, it’s also possible that you could encounter a file that uses a different column separator such as a tab or space.
 For example, the file `Data/portfolio.dat` looks like this:
@@ -486,6 +486,4 @@ You can use it to parse arbitrary CSV files, select out columns of
 interest, perform type conversions, without having to worry too much
 about the inner workings of files or the `csv` module.
 
-Nice!
-
-[Next](03_Error_checking)
+[Contents](../Contents) \| [Previous (3.1 Scripting)](01_Script) \| [Next (3.3 Error Checking)](03_Error_checking)

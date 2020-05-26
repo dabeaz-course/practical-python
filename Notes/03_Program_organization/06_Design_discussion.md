@@ -85,7 +85,7 @@ Don't restrict your options.  With great flexibility comes great power.
 
 ## Exercise
 
-### (a)From filenames to file-like objects
+### Exercise 3.17: From filenames to file-like objects
 
 In this section, you worked on a file `fileparse.py` that contained a 
 function `parse_csv()`.  The function worked like this:
@@ -123,10 +123,12 @@ In this new code, what happens if you pass a filename as before?
 With flexibility comes power and with power comes responsibility.  Sometimes you'll
 need to be careful.
 
-### (b) Fixing existing functions
+### Exercise 3.18: Fixing existing functions
 
 Fix the `read_portfolio()` and `read_prices()` functions in the
 `report.py` file so that they work with the modified version of
 `parse_csv()`.  This should only involve a minor modification.
 Afterwards, your `report.py` and `pcost.py` programs should work
 the same way they always did.
+
+[Contents](../Contents) \| [Previous (3.5 Main module)](05_Main_module) \| [Next (4 Classes)](../04_Classes_objects/00_Overview)

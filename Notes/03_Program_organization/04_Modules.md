@@ -197,7 +197,7 @@ make sure you are running Python in a proper environment.  Modules
 are usually when programmers encounter problems with the current working
 directory or with Python's path settings.
 
-### (a) Module imports
+### Exercise 3.11: Module imports
 
 In section 3, we created a general purpose function `parse_csv()` for parsing the contents of CSV datafiles.
 
@@ -268,7 +268,7 @@ Try importing a function so that you don’t need to include the module name:
 >>>
 ```
 
-### (b) Using your library module
+### Exercise 3.12: Using your library module
 
 In section 2, you wrote a program `report.py` that produced a stock report like this:
 
@@ -292,7 +292,7 @@ and `read_prices()` functions to use the `parse_csv()` function.
 Use the interactive example at the start of this exercise as a guide.
 Afterwards, you should get exactly the same output as before.
 
-### (c) Using more library imports
+### Exercise 3.14: Using more library imports
 
 In section 1, you wrote a program `pcost.py` that read a portfolio and computed its cost.
 
@@ -314,4 +314,4 @@ also contains `read_portfolio()` and `read_prices()` functions.  And
 finally, `pcost.py` which computes the portfolio cost, but makes use
 of the code written for the `report.py` program.
 
-[Next](05_Main_module)
+[Contents](../Contents) \| [Previous (3.3 Error Checking)](03_Error_checking) \| [Next (3.5 Main Module)](05_Main_module)

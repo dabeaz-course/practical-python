@@ -249,7 +249,7 @@ if __name__ == '__main__':
 
 ## Exercises
 
-### (a) `main()` functions
+### Exercise 3.15: `main()` functions
 
 In the file `report.py` add a `main()` function that accepts a list of command line options and produces the same output as before.
 You should be able to run it interatively like this:
@@ -278,7 +278,7 @@ Total cost: 44671.15
 >>>
 ```
 
-### (b) Making Scripts
+### Exercise 3.16: Making Scripts
 
 Modify the `report.py` and `pcost.py` programs so that they can execute as a script on the command line:
 
@@ -297,3 +297,5 @@ bash $ python3 report.py Data/portfolio.csv Data/prices.csv
 bash $ python3 pcost.py Data/portfolio.csv
 Total cost: 44671.15
 ```
+
+[Contents](../Contents) \| [Previous (3.4 Modules)](04_Modules) \| [Next (3.6 Design Discussion)](06_Design_discussion)
