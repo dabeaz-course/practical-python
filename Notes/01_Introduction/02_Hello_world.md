@@ -475,4 +475,5 @@ an identifying filename and line number.
 * Fix the error
 * Run the program successfully
 
-[Previous:1.1 Introducing Python](01_Python) [Next:1.3 Numbers](03_Numbers)
+
+\[ [Contents](../Contents) \] | \[ [Previous (1.1 Python)](01_Python) \] | \[ [Next (1.3 Numbers)](02_Numbers) \]
