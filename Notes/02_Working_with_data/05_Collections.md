@@ -157,4 +157,4 @@ This is only a small taste of what counters provide. However, if you
 ever find yourself needing to tabulate values, you should consider
 using one.
 
-[Contents](../Contents) \| [Previous (2.4 Sequences)](04_Sequences) \| [Next (2.6 List Comprehensions)](06_List_comprehensions)
+[Contents](../Contents) \| [Previous (2.4 Sequences)](04_Sequences) \| [Next (2.6 List Comprehensions)](06_List_comprehension)

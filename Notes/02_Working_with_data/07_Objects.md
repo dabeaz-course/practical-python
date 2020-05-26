@@ -410,4 +410,4 @@ Let’s convert the fields using a similar trick:
 
 Spend some time to ponder what you’ve done in this exercise. We’ll revisit these ideas a little later.
 
-[Contents](../Contents) \| [Previous (2.6 List Comprehensions)](06_List_comprehensions) \| [Next (3 Program Organization)](../03_Program_organization/00_Cotents)
+[Contents](../Contents) \| [Previous (2.6 List Comprehensions)](06_List_comprehension) \| [Next (3 Program Organization)](../03_Program_organization/00_Cotents)
