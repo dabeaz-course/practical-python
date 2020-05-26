@@ -475,4 +475,4 @@ an identifying filename and line number.
 * Fix the error
 * Run the program successfully
 
-[Next](03_Numbers)
+[Previous:1.1 Introducing Python](01_Python) [Next:1.3 Numbers](03_Numbers)

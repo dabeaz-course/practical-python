@@ -181,4 +181,4 @@ exercise work. For example:
 >>>
 ```
 
-[Next](02_Hello_world)
+[Previous:Table of Contents](../Contents) [Next:1.2 Hello World](02_Hello_world)
