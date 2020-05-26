@@ -20,7 +20,7 @@
 * [2.6 List comprehensions](02_Working_with_data/06_List_comprehension)
 * [2.7 Object model](02_Working_with_data/07_Objects)
 
-## [3. Program Organization)(03_Program_organization/00_Overview)
+## [3. Program Organization](03_Program_organization/00_Overview)
 
 * [3.1 Functions and Script Writing](03_Program_organization/01_Script)
 * [3.2 More Detail on Functions](03_Program_organization/02_More_functions)
@@ -29,14 +29,14 @@
 * [3.5 Main module](03_Program_organization/05_Main_module)
 * [3.6 Design Discussion about Embracing Flexibilty](03_Program_organization/06_Design_discussion)
 
-## [4. Classes and Objects)(04_Classes_objects/00_Overview)
+## [4. Classes and Objects](04_Classes_objects/00_Overview)
 
 * [4.1 Introducing Classes](04_Classes_objects/01_Class)
 * [4.2 Inheritance](04_Classes_objects/02_Inheritance)
 * [4.3 Special Methods](04_Classes_objects/03_Special_methods)
 * [4.4 Defining new Exception](04_Classes_objects/04_Defining_exceptions)
 
-## [5. The Inner Workings of Python Objects)(05_Object_model/00_Overview)
+## [5. The Inner Workings of Python Objects](05_Object_model/00_Overview)
 
 * [5.1 Dictionaries Revisited (Object Implementation)](05_Object_model/01_Dicts_revisited)
 * [5.2 Encapsulation Techniques](05_Object_model/02_Classes_encapsulation)
