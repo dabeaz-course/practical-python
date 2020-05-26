@@ -1,7 +1,17 @@
-# Overview
+# 9 Packages
 
-In this section we will cover more details on:
+We conclude the course with a few details on how to organize your code
+into a package structure.  We'll also discuss the installation of
+third party packages and preparing to give your own code away to others.
 
-* Packages.
-* Third Party Modules.
-* How to structure an application.
+The subject of packaging is an ever-evolving, overly complex part of
+Python development.  Rather than focus on specific tools, the main
+focus of this section is on some general code organization principles
+that will prove useful no matter what tools you later use to give code
+away or manage dependencies.
+
+* [9.1 Packages](01_Packages)
+* [9.2 Third Party Modules](02_Third_party)
+* [9.3 Giving your code to others](03_Distribution)
+
+[Contents](../Contents)

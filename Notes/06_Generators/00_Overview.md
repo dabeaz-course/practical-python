@@ -1,14 +1,16 @@
-# Overview
+# 6. Generators
 
-A simple definition of *Iteration*: Looping over items.
+Iteration (the `for`-loop) is one of the most common programming
+patterns in Python.  Programs do a lot of iteration to process lists,
+read files, query databases, and more.  One of the most powerful 
+features of Python is the ability to customize and redefine iteration
+in the form of a so-called "generator function."  This section
+introduces this topic.  By the end, you'll write some programs that
+process some real-time streaming data in an interesting way.
 
-```python
-a = [2,4,10,37,62]
-# Iterate over a
-for x in a:
-    ...
-```
+* [6.1 Iteration Protocol](01_Iteration_protocol)
+* [6.2 Customizing Iteration with Generators](02_Customizing_iteration)
+* [6.3 Producer/Consumer Problems and Workflows](03_Producers_consumers)
+* [6.4 Generator Expressions](04_More_generators)
 
-This is a very common pattern. Loops, list comprehensions, etc.
-
-Most programs do a huge amount of iteration.
+[Contents](../Contents)

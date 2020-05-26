@@ -1,35 +1,16 @@
-# Overview
+# 4. Classes and Objects
 
-## Object Oriented (OO) programming
+So far, our programs have only used built-in Python datatypes.  In
+this section, we introduce the concept of classes and objects.  You'll
+learn about the `class` statement that allows you to make new objects.
+We'll also introduce the concept of inheritance, a tool that is commonly
+use to build extensible programs.  Finally, we'll look at a few other
+features of classes including special methods, dynamic attribute lookup,
+and defining new exceptions.
 
-A Programming technique where code is organized as a collection of *objects*.
+* [4.1 Introducing Classes](01_Class)
+* [4.2 Inheritance](02_Inheritance)
+* [4.3 Special Methods](03_Special_methods)
+* [4.4 Defining new Exception](04_Defining_exceptions)
 
-An *object* consists of:
-
-* Data. Attributes
-* Behavior. Methods, functions applied to the object.
-
-You have already been using some OO during this course.
-
-For example with Lists.
-
-```python
->>> nums = [1, 2, 3]
->>> nums.append(4)      # Method
->>> nums.insert(1,10)   # Method
->>> nums
-[1, 10, 2, 3, 4]        # Data
->>>
-```
-
-`nums` is an *instance* of a list.
-
-Methods (`append` and `insert`) are attached to the instance (`nums`).
-
-## Summary
-
-This will be a high-level overview of classes.
-
-Most code involving classes will involve the topics covered in this section.
-
-If you're merely using existing libraries, the code is typically fairly simple.
+[Contents](../Contents)
