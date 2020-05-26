@@ -181,5 +181,5 @@ exercise work. For example:
 >>>
 ```
 
-\[ [Contents](../Contents) \] | \[ [Next (1.2 Hello World)](02_Hello_world) \]
+\[ [Contents](../Contents) \] \| \[ [Next (1.2 Hello World)](02_Hello_world) \]
 
