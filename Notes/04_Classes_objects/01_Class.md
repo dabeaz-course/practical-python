@@ -110,7 +110,7 @@ If you want to operate on an instance, you always have to refer too it explicitl
 
 ## Exercises
 
-### (a) Objects as Data Structures
+### Exercise 4.1: Objects as Data Structures
 
 In section 2 and 3, we worked with data represented as tuples and dictionaries.
 For example, a holding of stock could be represented as a tuple like this:
@@ -182,7 +182,7 @@ dictionary, just with somewhat different syntax.
 For example, instead of writing `s['name']` or `s['price']`, you now
 write `s.name` and `s.price`.
 
-### (b) Reading Data into a List of Objects
+### Exercise 4.2: Reading Data into a List of Objects
 
 In your `stock.py` program, write a function
 `read_portfolio(filename)` that reads portfolio data from a file into
@@ -226,7 +226,7 @@ Try a list comprehension:
 
 Again, notice the similarity between `Stock` objects and dictionaries. They’re basically the same idea, but the syntax for accessing values differs.
 
-### (c) Adding some Methods
+### Exercise 4.3: Adding some Methods
 
 With classes, you can attach functions to your objects.  These are
 known as methods and are functions that operate on the data stored
@@ -250,4 +250,4 @@ work like this:
 >>>
 ```
 
-[Next](02_Inheritance)
+[Contents](../Contents) \| [Previous (3.6 Design discussion)](../03_Program_organization/06_Design_discussion) \| [Next (4.2 Inheritance)](02_Inheritance)

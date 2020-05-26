@@ -362,10 +362,10 @@ Frameworks / libraries sometimes use it for advanced features involving composit
 
 ## Exercises
 
-In Exercise 4.1, you defined a class `Stock` that represented a holding of stock. 
+In Section 4, you defined a class `Stock` that represented a holding of stock. 
 In this exercise, we will use that class.
 
-### (a) Representation of Instances
+### Exercise 5.1: Representation of Instances
 
 At the interactive shell, inspect the underlying dictionaries of the two instances you created:
 
@@ -380,7 +380,7 @@ At the interactive shell, inspect the underlying dictionaries of the two instanc
 >>>
 ```
 
-### (b) Modification of Instance Data
+### Exercise 5.2: Modification of Instance Data
 
 Try setting a new attribute on one of the above instances:
 
@@ -412,7 +412,7 @@ top of a dictionary.  *Note: it should be emphasized that direct
 manipulation of the dictionary is uncommon—you should always write
 your code to use the (.) syntax.*
 
-### (c) The role of classes
+### Exercise 5.3: The role of classes
 
 The definitions that make up a class definition are shared by all instances of that class.
 Notice, that all instances have a link back to their associated class:
@@ -517,7 +517,7 @@ It is shared by all of the instances that get created.
 >>>
 ```
 
-### (d) Bound Methods
+### Exercise 5.4: Bound Methods
 
 A subtle feature of Python is that invoking a method actually involves
 two steps and something known as a bound method.
@@ -568,7 +568,7 @@ For example, calling `s(25)` actually does this:
 >>>
 ```
 
-### (e) Inheritance
+### Exercise 5.5: Inheritance
 
 Make a new class that inherits from `Stock`.
 
@@ -617,4 +617,5 @@ Here’s how the `cost()` method of instance `n` above would be found:
 >>>
 ```
 
-[Next](02_Classes_encapsulation)
+[Contents](../Contents) \| [Previous (4.4 Exceptions)](../04_Classes_objects/04_Defining_exceptions) \| [Next (5.2 Encapsulation)](02_Classes_encapsulation)
+

@@ -86,7 +86,7 @@ for s in port:
 
 ## Exercises
 
-### (a) Iteration Illustrated
+### Exercise 6.1: Iteration Illustrated
 
 Create the following list:
 
@@ -137,7 +137,7 @@ the `__next__()` method of an iterator. Try using it on a file:
 Keep calling `next(f)` until you reach the end of the
 file. Watch what happens.
 
-### (b) Supporting Iteration
+### Exercise 6.2: Supporting Iteration
 
 On occasion, you might want to make one of your own objects support
 iteration--especially if your object wraps around an existing
@@ -249,7 +249,7 @@ Test it to make sure it works:
 >>>
 ```
 
-### (d) Making a more proper container
+### Exercise 6.3: Making a more proper container
 
 If making a container class, you often want to do more than just
 iteration. Modify the `Portfolio` class so that it has some other
@@ -310,4 +310,4 @@ Python normally work.  For container objects, supporting iteration,
 indexing, containment, and other kinds of operators is an important
 part of this.
 
-[Next](02_Customizing_iteration)
+[Contents](../Contents) \| [Previous (5.2 Encapsulation)](../05_Classes_objects/02_Classes_encapsulation) \| [Next (6.2 Customizing Iteration)](02_Customizing_iteration)

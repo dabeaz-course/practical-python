@@ -202,7 +202,7 @@ x = getattr(obj, 'x', None)
 
 ## Exercises
 
-### (a) Better output for printing objects
+### Exercise 4.8: Better output for printing objects
 
 All Python objects have two string representations.  The first
 representation is created by string conversion via `str()` (which is
@@ -248,7 +248,7 @@ See what happens when you read a portfolio of stocks and view the resulting list
 >>>
 ```
 
-### (b) An example of using `getattr()`
+### Exercise 4.9: An example of using `getattr()`
 
 In Exercise 4.2 you worked with a function `print_portfolio()` that made a table for a stock portfolio.
 That function was hard-coded to only work with stock data—-how limiting! You can do so much more if you use functions such as `getattr()`.
@@ -306,7 +306,7 @@ format.  Here’s how it should work:
 >>>
 ```
 
-### (c) Exercise Bonus: Column Formatting
+### Exercise 4.10: Exercise Bonus: Column Formatting
 
 Modify the `print_table()` function in part (B) so that it also
 accepts a list of format specifiers for formatting the contents of
@@ -329,4 +329,5 @@ each column.
 >>>
 ```
 
-[Next](04_Defining_exceptions)
+[Contents](../Contents) \| [Previous (4.2 Inheritance)](02_Inheritance) \| [Next (4.4 Exceptions)](04_Defining_exceptions)
+

@@ -220,7 +220,7 @@ We're not going to explore multiple inheritance further in this course.
 
 ## Exercises
 
-### (a) Print Portfolio
+### Exercise 4.4: Print Portfolio
 
 A major use of inheritance is in writing code that’s meant to be extended or customized in various ways—especially in libraries or frameworks.
 To illustrate, start by adding the following function to your `stock.py` program:
@@ -263,7 +263,7 @@ When you run your `stock.py`, you should get this output:
            IBM        100      70.44
 ```
 
-### (b) An Extensibility Problem
+### Exercise 4.5: An Extensibility Problem
 
 Suppose that you wanted to modify the `print_portfolio()` function to
 support a variety of different output formats such as plain-text,
@@ -329,7 +329,7 @@ if __name__ == '__main__':
 When you run this new code, your program will immediately crash with a `NotImplementedError` exception.
 That’s not too exciting, but continue to the next part.
 
-### (c) Using Inheritance to Produce Different Output
+### Exercise 4.6: Using Inheritance to Produce Different Output
 
 The `TableFormatter` class you defined in part (a) is meant to be extended via inheritance.
 In fact, that’s the whole idea. To illustrate, define a class `TextTableFormatter` like this:
@@ -430,7 +430,7 @@ Using a similar idea, define a class `HTMLTableFormatter` that produces a table 
 
 Test your code by modifying the main program to create a `HTMLTableFormatter` object instead of a `CSVTableFormatter` object.
 
-### (d) Polymorphism in Action
+### Exercise 4.7: Polymorphism in Action
 
 A major feature of object-oriented programming is that you can plug an
 object into a program and it will work without having to change any of
@@ -499,4 +499,4 @@ That said, understanding what happened in this exercise will take you
 pretty far in terms of using most library modules and knowing
 what inheritance is good for (extensibility).
 
-[Next](03_Special_methods)
+[Contents](../Contents) \| [Previous (4.1 Classes)](01_Class) \| [Next (4.3 Special methods)](03_Special_methods)

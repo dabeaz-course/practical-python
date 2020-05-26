@@ -22,7 +22,7 @@ class ProtocolError(NetworkError):
 
 ## Exercises
 
-### (a) Defining a custom exception
+### Exercise 4.11: Defining a custom exception
 
 It is often good practice for libraries to define their own exceptions.
 
@@ -47,3 +47,5 @@ Traceback (most recent call last):
 FormatError: Unknown table format xls
 >>>
 ```
+
+[Contents](../Contents) \| [Previous (4.3 Special methods)](03_Special_methods) \| [Next (5 Object Model)](../05_Object_model/00_Overview)

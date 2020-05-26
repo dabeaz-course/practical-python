@@ -99,7 +99,7 @@ File "<stdin>", line 1, in ? StopIteration
 
 ## Exercises
 
-### (a) A Simple Generator
+### Exercise 6.4: A Simple Generator
 
 If you ever find yourself wanting to customize iteration, you should
 always think generator functions.  They're easy to write---make
@@ -139,7 +139,7 @@ This is kind of interesting--the idea that you can hide a bunch of
 custom processing in a function and use it to feed a for-loop.
 The next example looks at a more unusual case.
 
-### (b) Monitoring a streaming data source
+### Exercise 6.5: Monitoring a streaming data source
 
 Generators can be an interesting way to monitor real-time data sources
 such as log files or stock market feeds.  In this part, we'll
@@ -197,7 +197,7 @@ this case, we are using it to repeatedly probe the end of the file to
 see if more data has been added (`readline()` will either
 return new data or an empty string).
 
-### (c) Using a generator to produce data
+### Exercise 6.6: Using a generator to produce data
 
 If you look at the code in part (b), the first part of the code is producing
 lines of data whereas the statements at the end of the `while` loop are consuming
@@ -229,7 +229,7 @@ if __name__ == '__main__':
             print(f'{name:>10s} {price:>10.2f} {change:>10.2f}')
 ```
 
-### (d) Watching your portfolio
+### Exercise 6.7: Watching your portfolio
 
 Modify the `follow.py` program so that it watches the stream of stock
 data and prints a ticker showing information for only those stocks
@@ -262,4 +262,4 @@ is now this completely general purpose utility that you can use in any program. 
 example, you could use it to watch server logs, debugging logs, and other similar data sources.
 That's kind of cool.
 
-[Next](03_Producers_consumers)
+[Contents](../Contents) \| [Previous (6.1 Iteration Protocol)](01_Iteration_protocol) \| [Next (6.3 Producer/Consumer)](03_Producers_consumers)

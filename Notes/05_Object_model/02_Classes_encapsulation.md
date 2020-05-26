@@ -252,7 +252,7 @@ day-to-day coding.
 
 ## Exercises
 
-### (a) Simple properties
+### Exercise 5.6: Simple properties
 
 Properties are a useful way to add "computed attributes" to an object.
 In Exercise 4.1, you created an object `Stock`. Notice that on your
@@ -289,7 +289,7 @@ Try calling `s.cost()` as a function and observe that it doesn’t work now that
 >>>
 ```
 
-### (b) Properties and Setters
+### Exercise 5.7: Properties and Setters
 
 Modify the `shares` attribute so that the value is stored in a private
 attribute and that a pair of property functions are used to ensure
@@ -306,7 +306,7 @@ TypeError: expected an integer
 >>>
 ```
 
-### (c) Adding slots
+### Exercise 5.8:  Adding slots
 
 Modify the `Stock` class so that it has a `__slots__` attribute.
 Then, verify that new attributes can’t be added:
@@ -333,3 +333,5 @@ What happens if you try to inspect the underlying dictionary of `s` above?
 It should be noted that `__slots__` is most commonly used as an
 optimization on classes that serve as data structures.  Using slots
 will make such programs use far-less memory and run a bit faster.
+
+[Contents](../Contents) \| [Previous (5.1 Dictionaries Revisited)](01_Dicts_revisited) \| [Next (6 Generators)](../06_Generators/00_Overview)

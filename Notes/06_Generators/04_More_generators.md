@@ -104,7 +104,7 @@ More information at [Generator Tricks for Systems Programmers](http://www.dabeaz
 In the previous exercises, you wrote some code that followed lines being written to a log file and parsed them into a sequence of rows.
 This exercise continues to build upon that.  Make sure the `Data/stocksim.py` is still running.
 
-### (a) Generator Expressions
+### Exercise 6.13: Generator Expressions
 
 Generator expressions are a generator version of a list comprehension.
 For example:
@@ -134,7 +134,7 @@ Thus, if you try another for-loop, you get nothing:
 >>> 
 ```
 
-### (b) Generator Expressions in Function Arguments
+### Exercise 6.14: Generator Expressions in Function Arguments
 
 Generator expressions are sometimes placed into function arguments.
 It looks a little weird at first, but try this experiment:
@@ -154,7 +154,7 @@ In your `portfolio.py` file, you performed a few calculations
 involving list comprehensions.  Try replacing these with
 generator expressions.
 
-### (c) Code simplification
+### Exercise 6.15: Code simplification
 
 Generators expressions are often a useful replacement for
 small generator functions.  For example, instead of writing a
@@ -177,3 +177,4 @@ Modify the `ticker.py` program to use generator expressions
 as appropriate.
 
 
+[Contents](../Contents) \| [Previous (6.3 Producer/Consumer)](03_Producers_consumers) \| [Next (7 Advanced Topics)](../07_Advanced_Topics/00_Overview)
