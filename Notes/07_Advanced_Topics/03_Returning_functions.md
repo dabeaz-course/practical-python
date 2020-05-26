@@ -119,7 +119,7 @@ You can write functions that make code.
 
 ## Exercises
 
-### (a) Using Closures to Avoid Repetition
+### Exercise 7.7: Using Closures to Avoid Repetition
 
 One of the more powerful features of closures is their use in
 generating repetitive code.  If you refer back to exercise 5.2
@@ -195,7 +195,7 @@ Try creating an instance and verifying that type-checking works.
 >>>
 ```
 
-### (b) Simplifying Function Calls
+### Exercise 7.8: Simplifying Function Calls
 
 In the above example, users might find calls such as
 `typedproperty('shares', int)` a bit verbose to type--especially if
@@ -226,9 +226,9 @@ Ah, that's a bit better.   The main takeaway here is that closures and `lambda`
 can often be used to simplify code and eliminate annoying repetition.  This
 is often good.
 
-### (c) Putting it into practice
+### Exercise 7.9: Putting it into practice
 
 Rewrite the `Stock` class in the file `stock.py` so that it uses typed properties
 as shown.
 
-[Next](04_Function_decorators)
+[Contents](../Contents) \| [Previous (7.2 Anonymous Functions)](02_Anonymous_function) \| [Next (7.4 Decorators)](04_Function_decorators)

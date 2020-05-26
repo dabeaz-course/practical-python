@@ -87,7 +87,7 @@ These are not commonly used except when writing library functions.
 
 ## Exercises
 
-### (a) A simple example of variable arguments
+### Exercise 7.1: A simple example of variable arguments
 
 Try defining the following function:
 
@@ -106,7 +106,7 @@ Try defining the following function:
 
 Notice how the parameter `*more` collects all of the extra arguments.
 
-### (b) Passing tuple and dicts as arguments
+### Exercise 7.2: Passing tuple and dicts as arguments
 
 Suppose you read some data from a file and obtained a tuple such as
 this:
@@ -146,7 +146,7 @@ Stock('GOOG', 100, 490.1)
 >>>
 ```
 
-### (c) Creating a list of instances
+### Exercise 7.3: Creating a list of instances
 
 In your `report.py` program, you created a list of instances
 using code like this:
@@ -169,7 +169,7 @@ def read_portfolio(filename):
 
 You can simplify that code using `Stock(**d)` instead.  Make that change.
 
-### (d) Argument pass-through
+### Exercise 7.4: Argument pass-through
 
 The `fileparse.parse_csv()` function has some options for changing the
 file delimiter and for error reporting.  Maybe you'd like to expose those
@@ -211,4 +211,4 @@ Now, try silencing the errors:
 >>>
 ```
 
-[Next](02_Anonymous_function)
+[Contents](../Contents) \| [Previous (6.4 Generator Expressions)](../06_Generators/04_More_generators) \| [Next (7.2 Anonymous Functions)](02_Anonymous_function)

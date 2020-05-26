@@ -125,7 +125,7 @@ However, the code that uses logging doesn't have to worry about that.
 
 ## Exercises
 
-### (a) Adding logging to a module
+### Exercise 8.2: Adding logging to a module
 
 In Exercise 3.3, you added some error handling to the
 `fileparse.parse_csv()` function.  It looked like this:
@@ -282,7 +282,7 @@ Turn off all, but the most critical logging messages:
 >>>
 ```
 
-### (b) Adding Logging to a Program
+### Exercise 8.3: Adding Logging to a Program
 
 To add logging to an application, you need to have some mechanism to
 initialize the logging module in the main module.  One way to
@@ -302,4 +302,4 @@ logging.basicConfig(
 Again, you'd need to put this someplace in the startup steps of your
 program.
 
-[Next](03_Debugging)
+[Contents](../Contents) \| [Previous (8.1 Testing)](01_Testing) \| [Next (8.3 Debugging)](03_Debugging)

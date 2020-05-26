@@ -108,7 +108,7 @@ Stock('IBM', 100, 70.44)
 >>>
 ```
 
-### (a) Sorting on a field
+### Exercise 7.5: Sorting on a field
 
 Try the following statements which sort the portfolio data
 alphabetically by stock name.
@@ -129,7 +129,7 @@ In this part, the `stock_name()` function extracts the name of a stock from
 a single entry in the `portfolio` list.   `sort()` uses the result of
 this function to do the comparison.
 
-### (b) Sorting on a field with lambda
+### Exercise 7.6: Sorting on a field with lambda
 
 Try sorting the portfolio according the number of shares using a
 `lambda` expression:
@@ -158,4 +158,4 @@ Note: `lambda` is a useful shortcut because it allows you to
 define a special processing function directly in the call to `sort()` as
 opposed to having to define a separate function first (as in part a).
 
-[Next](03_Returning_functions)
+[Contents](../Contents) \| [Previous (7.1 Variable Arguments)](01_Variable_arguments) \| [Next (7.3 Returning Functions)](03_Returning_function)

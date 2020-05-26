@@ -121,7 +121,7 @@ Start this exercise by defining a `Date` class.  For example:
 >>>
 ```
 
-### (a) Class Methods
+### Exercise 7.11: Class Methods
 
 A common use of class methods is to provide alternate constructors
 (epecially since Python doesn't support overloaded methods).  Modify
@@ -161,7 +161,7 @@ Yow!
 >>>
 ```
 
-### (b) Class Methods in Practice
+### Exercise 7.12: Class Methods in Practice
 
 In your `report.py` and `portfolio.py` files, the creation of a `Portfolio`
 object is a bit muddled.  For example, the `report.py` program has code like this:
@@ -258,3 +258,4 @@ To use this new Portfolio class, you can now write code like this:
 Make these changes to the `Portfolio` class and modify the `report.py`
 code to use the class method.
 
+[Contents](../Contents) \| [Previous (7.4 Decorators)](04_Function_decorators) \| [Next (8 Testing and Debugging)](../08_Testing_debugging/00_Overview)

@@ -245,7 +245,7 @@ typedproperty.py  # Typed class properties
 In this exercise, we're going to clean up the code and put it into
 a common package.
 
-### (a) Making a simple package
+### Exercise 9.1: Making a simple package
 
 Make a directory called `porty/` and put all of the above Python
 files into it.  Additionally create an empty `__init__.py` file and
@@ -298,7 +298,7 @@ from .fileparse import parse_csv
 ...
 ```
 
-### (b) Making an application directory
+### Exercise 9.2: Making an application directory
 
 Putting all of your code into a "package" isn't often enough for an
 application. Sometimes there are supporting files, documentation,
@@ -358,7 +358,7 @@ shell % python3 -m porty.report portfolio.csv prices.csv txt
 shell %
 ```
 
-### (c) Top-level Scripts
+### Exercise 9.3: Top-level Scripts
 
 Using the `python -m` command is often a bit weird.  You may want to
 write a top level script that simply deals with the oddities of packages.
@@ -412,4 +412,4 @@ porty-app/
         typedproperty.py
 ```
 
-[Next](02_Third_party)
+[Contents](../Contents) \| [Previous (8.3 Debugging)](../08_Testing_debugging/03_Debugging) \| [Next (9.2 Third Party Packages)](02_Third_party)

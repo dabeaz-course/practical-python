@@ -145,3 +145,10 @@ For breakpoints location is one of the following.
 (Pdb) b module.foo    # Function foo() in a module
 ```
 
+## Exercises
+
+### Exercise 8.4:  Bugs? What Bugs?
+
+It runs. Ship it!
+
+[Contents](../Contents) \| [Previous (8.2 Logging)](02_Logging) \| [Next (9 Packages)](../09_Packages/00_Overview)

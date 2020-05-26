@@ -207,7 +207,7 @@ for Exercise 7.3.  If, for some reason, that's not working,
 you might want to copy the solution from `Solutions/7_3` to your working
 directory.
 
-### (a) Writing Unit Tests
+### Exercise 8.1: Writing Unit Tests
 
 In a separate file `test_stock.py`, write a set a unit tests
 for the `Stock` class.   To get you started, here is a small
@@ -261,4 +261,4 @@ class TestStock(unittest.TestCase):
              s.shares = '100'
 ```
 
-[Next](02_Logging)
+[Contents](../Contents) \| [Previous (7.5 Decorated Methods)](../07_Advanced_Topics/05_Decorated_methods) \| [Next (8.2 Logging)](02_Logging)

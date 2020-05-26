@@ -103,7 +103,7 @@ However, the previous example is a good illustration of how their use tends to a
 
 ## Exercises
 
-### (a) A decorator for timing
+### Exercise 7.10: A decorator for timing
 
 If you define a function, its name and module are stored in the
 `__name__` and `__module__` attributes. For example:
@@ -149,4 +149,4 @@ Discussion:  This `@timethis` decorator can be placed in front of any
 function definition.   Thus, you might use it as a diagnostic tool for 
 performance tuning.
 
-[Next](05_Decorated_methods)
+[Contents](../Contents) \| [Previous (7.3 Returning Functions)](03_Returning_functions) \| [Next (7.5 Decorated Methods)](05_Decorated_methods)
