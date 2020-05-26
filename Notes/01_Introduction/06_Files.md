@@ -1,7 +1,5 @@
 # 1.6 File Management
 
-This section discusses the basics of working with files.
-
 ### File Input and Output
 
 Open a file.
@@ -84,9 +82,10 @@ with open('outfile', 'wt') as f:
 This exercise depends on a file `Data/portfolio.csv`.  The file contains a list of lines with information on a portfolio of stocks.
 Locate the file and look at its contents:
 
-### (a) File Preliminaries
+### Exercise 1.26: File Preliminaries
 
 *Note: Make sure you are running Python in a location where you can access the `portfolio.csv` file.
+It's normally located in `Data/portfolio.csv`. 
 You can find out where Python thinks it's running by doing this:
 
 ```pycon
@@ -115,9 +114,11 @@ name,shares,price
 >>>
 ```
 
-In the above example, it should be noted that Python has two modes of output.
-In the first mode where you type `data` at the prompt, Python shows you the raw string representation including quotes and escape codes.
-When you type `print(data)`, you get the actual formatted output of the string.
+In the above example, it should be noted that Python has two modes of
+output.  In the first mode where you type `data` at the prompt, Python
+shows you the raw string representation including quotes and escape
+codes.  When you type `print(data)`, you get the actual formatted
+output of the string.
 
 Although reading a file all at once is simple, it is often not the
 most appropriate way to do it—especially if the file happens to be
@@ -137,9 +138,12 @@ name,shares,price
 >>>
 ```
 
-When you use this code as shown, lines are read until the end of the file is reached at which point the loop stops.
+When you use this code as shown, lines are read until the end of the
+file is reached at which point the loop stops.
 
-On certain occasions, you might want to manually read or skip a *single* line of text (e.g., perhaps you want to skip the first line of column headers).
+On certain occasions, you might want to manually read or skip a
+*single* line of text (e.g., perhaps you want to skip the first line
+of column headers).
 
 ```pycon
 >>> f = open('Data/portfolio.csv', 'rt')
@@ -180,7 +184,7 @@ For example, try this:
 
 *Note: In these examples, `f.close()` is being called explicitly because the `with` statement isn’t being used.*
 
-### (b) Reading a data file
+### Exercise 1.27: Reading a data file
 
 Now that you know how to read a file, let’s write a program to perform a simple calculation.
 
@@ -197,10 +201,12 @@ Your program should print output such as the following:
 Total cost 44671.15
 ```
 
-### (c) Other kinds of 'files'
+### Exercise 1.28: Other kinds of 'files'
 
-What if you wanted to read a non-text file such as a gzip-compressed datafile?
-The builtin `open()` function won’t help you here, but Python has a library module `gzip` that can read gzip compressed files.
+What if you wanted to read a non-text file such as a gzip-compressed
+datafile?  The builtin `open()` function won’t help you here, but
+Python has a library module `gzip` that can read gzip compressed
+files.
 
 Try it:
 

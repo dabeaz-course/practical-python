@@ -1,10 +1,8 @@
 # 1.5 Lists
 
-This section introduces lists, one of Python's basic objects for storing collections of data.
-
 ### Creating a List
 
-Use square brackets to create a list:
+Use square brackets to define a list:
 
 ```python
 names = [ 'Elwood', 'Jake', 'Curtis' ]
@@ -55,7 +53,7 @@ Negative indices count from the end.
 names[-1] # 'Curtis'
 ```
 
-You can change on element in the list.
+You can change any item in the list.
 
 ```python
 names[1] = 'Joliet Jake'
@@ -96,20 +94,20 @@ for name in names:
 
 This is similar to a `foreach` statement from other programming languages.
 
-To find something quickly, use `index()`. 
+To find the position of something quickly, use `index()`. 
 
 ```python
 names = ['Elwood','Jake','Curtis']
 names.index('Curtis')   # 2
 ```
 
-If the element is present more than one, it will return the index of the first occurrence.
+If the element is present more than once, `index()` will return the index of the first occurrence.
 
 If the element is not found, it will raise a `ValueError` exception.
 
 ### List Removal
 
-You can remove either with the element value or the index number.
+You can remove items either by element value or by index:
 
 ```python
 # Using the value
@@ -119,12 +117,12 @@ names.remove('Curtis')
 del names[1]
 ```
 
-Removing results in items moving down to fill the space vacated. There are no holes in the list.
+Removing an item does not create a hole.  Other items will move down to fill the space vacated.
 If there are more than one occurrence of the element, `.remove()` will remove only the first occurrence.
 
 ### List Sorting
 
-Lists can be sorted 'in-place'.
+Lists can be sorted "in-place".
 
 ```python
 s = [10, 1, 7, 3]
@@ -152,11 +150,12 @@ s.sort()                    # ['bar', 'foo', 'spam']
 ```
 
 Specifically, lists don't represent vectors/matrices as in MATLAB, Octave, IDL, etc.
-However, there are some packages to help you with that (e.g. numpy).
+However, there are some packages to help you with that (e.g. [numpy](https://numpy.org)).
 
 ## Exercises
 
-In this exercise, we experiment with Python's list datatype. In the last exercise, you worked with strings containing stock symbols.
+In this exercise, we experiment with Python's list datatype. In the last section,
+you worked with strings containing stock symbols.
 
 ```pycon
 >>> symbols = 'HPQ,AAPL,IBM,MSFT,YHOO,DOA,GOOG'
@@ -168,7 +167,7 @@ Split it into a list of names using the `split()` operation of strings:
 >>> symlist = symbols.split(',')
 ```
 
-### (a) Extracting and reassigning list elements
+### Exercise 1.19: Extracting and reassigning list elements
 
 Try a few lookups:
 
@@ -224,7 +223,7 @@ You can reassign a portion of a list to another list. For example:
 When you do this, the list on the left-hand-side (`symlist`) will be resized as appropriate to make the right-hand-side (`mysyms`) fit.
 For instance, in the above example, the last two items of `symlist` got replaced by the single item in the list `mysyms`.
 
-### (b) Looping over list items
+### Exercise 1.20: Looping over list items
 
 The `for` loop works by looping over data in a sequence such as a list.
 Check this out by typing the following loop and watching what happens:
@@ -235,7 +234,7 @@ Check this out by typing the following loop and watching what happens:
 # Look at the output
 ```
 
-### (c) Membership tests
+### Exercise 1.21: Membership tests
 
 Use the `in` or `not in` operator to check if `'AIG'`,`'AA'`, and `'CAT'` are in the list of symbols.
 
@@ -249,7 +248,7 @@ True
 >>>
 ```
 
-### (d) Appending, inserting, and deleting items
+### Exercise 1.22: Appending, inserting, and deleting items
 
 Use the `append()` method to add the symbol `'RHT'` to end of `symlist`.
 
@@ -319,7 +318,7 @@ Remove the first occurrence of `'YHOO'`.
 Just so you know, there is no method to find or remove all occurrences of an item.
 However, we'll see an elegant way to do this in section 2.
 
-### (e) Sorting
+### Exercise 1.23: Sorting
 
 Want to sort a list?  Use the `sort()` method. Try it out:
 
@@ -341,7 +340,7 @@ Want to sort in reverse? Try this:
 
 Note: Sorting a list modifies its contents 'in-place'.  That is, the elements of the list are shuffled around, but no new list is created as a result.
 
-### (f) Putting it all back together
+### Exercise 1.24: Putting it all back together
 
 Want to take a list of strings and join them together into one string?
 Use the `join()` method of strings like this (note: this looks funny at first).
@@ -359,7 +358,7 @@ Use the `join()` method of strings like this (note: this looks funny at first).
 >>>
 ```
 
-### (g) Lists of anything
+### Exercise 1.25: Lists of anything
 
 Lists can contain any kind of object, including other lists (e.g., nested lists).
 Try this out:

@@ -1,13 +1,14 @@
-# 1.2 A First Python Program
+# 1.2 A First Program
 
-This section discusses the creation of your first program, running the interpreter,
-and some basic debugging.
+This section discusses the creation of your first program, running the
+interpreter, and some basic debugging.
 
 ### Running Python
 
-Python programs run inside an interpreter.
+Python programs always run inside an interpreter.
 
-The interpreter is a simple "console-based" application that normally starts from a command shell.
+The interpreter is a "console-based" application that normally runs
+from a command shell.
 
 ```bash
 python3
@@ -18,15 +19,16 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 Expert programmers usually have no problem using the interpreter in
-this way, but it's not so user-friendly for beginners.  That said,
-you'll become a better Python programmer if you're able to use the
-interpreter from the shell earlier rather than later.
+this way, but it's not so user-friendly for beginners.  You may be using
+an environment that provides a different interface to Python.  That's fine,
+but learning how to run Python terminal is still a useful skill to know.
 
 ### Interactive Mode
 
 When you start Python, you get an *interactive* mode where you can experiment.
 
-If you start typing statements, they will run immediately. There is no edit/compile/run/debug cycle.
+If you start typing statements, they will run immediately. There is no
+edit/compile/run/debug cycle.
 
 ```python
 >>> print('hello world')
@@ -44,12 +46,12 @@ hello world
 >>>
 ```
 
-This *read-eval* loop is very useful for debugging and exploration.
+This so-called *read-eval* loop is very useful for debugging and exploration.
 
 Let's take a closer look at the elements:
 
 - `>>>` is the interpreter prompt for starting a new statement.
-- `...` is the interpreter prompt for continuing a statements. Enter a blank like to finish typing and run the statements.
+- `...` is the interpreter prompt for continuing a statements. Enter a blank line to finish typing and run the statements.
 
 The `...` prompt may or may not be shown depending on how you are using Python.  For this course,
 it is shown as blanks to make it easier to cut/paste code samples.
@@ -68,26 +70,6 @@ The underscore `_` holds the last result.
 
 *This is only true in the interactive mode.* You never use `_` in a program.
 
-
-Type `help(command)` to get information about `command`.  Type `help()` with no name for interactive help.
-
-```code
->>> help(range)
-Help on class range in module builtins:
-
-class range(object)
- |  range(stop) -> range object
- |  range(start, stop[, step]) -> range object
- |
- |  Return an object that produces a sequence of integers from start (inclusive)
- |  to stop (exclusive) by step.  range(i, j) produces i, i+1, i+2, ..., j-1.
- |  start defaults to 0, and stop is omitted!  range(4) produces 0, 1, 2, 3.
- |  These are exactly the valid indices for a list of 4 elements.
- |  When step is given, it specifies the increment (or decrement).
-```
-
-The official documentation is at [http://docs.python.org](http://docs.python.org).
-
 ### Creating programs
 
 Programs are put in `.py` files.
@@ -105,7 +87,7 @@ To execute a program, run it in the terminal with the `python` command.
 For example, in command-line Unix:
 
 ```bash
-bash % python3 hello.py
+bash % python hello.py
 hello world
 bash %
 ```
@@ -124,9 +106,9 @@ Note: On Windows, you may need to specify a full path to the Python interpreter 
 
 ### A Sample Program
 
-Let's begin this part by trying to solve the following problem:
+Let's solve the following problem:
 
-> One morning, you go out and place a dollar bill on the sidewalk by the Sears tower.
+> One morning, you go out and place a dollar bill on the sidewalk by the Sears tower in Chicago.
 > Each day thereafter, you go out double the number of bills.
 > How long does it take for the stack of bills to exceed the height of the tower?
 
@@ -149,7 +131,7 @@ print('Number of bills', num_bills)
 print('Final height', num_bills * bill_thickness)
 ```
 
-When we run it, we have the solution.
+When you run it, you get the following output:
 
 ```bash
 bash % python3 sears.py 1 1 0.00011
@@ -163,7 +145,7 @@ bash % python3 sears.py 1 1 0.00011
 22 2097152 230.68672 Number of days 23 Number of bills 4194304 Final height 461.37344
 ```
 
-Using this program as a guide, you can learn a few core concepts about Python.
+Using this program as a guide, you can learn a number of important core concepts about Python.
 
 ### Statements
 
@@ -175,7 +157,7 @@ b = a * 2
 print(b)
 ```
 
-Each statement is terminated by a newline. Statements are executed one after the other until you reach the end of the file.
+Each statement is terminated by a newline. Statements are executed one after the other until control reaches the end of the file.
 
 ### Comments
 
@@ -235,8 +217,7 @@ WHILE x < 0:   # ERROR
 
 ### Looping
 
-Looping is a way to execute a set of instructions any number of times.
-There are many ways to accomplish this in Python, one of them is the `while` statement:
+The `while` statement executes a loop.
 
 ```python
 while num_bills * bill_thickness < sears_height:
@@ -252,7 +233,7 @@ The statements below the `while` will execute as long as the expression after th
 ### Indentation
 
 Indentation in Python is used to denote a set of statements that go together.
-From our previous example:
+Consider the previous example:
 
 ```python
 while num_bills * bill_thickness < sears_height:
@@ -263,7 +244,8 @@ while num_bills * bill_thickness < sears_height:
 print('Number of days', days)
 ```
 
-The indentation means that the following statements go together under the `while`.
+Indentation groups the following statements together as the operations that 
+execute repeatedly:
 
 ```python
     print(day, num_bills, num_bills * bill_thickness)
@@ -271,8 +253,8 @@ The indentation means that the following statements go together under the `while
     num_bills = num_bills * 2
 ```
 
-Because the next statement is not indented, it means that it does not
-belong to the previous set.  The empty line is just for
+Because the `print()` statement at the end is not indented, it means
+that it does not belong to the loop. The empty line is just for
 readability. It does not affect the execution.
 
 ### Indentation best practices
@@ -281,7 +263,8 @@ readability. It does not affect the execution.
 * Use 4 spaces per level.
 * Use a Python-aware editor.
 
-Indentation within the block must be consistent.
+Python's only requirement is that indentation within the same block 
+be consistent.   For example, this is an error:
 
 ```python
 while num_bills * bill_thickness < sears_height:
@@ -289,7 +272,6 @@ while num_bills * bill_thickness < sears_height:
         day = day + 1 # ERROR
     num_bills = num_bills * 2
 ```
-
 
 ### Conditionals
 
@@ -306,7 +288,7 @@ else:
 
 Depending on the values of `a` and `b`, the execution will jump to `print('Computer says no')` or `print('Computer says yes')`.
 
-You can check for multiple conditions with the `elif`.
+You can check for multiple conditions by adding extra checks using `elif`.
 
 ```python
 if a > b:
@@ -335,14 +317,14 @@ x = 100
 print(x) # Prints the text '100'
 ```
 
-If you pass more than one item to `print` they are separated by spaces.
+If you pass more than one value to `print` they are separated by spaces.
 
 ```python
 name = 'Jake'
 print('My name is', name) # Print the text 'My name is Jake'
 ```
 
-`print()` always creates a new line at the end.
+`print()` always puts a new line at the end.
 
 ```python
 print('Hello')
@@ -356,14 +338,14 @@ Hello
 My name is Jake
 ```
 
-This can be avoided.
+The extra newline can be suppressed:
 
 ```python
 print('Hello', end=' ')
 print('My name is', 'Jake')
 ```
 
-The previous code will print:
+This code will now print:
 
 ```code
 Hello My name is Jake
@@ -378,13 +360,13 @@ name = input('Enter your name:')
 print('Your name is', name)
 ```
 
-`input` prints a prompt to the user and returns the response.
+`input` prints a prompt to the user and returns their response.
 This is useful for small programs, learning exercises or simple debugging.
 It is not widely used for real programs.
 
 ### `pass` statement
 
-Sometimes you need to specify an empty block. The keyword `pass` is used for it.
+Sometimes you need to specify an empty code block. The keyword `pass` is used for it.
 
 ```python
 if a > b:
@@ -393,11 +375,11 @@ else:
     print('Computer says false')
 ```
 
-This is also called a "no-op" statement. It does nothing. It serves as a placeholder for statements. Possibly to be added later.
+This is also called a "no-op" statement. It does nothing. It serves as a placeholder for statements, possibly to be added later.
 
 ## Exercises
 
-### (a) The Bouncing Ball
+### Exercise 1.5: The Bouncing Ball
 
 A rubber ball is dropped from a height of 100 meters and each time it hits the ground, it bounces back up to 3/5 the height it fell.
 Write a program "bounce.py" that prints a table showing the height of the first 10 bounces.
@@ -432,7 +414,7 @@ Your program should make a table that looks something like this:
 10 0.6047
 ```
 
-### (b) Debugging
+### Exercise 1.6: Debugging
 
 The following code fragment contains code from the Sears tower problem.  It also has a bug in it.
 

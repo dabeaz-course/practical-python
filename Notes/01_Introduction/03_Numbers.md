@@ -1,7 +1,5 @@
 # 1.3 Numbers 
 
-This section covers some basics of performing mathematical calculations in Python.
-
 ### Types of Numbers
 
 Python has 4 types of numbers:
@@ -11,7 +9,7 @@ Python has 4 types of numbers:
 * Floating point
 * Complex (imaginary numbers)
 
-### Booleans
+### Booleans (bool)
 
 Booleans have two values: `True`, `False`.
 
@@ -29,9 +27,9 @@ if d == 0:
     print('d is False')
 ```
 
-*Don't do that, it would be odd.*
+*Don't write code like that. It would be odd.*
 
-### Integers
+### Integers (int)
 
 Signed values of arbitrary size and base:
 
@@ -60,26 +58,6 @@ x | y      Bit-wise OR
 x ^ y      Bit-wise XOR
 ~x         Bit-wise NOT
 abs(x)     Absolute value
-```
-
-### Comparisons
-
-The following comparison / relational operators work with numbers:
-
-`<`, `>`, `<=` `>=`, `==`, `!=`
-
-You can form more complex boolean expressions using
-
-`and`, `or`, `not`
-
-Here are a few examples:
-
-```python
-if b >= a and b <= c:
-    print('b is between a and c')
-
-if not (b < a or b > c):
-    print('b is still between a and c')
 ```
 
 ### Floating point (float)
@@ -136,6 +114,34 @@ d = math.tan(x)
 e = math.log(x)
 ```
 
+
+### Comparisons
+
+The following comparison / relational operators work with numbers:
+
+```
+x < y      Less than
+x <= y     Less than or equal
+x > y      Greater than
+x >= y     Greater than or equal
+x == y     Equal to
+x != y     Not equal to
+```
+
+You can form more complex boolean expressions using
+
+`and`, `or`, `not`
+
+Here are a few examples:
+
+```python
+if b >= a and b <= c:
+    print('b is between a and c')
+
+if not (b < a or b > c):
+    print('b is still between a and c')
+```
+
 ### Converting Numbers
 
 The type name can be used to convert values:
@@ -159,7 +165,7 @@ Try it out.
 
 ## Exercises
 
-### (a) Dave's mortgage
+### Exercise 1.7: Dave's mortgage
 
 Dave has decided to take out a 30-year fixed rate mortgage of $500,000 with Guido’s Mortgage, Stock Investment, and Bitcoin trading corporation.
 The interest rate is 5% and the monthly payment is $2684.11.
@@ -183,7 +189,7 @@ print('Total paid', total_paid)
 
 Enter this program and run it. You should get an answer of `966,279.6`.
 
-### (b) Extra payments
+### Exercise 1.8: Extra payments
 
 Suppose Dave pays an extra $1000/month for the first 12 months of the mortgage?
 
@@ -191,7 +197,7 @@ Modify the program to incorporate this extra payment and have it print the total
 
 When you run the new program, it should report a total payment of `929,965.62` over 342 months.
 
-### (c) Making an Extra Payment Calculator
+### Exercise 1.9: Making an Extra Payment Calculator
 
 Modify the program so that extra payment information can be more generally handled.
 Make it so that the user can set these variables:
@@ -206,7 +212,7 @@ Make the program look at these variables and calculate the total paid appropriat
 
 How much will Dave pay if he pays an extra $1000/month for 4 years starting in year 5 of the mortgage?
 
-### (d) Making a table
+### Exercise 1.10: Making a table
 
 Modify the program to print out a table showing the month, total paid so far, and the remaining principal. 
 The output should look something like this:
@@ -224,8 +230,28 @@ Total paid 878389.99
 Months 309
 ```
 
-### (e) Bonus
+### Exercise 1.11: Bonus
 
 While you’re at it, fix the program to correct the for overpayment that occurs in the last month.
+
+### Exercise 1.12: A Mystery
+
+`int()` and `float()` can be used to convert numbers.  For example,
+
+```pycon
+>>> int("123")
+123
+>>> float("1.23")
+1.23
+>>>
+```
+
+With that in mind, can you explain this behavior?
+
+```pycon
+>>> bool("False")
+True
+>>>
+```
 
 [Contents](../Contents) \| [Previous (1.2 A First Program)](02_Hello_world) \| [Next (1.4 Strings)](04_Strings)

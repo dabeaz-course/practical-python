@@ -1,7 +1,5 @@
 # 1.4 Strings
 
-This section covers the basics of text manipulation.
-
 ### Representing Text
 
 String are text literals written in programs with quotes.
@@ -40,9 +38,8 @@ at the keyboard.  Here are some common escape codes:
 
 ### String Representation
 
-Each character represents a raw unicode code point.
-
-<!-- TODO: Add Picture of following characters -->
+The characters in a string are Unicode and represent a so-called "code-point".  You can
+specify an exact code-point using the following escape sequences:
 
 ```python
 a = '\xf1'          # a = 'ñ'
@@ -51,7 +48,12 @@ c = '\U0001D122'    # c = '𝄢'
 d = '\N{FORALL}'    # d = '∀'
 ```
 
-Strings work like an array for accessing its characters. You use an integer index, starting at 0.
+The [Unicode Character Database](https://unicode.org/charts) is a reference for all
+available character codes.
+
+### String Indexing
+
+Strings work like an array for accessing individual characters. You use an integer index, starting at 0.
 
 ```python
 a = 'Hello world'
@@ -85,7 +87,7 @@ len(s)                  # 5
 # Membership test (`in`, `not in`)
 t = 'e' in s            # True
 f = 'x' in s            # False
-tt = 'hi' not in s      # True
+g = 'hi' not in s       # True
 
 # Replication (s * n)
 rep = s * 5             # 'HelloHelloHelloHelloHello'
@@ -95,14 +97,14 @@ rep = s * 5             # 'HelloHelloHelloHelloHello'
 
 Strings have methods that perform various operations with the string data.
 
-Stripping any leading / trailing white space.
+Example: stripping any leading / trailing white space.
 
 ```python
 s = '  Hello '
 t = s.strip()     # 'Hello'
 ```
 
-Case conversion.
+Example: Case conversion.
 
 ```python
 s = 'Hello'
@@ -110,7 +112,7 @@ l = s.lower()     # 'hello'
 u = s.upper()     # 'HELLO'
 ```
 
-Replacing text.
+Example: Replacing text.
 
 ```python
 s = 'Hello world'
@@ -119,7 +121,8 @@ t = s.replace('Hello' , 'Hallo')   # 'Hallo world'
 
 **More string methods:**
 
-Strings have a wide variety of other methods for testing and manipulating the text data:
+Strings have a wide variety of other methods for testing and manipulating the text data.
+This is small sample of methods:
 
 ```python
 s.endswith(suffix)     # Check if string ends with suffix
@@ -158,7 +161,7 @@ TypeError: 'str' object does not support item assignment
 
 ### String Conversions
 
-Use `str()` to convert a value to a string.
+Use `str()` to convert any value to a string suitable for printing.
 
 ```python
 >>> x = 42
@@ -169,13 +172,13 @@ Use `str()` to convert a value to a string.
 
 ### Byte Strings
 
-A string of 8-bit bytes.
+A string of 8-bit bytes, commonly encountered with low-level I/O.
 
 ```python
 data = b'Hello World\r\n'
 ```
 
-By putting a little b before our string literal we specify that it is a byte string as opposed to a text string.
+By putting a little b before the first quotation, you specify that it is a byte string as opposed to a text string.
 
 Most of the usual string operations work.
 
@@ -185,13 +188,13 @@ data[0:5]                         # b'Hello'
 data.replace(b'Hello', b'Cruel')  # b'Cruel World\r\n'
 ```
 
-Indexing is a bit different because it returns byte values.
+Indexing is a bit different because it returns byte values as integers.
 
 ```python
 data[0]   # 72 (ASCII code for 'H')
 ```
 
-Conversion to/from text.
+Conversion to/from text strings.
 
 ```python
 text = data.decode('utf-8') # bytes -> text
@@ -200,7 +203,7 @@ data = text.encode('utf-8') # text -> bytes
 
 ### Raw Strings
 
-Raw strings are strings with uninterpreted backslash.  They are little by prefixing the initial quote with a lowercase "r".
+Raw strings are string literals with an uninterpreted backslash. They specified by prefixing the initial quote with a lowercase "r".
 
 ```python
 >>> rs = r'c:\newdata\test' # Raw (uninterpreted backslash)
@@ -208,8 +211,9 @@ Raw strings are strings with uninterpreted backslash.  They are little by prefix
 'c:\\newdata\\test'
 ```
 
-The string is the literal text, exactly as typed.
-This is useful in situations where the backslash has special significance. Example: filename, regular expressions, etc.
+The string is the literal text enclosed inside, exactly as typed.
+This is useful in situations where the backslash has special
+significance. Example: filename, regular expressions, etc.
 
 ### f-Strings
 
@@ -228,13 +232,13 @@ A string with formatted expression substitution.
 >>>
 ```
 
-**Note: This requires Python 3.6 or newer.**
+**Note: This requires Python 3.6 or newer.**  The meaning of the format codes
+is covered later.
 
 ## Exercises
 
-
-In this exercise, we experiment with operations on Python's string type.
-You may want to do most of this exercise at the Python interactive prompt where you can easily see the results.
+In these exercises, you experiment with operations on Python's string type.
+You should do this at the Python interactive prompt where you can easily see the results.
 Important note:
 
 > In exercises where you are supposed to interact with the interpreter,
@@ -251,7 +255,7 @@ Start by defining a string containing a series of stock ticker symbols like this
 >>>
 ```
 
-### (a): Extracting individual characters and substrings
+### Exercise 1.13: Extracting individual characters and substrings
 
 Strings are arrays of characters. Try extracting a few characters:
 
@@ -269,7 +273,7 @@ Strings are arrays of characters. Try extracting a few characters:
 >>>
 ```
 
-### (b) Strings as read-only objects
+### Exercise 1.14: Strings as read-only objects
 
 In Python, strings are read-only.
 
@@ -283,7 +287,7 @@ TypeError: 'str' object does not support item assignment
 >>> 
 ```
 
-### (c) String concatenation
+### Exercise 1.15: String concatenation
 
 Although string data is read-only, you can always reassign a variable
 to a newly created string.
@@ -298,7 +302,7 @@ the end of `symbols`:
 >>>
 ```
 
-Oops!  That's not what we wanted. Fix it so that the `symbols` variable holds the value `'HPQ,AAPL,IBM,MSFT,YHOO,SCO,GOOG'`.
+Oops!  That's not what you wanted. Fix it so that the `symbols` variable holds the value `'HPQ,AAPL,IBM,MSFT,YHOO,SCO,GOOG'`.
 
 In these examples, it might look like the original string is being
 modified, in an apparent violation of strings being read only.  Not
@@ -307,15 +311,16 @@ time. When the variable name `symbols` is reassigned, it points to the
 newly created string.  Afterwards, the old string is destroyed since
 it's not being used anymore.
 
-### (d) Membership testing (substring testing)
+### Exercise 1.16: Membership testing (substring testing)
 
-Experiment with the `in` operator to check for substrings.  At the interactive prompt, try these operations:
+Experiment with the `in` operator to check for substrings.  At the
+interactive prompt, try these operations:
 
 ```pycon
 >>> 'IBM' in symbols
 ?
 >>> 'AA' in symbols
-?
+True
 >>> 'CAT' in symbols
 ?
 >>>
@@ -323,7 +328,7 @@ Experiment with the `in` operator to check for substrings.  At the interactive p
 
 *Why did the check for "AA" return `True`?*
 
-### (e) String Methods
+### Exercise 1.17: String Methods
 
 At the Python interactive prompt, try experimenting with some of the string methods.
 
@@ -359,7 +364,7 @@ Try some more operations:
 >>>
 ```
 
-### (f) f-strings
+### Exercise 1.18: f-strings
 
 Sometimes you want to create a string and embed the values of
 variables into it.
@@ -375,13 +380,15 @@ To do that, use an f-string. For example:
 >>> 
 ```
 
-Modify the `mortgage.py` program from Exercise 1.3 to create its output using f-strings.
+Modify the `mortgage.py` program from [Exercise 1.10](03_Numbers) to create its output using f-strings.
 Try to make it so that output is nicely aligned.
 
 ### Commentary
 
-As you start to experiment with the interpreter, you often want to know more about the operations supported by different objects.
-For example, how do you find out what operations are available on a string?
+As you start to experiment with the interpreter, you often want to
+know more about the operations supported by different objects.  For
+example, how do you find out what operations are available on a
+string?
 
 Depending on your Python environment, you might be able to see a list
 of available methods via tab-completion.  For example, try typing
@@ -399,7 +406,12 @@ builtin-in `dir()` function.  For example:
 ```python
 >>> s = 'hello'
 >>> dir(s)
-['__add__', '__class__', '__contains__', ..., 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+['__add__', '__class__', '__contains__', ..., 'find', 'format',
+'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace',
+'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition',
+'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit',
+'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase',
+'title', 'translate', 'upper', 'zfill']
 >>>
 ```
 
@@ -416,10 +428,5 @@ upper(...)
     Return a copy of the string S converted to uppercase.
 >>>
 ```
-
-IDEs and alternative interactive shells often give you more help here.
-For example, a popular alternative to Python's normal interactive mode
-is IPython (http://ipython.org).  IPython provides some nice features
-such as tab-completion of method names, more integrated help and more.
 
 [Contents](../Contents) \| [Previous (1.3 Numbers)](03_Numbers) \| [Next (1.5 Lists)](05_Lists)

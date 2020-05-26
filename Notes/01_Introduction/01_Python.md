@@ -1,12 +1,10 @@
 # 1.1 Python
 
-In this part, we'll start with the absolute basics of Python.
-
 ### What is Python?
 
 Python is an interpreted high level programming language.  It is often classified as a
 ["scripting language"](https://en.wikipedia.org/wiki/Scripting_language) and 
-is considered to be similar to languages such as Perl, Tcl, or Ruby.  The syntax
+is considered similar to languages such as Perl, Tcl, or Ruby.  The syntax
 of Python is loosely inspired by elements of C programming.
 
 Python was created by Guido van Rossum around 1990 who named it in honor of Monty Python.
@@ -14,12 +12,12 @@ Python was created by Guido van Rossum around 1990 who named it in honor of Mont
 ### Where to get Python?
 
 [Python.org](https://www.python.org/) is where you obtain Python.  For the purposes of this course, you
-only need a basic installation.  We recommend installing Python 3.6 or newer.  We will be using Python3 in
-our solutions and notes.
+only need a basic installation.  I recommend installing Python 3.6 or newer. Python 3.6 is used in the notes
+and solutions.
 
 ### Why was Python created?
 
-According to Guido:
+In the words of Python's creator:
 
 > My original motivation for creating Python was the perceived need
 > for a higher level language in the Amoeba [Operating Systems]
@@ -34,9 +32,9 @@ According to Guido:
 ### Where is Python on my Machine?
 
 Although there are many environments in which you might run Python,
-this course has you run Python programs from the terminal or command
-shell. From the terminal, you should be able to type a command such as
-this:
+Python is typically installed on your machine as a program that runs
+from the terminal or command shell. From the terminal, you should be
+able to type `python` like this:
 
 ```
 bash $ python
@@ -51,15 +49,15 @@ hello world
 If you are new to using the shell or a terminal, you should probably
 stop, finish a short tutorial on that first, and then return here.
 
-Just so you know, you will become a much better Python programmer if
-you are able to run, debug, and interact with Python at the terminal
-shell.  This is Python's native environment.  If you are able to use
-Python in the shell, you will be able to use virtually everywhere
-else.
+Although there are many non-shell environments where you can code
+Python, you will be a stronger Python programmer if you are able to
+run, debug, and interact with Python at the terminal.  This is
+Python's native environment.  If you are able to use Python here, you
+will be able to use it everywhere else.
 
 ## Exercises
 
-### (a) Using Python as a Calculator
+### Exercise 1.1: Using Python as a Calculator
 
 On your machine, start Python and use it as a calulator to solve the
 following problem.
@@ -85,7 +83,7 @@ broker takes their 20% cut?
 >>>
 ```
 
-### (b) Getting help
+### Exercise 1.2: Getting help
 
 Use the `help()` command to get help on the `abs()` function. Then use
 `help()` to get help on the `round()` function. Type `help()` just by
@@ -101,18 +99,19 @@ Followup: Go to <http://docs.python.org> and find the documentation for
 the `abs()` function (hint: it’s found under the library reference
 related to built-in functions).
 
-### (c) Cutting and Pasting
+### Exercise 1.3: Cutting and Pasting
 
-As you've noticed, this course is structured as a series of traditional
-web pages where you are encouraged to try interactive code samples by typing them
-by hand.  If you are learning Python for the first time, this is encouraged.
-You will get a better feel for the language by slowing down, typing things in,
-and thinking about what you are doing. 
+This course is structured as a series of traditional web pages where
+you are encouraged to try interactive Python code samples **by typing
+them out by hand.** If you are learning Python for the first time,
+this "slow approach" is encouraged.  You will get a better feel for
+the language by slowing down, typing things in, and thinking about
+what you are doing.
 
-If you are inclined to use "cut and paste" in the editor, select code
+If you must "cut and paste" code samples, select code
 starting after the `>>>` prompt and going up to, but not any further
 than the first blank line or the next `>>>` prompt (whichever appears
-first). Select "copy" from the brower, go to the Python window, and
+first). Select "copy" from the browser, go to the Python window, and
 select "paste" to copy it into the Python shell. To get the code to
 run, you may have to hit "Return" once after you’ve pasted it in.
 
@@ -139,12 +138,14 @@ Warning: It is never possible to paste more than one Python command
 (statements that appear after `>>>`) to the basic Python shell at a
 time. You have to paste each command one at a time.
 
-### (d) Where is My Bus?
+Now that you've done this, just remember that you will get more out of
+the class by typing in code slowly and thinking about it--not cut and pasting.
 
-If you’ve made it this far, try something more advanced and type these
-statements to find out how long people waiting on the corner of Clark
-street and Balmoral in Chicago will have to wait for the next
-northbound CTA \#22 bus:
+### Exercise 1.4: Where is My Bus?
+
+Try something more advanced and type these statements to find out how
+long people waiting on the corner of Clark street and Balmoral in
+Chicago will have to wait for the next northbound CTA \#22 bus:
 
 ```pycon
 >>> import urllib.request
@@ -180,6 +181,9 @@ exercise work. For example:
 >>> os.environ['HTTP_PROXY'] = 'http://yourproxy.server.com'
 >>>
 ```
+
+If you can't make this work, don't worry about it.  The rest of this course
+has nothing to do with parsing XML.
 
 [Contents](../Contents) \| [Next (1.2 A First Program)](02_Hello_world)
 
