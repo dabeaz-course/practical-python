@@ -1,7 +1,5 @@
 # 2.1 Datatypes and Data structures
 
-This section introduces data structures in the form of tuples and dicts.
-
 ### Primitive Datatypes
 
 Python has a few primitive types of data:
@@ -10,7 +8,7 @@ Python has a few primitive types of data:
 * Floating point numbers
 * Strings (text)
 
-We have learned about these in the previous section.
+We learned about these in the introduction.
 
 ### None type
 
@@ -212,7 +210,7 @@ TypeError: can't multiply sequence by non-int of type 'str'
 To do more, you typically want to interpret the raw data in some way and turn it into a more useful kind of object so that you can work with it later.
 Two simple options are tuples or dictionaries.
 
-### (a) Tuples
+### Exercise 2.1: Tuples
 
 At the interactive prompt, create the following tuple that represents
 the above row, but with the numeric columns converted to proper
@@ -298,7 +296,7 @@ Take the above variables and pack them back into a tuple
 >>>
 ```
 
-### (b) Dictionaries as a data structure
+### Exercise 2.2: Dictionaries as a data structure
 
 An alternative to a tuple is to create a dictionary instead.
 
@@ -341,7 +339,7 @@ Unlike tuples, dictionaries can be freely modified. Add some attributes:
 >>>
 ```
 
-### (c) Some additional dictionary operations
+### Exercise 2.3: Some additional dictionary operations
 
 If you turn a dictionary into a list, you’ll get all of its keys:
 
@@ -428,4 +426,4 @@ dict_items([('name', 'AA'), ('shares', 75), ('price', 32.2), ('date', (6, 11, 20
 >>>
 ```
 
-[Next](02_Containers)
+[Contents](../Contents) \| [Previous (1.6 Files)](../01_Introduction/06_Files) \| [Next (2.2 Containers)](02_Containers)

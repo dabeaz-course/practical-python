@@ -194,12 +194,12 @@ s1 - s2                 # Set difference
 
 ## Exercises
 
-### Objectives
+### Exercise 2.4: A list of tuples
 
-### Exercise A: A list of tuples
-
-The file `Data/portfolio.csv` contains a list of stocks in a portfolio.
-In [Section 1.7](), you wrote a function `portfolio_cost(filename)` that read this file and performed a simple calculation.
+The file `Data/portfolio.csv` contains a list of stocks in a
+portfolio.  In [Exercise 1.30](../01_Introduction/07_Functions), you
+wrote a function `portfolio_cost(filename)` that read this file and
+performed a simple calculation.
 
 Your code should have looked something like this:
 
@@ -245,7 +245,9 @@ for row in rows:
 
 Finally, you’ll return the resulting `portfolio` list.
 
-Experiment with your function interactively (just a reminder that in order to do this, you first have to run the `report.py` program in the interpreter):
+Experiment with your function interactively (just a reminder that in
+order to do this, you first have to run the `report.py` program in the
+interpreter):
 
 *Hint: Use `-i` when executing the file in the terminal*
 
@@ -270,8 +272,10 @@ Experiment with your function interactively (just a reminder that in order to do
 >>>
 ```
 
-This list of tuples that you have created is very similar to a 2-D array.
-For example, you can access a specific column and row using a lookup such as `portfolio[row][column]` where `row` and `column` are integers.
+This list of tuples that you have created is very similar to a 2-D
+array.  For example, you can access a specific column and row using a
+lookup such as `portfolio[row][column]` where `row` and `column` are
+integers.
 
 That said, you can also rewrite the last for-loop using a statement like this:
 
@@ -285,12 +289,14 @@ That said, you can also rewrite the last for-loop using a statement like this:
 >>>
 ```
 
-### (b) List of Dictionaries
+### Exercise 2.5: List of Dictionaries
 
-Take the function you wrote in part (a) and modify to represent each stock in the portfolio with a dictionary instead of a tuple.
-In this dictionary use the field names of "name", "shares", and "price" to represent the different columns in the input file.
+Take the function you wrote in part (a) and modify to represent each
+stock in the portfolio with a dictionary instead of a tuple.  In this
+dictionary use the field names of "name", "shares", and "price" to
+represent the different columns in the input file.
 
-Experiment with this new function in the same manner as you did in part (a).
+Experiment with this new function in the same manner as you did in Exercise 2.4.
 
 ```pycon
 >>> portfolio = read_portfolio('portfolio.csv')
@@ -314,10 +320,12 @@ Experiment with this new function in the same manner as you did in part (a).
 >>>
 ```
 
-Here, you will notice that the different fields for each entry are accessed by key names instead of numeric column numbers.
-This is often preferred because the resulting code is easier to read later.
+Here, you will notice that the different fields for each entry are
+accessed by key names instead of numeric column numbers.  This is
+often preferred because the resulting code is easier to read later.
 
-Viewing large dictionaries and lists can be messy. To clean up the output for debugging, considering using the `pprint` function.
+Viewing large dictionaries and lists can be messy. To clean up the
+output for debugging, considering using the `pprint` function.
 
 ```pycon
 >>> from pprint import pprint
@@ -332,10 +340,11 @@ Viewing large dictionaries and lists can be messy. To clean up the output for de
 >>>
 ```
 
-### (c) Dictionaries as a container
+### Exercise 2.6: Dictionaries as a container
 
-A dictionary is a useful way to keep track of items where you want to look up items using an index other than an integer.
-In the Python shell, try playing with a dictionary:
+A dictionary is a useful way to keep track of items where you want to
+look up items using an index other than an integer.  In the Python
+shell, try playing with a dictionary:
 
 ```pycon
 >>> prices = { }
@@ -364,14 +373,20 @@ The file looks something like this:
 ...
 ```
 
-Write a function `read_prices(filename)` that reads a set of prices such as this into a dictionary where the keys of the dictionary are the stock names and the values in the dictionary are the stock prices.
+Write a function `read_prices(filename)` that reads a set of prices
+such as this into a dictionary where the keys of the dictionary are
+the stock names and the values in the dictionary are the stock prices.
 
-To do this, start with an empty dictionary and start inserting values into it just
-as you did above. However, you are reading the values from a file now.
+To do this, start with an empty dictionary and start inserting values
+into it just as you did above. However, you are reading the values
+from a file now.
 
-We’ll use this data structure to quickly lookup the price of a given stock name.
+We’ll use this data structure to quickly lookup the price of a given
+stock name.
 
-A few little tips that you’ll need for this part. First, make sure you use the `csv` module just as you did before—there’s no need to reinvent the wheel here.
+A few little tips that you’ll need for this part. First, make sure you
+use the `csv` module just as you did before—there’s no need to
+reinvent the wheel here.
 
 ```pycon
 >>> import csv
@@ -388,12 +403,16 @@ A few little tips that you’ll need for this part. First, make sure you use the
 >>>
 ```
 
-The other little complication is that the `Data/prices.csv` file may have some blank lines in it. Notice how the last row of data above is an empty list—meaning no data was present on that line.
+The other little complication is that the `Data/prices.csv` file may
+have some blank lines in it. Notice how the last row of data above is
+an empty list—meaning no data was present on that line.
 
-There’s a possibility that this could cause your program to die with an exception.
-Use the `try` and `except` statements to catch this as appropriate.
+There’s a possibility that this could cause your program to die with
+an exception.  Use the `try` and `except` statements to catch this as
+appropriate.
 
-Once you have written your `read_prices()` function, test it interactively to make sure it works:
+Once you have written your `read_prices()` function, test it
+interactively to make sure it works:
 
 ```python
 >>> prices = read_prices('Data/prices.csv')
@@ -404,10 +423,12 @@ Once you have written your `read_prices()` function, test it interactively to ma
 >>>
 ```
 
-### (e) Finding out if you can retire
+### Exercise 2.7: Finding out if you can retire
 
-Tie all of this work together by adding the statements to your `report.py` program.
-It takes the list of stocks in part (b) and the dictionary of prices in part (c) and 
-computes the current value of the portfolio along with the gain/loss.
+Tie all of this work together by adding the statements to your
+`report.py` program.  It takes the list of stocks in Exercise 2.5 and
+the dictionary of prices in Exercise 2.6 and computes the current
+value of the portfolio along with the gain/loss.
 
-[Next](03_Formatting)
+[Contents](../Contents) \| [Previous (2.1 Datatypes)](01_Datatypes) \| [Next (2.3 Formatting)](03_Formatting)
+

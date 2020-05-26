@@ -215,7 +215,7 @@ except items[2]:    # ValueError
 In this set of exercises, we look at some of the power that comes from first-class
 objects.
 
-### (a) First-class Data
+### Exercise 2.24: First-class Data
 
 In the file `Data/portfolio.csv`, we read data organized as columns that look like this:
 
@@ -226,7 +226,8 @@ name,shares,price
 ...
 ```
 
-In previous code, we used the `csv` module to read the file, but still had to perform manual type conversions. For example:
+In previous code, we used the `csv` module to read the file, but still
+had to perform manual type conversions. For example:
 
 ```python
 for row in rows:
@@ -235,9 +236,11 @@ for row in rows:
     price  = float(row[2])
 ```
 
-This kind of conversion can also be performed in a more clever manner using some list basic operations.
+This kind of conversion can also be performed in a more clever manner
+using some list basic operations.
 
-Make a Python list that contains the names of the conversion functions you would use to convert each column into the appropriate type:
+Make a Python list that contains the names of the conversion functions
+you would use to convert each column into the appropriate type:
 
 ```pycon
 >>> types = [str, int, float]
@@ -347,7 +350,7 @@ The above code can be compressed into a single list comprehension.
 >>>
 ```
 
-### (b) Making dictionaries
+### Exercise 2.25: Making dictionaries
 
 Remember how the `dict()` function can easily make a dictionary if you have a sequence of key names and values?
 Let’s make a dictionary from the column headers:
@@ -370,7 +373,7 @@ Of course, if you’re up on your list-comprehension fu, you can do the whole co
 >>>
 ```
 
-### (c) The Big Picture
+### Exercise 2.26: The Big Picture
 
 Using the techniques in this exercise, you could write statements that easily convert fields from just about any column-oriented datafile into a Python dictionary.
 
@@ -406,3 +409,5 @@ Let’s convert the fields using a similar trick:
 ```
 
 Spend some time to ponder what you’ve done in this exercise. We’ll revisit these ideas a little later.
+
+[Contents](../Contents) \| [Previous (2.6 List Comprehensions)](06_List_comprehensions) \| [Next (3 Program Organization)](../03_Program_organization/00_Cotents)

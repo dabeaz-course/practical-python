@@ -89,7 +89,7 @@ stocks loaded in the interactive mode.
 bash % python3 -i report.py
 ```
 
-### (a) Tabulating with Counters
+### Exercise 2.18: Tabulating with Counters
 
 Suppose you wanted to tabulate the total number of shares of each stock.
 This is easy using `Counter` objects. Try it:
@@ -157,4 +157,4 @@ This is only a small taste of what counters provide. However, if you
 ever find yourself needing to tabulate values, you should consider
 using one.
 
-[Next](06_List_comprehension)
+[Contents](../Contents) \| [Previous (2.4 Sequences)](04_Sequences) \| [Next (2.6 List Comprehensions)](06_List_comprehensions)

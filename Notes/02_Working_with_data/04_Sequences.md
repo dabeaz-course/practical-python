@@ -1,10 +1,8 @@
 # 2.4 Sequences
 
-In this part, we look at some common idioms for working with sequence data.
+### Sequence Datatypes
 
-### Introduction
-
-Python has three *sequences* datatypes.
+Python has three *sequence* datatypes.
 
 * String: `'Hello'`. A string is considered a sequence of characters.
 * List: `[1, 4, 5]`.
@@ -266,7 +264,7 @@ d = dict(zip(columns, values))
 
 ## Exercises
 
-### (a) Counting
+### Exercise 2.13: Counting
 
 Try some basic counting examples:
 
@@ -286,7 +284,7 @@ Try some basic counting examples:
 >>>
 ```
 
-### (b) More sequence operations
+### Exercise 2.14: More sequence operations
 
 Interactively experiment with some of the sequence reduction operations.
 
@@ -335,13 +333,17 @@ emerged from the depths of a rusty C program.
 >>>
 ```
 
-Don’t do that! Not only does reading it make everyone’s eyes bleed, it’s inefficient with memory and it runs a lot slower.
-Just use a normal `for` loop if you want to iterate over data.  Use `enumerate()` if you happen to need the index for some reason.
+Don’t do that! Not only does reading it make everyone’s eyes bleed,
+it’s inefficient with memory and it runs a lot slower.  Just use a
+normal `for` loop if you want to iterate over data.  Use `enumerate()`
+if you happen to need the index for some reason.
 
-### (c) A practical `enumerate()` example
+### Exercise 2.15: A practical `enumerate()` example
 
-Recall that the file `Data/missing.csv` contains data for a stock portfolio, but has some rows with missing data.
-Using `enumerate()` modify your `pcost.py` program so that it prints a line number with the warning message when it encounters bad input.
+Recall that the file `Data/missing.csv` contains data for a stock
+portfolio, but has some rows with missing data.  Using `enumerate()`
+modify your `pcost.py` program so that it prints a line number with
+the warning message when it encounters bad input.
 
 ```python
 >>> cost = portfolio_cost('Data/missing.csv')
@@ -361,9 +363,10 @@ for rowno, row in enumerate(rows, start=1):
         print(f'Row {rowno}: Bad row: {row}')
 ```
 
-### (d) Using the `zip()` function
+### Exercise 2.16: Using the `zip()` function
 
-In the file `portfolio.csv`, the first line contains column headers. In all previous code, we’ve been discarding them.
+In the file `portfolio.csv`, the first line contains column
+headers. In all previous code, we’ve been discarding them.
 
 ```pycon
 >>> f = open('Data/portfolio.csv')
@@ -374,8 +377,9 @@ In the file `portfolio.csv`, the first line contains column headers. In all prev
 >>>
 ```
 
-However, what if you could use the headers for something useful? This is where the `zip()` function enters the picture.
-First try this to pair the file headers with a row of data:
+However, what if you could use the headers for something useful? This
+is where the `zip()` function enters the picture.  First try this to
+pair the file headers with a row of data:
 
 ```pycon
 >>> row = next(rows)
@@ -391,7 +395,8 @@ We’ve used `list()` here to turn the result into a list so that you
 can see it. Normally, `zip()` creates an iterator that must be
 consumed by a for-loop.
 
-This pairing is just an intermediate step to building a dictionary. Now try this:
+This pairing is just an intermediate step to building a
+dictionary. Now try this:
 
 ```pycon
 >>> record = dict(zip(headers, row))
@@ -425,7 +430,8 @@ def portfolio_cost(filename):
         ...
 ```
 
-Now, try your function on a completely different data file `Data/portfoliodate.csv` which looks like this:
+Now, try your function on a completely different data file
+`Data/portfoliodate.csv` which looks like this:
 
 ```csv
 name,date,time,shares,price
@@ -459,7 +465,7 @@ the same technique to pick out column headers.
 Try running the `report.py` program on the `Data/portfoliodate.csv` file and see that it
 produces the same answer as before.
 
-### (e) Inverting a dictionary
+### Exercise 2.17: Inverting a dictionary
 
 A dictionary maps keys to values. For example, a dictionary of stock prices.
 
@@ -491,7 +497,8 @@ However, what if you wanted to get a list of `(value, key)` pairs instead?
 >>>
 ```
 
-Why would you do this? For one, it allows you to perform certain kinds of data processing on the dictionary data.
+Why would you do this? For one, it allows you to perform certain kinds
+of data processing on the dictionary data.
 
 ```pycon
 >>> min(pricelist)
@@ -535,4 +542,4 @@ Also, be aware that `zip()` stops once the shortest input sequence is exhausted.
 >>>
 ```
 
-[Next](05_Collections)
+[Contents](../Contents) \| [Previous (2.3 Formatting)](03_Formatting) \| [Next (2.5 Collections)](05_Collections)

@@ -100,7 +100,7 @@ bash % python3 -i report.py
 Now, at the Python interactive prompt, type statements to perform the operations described below.
 These operations perform various kinds of data reductions, transforms, and queries on the portfolio data.
 
-### (a) List comprehensions
+### Exercise 2.19: List comprehensions
 
 Try a few simple list comprehensions just to become familiar with the syntax.
 
@@ -117,7 +117,7 @@ Try a few simple list comprehensions just to become familiar with the syntax.
 
 Notice how the list comprehensions are creating a new list with the data suitably transformed or filtered.
 
-### (b) Sequence Reductions
+### Exercise 2.20: Sequence Reductions
 
 Compute the total cost of the portfolio using a single Python statement.
 
@@ -155,7 +155,7 @@ The `sum()` function is then performing a reduction across the result:
 
 With this knowledge, you are now ready to go launch a big-data startup company.
 
-### (c) Data Queries
+### Exercise 2.21: Data Queries
 
 Try the following examples of various data queries.
 
@@ -187,7 +187,7 @@ A list of all portfolio holdings that cost more than $10000.
 >>>
 ```
 
-### (d) Data Extraction
+### Exercise 2.22: Data Extraction
 
 Show how you could build a list of tuples `(name, shares)` where `name` and `shares` are taken from `portfolio`.
 
@@ -240,7 +240,7 @@ Try this example that filters the `prices` dictionary down to only those names t
 >>>
 ```
 
-### (e) Advanced Bonus: Extracting Data From CSV Files
+### Exercise 2.23: Extracting Data From CSV Files
 
 Knowing how to use various combinations of list, set, and dictionary comprehensions can be useful in various forms of data processing.
 Here’s an example that shows how to extract selected columns from a CSV file.
@@ -313,4 +313,4 @@ extraction, and so forth.  Becoming a guru master of list
 comprehensions can substantially reduce the time spent devising a
 solution.  Also, don't forget about the `collections` module.
 
-[Next](07_Objects)
+[Contents](../Contents) \| [Previous (2.5 Collections)](05_Collections) \| [Next (2.7 Object Model)](07_Objects)
