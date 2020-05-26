@@ -401,4 +401,4 @@ example, a list that consists entirely of numbers or a list of text
 strings.  Mixing different kinds of data together in the same list is
 often a good way to make your head explode so it's best avoided.
 
-[Next](06_Files)
+[Contents](../Contents) \| [Previous (1.4 Strings)](04_Strings) \| [Next (1.6 Files)](06_Files)

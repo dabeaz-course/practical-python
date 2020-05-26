@@ -228,4 +228,4 @@ Months 309
 
 While you’re at it, fix the program to correct the for overpayment that occurs in the last month.
 
-[Next](04_Strings)
+[Contents](../Contents) \| [Previous (1.2 A First Program)](02_Hello_world) \| [Next (1.4 Strings)](04_Strings)

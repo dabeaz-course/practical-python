@@ -214,4 +214,4 @@ Try it:
 >>>
 ```
 
-[Next](07_Functions)
+[Contents](../Contents) \| [Previous (1.5 Lists)](05_Lists) \| [Next (1.7 Functions)](07_Functions)

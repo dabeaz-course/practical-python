@@ -422,4 +422,4 @@ For example, a popular alternative to Python's normal interactive mode
 is IPython (http://ipython.org).  IPython provides some nice features
 such as tab-completion of method names, more integrated help and more.
 
-[Next](05_Lists)
+[Contents](../Contents) \| [Previous (1.3 Numbers)](03_Numbers) \| [Next (1.5 Lists)](05_Lists)
