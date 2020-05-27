@@ -33,6 +33,7 @@ Python 3.6 or newer and time--especially the latter.
 
 ## Table of Contents
 
+* [0. Course Setup (READ FIRST!)](00_Setup)
 * [1. Introduction to Python](01_Introduction/00_Overview)
 * [2. Working with Data](02_Working_with_data/00_Overview)
 * [3. Program Organization](03_Program_organization/00_Overview)
