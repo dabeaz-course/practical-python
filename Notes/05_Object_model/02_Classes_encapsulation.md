@@ -252,10 +252,10 @@ day-to-day coding.
 
 ## Exercises
 
-### Exercise 5.6: Simple properties
+### Exercise 5.6: Simple Properties
 
 Properties are a useful way to add "computed attributes" to an object.
-In Exercise 4.1, you created an object `Stock`. Notice that on your
+In `stock.py`, you created an object `Stock`.  Notice that on your
 object there is a slight inconsistency in how different kinds of data
 are extracted:
 
@@ -271,17 +271,22 @@ are extracted:
 >>>
 ```
 
-Specifically, notice how you have to add the extra `()` to `cost` because it is a method.
-You can get rid of the extra `()` on `cost()` if you turn it into a property.
+Specifically, notice how you have to add the extra () to `cost` because it is a method.
+
+You can get rid of the extra () on `cost()` if you turn it into a property.   
 Take your `Stock` class and modify it so that the cost calculation works like this:
 
 ```python
+>>> ================================ RESTART ================================
+>>> from stock import Stock
+>>> s = Stock('GOOG', 100, 490.1)
 >>> s.cost
 49010.0
 >>>
 ```
 
-Try calling `s.cost()` as a function and observe that it doesn’t work now that `cost` has been defined as a property.
+Try calling `s.cost()` as a function and observe that it
+doesn't work now that `cost` has been defined as a property.
 
 ```python
 >>> s.cost()
@@ -289,14 +294,19 @@ Try calling `s.cost()` as a function and observe that it doesn’t work now that
 >>>
 ```
 
+Making this change will likely break your earlier `pcost.py` program.
+You might need to go back and get rid of the `()` on the `cost()` method.
+
 ### Exercise 5.7: Properties and Setters
 
-Modify the `shares` attribute so that the value is stored in a private
-attribute and that a pair of property functions are used to ensure
-that it is always set to an integer value.
-Here is an example of the expected behavior:
+Modify the `shares` attribute so that the value is stored in a
+private attribute and that a pair of property functions are used to ensure
+that it is always set to an integer value.  Here is an example of the expected
+behavior:
 
 ```python
+>>> ================================ RESTART ================================
+>>> from stock import Stock
 >>> s = Stock('GOOG',100,490.10)
 >>> s.shares = 50
 >>> s.shares = 'a lot'
@@ -306,12 +316,13 @@ TypeError: expected an integer
 >>>
 ```
 
-### Exercise 5.8:  Adding slots
+### Exercise 5.8: Adding slots
 
-Modify the `Stock` class so that it has a `__slots__` attribute.
-Then, verify that new attributes can’t be added:
+Modify the `Stock` class so that it has a `__slots__` attribute.  Then,
+verify that new attributes can't be added:
 
 ```python
+>>> ================================ RESTART ================================
 >>> from stock import Stock
 >>> s = Stock('GOOG', 100, 490.10)
 >>> s.name
@@ -321,8 +332,9 @@ Then, verify that new attributes can’t be added:
 >>>
 ```
 
-When you use `__slots__`, Python actually uses a more efficient internal representation of objects.
-What happens if you try to inspect the underlying dictionary of `s` above?
+When you use `__slots__`, Python actually uses a more efficient 
+internal representation of objects.   What happens if you try to 
+inspect the underlying dictionary of `s` above?
 
 ```python
 >>> s.__dict__

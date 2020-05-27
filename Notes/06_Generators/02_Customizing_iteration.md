@@ -248,7 +248,7 @@ if __name__ == '__main__':
         change = float(fields[4])
         if name in portfolio:
             print(f'{name:>10s} {price:>10.2f} {change:>10.2f}')
-----
+```
 
 Note:  For this to work, your `Portfolio` class must support the
 `in` operator.  See the last exercise and make sure you implement the

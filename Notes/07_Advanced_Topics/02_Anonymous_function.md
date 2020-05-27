@@ -158,4 +158,4 @@ Note: `lambda` is a useful shortcut because it allows you to
 define a special processing function directly in the call to `sort()` as
 opposed to having to define a separate function first (as in part a).
 
-[Contents](../Contents) \| [Previous (7.1 Variable Arguments)](01_Variable_arguments) \| [Next (7.3 Returning Functions)](03_Returning_function)
+[Contents](../Contents) \| [Previous (7.1 Variable Arguments)](01_Variable_arguments) \| [Next (7.3 Returning Functions)](03_Returning_functions)

@@ -136,10 +136,15 @@ If you want to operate on an instance, you always have to refer too it explicitl
 
 ## Exercises
 
+Note: For this exercise you want to have fully working code from earlier
+exercises.   If things are broken look at the solution code for Exercise 3.18.
+You can find this code in the `Solutions/3_18` directory.
+
 ### Exercise 4.1: Objects as Data Structures
 
-In section 2 and 3, we worked with data represented as tuples and dictionaries.
-For example, a holding of stock could be represented as a tuple like this:
+In section 2 and 3, we worked with data represented as tuples and
+dictionaries.  For example, a holding of stock could be represented as
+a tuple like this:
 
 ```python
 s = ('GOOG',100,490.10)
@@ -154,116 +159,71 @@ s = { 'name'   : 'GOOG',
 }
 ```
 
-You can even write functions for manipulating such data. For example:
+You can even write functions for manipulating such data.  For example:
 
 ```python
 def cost(s):
     return s['shares'] * s['price']
 ```
 
-However, as your program gets large, you might want to create a better sense of organization.
-Thus, another approach for representing data would be to define a class.
-
-Create a file called `stock.py` and define a class `Stock` that represents a single holding of stock.
-Have the instances of `Stock` have `name`, `shares`, and `price` attributes.
+However, as your program gets large, you might want to create a better
+sense of organization.  Thus, another approach for representing data
+would be to define a class.  Create a file called `stock.py` and
+define a class `Stock` that represents a single holding of stock.
+Have the instances of `Stock` have `name`, `shares`, and `price`
+attributes.  For example:
 
 ```python
 >>> import stock
->>> s = stock.Stock('GOOG',100,490.10)
->>> s.name
+>>> a = stock.Stock('GOOG',100,490.10)
+>>> a.name
 'GOOG'
->>> s.shares
+>>> a.shares
 100
->>> s.price
+>>> a.price
 490.1
 >>>
 ```
 
-Create a few more `Stock` objects and manipulate them. For example:
+Create a few more `Stock` objects and manipulate them.  For example:
 
 ```python
->>> a = stock.Stock('AAPL',50,122.34)
->>> b = stock.Stock('IBM',75,91.75)
->>> a.shares * a.price
-6117.0
+>>> b = stock.Stock('AAPL', 50, 122.34)
+>>> c = stock.Stock('IBM', 75, 91.75)
 >>> b.shares * b.price
+6117.0
+>>> c.shares * c.price
 6881.25
->>> stocks = [a,b,s]
+>>> stocks = [a, b, c]
 >>> stocks
 [<stock.Stock object at 0x37d0b0>, <stock.Stock object at 0x37d110>, <stock.Stock object at 0x37d050>]
->>> for t in stocks:
-      print(f'{t.name:>10s} {t.shares:>10d} {t.price:>10.2f}')
+>>> for s in stocks:
+     print(f'{s.name:>10s} {s.shares:>10d} {s.price:>10.2f}')
 
 ... look at the output ...
 >>>
 ```
 
-One thing to emphasize here is that the class `Stock` acts like a factory for creating instances of objects.
-Basically, you just call it as a function and it creates a new object for you.
+One thing to emphasize here is that the class `Stock` acts like a
+factory for creating instances of objects.  Basically, you call
+it as a function and it creates a new object for you.  Also, it needs
+to be emphasized that each object is distinct---they each have their
+own data that is separate from other objects that have been created.
 
-Also, it needs to be emphasized that each object is distinct---they
-each have their own data that is separate from other objects that have
-been created.  An object defined by a class is somewhat similar to a
-dictionary, just with somewhat different syntax.
-For example, instead of writing `s['name']` or `s['price']`, you now
-write `s.name` and `s.price`.
+An object defined by a class is somewhat similar to a dictionary--just
+with somewhat different syntax.  For example, instead of writing
+`s['name']` or `s['price']`, you now write `s.name` and `s.price`.
 
-### Exercise 4.2: Reading Data into a List of Objects
-
-In your `stock.py` program, write a function
-`read_portfolio(filename)` that reads portfolio data from a file into
-a list of `Stock` objects.  This function is going to mimic the
-behavior of earlier code you have written.  Here’s how your function
-will behave:
-
-```python
->>> import stock
->>> portfolio = stock.read_portfolio('Data/portfolio.csv')
->>> portfolio
-[<stock.Stock object at 0x81d70>, <stock.Stock object at 0x81cf0>, <stock.Stock object at 0x81db0>,
-  <stock.Stock object at 0x81df0>, <stock.Stock object at 0x81e30>, <stock.Stock object at 0x81e70>,
-  <stock.Stock object at 0x81eb0>]
->>>
-```
-
-It is important to emphasize that `read_portfolio()` is a top-level function, not a method of the `Stock` class.
-This function is merely creating a list of `Stock` objects; it’s not an operation on an individual `Stock` instance.
-
-Try performing some calculations with the above data. First, try printing a formatted table:
-
-```python
->>> for s in portfolio:
-          print(f'{s.name:>10s} {s.shares:>10d} {s.price:>10.2f}')
-
-... look at the output ...
->>>
-```
-
-Try a list comprehension:
-
-```python
->>> more100 = [s for s in portfolio if s.shares > 100]
->>> for s in more100:
-          print(f'{s.name:>10s} {s.shares:>10d} {s.price:>10.2f}')
-
-... look at the output ...
->>>
-```
-
-Again, notice the similarity between `Stock` objects and dictionaries. They’re basically the same idea, but the syntax for accessing values differs.
-
-### Exercise 4.3: Adding some Methods
+### Exercise 4.2: Adding some Methods
 
 With classes, you can attach functions to your objects.  These are
-known as methods and are functions that operate on the data stored
-inside an object.
-
-Add a `cost()` and `sell()` method to your `Stock` object. They should
-work like this:
+known as methods and are functions that operate on the data
+stored inside an object.  Add a `cost()` and `sell()` method to your
+`Stock` object.  They should work like this:
 
 ```python
 >>> import stock
->>> s = stock.Stock('GOOG',100,490.10)
+>>> s = stock.Stock('GOOG', 100, 490.10)
 >>> s.cost()
 49010.0
 >>> s.shares
@@ -273,6 +233,56 @@ work like this:
 75
 >>> s.cost()
 36757.5
+>>>
+```
+
+### Exercise 4.3: Creating a list of instances
+
+Try these steps to make a list of Stock instances and compute the total
+cost:
+
+```python
+>>> import fileparse
+>>> with open('Data/portfolio.csv') as lines:
+...     portdicts = fileparse.parse_csv(lines, select=['name','shares','price'], types=[str,int,float])
+...
+>>> portfolio = [ stock.Stock(d['name'], d['shares'], d['price']) for d in portdicts]
+>>> portfolio
+[<stock.Stock object at 0x10c9e2128>, <stock.Stock object at 0x10c9e2048>, <stock.Stock object at 0x10c9e2080>, 
+ <stock.Stock object at 0x10c9e25f8>, <stock.Stock object at 0x10c9e2630>, <stock.Stock object at 0x10ca6f748>, 
+ <stock.Stock object at 0x10ca6f7b8>]
+>>> sum([s.cost() for s in portfolio])
+44671.15
+>>>
+----
+
+### Exercise 4.4: Using your class
+
+Modify the `read_portfolio()` function in the `report.py` program so that it
+reads a portfolio into a list of `Stock` instances.  Once you have done that,
+fix all of the code in `report.py` and `pcost.py` so that it works with
+`Stock` instances instead of dictionaries.
+
+Hint: You should not have to make major changes to the code.  You will mainly
+be changing dictionary access such as `s['shares']` into `s.shares`.
+
+You should be able to run your functions the same as before:
+
+```python
+>>> import pcost
+>>> pcost.portfolio_cost('Data/portfolio.csv')
+44671.15
+>>> import report
+>>> report.portfolio_report('Data/portfolio.csv', 'Data/prices.csv')
+      Name     Shares      Price     Change 
+---------- ---------- ---------- ---------- 
+        AA        100       9.22     -22.98 
+       IBM         50     106.28      15.18 
+       CAT        150      35.46     -47.98 
+      MSFT        200      20.89     -30.34 
+        GE         95      13.48     -26.89 
+      MSFT         50      20.89     -44.21 
+       IBM        100     106.28      35.84 
 >>>
 ```
 

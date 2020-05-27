@@ -363,16 +363,22 @@ Frameworks / libraries sometimes use it for advanced features involving composit
 ## Exercises
 
 In Section 4, you defined a class `Stock` that represented a holding of stock. 
-In this exercise, we will use that class.
+In this exercise, we will use that class.  Restart the interpreter and make a
+few instances:
+
+```python
+>>> ================================ RESTART ================================
+>>> from stock import Stock
+>>> goog = Stock('GOOG',100,490.10)
+>>> ibm  = Stock('IBM',50, 91.23)
+>>>
+```
 
 ### Exercise 5.1: Representation of Instances
 
 At the interactive shell, inspect the underlying dictionaries of the two instances you created:
 
 ```python
->>> from stock import Stock
->>> goog = Stock('GOOG',100,490.10)
->>> ibm  = Stock('IBM',50, 91.23)
 >>> goog.__dict__
 ... look at the output ...
 >>> ibm.__dict__
@@ -393,12 +399,14 @@ Try setting a new attribute on one of the above instances:
 >>>
 ```
 
-In the above output, you’ll notice that the `goog` instance has a attribute `date` whereas the `ibm` instance does not.
+In the above output, you'll notice that the `goog` instance has a
+attribute `date` whereas the `ibm` instance does not.  It is important
+to note that Python really doesn't place any restrictions on
+attributes.  For example, the attributes of an instance are not
+limited to those set up in the `__init__()` method.
 
-It is important to note that Python really doesn’t place any restrictions on attributes.
-The attributes of an instance are not limited to those set up in the `__init__()` method.
-
-Instead of setting an attribute, try placing a new value directly into the `__dict__` object:
+Instead of setting an attribute, try placing a new value directly into
+the `__dict__` object:
 
 ```python
 >>> goog.__dict__['time'] = '9:45am'
@@ -408,21 +416,22 @@ Instead of setting an attribute, try placing a new value directly into the `__di
 ```
 
 Here, you really notice the fact that an instance is just a layer on
-top of a dictionary.  *Note: it should be emphasized that direct
-manipulation of the dictionary is uncommon—you should always write
-your code to use the (.) syntax.*
+top of a dictionary.  Note: it should be emphasized that direct
+manipulation of the dictionary is uncommon--you should always write
+your code to use the (.) syntax. 
 
 ### Exercise 5.3: The role of classes
 
-The definitions that make up a class definition are shared by all instances of that class.
-Notice, that all instances have a link back to their associated class:
+The definitions that make up a class definition are shared by all
+instances of that class.  Notice, that all instances have a link back
+to their associated class:
 
 ```python
 >>> goog.__class__
 ... look at output ...
 >>> ibm.__class__
 ... look at output ...
->>>
+>>> 
 ```
 
 Try calling a method on the instances:
@@ -435,7 +444,7 @@ Try calling a method on the instances:
 >>>
 ```
 
-Notice that the name *cost* is not defined in either `goog.__dict__`
+Notice that the name 'cost' is not defined in either `goog.__dict__`
 or `ibm.__dict__`.  Instead, it is being supplied by the class
 dictionary.  Try this:
 
@@ -455,7 +464,9 @@ Try calling the `cost()` method directly through the dictionary:
 >>>
 ```
 
-Notice how you are calling the function defined in the class definition and how the `self` argument gets the instance.
+Notice how you are calling the function defined in the class
+definition and how the `self` argument gets the instance.
+
 Try adding a new attribute to the `Stock` class:
 
 ```python
@@ -482,21 +493,22 @@ However, notice that it is not part of the instance dictionary:
 ```
 
 The reason you can access the `foo` attribute on instances is that
-Python always checks the class dictionary if it can’t find something
-on the instance itself.
+Python always checks the class dictionary if it can't find something
+on the instance itself. 
 
-This part of the exercise illustrates something known as a class
+Note: This part of the exercise illustrates something known as a class
 variable.  Suppose, for instance, you have a class like this:
 
 ```python
 class Foo(object):
-    a = 13                  # Class variable
-    def __init__(self,b):
-        self.b = b          # Instance variable
+     a = 13                  # Class variable
+     def __init__(self,b):
+         self.b = b          # Instance variable
 ```
 
-In this class, the variable `a`, assigned in the body of the class itself, is a *class variable*.
-It is shared by all of the instances that get created.
+In this class, the variable `a`, assigned in the body of the
+class itself, is a "class variable."  It is shared by all of the
+instances that get created.  For example:
 
 ```python
 >>> f = Foo(10)
@@ -517,10 +529,10 @@ It is shared by all of the instances that get created.
 >>>
 ```
 
-### Exercise 5.4: Bound Methods
+### Exercise 5.4: Bound methods
 
 A subtle feature of Python is that invoking a method actually involves
-two steps and something known as a bound method.
+two steps and something known as a bound method.   For example:
 
 ```python
 >>> s = goog.sell
@@ -529,11 +541,12 @@ two steps and something known as a bound method.
 >>> s(25)
 >>> goog.shares
 75
->>>
+>>> 
 ```
 
-Bound methods actually contain all of the pieces needed to call a method.
-For instance, they keep a record of the function implementing the method:
+Bound methods actually contain all of the pieces needed to call a
+method.  For instance, they keep a record of the function implementing
+the method:
 
 ```python
 >>> s.__func__
@@ -549,8 +562,8 @@ This is the same value as found in the `Stock` dictionary.
 >>>
 ```
 
-Take a close look at both references do `0x10049af50`. They are both the same in `s` and `Stock.__dict__['sell']`.
-Bound methods also record the instance, which is the `self` argument.
+Bound methods also record the instance, which is the `self`
+argument.
 
 ```python
 >>> s.__self__
@@ -558,8 +571,8 @@ Stock('GOOG',75,490.1)
 >>>
 ```
 
-When you invoke the function using `()` all of the pieces come together.
-For example, calling `s(25)` actually does this:
+When you invoke the function using `()` all of the pieces come
+together.  For example, calling `s(25)` actually does this:
 
 ```python
 >>> s.__func__(s.__self__, 25)    # Same as s(25)
@@ -572,7 +585,7 @@ For example, calling `s(25)` actually does this:
 
 Make a new class that inherits from `Stock`.
 
-```python
+```
 >>> class NewStock(Stock):
         def yow(self):
             print('Yow!')
@@ -603,7 +616,7 @@ they will be searched for attributes.
 >>>
 ```
 
-Here’s how the `cost()` method of instance `n` above would be found:
+Here's how the `cost()` method of instance `n` above would be found:
 
 ```python
 >>> for cls in n.__class__.__mro__:

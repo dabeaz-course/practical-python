@@ -202,34 +202,38 @@ x = getattr(obj, 'x', None)
 
 ## Exercises
 
-### Exercise 4.8: Better output for printing objects
+### Exercise 4.9: Better output for printing objects
 
 All Python objects have two string representations.  The first
-representation is created by string conversion via `str()` (which is
-called by `print`). The string representation is usually a nicely
-formatted version of the object meant for humans.  The second
-representation is a code representation of the object created by
-`repr()` (or by viewing a value in the interactive shell).  The code
-representation typically shows you the code that you have to type to
-get the object.
+representation is created by string conversion via `str()`
+(which is called by `print`).   The string representation is
+usually a nicely formatted version of the object meant for humans.
+The second representation is a code representation of the object
+created by `repr()` (or by viewing a value in the
+interactive shell).   The code representation typically shows you the
+code that you have to type to get the object.
 
-The two representations of an object are often different. For example, you can see the difference by trying the following:
+The two representations of an object are often different. For example,
+you can see the difference by trying the following:
 
 ```python
->>> s = 'Hello\nWorld'
->>> print(str(s))        # Notice nice output (no quotes)
-Hello
-World
->>> print(repr(s))       # Notice the added quotes and escape codes
-'Hello\nWorld'
->>> print(f'{s!r}')      # Alternate way to get repr() string
-'Hello\nWorld'
+>>> from datetime import date
+>>> d = date(2017, 4, 9)
+>>> print(d)             # Nice output
+2017-04-09
+>>> print(repr(d))       # Representation output
+datetime.date(2017, 4, 9)
+>>> print(f'{d!r}')      # Alternate way to get repr() string
+datetime.date(2017, 4, 9)
 >>>
 ```
 
-Both kinds of string conversions can be redefined in a class if it defines the `__str__()` and `__repr__()` methods.
+Both kinds of string conversions can be redefined in a class if it
+defines the `__str__()` and `__repr__()` methods.
 
-Modify the `Stock` object that you defined in Exercise 4.1 so that the `__repr__()` method produces more useful output.
+Modify the `Stock` object that you defined in `stock.py`
+so that the `__repr__()` method produces more useful output.  For
+example:
 
 ```python
 >>> goog = Stock('GOOG', 100, 490.1)
@@ -238,22 +242,21 @@ Stock('GOOG', 100, 490.1)
 >>>
 ```
 
-See what happens when you read a portfolio of stocks and view the resulting list after you have made these changes.
+See what happens when you read a portfolio of stocks and view the
+resulting list after you have made these changes.  For example:
 
-```python
->>> import stock
->>> portfolio = stock.read_portfolio('Data/portfolio.csv')
+```
+>>> import report
+>>> portfolio = report.read_portfolio('Data/portfolio.csv')
 >>> portfolio
 ... see what the output is ...
 >>>
 ```
 
-### Exercise 4.9: An example of using `getattr()`
+### Exercise 4.10: An example of using getattr()
 
-In Exercise 4.2 you worked with a function `print_portfolio()` that made a table for a stock portfolio.
-That function was hard-coded to only work with stock data—-how limiting! You can do so much more if you use functions such as `getattr()`.
-
-To begin, try this little example:
+`getattr()` is an alternative mechanism for reading attributes.  It can be used to
+write extremely flexible code.  To begin, try this example:
 
 ```python
 >>> import stock
@@ -267,19 +270,19 @@ shares = 100
 >>>
 ```
 
-Carefully observe that the output data is determined entirely by the attribute names listed in the `columns` variable.
+Carefully observe that the output data is determined entirely by the attribute
+names listed in the `columns` variable.
 
-In the file `tableformat.py`, take this idea and expand it into a
-generalized function `print_table()` that prints a table showing
-user-specified attributes of a list of arbitrary objects.
-
-As with the earlier `print_portfolio()` function, `print_table()`
-should also accept a `TableFormatter` instance to control the output
-format.  Here’s how it should work:
+In the file `tableformat.py`, take this idea and expand it into a generalized
+function `print_table()` that prints a table showing
+user-specified attributes of a list of arbitrary objects.  As with the
+earlier `print_report()` function, `print_table()` should also accept
+a `TableFormatter` instance to control the output format.  Here's how
+it should work:
 
 ```python
->>> import stock
->>> portfolio = stock.read_portfolio('Data/portfolio.csv')
+>>> import report
+>>> portfolio = report.read_portfolio('Data/portfolio.csv')
 >>> from tableformat import create_formatter, print_table
 >>> formatter = create_formatter('txt')
 >>> print_table(portfolio, ['name','shares'], formatter)
@@ -295,7 +298,7 @@ format.  Here’s how it should work:
 
 >>> print_table(portfolio, ['name','shares','price'], formatter)
       name     shares      price
----------- ---------- ----------
+---------- ---------- ---------- 
         AA        100       32.2
        IBM         50       91.1
        CAT        150      83.44
@@ -303,30 +306,7 @@ format.  Here’s how it should work:
         GE         95      40.37
       MSFT         50       65.1
        IBM        100      70.44
->>>
-```
-
-### Exercise 4.10: Exercise Bonus: Column Formatting
-
-Modify the `print_table()` function in part (B) so that it also
-accepts a list of format specifiers for formatting the contents of
-each column.
-
-```python
->>> print_table(portfolio,
-                ['name','shares','price'],
-                ['s','d','0.2f'],
-                formatter)
-      name     shares      price
----------- ---------- ----------
-        AA        100      32.20
-       IBM         50      91.10
-       CAT        150      83.44
-      MSFT        200      51.23
-        GE         95      40.37
-      MSFT         50      65.10
-       IBM        100      70.44
->>>
+>>> 
 ```
 
 [Contents](../Contents) \| [Previous (4.2 Inheritance)](02_Inheritance) \| [Next (4.4 Exceptions)](04_Defining_exceptions)

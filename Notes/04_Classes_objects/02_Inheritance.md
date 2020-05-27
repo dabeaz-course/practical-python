@@ -220,63 +220,53 @@ We're not going to explore multiple inheritance further in this course.
 
 ## Exercises
 
-### Exercise 4.4: Print Portfolio
-
-A major use of inheritance is in writing code that’s meant to be extended or customized in various ways—especially in libraries or frameworks.
-To illustrate, start by adding the following function to your `stock.py` program:
+A major use of inheritance is in writing code that's meant to be
+extended or customized in various ways--especially in libraries or
+frameworks. To illustrate, consider the `print_report()` function 
+in your `report.py` program.  It should look something like this:
 
 ```python
-# stock.py
-...
-def print_portfolio(portfolio):
+def print_report(reportdata):
     '''
-    Make a nicely formatted table showing portfolio contents.
+    Print a nicely formated table from a list of (name, shares, price, change) tuples.
     '''
-    headers = ('Name','Shares','Price')
-    for h in headers:
-        print(f'{h:>10s}',end=' ')
-    print()
+    headers = ('Name','Shares','Price','Change')
+    print('%10s %10s %10s %10s' % headers)
     print(('-'*10 + ' ')*len(headers))
-    for s in portfolio:
-        print(f'{s.name:>10s} {s.shares:>10d} {s.price:>10.2f}')
+    for row in reportdata:
+        print('%10s %10d %10.2f %10.2f' % row)
 ```
 
-Add a little testing section to the bottom of your `stock.py` file that runs the above function:
+When you run your report program, you should be getting output like this:
 
-```python
-if __name__ == '__main__':
-    portfolio = read_portfolio('Data/portfolio.csv')
-    print_portfolio(portfolio)
 ```
-
-When you run your `stock.py`, you should get this output:
-
-```bash
-          Name     Shares      Price
-    ---------- ---------- ----------
-            AA        100      32.20
-           IBM         50      91.10
-           CAT        150      83.44
-          MSFT        200      51.23
-            GE         95      40.37
-          MSFT         50      65.10
-           IBM        100      70.44
+>>> import report
+>>> report.portfolio_report('Data/portfolio.csv', 'Data/prices.csv')
+      Name     Shares      Price     Change
+---------- ---------- ---------- ----------
+        AA        100       9.22     -22.98
+       IBM         50     106.28      15.18
+       CAT        150      35.46     -47.98
+      MSFT        200      20.89     -30.34
+        GE         95      13.48     -26.89
+      MSFT         50      20.89     -44.21
+       IBM        100     106.28      35.84
 ```
 
 ### Exercise 4.5: An Extensibility Problem
 
-Suppose that you wanted to modify the `print_portfolio()` function to
+Suppose that you wanted to modify the `print_report()` function to
 support a variety of different output formats such as plain-text,
 HTML, CSV, or XML.  To do this, you could try to write one gigantic
 function that did everything.  However, doing so would likely lead to
-an unmaintainable mess. Instead, this is a perfect opportunity to use
+an unmaintainable mess.  Instead, this is a perfect opportunity to use
 inheritance instead.
 
-To start, focus on the steps that are involved in a creating a
-table. At the top of the table is a set of table headers. After that,
-rows of table data appear.  Let’s take those steps and and put them into their own class.
-
-Create a file called `tableformat.py` and define the following class:
+To start, focus on the steps that are involved in a creating a table.
+At the top of the table is a set of table headers.  After that, rows
+of table data appear.  Let's take those steps and and put them into
+their own class.  Create a file called `tableformat.py` and define the
+following class:
 
 ```python
 # tableformat.py
@@ -286,53 +276,77 @@ class TableFormatter(object):
         '''
         Emit the table headings.
         '''
-        raise NotImplementedError()
+	raise NotImplementedError()
 
     def row(self, rowdata):
         '''
         Emit a single row of table data.
         '''
-        raise NotImplementedError()
+	raise NotImplementedError()
 ```
 
-This class does nothing, but it serves as a kind of design specification for additional classes that will be defined shortly.
+This class does nothing, but it serves as a kind of design specification for 
+additional classes that will be defined shortly.  
 
-Modify the `print_portfolio()` function so that it accepts a `TableFormatter` object as input and invokes methods on it to produce the output.
-For example, like this:
+Modify the `print_report()` function so that it accepts a `TableFormatter` object
+as input and invokes methods on it to produce the output.  For example, like this:
 
 ```python
-# stock.py
+# report.py
 ...
-def print_portfolio(portfolio, formatter):
+
+def print_report(reportdata, formatter):
     '''
-    Make a nicely formatted table showing portfolio contents.
+    Print a nicely formated table from a list of (name, shares, price, change) tuples.
     '''
-    formatter.headings(['Name', 'Shares', 'Price'])
-    for s in portfolio:
-        # Form a row of output data (as strings)
-        rowdata = [s.name, str(s.shares), f'{s.price:0.2f}' ]
+    formatter.headings(['Name','Shares','Price','Change'])
+    for name, shares, price, change in reportdata:
+        rowdata = [ name, str(shares), f'{price:0.2f}', f'{change:0.2f}' ]
         formatter.row(rowdata)
 ```
 
-Finally, try your new class by modifying the main program like this:
+Since you added an argument to print_report(), you're going to need to modify the
+`portfolio_report()` function as well.  Change it so that it creates a `TableFormatter`
+like this:
 
 ```python
-# stock.py
+# report.py
+
+import tableformat
+
 ...
-if __name__ == '__main__':
-    from tableformat import TableFormatter
-    portfolio = read_portfolio('Data/portfolio.csv')
-    formatter = TableFormatter()
-    print_portfolio(portfolio, formatter)
+def portfolio_report(portfoliofile, pricefile):
+    '''
+    Make a stock report given portfolio and price data files.
+    '''
+    # Read data files 
+    portfolio = read_portfolio(portfoliofile)
+    prices = read_prices(pricefile)
+
+    # Create the report data
+    report = make_report_data(portfolio, prices)
+
+    # Print it out
+    formatter = tableformat.TableFormatter()
+    print_report(report, formatter)
 ```
 
-When you run this new code, your program will immediately crash with a `NotImplementedError` exception.
-That’s not too exciting, but continue to the next part.
+Run this new code:
+
+```python
+>>> ================================ RESTART ================================
+>>> import report
+>>> report.portfolio_report('Data/portfolio.csv', 'Data/prices.csv')
+... crashes ...
+```
+
+It should immediately crash with a `NotImplementedError` exception.  That's not 
+too exciting, but continue to the next part.
 
 ### Exercise 4.6: Using Inheritance to Produce Different Output
 
-The `TableFormatter` class you defined in part (a) is meant to be extended via inheritance.
-In fact, that’s the whole idea. To illustrate, define a class `TextTableFormatter` like this:
+The `TableFormatter` class you defined in part (a) is meant to be extended via inheritance. 
+In fact, that's the whole idea.   To illustrate, define a class `TextTableFormatter` like this:
 
 ```python
 # tableformat.py
@@ -353,33 +367,47 @@ class TextTableFormatter(TableFormatter):
         print()
 ```
 
-Modify your main program in `stock.py` like this and try it:
+Modify the `portfolio_report()` function like this and try it:
 
 ```python
-# stock.py
+# report.py
 ...
-if __name__ == '__main__':
-    from tableformat import TextTableFormatter
-    portfolio = read_portfolio('Data/portfolio.csv')
-    formatter = TextTableFormatter()
-    print_portfolio(portfolio, formatter)
+def portfolio_report(portfoliofile, pricefile):
+    '''
+    Make a stock report given portfolio and price data files.
+    '''
+    # Read data files 
+    portfolio = read_portfolio(portfoliofile)
+    prices = read_prices(pricefile)
+
+    # Create the report data
+    report = make_report_data(portfolio, prices)
+
+    # Print it out
+    formatter = tableformat.TextTableFormatter()
+    print_report(report, formatter)
 ```
 
 This should produce the same output as before:
 
-```bash
-          Name     Shares      Price
-    ---------- ---------- ----------
-            AA        100      32.20
-           IBM         50      91.10
-           CAT        150      83.44
-          MSFT        200      51.23
-            GE         95      40.37
-          MSFT         50      65.10
-           IBM        100      70.44
+```python
+>>> ================================ RESTART ================================
+>>> import report
+>>> report.portfolio_report('Data/portfolio.csv', 'Data/prices.csv')
+      Name     Shares      Price     Change
+---------- ---------- ---------- ----------
+        AA        100       9.22     -22.98
+       IBM         50     106.28      15.18
+       CAT        150      35.46     -47.98
+      MSFT        200      20.89     -30.34
+        GE         95      13.48     -26.89
+      MSFT         50      20.89     -44.21
+       IBM        100     106.28      35.84
+>>>
 ```
 
-However, let’s change the output to something else. Define a new class `CSVTableFormatter` that produces output in CSV format:
+However, let's change the output to something else.  Define a new
+class `CSVTableFormatter` that produces output in CSV format:
 
 ```python
 # tableformat.py
@@ -398,105 +426,170 @@ class CSVTableFormatter(TableFormatter):
 Modify your main program as follows:
 
 ```python
-# stock.py
-...
-if __name__ == '__main__':
-    from tableformat import CSVTableFormatter
-    portfolio = read_portfolio('Data/portfolio.csv')
-    formatter = CSVTableFormatter()
-    print_portfolio(portfolio, formatter)
+def portfolio_report(portfoliofile, pricefile):
+    '''
+    Make a stock report given portfolio and price data files.
+    '''
+    # Read data files 
+    portfolio = read_portfolio(portfoliofile)
+    prices = read_prices(pricefile)
+
+    # Create the report data
+    report = make_report_data(portfolio, prices)
+
+    # Print it out
+    formatter = tableformat.CSVTableFormatter()
+    print_report(report, formatter)
 ```
 
 You should now see CSV output like this:
 
-```csv
-Name,Shares,Price
-AA,100,32.20
-IBM,50,91.10
-CAT,150,83.44
-MSFT,200,51.23
-GE,95,40.37
-MSFT,50,65.10
-IBM,100,70.44
+```python
+>>> ================================ RESTART ================================
+>>> import report
+>>> report.portfolio_report('Data/portfolio.csv', 'Data/prices.csv')
+Name,Shares,Price,Change
+AA,100,9.22,-22.98
+IBM,50,106.28,15.18
+CAT,150,35.46,-47.98
+MSFT,200,20.89,-30.34
+GE,95,13.48,-26.89
+MSFT,50,20.89,-44.21
+IBM,100,106.28,35.84
 ```
 
-Using a similar idea, define a class `HTMLTableFormatter` that produces a table with the following output:
+Using a similar idea, define a class `HTMLTableFormatter`
+that produces a table with the following output:
 
-```html
-<tr> <th>Name</th> <th>Shares</th> <th>Price</th> </tr>
-<tr> <td>AA</td> <td>100</td> <td>32.20</td> </tr>
-<tr> <td>IBM</td> <td>50</td> <td>91.10</td> </tr>
+```
+<tr><th>Name</th><th>Shares</th><th>Price</th><th>Change</th></tr>
+<tr><td>AA</td><td>100</td><td>9.22</td><td>-22.98</td></tr>
+<tr><td>IBM</td><td>50</td><td>106.28</td><td>15.18</td></tr>
+<tr><td>CAT</td><td>150</td><td>35.46</td><td>-47.98</td></tr>
+<tr><td>MSFT</td><td>200</td><td>20.89</td><td>-30.34</td></tr>
+<tr><td>GE</td><td>95</td><td>13.48</td><td>-26.89</td></tr>
+<tr><td>MSFT</td><td>50</td><td>20.89</td><td>-44.21</td></tr>
+<tr><td>IBM</td><td>100</td><td>106.28</td><td>35.84</td></tr>
 ```
 
-Test your code by modifying the main program to create a `HTMLTableFormatter` object instead of a `CSVTableFormatter` object.
+Test your code by modifying the main program to create a
+`HTMLTableFormatter` object instead of a
+`CSVTableFormatter` object.
 
 ### Exercise 4.7: Polymorphism in Action
 
-A major feature of object-oriented programming is that you can plug an
-object into a program and it will work without having to change any of
-the existing code. For example, if you wrote a program that expected
-to use a `TableFormatter` object, it would work no matter what kind of
-`TableFormatter` you actually gave it.
+A major feature of object-oriented programming is that you can 
+plug an object into a program and it will work without having to
+change any of the existing code.  For example, if you wrote a program
+that expected to use a `TableFormatter` object, it would work no
+matter what kind of `TableFormatter` you actually gave it.  This
+behavior is sometimes referred to as "polymorphism."
 
-This behavior is sometimes referred to as *polymorphism*.
-
-One potential problem is making it easier for the user to pick the formatter that they want.
-This can sometimes be fixed by defining a helper function.
-
-In the `tableformat.py` file, add a function `create_formatter(name)`
-that allows a user to create a formatter given an output name such as
-`'txt'`, `'csv'`, or `'html'`.
-
-For example:
+One potential problem is figuring out how to allow a user to pick
+out the formatter that they want.  Direct use of the class names
+such as `TextTableFormatter` is often annoying.  Thus, you
+might consider some simplified approach.  Perhaps you embed an `if-`statement
+into the code like this:
 
 ```python
-# stock.py
-...
-if __name__ == '__main__':
-    from tableformat import create_formatter
-    portfolio = read_portfolio('Data/portfolio.csv')
-    formatter = create_formatter('csv')
-    print_portfolio(portfolio, formatter)
+def portfolio_report(portfoliofile, pricefile, fmt='txt'):
+    '''
+    Make a stock report given portfolio and price data files.
+    '''
+    # Read data files 
+    portfolio = read_portfolio(portfoliofile)
+    prices = read_prices(pricefile)
+
+    # Create the report data
+    report = make_report_data(portfolio, prices)
+
+    # Print it out
+    if fmt == 'txt':
+        formatter = tableformat.TextTableFormatter()
+    elif fmt == 'csv':
+        formatter = tableformat.CSVTableFormatter()
+    elif fmt == 'html':
+        formatter = tableformat.HTMLTableFormatter()
+    else:
+        raise RuntimeError(f'Unknown format {fmt}')
+    print_report(report, formatter)
 ```
 
-When you run this program, you’ll see output such as this:
+In this code, the user specifies a simplified name such as `'txt'` or
+`'csv'` to pick a format.  However, is putting a big `if`-statement in
+the `portfolio_report()` function like that the best idea?  It might
+be better to move that code to a general purpose function somewhere
+else.
 
-```csv
-Name,Shares,Price
-AA,100,32.20
-IBM,50,91.10
-CAT,150,83.44
-MSFT,200,51.23
-GE,95,40.37
-MSFT,50,65.10
-IBM,100,70.44
-```
-
-Try changing the format to `'txt'` and `'html'` just to make sure your
-code is working correctly.  If the user provides a bad output format
-to the `create_formatter()` function, have it raise a `RuntimeError`
-exception. For example:
+In the `tableformat.py` file, add a
+function `create_formatter(name)` that allows a user to create a 
+formatter given an output name such as `'txt'`, `'csv'`, or `'html'`.
+Modify `portfolio_report()` so that it looks like this:
 
 ```python
->>> from tableformat import create_formatter
->>> formatter = create_formatter('xls')
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "tableformat.py", line 68, in create_formatter
-    raise RuntimeError('Unknown table format %s' % name)
-RuntimeError: Unknown table format xls
+def portfolio_report(portfoliofile, pricefile, fmt='txt'):
+    '''
+    Make a stock report given portfolio and price data files.
+    '''
+    # Read data files 
+    portfolio = read_portfolio(portfoliofile)
+    prices = read_prices(pricefile)
+
+    # Create the report data
+    report = make_report_data(portfolio, prices)
+
+    # Print it out
+    formatter = tableformat.create_formatter(fmt)
+    print_report(report, formatter)
+```
+
+Try calling the function with different formats to make sure it's working.
+
+### Exercise 4.8: Putting it all together
+
+Modify the `report.py` program so that the `portfolio_report()` function takes
+an optional argument specifying the output format. For example:
+
+```python
+>>> report.portfolio_report('Data/portfolio.csv', 'Data/prices.csv', 'txt')
+      Name     Shares      Price     Change 
+---------- ---------- ---------- ---------- 
+        AA        100       9.22     -22.98 
+       IBM         50     106.28      15.18 
+       CAT        150      35.46     -47.98 
+      MSFT        200      20.89     -30.34 
+        GE         95      13.48     -26.89 
+      MSFT         50      20.89     -44.21 
+       IBM        100     106.28      35.84 
 >>>
 ```
 
-Writing extensible code is one of the most common uses of inheritance in libraries and frameworks.
-For example, a framework might instruct you to define your own object that inherits from a provided base class.
-You’re then told to fill in various methods that implement various bits of functionality.
-That said, designing object oriented programs can be extremely
-difficult. For more information, you should probably look for books on
-the topic of design patterns.
+Modify the main program so that a format can be given on the command line:
 
-That said, understanding what happened in this exercise will take you
-pretty far in terms of using most library modules and knowing
-what inheritance is good for (extensibility).
+```bash
+bash $ python3 report.py Data/portfolio.csv Data/prices.csv csv
+Name,Shares,Price,Change
+AA,100,9.22,-22.98
+IBM,50,106.28,15.18
+CAT,150,35.46,-47.98
+MSFT,200,20.89,-30.34
+GE,95,13.48,-26.89
+MSFT,50,20.89,-44.21
+IBM,100,106.28,35.84
+bash $
+```
+
+### Discussion
+
+Writing extensible code is one of the most common uses of inheritance
+in libraries and frameworks.  For example, a framework might instruct
+you to define your own object that inherits from a provided base
+class.  You're then told to fill in various methods that implement
+various bits of functionality.
+
+That said, designing object oriented programs can be extremely difficult.
+For more information, you should probably look for books on the topic of
+design patterns (although understanding what happened in this exercise
+will take you pretty far in terms of using most library modules).
 
 [Contents](../Contents) \| [Previous (4.1 Classes)](01_Class) \| [Next (4.3 Special methods)](03_Special_methods)
