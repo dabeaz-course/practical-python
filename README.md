@@ -1,13 +1,14 @@
-# Practical Python Programming
+# Welcome!
 
 When I first learned Python nearly 25 years ago, I was immediately
-struck by the ease at which I could productively apply it to all sorts of messy
-work projects. Fast-forward a decade and I found myself teaching
-others the same fun.  The result of that teaching is this
-course--A no-nonsense Python course that has been actively taught to more than 400
+struck by how I could productively apply it to all sorts of messy work
+projects. Fast-forward a decade and I found myself teaching others the
+same fun.  The result of that teaching is this course--A no-nonsense
+treatment of Python that has been actively taught to more than 400
 in-person groups since 2007.  Traders, systems admins, astronomers,
 NASA rocket scientists, and even a few software engineers--they've all
-taken this course.  Now, the course is available for all.  Enjoy! 
+taken this course.  Now, I'm happy to make it freely available.
+Enjoy!
 
 --David Beazley ([https://dabeaz.com](https://dabeaz.com)), [@dabeaz](https://twitter.com/dabeaz)
 
