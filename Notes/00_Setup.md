@@ -1,6 +1,13 @@
 # Course Setup and Overview
 
-Welcome to Practical Python Programming!
+Welcome to Practical Python Programming!   This page has some important information
+about course setup and logistics.
+
+## Course Duration and Time Requirements
+
+This course was originally given as an instructor-led in-person
+training that spanned 3 to 4 days.  To complete the course in its
+entirety, you should plan on committing 25-35 hours of work. 
 
 ## Setup and Python Installation
 
@@ -54,18 +61,30 @@ bash %
 With this option, you just won't be able to commit code changes except
 to the local copy on your machine.
 
-## File Layout
+## Coursework Layout
 
-Do all of your coding work in the `Work/` directory.   Within that directory, 
-there is a `Data/` directory.  The `Data/` directory contains a variety of
-datafiles and other scripts used during the course. You will frequently have
-to access files in `Data/`.  Course exercises are written with the assumption
-that you are creating programs in the `Work/` directory.
+Do all of your coding work in the `Work/` directory.  Within that
+directory, there is a `Data/` directory.  The `Data/` directory
+contains a variety of datafiles and other scripts used during the
+course. You will frequently have to access files located in `Data/`.
+Course exercises are written with the assumption that you are creating
+programs in the `Work/` directory.
 
-## Solutions
+## Course Order
+
+Course material should be completed in section order, starting with
+section 1.  Course exercises in later sections build upon code written in
+earlier sections.  
+
+## Solution Code
 
 The `Solutions/` directory contains full solution code to selected exercises.
-Feel free to look at this if you need a hint.
+Feel free to look at this if you need a hint.   To get the most out of the
+course, you should try to create your own solutions first.
+
+[Contents](Contents)
+
+
 
 
 
