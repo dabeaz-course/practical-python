@@ -16,7 +16,7 @@ taken this course.  Now, the course is available for all.  Enjoy!
 The material you see here is the core of an instructor-led Python
 training course.  It is typically taught in-person over the span of
 three or four days--requiring approximately 25-35 hours of work. This
-includes the completion of approximately 130 hands on coding exercises.
+includes the completion of approximately 130 hands-on coding exercises.
 
 The target audience is scientists, engineers, and programmers who
 already have experience in at least one other programming language. No
@@ -43,7 +43,8 @@ Python 3.6 or newer and time to work on it--especially the latter.
 
 This is not a course for absolute beginners on how to program a
 computer.  It is assumed that you already have programming experience
-in some other programming language or Python itself.
+in some other programming language or Python itself. You're not
+going to find cute stories about looping--or why you would want to do it.
 
 This is not a course that aims to cover everything there is to know
 about Python.  There is only so much material you can cover in 3-4 days
@@ -53,7 +54,7 @@ reason--it was once included and it made everyone's head explode.
 
 This is not a course that simply covers reference material, tricks, or
 recipes that you could just look up on [python.org](https://python.org),
-Google, or Stack Overflow. Yes, there is a certain amount of reference
+Google, or Stack Overflow. Yes, there is enough reference
 material to be functional, but the course is more focused on how to
 work with and think about Python coding.
 
@@ -62,7 +63,8 @@ maintain a one-million line Python program. I don't write programs
 like that and neither should you. Delete something already! 
 Python is a great language for personal productivity, prototyping ideas,
 and hacking cool things together. The course is about doing THAT in
-a way that's both practical and not too "hacky."
+a way that's both practical and not so "hacky" that you co-workers
+give you stink-eye when they look at your code. 
 
 ## Take me to the Course Already!
 
