@@ -9,7 +9,7 @@ in-person groups since 2007.  Traders, systems admins, astronomers,
 NASA rocket scientists, and even a few software engineers--they've all
 taken this course.  Now, the course is available for all.  Enjoy! 
 
---David Beazley (http://www.dabeaz.com)
+--David Beazley ([https://dabeaz.com](https://dabeaz.com)), [@dabeaz](https://twitter.com/dabeaz)
 
 ## Prerequisites and Target Audience
 
