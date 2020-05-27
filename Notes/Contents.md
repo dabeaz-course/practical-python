@@ -1,5 +1,36 @@
 # Practical Python Programming
 
+When I first learned Python nearly 25 years ago, I was immediately
+struck by the ease at which I could apply it to all sorts of messy
+work projects.  Fast-forward a decade and I found myself teaching
+others the same joy.  The result of that teaching is this
+course--material that has been actively taught to more than 400
+in-person groups since 2007.  Traders, systems admins, astronomers,
+NASA rocket scientists, and even a few software engineers--they've all
+taken this course.   Now, the course is available for free.  Enjoy! 
+--David Beazley (http://www.dabeaz.com)
+
+## Prerequisites and Target Audience
+
+The material you see here is the core of an instructor-led Python
+training course.  It is typically taught in-person over the span of
+three or four days--requiring approximately 25-30 hours of work. This
+includes the completion of approximately 130 hands on coding exercises.
+
+The target audience is scientists, engineers, and programmers who
+already have experience in at least one other programming language. No
+prior knowledge of Python is required, but knowledge of common
+programming topics is assumed.
+
+The goal of the course is to cover foundational aspects of Python
+programming with an emphasis on script writing, data manipulation, and
+program organization. The course does NOT focus on Python tooling,
+IDEs, or third-party packages (i.e., it's not focused on using data
+science libraries in Jupyter Notebooks or on deploying web apps).
+
+To complete this course, you simply need a basic installation of
+Python 3.6 or newer and time--especially the latter.
+
 ## Table of Contents
 
 * [1. Introduction to Python](01_Introduction/00_Overview)
