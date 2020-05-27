@@ -7,7 +7,9 @@ about course setup and logistics.
 
 This course was originally given as an instructor-led in-person
 training that spanned 3 to 4 days.  To complete the course in its
-entirety, you should plan on committing 25-35 hours of work. 
+entirety, you should minimally plan on committing 25-35 hours of work.
+Most participants find the material to be quite challenging without
+peeking at solution code (see below).
 
 ## Setup and Python Installation
 
@@ -74,13 +76,15 @@ programs in the `Work/` directory.
 
 Course material should be completed in section order, starting with
 section 1.  Course exercises in later sections build upon code written in
-earlier sections.  
+earlier sections.  Many of the later exercises involve minor refactoring
+of existing code.
 
 ## Solution Code
 
-The `Solutions/` directory contains full solution code to selected exercises.
-Feel free to look at this if you need a hint.   To get the most out of the
-course, you should try to create your own solutions first.
+The `Solutions/` directory contains full solution code to selected
+exercises.  Feel free to look at this if you need a hint.  To get the
+most out of the course however, you should try to create your own
+solutions first.
 
 [Contents](Contents)
 
