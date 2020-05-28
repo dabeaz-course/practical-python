@@ -1,3 +1,5 @@
+[Contents](../Contents) \| [Previous (2.6 List Comprehensions)](06_List_comprehension) \| [Next (3 Program Organization)](../03_Program_organization/00_Overview)
+
 # 2.7 Objects
 
 This section introduces more details about Python's internal object model and 
@@ -31,9 +33,11 @@ A picture of the underlying memory operations. In this example, there
 is only one list object `[1,2,3]`, but there are four different
 references to it.
 
+![References](references.png)
+
 This means that modifying a value affects *all* references.
 
-```pycon
+```python
 >>> a.append(999)
 >>> a
 [1,2,3,999]
@@ -44,14 +48,15 @@ This means that modifying a value affects *all* references.
 >>>
 ```
 
-Notice how a change in the original list shows up everywhere else (yikes!).
-This is because no copies were ever made. Everything is pointing to the same thing.
+Notice how a change in the original list shows up everywhere else
+(yikes!).  This is because no copies were ever made. Everything is
+pointing to the same thing.
 
 ### Reassigning values
 
 Reassigning a value *never* overwrites the memory used by the previous value.
 
-```pycon
+```python
 a = [1,2,3]
 b = a
 a = [4,5,6]
@@ -69,13 +74,14 @@ foot at some point.  Typical scenario. You modify some data thinking
 that it's your own private copy and it accidentally corrupts some data
 in some other part of the program.
 
-*Comment: This is one of the reasons why the primitive datatypes (int, float, string) are immutable (read-only).*
+*Comment: This is one of the reasons why the primitive datatypes (int,
+ float, string) are immutable (read-only).*
 
 ### Identity and References
 
-Use ths `is` operator to check if two values are exactly the same object.
+Use the `is` operator to check if two values are exactly the same object.
 
-```pycon
+```python
 >>> a = [1,2,3]
 >>> b = a
 >>> a is b
@@ -86,7 +92,7 @@ True
 `is` compares the object identity (an integer).  The identity can be
 obtained using `id()`.
 
-```pycon
+```python
 >>> id(a)
 3588944
 >>> id(b)
@@ -94,11 +100,27 @@ obtained using `id()`.
 >>>
 ```
 
+Note: It is almost always better to use `==` for checking objects.  The behavior
+of `is` is often unexpected:
+
+```python
+>>> a = [1,2,3]
+>>> b = a
+>>> c = [1,2,3]
+>>> a is b
+True
+>>> a is c
+False
+>>> a == c
+True
+>>>
+```
+
 ### Shallow copies
 
 Lists and dicts have methods for copying.
 
-```pycon
+```python
 >>> a = [2,3,[100,101],4]
 >>> b = list(a) # Make a copy
 >>> a is b
@@ -118,14 +140,16 @@ True
 ```
 
 For example, the inner list `[100, 101]` is being shared.
-This is knows as a shallow copy.
+This is known as a shallow copy.  Here is a picture.
+
+![Shallow copy](shallow.png)
 
 ### Deep copies
 
 Sometimes you need to make a copy of an object and all the objects contained withn it.
 You can use the `copy` module for this:
 
-```pycon
+```python
 >>> a = [2,3,[100,101],4]
 >>> import copy
 >>> b = copy.deepcopy(a)
@@ -142,7 +166,7 @@ False
 Variable names do not have a *type*. It's only a name.
 However, values *do* have an underlying type.
 
-```pycon
+```python
 >>> a = 42
 >>> b = 'Hello World'
 >>> type(a)
@@ -151,7 +175,7 @@ However, values *do* have an underlying type.
 <type 'str'>
 ```
 
-`type()` will tell you what it is. The type name is usually a function
+`type()` will tell you what it is. The type name is usually used as a function
 that creates or converts a value to that type.
 
 ### Type Checking
@@ -159,18 +183,21 @@ that creates or converts a value to that type.
 How to tell if an object is a specific type.
 
 ```python
-if isinstance(a,list):
+if isinstance(a, list):
     print('a is a list')
 ```
 
-Checking for one of many types.
+Checking for one of many possible types.
 
 ```python
 if isinstance(a, (list,tuple)):
     print('a is a list or tuple')
 ```
 
-*Caution: Don't go overboard with type checking. It can lead to excessive complexity.*
+*Caution: Don't go overboard with type checking. It can lead to
+excessive code complexity.  Usually you'd only do it if doing
+so would prevent common mistakes made by others using your code.
+*
 
 ### Everything is an object
 
@@ -182,7 +209,7 @@ is said that all objects are "first-class".
 
 A simple example:
 
-```pycon
+```python
 >>> import math
 >>> items = [abs, math, ValueError ]
 >>> items
@@ -201,14 +228,17 @@ Failed!
 >>>
 ```
 
-Here, `items` is a list containing a function, a module and an exception.
-You can use the items in the list in place of the original names:
+Here, `items` is a list containing a function, a module and an
+exception.  You can directly use the items in the list in place of the
+original names:
 
 ```python
 items[0](-45)       # abs
 items[1].sqrt(2)    # math
 except items[2]:    # ValueError
 ```
+
+With great power come responsibility.  Just because you can do that doesn't me you should.
 
 ## Exercises
 
@@ -242,7 +272,7 @@ using some list basic operations.
 Make a Python list that contains the names of the conversion functions
 you would use to convert each column into the appropriate type:
 
-```pycon
+```python
 >>> types = [str, int, float]
 >>>
 ```
@@ -254,7 +284,7 @@ a value `x` into a given type (e.g., `str(x)`, `int(x)`, `float(x)`).
 
 Now, read a row of data from the above file:
 
-```pycon
+```python
 >>> import csv
 >>> f = open('Data/portfolio.csv')
 >>> rows = csv.reader(f)
@@ -265,9 +295,10 @@ Now, read a row of data from the above file:
 >>>
 ```
 
-As noted, this row isn’t enough to do calculations because the types are wrong. For example:
+As noted, this row isn’t enough to do calculations because the types
+are wrong. For example:
 
-```pycon
+```python
 >>> row[1] * row[2]
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -275,9 +306,10 @@ TypeError: can't multiply sequence by non-int of type 'str'
 >>>
 ```
 
-However, maybe the data can be paired up with the types you specified in `types`. For example:
+However, maybe the data can be paired up with the types you specified
+in `types`. For example:
 
-```pycon
+```python
 >>> types[1]
 <type 'int'>
 >>> row[1]
@@ -287,7 +319,7 @@ However, maybe the data can be paired up with the types you specified in `types`
 
 Try converting one of the values:
 
-```pycon
+```python
 >>> types[1](row[1])     # Same as int(row[1])
 100
 >>>
@@ -295,7 +327,7 @@ Try converting one of the values:
 
 Try converting a different value:
 
-```pycon
+```python
 >>> types[2](row[2])     # Same as float(row[2])
 32.2
 >>>
@@ -303,7 +335,7 @@ Try converting a different value:
 
 Try the calculation with converted values:
 
-```pycon
+```python
 >>> types[1](row[1])*types[2](row[2])
 3220.0000000000005
 >>>
@@ -311,7 +343,7 @@ Try the calculation with converted values:
 
 Zip the column types with the fields and look at the result:
 
-```pycon
+```python
 >>> r = list(zip(types, row))
 >>> r
 [(<type 'str'>, 'AA'), (<type 'int'>, '100'), (<type 'float'>,'32.20')]
@@ -321,10 +353,10 @@ Zip the column types with the fields and look at the result:
 You will notice that this has paired a type conversion with a
 value. For example, `int` is paired with the value `'100'`.
 
-The zipped list is useful if you want to perform conversions on all of the values, one
-after the other. Try this:
+The zipped list is useful if you want to perform conversions on all of
+the values, one after the other. Try this:
 
-```pycon
+```python
 >>> converted = []
 >>> for func, val in zip(types, row):
           converted.append(func(val))
@@ -336,14 +368,15 @@ after the other. Try this:
 >>>
 ```
 
-Make sure you understand what’s happening in the above code.
-In the loop, the `func` variable is one of the type conversion functions (e.g.,
-`str`, `int`, etc.) and the `val` variable is one of the values like
-`'AA'`, `'100'`.  The expression `func(val)` is converting a value (kind of like a type cast).
+Make sure you understand what’s happening in the above code.  In the
+loop, the `func` variable is one of the type conversion functions
+(e.g., `str`, `int`, etc.) and the `val` variable is one of the values
+like `'AA'`, `'100'`.  The expression `func(val)` is converting a
+value (kind of like a type cast).
 
 The above code can be compressed into a single list comprehension.
 
-```pycon
+```python
 >>> converted = [func(val) for func, val in zip(types, row)]
 >>> converted
 ['AA', 100, 32.2]
@@ -352,10 +385,11 @@ The above code can be compressed into a single list comprehension.
 
 ### Exercise 2.25: Making dictionaries
 
-Remember how the `dict()` function can easily make a dictionary if you have a sequence of key names and values?
-Let’s make a dictionary from the column headers:
+Remember how the `dict()` function can easily make a dictionary if you
+have a sequence of key names and values?  Let’s make a dictionary from
+the column headers:
 
-```pycon
+```python
 >>> headers
 ['name', 'shares', 'price']
 >>> converted
@@ -365,9 +399,10 @@ Let’s make a dictionary from the column headers:
 >>>
 ```
 
-Of course, if you’re up on your list-comprehension fu, you can do the whole conversion in a single shot using a dict-comprehension:
+Of course, if you’re up on your list-comprehension fu, you can do the
+whole conversion in a single step using a dict-comprehension:
 
-```pycon
+```python
 >>> { name: func(val) for name, func, val in zip(headers, types, row) }
 {'price': 32.2, 'name': 'AA', 'shares': 100}
 >>>
@@ -375,11 +410,13 @@ Of course, if you’re up on your list-comprehension fu, you can do the whole co
 
 ### Exercise 2.26: The Big Picture
 
-Using the techniques in this exercise, you could write statements that easily convert fields from just about any column-oriented datafile into a Python dictionary.
+Using the techniques in this exercise, you could write statements that
+easily convert fields from just about any column-oriented datafile
+into a Python dictionary.
 
 Just to illustrate, suppose you read data from a different datafile like this:
 
-```pycon
+```python
 >>> f = open('Data/dowstocks.csv')
 >>> rows = csv.reader(f)
 >>> headers = next(rows)
@@ -393,7 +430,7 @@ Just to illustrate, suppose you read data from a different datafile like this:
 
 Let’s convert the fields using a similar trick:
 
-```pycon
+```python
 >>> types = [str, float, str, str, float, float, float, float, int]
 >>> converted = [func(val) for func, val in zip(types, row)]
 >>> record = dict(zip(headers, converted))
@@ -408,6 +445,10 @@ Let’s convert the fields using a similar trick:
 >>>
 ```
 
-Spend some time to ponder what you’ve done in this exercise. We’ll revisit these ideas a little later.
+Bonus: How would you modify this example to additionally parse the
+`date` entry into a tuple such as `(6, 11, 2007)`?
+
+Spend some time to ponder what you’ve done in this exercise. We’ll
+revisit these ideas a little later.
 
 [Contents](../Contents) \| [Previous (2.6 List Comprehensions)](06_List_comprehension) \| [Next (3 Program Organization)](../03_Program_organization/00_Overview)

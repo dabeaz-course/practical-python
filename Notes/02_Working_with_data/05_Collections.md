@@ -1,3 +1,5 @@
+[Contents](../Contents) \| [Previous (2.4 Sequences)](04_Sequences) \| [Next (2.6 List Comprehensions)](06_List_comprehension)
+
 # 2.5 collections module
 
 The `collections` module provides a number of useful objects for data handling.
@@ -19,6 +21,8 @@ portfolio = [
 ```
 
 There are two `IBM` entries and two `GOOG` entries in this list. The shares need to be combined together somehow.
+
+### Counters
 
 Solution: Use a `Counter`.
 
@@ -94,7 +98,7 @@ bash % python3 -i report.py
 Suppose you wanted to tabulate the total number of shares of each stock.
 This is easy using `Counter` objects. Try it:
 
-```pycon
+```python
 >>> portfolio = read_portfolio('Data/portfolio.csv')
 >>> from collections import Counter
 >>> holdings = Counter()
@@ -129,7 +133,7 @@ If you want to rank the values, do this:
 
 Let’s grab another portfolio of stocks and make a new Counter:
 
-```pycon
+```python
 >>> portfolio2 = read_portfolio('Data/portfolio2.csv')
 >>> holdings2 = Counter()
 >>> for s in portfolio2:
@@ -142,7 +146,7 @@ Counter({'HPQ': 250, 'GE': 125, 'AA': 50, 'MSFT': 25})
 
 Finally, let’s combine all of the holdings doing one simple operation:
 
-```pycon
+```python
 >>> holdings
 Counter({'MSFT': 250, 'IBM': 150, 'CAT': 150, 'AA': 100, 'GE': 95})
 >>> holdings2
@@ -156,5 +160,12 @@ Counter({'MSFT': 275, 'HPQ': 250, 'GE': 220, 'AA': 150, 'IBM': 150, 'CAT': 150})
 This is only a small taste of what counters provide. However, if you
 ever find yourself needing to tabulate values, you should consider
 using one.
+
+### Commentary: collections module
+
+The `collections` module is one of the most useful library modules
+in all of Python.  In fact, we could do an extended tutorial on just
+that.  However, doing so now would also be a distraction.  For now,
+put `collections` on your list of bedtime reading for later.
 
 [Contents](../Contents) \| [Previous (2.4 Sequences)](04_Sequences) \| [Next (2.6 List Comprehensions)](06_List_comprehension)

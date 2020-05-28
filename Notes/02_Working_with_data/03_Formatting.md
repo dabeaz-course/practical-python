@@ -1,7 +1,9 @@
+[Contents](../Contents) \| [Previous (2.2 Containers)](02_Containers) \| [Next (2.4 Sequences)](04_Sequences)
+
 # 2.3 Formatting
 
-This is a slight digression, but when you work with data, you often want to 
-produce structured output (tables, etc.). For example:
+This section is a slight digression, but when you work with data, you
+often want to produce structured output (tables, etc.). For example:
 
 ```code
       Name      Shares        Price
@@ -61,7 +63,7 @@ Common modifiers adjust the field width and decimal precision.  This is a partia
 
 ### Dictionary Formatting
 
-You can use the `format_map()` method on strings.
+You can use the `format_map()` method to apply string formatting to a dictionary of values:
 
 ```python
 >>> s = {
@@ -74,7 +76,23 @@ You can use the `format_map()` method on strings.
 >>>
 ```
 
-It uses the same `f-strings` but takes the values from the supplied dictionary.
+It uses the same codes as `f-strings` but takes the values from the
+supplied dictionary.  
+
+### format() method
+
+There is a method `format()` that can apply formatting to arguments or
+keyword arguments.
+
+```python
+>>> '{name:>10s} {shares:10d} {price:10.2f}'.format(name='IBM', shares=100, price=91.1)
+'       IBM        100      91.10'
+>>> '{:10s} {:10d} {:10.2f}'.format('IBM', 100, 91.1)
+'       IBM        100      91.10'
+>>>
+```
+
+Frankly, `format()` is a bit verbose. I prefer f-strings. 
 
 ### C-Style Formatting
 
@@ -89,7 +107,8 @@ You can also use the formatting operator `%`.
 '3.14'
 ```
 
-This requires a single item or a tuple on the right.  Format codes are modeled after the C `printf()` as well.
+This requires a single item or a tuple on the right.  Format codes are
+modeled after the C `printf()` as well.
 
 *Note: This is the only formatting available on byte strings.*
 
@@ -100,25 +119,6 @@ b'Dave has 37 messages'
 ```
 
 ## Exercises
-
-In Exercise 2.7, you wrote a program called `report.py` that computed the gain/loss of a
-stock portfolio.  In this exercise, you're going to modify it to produce a table like this:
-
-```code
-          Name     Shares      Price     Change
-    ---------- ---------- ---------- ----------
-            AA        100       9.22     -22.98
-           IBM         50     106.28      15.18
-           CAT        150      35.46     -47.98
-          MSFT        200      20.89     -30.34
-            GE         95      13.48     -26.89
-          MSFT         50      20.89     -44.21
-           IBM        100     106.28      35.84
-```
-
-In this report, "Price" is the current share price of the stock and
-"Change" is the change in the share price from the initial purchase
-price.
 
 ### Exercise 2.8: How to format numbers
 
@@ -145,7 +145,7 @@ Full documentation on the formatting codes used f-strings can be found
 [here](https://docs.python.org/3/library/string.html#format-specification-mini-language). Formatting
 is also sometimes performed using the `%` operator of strings.
 
-```pycon
+```python
 >>> print('%0.4f' % value)
 42863.1000
 >>> print('%16.2f' % value)
@@ -159,7 +159,7 @@ Documentation on various codes used with `%` can be found
 Although it’s commonly used with `print`, string formatting is not tied to printing.
 If you want to save a formatted string. Just assign it to a variable.
 
-```pycon
+```python
 >>> f = '%0.4f' % value
 >>> f
 '42863.1000'
@@ -167,6 +167,26 @@ If you want to save a formatted string. Just assign it to a variable.
 ```
 
 ### Exercise 2.9: Collecting Data
+
+In Exercise 2.7, you wrote a program called `report.py` that computed the gain/loss of a
+stock portfolio.  In this exercise, you're going to start modifying it to produce a table like this:
+
+```
+      Name     Shares      Price     Change
+---------- ---------- ---------- ----------
+        AA        100       9.22     -22.98
+       IBM         50     106.28      15.18
+       CAT        150      35.46     -47.98
+      MSFT        200      20.89     -30.34
+        GE         95      13.48     -26.89
+      MSFT         50      20.89     -44.21
+       IBM        100     106.28      35.84
+```
+
+In this report, "Price" is the current share price of the stock and
+"Change" is the change in the share price from the initial purchase
+price.
+
 
 In order to generate the above report, you’ll first want to collect
 all of the data shown in the table.  Write a function `make_report()`
@@ -176,7 +196,7 @@ returns a list of tuples containing the rows of the above table.
 Add this function to your `report.py` file. Here’s how it should work
 if you try it interactively:
 
-```pycon
+```python
 >>> portfolio = read_portfolio('Data/portfolio.csv')
 >>> prices = read_prices('Data/prices.csv')
 >>> report = make_report(portfolio, prices)
@@ -197,7 +217,7 @@ if you try it interactively:
 Redo the for-loop in Exercise 2.9, but change the print statement to
 format the tuples.
 
-```pycon
+```python
 >>> for r in report:
         print('%10s %10d %10.2f %10.2f' % r)
 
@@ -211,7 +231,7 @@ format the tuples.
 
 You can also expand the values and use f-strings. For example:
 
-```pycon
+```python
 >>> for name, shares, price, change in report:
         print(f'{name:>10s} {shares:>10d} {price:>10.2f} {change:>10.2f}')
 
@@ -251,32 +271,32 @@ This string is just a bunch of "-" characters under each field name. For example
 
 When you’re done, your program should produce the table shown at the top of this exercise.
 
-```code
-          Name     Shares      Price     Change
-    ---------- ---------- ---------- ----------
-            AA        100       9.22     -22.98
-           IBM         50     106.28      15.18
-           CAT        150      35.46     -47.98
-          MSFT        200      20.89     -30.34
-            GE         95      13.48     -26.89
-          MSFT         50      20.89     -44.21
-           IBM        100     106.28      35.84
+```
+      Name     Shares      Price     Change
+---------- ---------- ---------- ----------
+        AA        100       9.22     -22.98
+       IBM         50     106.28      15.18
+       CAT        150      35.46     -47.98
+      MSFT        200      20.89     -30.34
+        GE         95      13.48     -26.89
+      MSFT         50      20.89     -44.21
+       IBM        100     106.28      35.84
 ```
 
 ### Exercise 2.12: Formatting Challenge
 
 How would you modify your code so that the price includes the currency symbol ($) and the output looks like this:
 
-```code
-          Name     Shares      Price     Change
-    ---------- ---------- ---------- ----------
-            AA        100      $9.22     -22.98
-           IBM         50    $106.28      15.18
-           CAT        150     $35.46     -47.98
-          MSFT        200     $20.89     -30.34
-            GE         95     $13.48     -26.89
-          MSFT         50     $20.89     -44.21
-           IBM        100    $106.28      35.84
+```
+      Name     Shares      Price     Change
+---------- ---------- ---------- ----------
+        AA        100      $9.22     -22.98
+       IBM         50    $106.28      15.18
+       CAT        150     $35.46     -47.98
+      MSFT        200     $20.89     -30.34
+        GE         95     $13.48     -26.89
+      MSFT         50     $20.89     -44.21
+       IBM        100    $106.28      35.84
 ```
 
 [Contents](../Contents) \| [Previous (2.2 Containers)](02_Containers) \| [Next (2.4 Sequences)](04_Sequences)

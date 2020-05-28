@@ -1,14 +1,16 @@
+[Contents](../Contents) \| [Previous (2.3 Formatting)](03_Formatting) \| [Next (2.5 Collections)](05_Collections)
+
 # 2.4 Sequences
 
 ### Sequence Datatypes
 
 Python has three *sequence* datatypes.
 
-* String: `'Hello'`. A string is considered a sequence of characters.
+* String: `'Hello'`. A string is a sequence of characters.
 * List: `[1, 4, 5]`.
 * Tuple: `('GOOG', 100, 490.1)`.
 
-All sequences are ordered and have length.
+All sequences are ordered, indexed by integers, and have a length.
 
 ```python
 a = 'Hello'               # String
@@ -28,7 +30,7 @@ len(c)                    # 3
 
 Sequences can be replicated: `s * n`.
 
-```pycon
+```python
 >>> a = 'Hello'
 >>> a * 3
 'HelloHelloHello'
@@ -40,7 +42,7 @@ Sequences can be replicated: `s * n`.
 
 Sequences of the same type can be concatenated: `s + t`.
 
-```pycon
+```python
 >>> a = (1, 2, 3)
 >>> b = (4, 5)
 >>> a + b
@@ -56,7 +58,7 @@ TypeError: can only concatenate tuple (not "list") to tuple
 ### Slicing
 
 Slicing means to take a subsequence from a sequence.
-The syntax used is `s[start:end]`. Where `start` and `end` are the indexes of the subsequence you want.
+The syntax is `s[start:end]`. Where `start` and `end` are the indexes of the subsequence you want.
 
 ```python
 a = [0,1,2,3,4,5,6,7,8]
@@ -67,12 +69,12 @@ a[:3]     # [0,1,2]
 ```
 
 * Indices `start` and `end` must be integers.
-* Slices do *not* include the end value.
+* Slices do *not* include the end value. It is like a half-open interval from math.
 * If indices are omitted, they default to the beginning or end of the list.
 
 ### Slice re-assignment
 
-Slices can also be reassigned and deleted.
+On lists, slices can be reassigned and deleted.
 
 ```python
 # Reassignment
@@ -90,9 +92,9 @@ del a[2:4]                # [0,1,4,5,6,7,8]
 
 ### Sequence Reductions
 
-There are some functions to reduce a sequence to a single value.
+There are some common functions to reduce a sequence to a single value.
 
-```pycon
+```python
 >>> s = [1, 2, 3, 4]
 >>> sum(s)
 10
@@ -106,9 +108,9 @@ There are some functions to reduce a sequence to a single value.
 
 ### Iteration over a sequence
 
-The for-loop iterates over the elements in the sequence.
+The for-loop iterates over the elements in a sequence.
 
-```pycon
+```python
 >>> s = [1, 4, 9, 16]
 >>> for i in s:
 ...     print(i)
@@ -121,7 +123,7 @@ The for-loop iterates over the elements in the sequence.
 ```
 
 On each iteration of the loop, you get a new item to work with.
-This new value is placed into an iteration variable. In this example, the
+This new value is placed into the iteration variable. In this example, the
 iteration variable is `x`:
 
 ```python
@@ -129,12 +131,12 @@ for x in s:         # `x` is an iteration variable
     ...statements
 ```
 
-In each iteration, it overwrites the previous value (if any).
+On each iteration, the previous value of the iteration variable is overwritten (if any).
 After the loop finishes, the variable retains the last value.
 
-### `break` statement
+### break statement
 
-You can use the `break` statement to break out of a loop before it finishes iterating all of the elements.
+You can use the `break` statement to break out of a loop early.
 
 ```python
 for name in namelist:
@@ -145,14 +147,14 @@ for name in namelist:
 statements
 ```
 
-When the `break` statement is executed, it will exit the loop and move
+When the `break` statement executes, it exits the loop and moves
 on the next `statements`.  The `break` statement only applies to the
 inner-most loop. If this loop is within another loop, it will not
 break the outer loop.
 
-### `continue` statement
+### continue statement
 
-To skip one element and move to the next one you use the `continue` statement.
+To skip one element and move to the next one, use the `continue` statement.
 
 ```python
 for line in lines:
@@ -188,10 +190,11 @@ for k in range(10,50,2):
 * The ending value is never included. It mirrors the behavior of slices.
 * `start` is optional. Default `0`.
 * `step` is optional. Default `1`.
+* `range()` computes values as needed. It does not actually store a large range of numbers.
 
-### `enumerate()` function
+### enumerate() function
 
-The `enumerate` function provides a loop with an extra counter value.
+The `enumerate` function adds an extra counter value to iteration.
 
 ```python
 names = ['Elwood', 'Jake', 'Curtis']
@@ -201,7 +204,7 @@ for i, name in enumerate(names):
     # i = 2, name = 'Curtis'
 ```
 
-How to use enumerate: `enumerate(sequence [, start = 0])`. `start` is optional.
+The general form is `enumerate(sequence [, start = 0])`. `start` is optional.
 A good example of using `enumerate()` is tracking line numbers while reading a file:
 
 ```python
@@ -223,7 +226,7 @@ Using `enumerate` is less typing and runs slightly faster.
 
 ### For and tuples
 
-You can loop with multiple iteration variables.
+You can iterate with multiple iteration variables.
 
 ```python
 points = [
@@ -236,11 +239,12 @@ for x, y in points:
     #            ...
 ```
 
-When using multiple variables, each tuple will be *unpacked* into a set of iteration variables.
+When using multiple variables, each tuple is *unpacked* into a set of iteration variables.
+The number of variables must match the of items in each tuple.
 
-### `zip()` function
+### zip() function
 
-The `zip` function takes sequences and makes an iterator that combines them.
+The `zip` function takes multiple sequences and makes an iterator that combines them.
 
 ```python
 columns = ['name', 'shares', 'price']
@@ -268,7 +272,7 @@ d = dict(zip(columns, values))
 
 Try some basic counting examples:
 
-```pycon
+```python
 >>> for n in range(10):            # Count 0 ... 9
         print(n, end=' ')
 
@@ -288,7 +292,7 @@ Try some basic counting examples:
 
 Interactively experiment with some of the sequence reduction operations.
 
-```pycon
+```python
 >>> data = [4, 9, 1, 25, 16, 100, 49]
 >>> min(data)
 1
@@ -301,7 +305,7 @@ Interactively experiment with some of the sequence reduction operations.
 
 Try looping over the data.
 
-```pycon
+```python
 >>> for x in data:
         print(x)
 
@@ -322,7 +326,7 @@ Sometimes the `for` statement, `len()`, and `range()` get used by
 novices in some kind of horrible code fragment that looks like it
 emerged from the depths of a rusty C program.
 
-```pycon
+```python
 >>> for n in range(len(data)):
         print(data[n])
 
@@ -338,10 +342,10 @@ it’s inefficient with memory and it runs a lot slower.  Just use a
 normal `for` loop if you want to iterate over data.  Use `enumerate()`
 if you happen to need the index for some reason.
 
-### Exercise 2.15: A practical `enumerate()` example
+### Exercise 2.15: A practical enumerate() example
 
 Recall that the file `Data/missing.csv` contains data for a stock
-portfolio, but has some rows with missing data.  Using `enumerate()`
+portfolio, but has some rows with missing data.  Using `enumerate()`,
 modify your `pcost.py` program so that it prints a line number with
 the warning message when it encounters bad input.
 
@@ -352,7 +356,7 @@ Row 7: Couldn't convert: ['IBM', '', '70.44']
 >>>
 ```
 
-To do this, you’ll need to change just a few parts of your code.
+To do this, you’ll need to change a few parts of your code.
 
 ```python
 ...
@@ -363,12 +367,12 @@ for rowno, row in enumerate(rows, start=1):
         print(f'Row {rowno}: Bad row: {row}')
 ```
 
-### Exercise 2.16: Using the `zip()` function
+### Exercise 2.16: Using the zip() function
 
-In the file `portfolio.csv`, the first line contains column
+In the file `Data/portfolio.csv`, the first line contains column
 headers. In all previous code, we’ve been discarding them.
 
-```pycon
+```python
 >>> f = open('Data/portfolio.csv')
 >>> rows = csv.reader(f)
 >>> headers = next(rows)
@@ -381,7 +385,7 @@ However, what if you could use the headers for something useful? This
 is where the `zip()` function enters the picture.  First try this to
 pair the file headers with a row of data:
 
-```pycon
+```python
 >>> row = next(rows)
 >>> row
 ['AA', '100', '32.20']
@@ -395,10 +399,10 @@ We’ve used `list()` here to turn the result into a list so that you
 can see it. Normally, `zip()` creates an iterator that must be
 consumed by a for-loop.
 
-This pairing is just an intermediate step to building a
+This pairing is an intermediate step to building a
 dictionary. Now try this:
 
-```pycon
+```python
 >>> record = dict(zip(headers, row))
 >>> record
 {'price': '32.20', 'name': 'AA', 'shares': '100'}
@@ -462,14 +466,14 @@ out of it.  As long as the file has the required columns, the code will work.
 Modify the `report.py` program you wrote in Section 2.3 that it uses
 the same technique to pick out column headers.
 
-Try running the `report.py` program on the `Data/portfoliodate.csv` file and see that it
-produces the same answer as before.
+Try running the `report.py` program on the `Data/portfoliodate.csv`
+file and see that it produces the same answer as before.
 
 ### Exercise 2.17: Inverting a dictionary
 
 A dictionary maps keys to values. For example, a dictionary of stock prices.
 
-```pycon
+```python
 >>> prices = {
         'GOOG' : 490.1,
         'AA' : 23.45,
@@ -481,7 +485,7 @@ A dictionary maps keys to values. For example, a dictionary of stock prices.
 
 If you use the `items()` method, you can get `(key,value)` pairs:
 
-```pycon
+```python
 >>> prices.items()
 dict_items([('GOOG', 490.1), ('AA', 23.45), ('IBM', 91.1), ('MSFT', 34.23)])
 >>>
@@ -490,7 +494,7 @@ dict_items([('GOOG', 490.1), ('AA', 23.45), ('IBM', 91.1), ('MSFT', 34.23)])
 However, what if you wanted to get a list of `(value, key)` pairs instead?
 *Hint: use `zip()`.*
 
-```pycon
+```python
 >>> pricelist = list(zip(prices.values(),prices.keys()))
 >>> pricelist
 [(490.1, 'GOOG'), (23.45, 'AA'), (91.1, 'IBM'), (34.23, 'MSFT')]
@@ -500,7 +504,7 @@ However, what if you wanted to get a list of `(value, key)` pairs instead?
 Why would you do this? For one, it allows you to perform certain kinds
 of data processing on the dictionary data.
 
-```pycon
+```python
 >>> min(pricelist)
 (23.45, 'AA')
 >>> max(pricelist)
@@ -523,7 +527,7 @@ values.
 Note that `zip()` is not limited to pairs. For example, you can use it
 with any number of input lists:
 
-```pycon
+```python
 >>> a = [1, 2, 3, 4]
 >>> b = ['w', 'x', 'y', 'z']
 >>> c = [0.2, 0.4, 0.6, 0.8]
@@ -534,7 +538,7 @@ with any number of input lists:
 
 Also, be aware that `zip()` stops once the shortest input sequence is exhausted.
 
-```pycon
+```python
 >>> a = [1, 2, 3, 4, 5, 6]
 >>> b = ['x', 'y', 'z']
 >>> list(zip(a,b))

@@ -1,4 +1,8 @@
+[Contents](../Contents) \| [Previous (1.6 Files)](../01_Introduction/06_Files) \| [Next (2.2 Containers)](02_Containers)
+
 # 2.1 Datatypes and Data structures
+
+This section introduces data structures in the form of tuples and dictionaries.
 
 ### Primitive Datatypes
 
@@ -16,7 +20,8 @@ We learned about these in the introduction.
 email_address = None
 ```
 
-This type is often used as a placeholder for optional or missing value.
+`None` is often used as a placeholder for optional or missing value.  It
+evaluates as `False` in conditionals.
 
 ```python
 if email_address:
@@ -25,8 +30,7 @@ if email_address:
 
 ### Data Structures
 
-Real programs have more complex data than the ones that can be easily represented by the datatypes learned so far.
-For example information about a stock:
+Real programs have more complex data. For example information about a stock holding:
 
 ```code
 100 shares of GOOG at $490.10
@@ -61,7 +65,7 @@ t = ()            # An empty tuple
 w = ('GOOG', )    # A 1-item tuple
 ```
 
-Tuples are usually used to represent *simple* records or structures.
+Tuples are often used to represent *simple* records or structures.
 Typically, it is a single *object* of multiple parts. A good analogy: *A tuple is like a single row in a database table.*
 
 Tuple contents are ordered (like an array).
@@ -73,9 +77,9 @@ shares = s[1]               # 100
 price = s[2]                # 490.1
 ```
 
-However, th contents can't be modified.
+However, the contents can't be modified.
 
-```pycon
+```python
 >>> s[1] = 75
 TypeError: object does not support item assignment
 ```
@@ -88,7 +92,7 @@ s = (s[0], 75, s[2])
 
 ### Tuple Packing
 
-Tuples are focused more on packing related items together into a single *entity*.
+Tuples are more about packing related items together into a single *entity*.
 
 ```python
 s = ('GOOG', 100, 490.1)
@@ -105,7 +109,7 @@ name, shares, price = s
 print('Cost', shares * price)
 ```
 
-The number of variables must match the tuple structure.
+The number of variables on the left must match the tuple structure.
 
 ```python
 name, shares = s     # ERROR
@@ -116,19 +120,20 @@ ValueError: too many values to unpack
 
 ### Tuples vs. Lists
 
-Tuples are NOT just read-only lists. Tuples are most ofter used for a *single item* consisting of multiple parts.
-Lists are usually a collection of distinct items, usually all of the same type.
+Tuples look like read-only lists. However, tuples are most often used
+for a *single item* consisting of multiple parts.  Lists are usually a
+collection of distinct items, usually all of the same type.
 
 ```python
-record = ('GOOG', 100, 490.1)       # A tuple representing a stock in a portfolio
+record = ('GOOG', 100, 490.1)       # A tuple representing a record in a portfolio
 
 symbols = [ 'GOOG', 'AAPL', 'IBM' ]  # A List representing three stock symbols
 ```
 
 ### Dictionaries
 
-A dictionary is a hash table or associative array.
-It is a collection of values indexed by *keys*. These keys serve as field names.
+A dictionary is mapping of keys to values.  It's also sometimes called a hash table or
+associative array.  The keys serve as indices for accessing values.
 
 ```python
 s = {
@@ -140,9 +145,9 @@ s = {
 
 ### Common operations
 
-To read values from a dictionary use the key names.
+To get values from a dictionary use the key names.
 
-```pycon
+```python
 >>> print(s['name'], s['shares'])
 GOOG 100
 >>> s['price']
@@ -152,7 +157,7 @@ GOOG 100
 
 To add or modify values assign using the key names.
 
-```pycon
+```python
 >>> s['shares'] = 75
 >>> s['date'] = '6/6/2007'
 >>>
@@ -160,7 +165,7 @@ To add or modify values assign using the key names.
 
 To delete a value use the `del` statement.
 
-```pycon
+```python
 >>> del s['date']
 >>>
 ```
@@ -178,11 +183,11 @@ s[2]
 
 ## Exercises
 
-### Note
+In the last few exercises, you wrote a program that read a datafile
+`Data/portfolio.csv`. Using the `csv` module, it is easy to read the
+file row-by-row.
 
-In the last few exercises, you wrote a program that read a datafile `Data/portfolio.csv`. Using the `csv` module, it is easy to read the file row-by-row.
-
-```pycon
+```python
 >>> import csv
 >>> f = open('Data/portfolio.csv')
 >>> rows = csv.reader(f)
@@ -194,11 +199,13 @@ In the last few exercises, you wrote a program that read a datafile `Data/portfo
 >>>
 ```
 
-Although reading the file is easy, you often want to do more with the data than read it. 
-For instance, perhaps you want to store it and start performing some calculations on it. 
-Unfortunately, a raw "row" of data doesn’t give you enough to work with. For example, even a simple math calculation doesn’t work:
+Although reading the file is easy, you often want to do more with the
+data than read it.  For instance, perhaps you want to store it and
+start performing some calculations on it.  Unfortunately, a raw "row"
+of data doesn’t give you enough to work with. For example, even a
+simple math calculation doesn’t work:
 
-```pycon
+```python
 >>> row = ['AA', '100', '32.20']
 >>> cost = row[1] * row[2]
 Traceback (most recent call last):
@@ -207,8 +214,9 @@ TypeError: can't multiply sequence by non-int of type 'str'
 >>>
 ```
 
-To do more, you typically want to interpret the raw data in some way and turn it into a more useful kind of object so that you can work with it later.
-Two simple options are tuples or dictionaries.
+To do more, you typically want to interpret the raw data in some way
+and turn it into a more useful kind of object so that you can work
+with it later.  Two simple options are tuples or dictionaries.
 
 ### Exercise 2.1: Tuples
 
@@ -216,16 +224,17 @@ At the interactive prompt, create the following tuple that represents
 the above row, but with the numeric columns converted to proper
 numbers:
 
-```pycon
+```python
 >>> t = (row[0], int(row[1]), float(row[2]))
 >>> t
 ('AA', 100, 32.2)
 >>>
 ```
 
-Using this, you can now calculate the total cost by multiplying the shares and the price:
+Using this, you can now calculate the total cost by multiplying the
+shares and the price:
 
-```pycon
+```python
 >>> cost = t[1] * t[2]
 >>> cost
 3220.0000000000005
@@ -244,15 +253,16 @@ surprising if you haven’t seen it before.
 This happens in all programming languages that use floating point
 decimals, but it often gets hidden when printing. For example:
 
-```pycon
+```python
 >>> print(f'{cost:0.2f}')
 3220.00
 >>>
 ```
 
-Tuples are read-only. Verify this by trying to change the number of shares to 75.
+Tuples are read-only. Verify this by trying to change the number of
+shares to 75.
 
-```pycon
+```python
 >>> t[1] = 75
 Traceback (most recent call last):
     File "<stdin>", line 1, in <module>
@@ -260,9 +270,10 @@ TypeError: 'tuple' object does not support item assignment
 >>>
 ```
 
-Although you can’t change tuple contents, you can always create a completely new tuple that replaces the old one.
+Although you can’t change tuple contents, you can always create a
+completely new tuple that replaces the old one.
 
-```pycon
+```python
 >>> t = (t[0], 75, t[2])
 >>> t
 ('AA', 75, 32.2)
@@ -274,9 +285,10 @@ value is discarded.  Although the above assignment might look like you
 are modifying the tuple, you are actually creating a new tuple and
 throwing the old one away.
 
-Tuples are often used to pack and unpack values into variables. Try the following:
+Tuples are often used to pack and unpack values into variables. Try
+the following:
 
-```pycon
+```python
 >>> name, shares, price = t
 >>> name
 'AA'
@@ -289,7 +301,7 @@ Tuples are often used to pack and unpack values into variables. Try the followin
 
 Take the above variables and pack them back into a tuple
 
-```pycon
+```python
 >>> t = (name, 2*shares, price)
 >>> t
 ('AA', 150, 32.2)
@@ -300,7 +312,7 @@ Take the above variables and pack them back into a tuple
 
 An alternative to a tuple is to create a dictionary instead.
 
-```pycon
+```python
 >>> d = {
         'name' : row[0],
         'shares' : int(row[1]),
@@ -313,25 +325,27 @@ An alternative to a tuple is to create a dictionary instead.
 
 Calculate the total cost of this holding:
 
-```pycon
+```python
 >>> cost = d['shares'] * d['price']
 >>> cost
 3220.0000000000005
 >>>
 ```
 
-Compare this example with the same calculation involving tuples above. Change the number of shares to 75.
+Compare this example with the same calculation involving tuples
+above. Change the number of shares to 75.
 
-```pycon
+```python
 >>> d['shares'] = 75
 >>> d
 {'name': 'AA', 'shares': 75, 'price': 75}
 >>>
 ```
 
-Unlike tuples, dictionaries can be freely modified. Add some attributes:
+Unlike tuples, dictionaries can be freely modified. Add some
+attributes:
 
-```pycon
+```python
 >>> d['date'] = (6, 11, 2007)
 >>> d['account'] = 12345
 >>> d
@@ -343,15 +357,16 @@ Unlike tuples, dictionaries can be freely modified. Add some attributes:
 
 If you turn a dictionary into a list, you’ll get all of its keys:
 
-```pycon
+```python
 >>> list(d)
 ['name', 'shares', 'price', 'date', 'account']
 >>>
 ```
 
-Similarly, if you use the `for` statement to iterate on a dictionary, you will get the keys:
+Similarly, if you use the `for` statement to iterate on a dictionary,
+you will get the keys:
 
-```pycon
+```python
 >>> for k in d:
         print('k =', k)
 
@@ -365,7 +380,7 @@ k = account
 
 Try this variant that performs a lookup at the same time:
 
-```pycon
+```python
 >>> for k in d:
         print(k, '=', d[k])
 
@@ -379,7 +394,7 @@ account = 12345
 
 You can also obtain all of the keys using the `keys()` method:
 
-```pycon
+```python
 >>> keys = d.keys()
 >>> keys
 dict_keys(['name', 'shares', 'price', 'date', 'account'])
@@ -388,20 +403,24 @@ dict_keys(['name', 'shares', 'price', 'date', 'account'])
 
 `keys()` is a bit unusual in that it returns a special `dict_keys` object.
 
-This is an overlay on the original dictionary that always gives you the current keys—even if the dictionary changes. For example, try this:
+This is an overlay on the original dictionary that always gives you
+the current keys—even if the dictionary changes. For example, try
+this:
 
-```pycon
+```python
 >>> del d['account']
 >>> keys
 dict_keys(['name', 'shares', 'price', 'date'])
 >>>
 ```
 
-Carefully notice that the `'account'` disappeared from `keys` even though you didn’t call `d.keys()` again.
+Carefully notice that the `'account'` disappeared from `keys` even
+though you didn’t call `d.keys()` again.
 
-A more elegant way to work with keys and values together is to use the `items()` method. This gives you `(key, value)` tuples:
+A more elegant way to work with keys and values together is to use the
+`items()` method. This gives you `(key, value)` tuples:
 
-```pycon
+```python
 >>> items = d.items()
 >>> items
 dict_items([('name', 'AA'), ('shares', 75), ('price', 32.2), ('date', (6, 11, 2007))])
@@ -415,9 +434,10 @@ date = (6, 11, 2007)
 >>>
 ```
 
-If you have tuples such as `items`, you can create a dictionary using the `dict()` function. Try it:
+If you have tuples such as `items`, you can create a dictionary using
+the `dict()` function. Try it:
 
-```pycon
+```python
 >>> items
 dict_items([('name', 'AA'), ('shares', 75), ('price', 32.2), ('date', (6, 11, 2007))])
 >>> d = dict(items)

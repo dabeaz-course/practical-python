@@ -1,4 +1,8 @@
+[Contents](../Contents) \| [Previous (2.1 Datatypes)](01_Datatypes) \| [Next (2.3 Formatting)](03_Formatting)
+
 # 2.2 Containers
+
+This section discusses lists, dictionaries, and sets. 
 
 ### Overview
 
@@ -11,11 +15,11 @@ There are three main choices to use.
 
 * Lists. Ordered data.
 * Dictionaries. Unordered data.
-* Sets. Unordered collection
+* Sets. Unordered collection of unique items.
 
 ### Lists as a Container
 
-Use a list when the order of the data matters. Remember that lists can hold any kind of objects.
+Use a list when the order of the data matters. Remember that lists can hold any kind of object.
 For example, a list of tuples.
 
 ```python
@@ -47,7 +51,7 @@ An example when reading records from a file.
 ```python
 records = []  # Initial empty list
 
-with open('portfolio.csv', 'rt') as f:
+with open('Data/portfolio.csv', 'rt') as f:
     for line in f:
         row = line.split(',')
         records.append((row[0], int(row[1])), float(row[2]))
@@ -69,7 +73,7 @@ prices = {
 
 Here are some simple lookups:
 
-```pycon
+```python
 >>> prices['IBM']
 93.37
 >>> prices['GOOG']
@@ -95,7 +99,7 @@ An example populating the dict from the contents of a file.
 ```python
 prices = {} # Initial empty dict
 
-with open('prices.csv', 'rt') as f:
+with open('Data/prices.csv', 'rt') as f:
     for line in f:
         row = line.split(',')
         prices[row[0]] = float(row[1])
@@ -143,12 +147,13 @@ holidays = {
 
 Then to access:
 
-```pycon
->>> holidays[3, 14] 'Pi day'
+```python
+>>> holidays[3, 14]
+'Pi day'
 >>>
 ```
 
-*Neither a list nor another dictionary can serve as a dictionary key, because lists and dictionaries are mutable.*
+*Neither a list, a set, nor another dictionary can serve as a dictionary key, because lists and dictionaries are mutable.*
 
 ### Sets
 
@@ -162,7 +167,7 @@ tech_stocks = set(['IBM', 'AAPL', 'MSFT'])
 
 Sets are useful for membership tests.
 
-```pycon
+```python
 >>> tech_stocks
 set(['AAPL', 'IBM', 'MSFT'])
 >>> 'IBM' in tech_stocks
@@ -193,6 +198,9 @@ s1 - s2                 # Set difference
 ```
 
 ## Exercises
+
+In these exercises, you start building one of the major programs used
+for the rest of this course.  Do your work in the file `Work/report.py`.
 
 ### Exercise 2.4: A list of tuples
 
@@ -227,7 +235,8 @@ that file, define a function `read_portfolio(filename)` that opens a
 given portfolio file and reads it into a list of tuples.  To do this,
 you’re going to make a few minor modifications to the above code.
 
-First, instead of defining `total_cost = 0`, you’ll make a variable that’s initially set to an empty list. For example:
+First, instead of defining `total_cost = 0`, you’ll make a variable
+that’s initially set to an empty list. For example:
 
 ```python
 portfolio = []
@@ -251,7 +260,7 @@ interpreter):
 
 *Hint: Use `-i` when executing the file in the terminal*
 
-```pycon
+```python
 >>> portfolio = read_portfolio('Data/portfolio.csv')
 >>> portfolio
 [('AA', 100, 32.2), ('IBM', 50, 91.1), ('CAT', 150, 83.44), ('MSFT', 200, 51.23),
@@ -291,14 +300,15 @@ That said, you can also rewrite the last for-loop using a statement like this:
 
 ### Exercise 2.5: List of Dictionaries
 
-Take the function you wrote in part (a) and modify to represent each
+Take the function you wrote in Exercise 2.4 and modify to represent each
 stock in the portfolio with a dictionary instead of a tuple.  In this
 dictionary use the field names of "name", "shares", and "price" to
 represent the different columns in the input file.
 
-Experiment with this new function in the same manner as you did in Exercise 2.4.
+Experiment with this new function in the same manner as you did in
+Exercise 2.4.
 
-```pycon
+```python
 >>> portfolio = read_portfolio('portfolio.csv')
 >>> portfolio
 [{'name': 'AA', 'shares': 100, 'price': 32.2}, {'name': 'IBM', 'shares': 50, 'price': 91.1},
@@ -327,7 +337,7 @@ often preferred because the resulting code is easier to read later.
 Viewing large dictionaries and lists can be messy. To clean up the
 output for debugging, considering using the `pprint` function.
 
-```pycon
+```python
 >>> from pprint import pprint
 >>> pprint(portfolio)
 [{'name': 'AA', 'price': 32.2, 'shares': 100},
@@ -346,7 +356,7 @@ A dictionary is a useful way to keep track of items where you want to
 look up items using an index other than an integer.  In the Python
 shell, try playing with a dictionary:
 
-```pycon
+```python
 >>> prices = { }
 >>> prices['IBM'] = 92.45
 >>> prices['MSFT'] = 45.12
@@ -388,7 +398,7 @@ A few little tips that you’ll need for this part. First, make sure you
 use the `csv` module just as you did before—there’s no need to
 reinvent the wheel here.
 
-```pycon
+```python
 >>> import csv
 >>> f = open('Data/prices.csv', 'r')
 >>> rows = csv.reader(f)
@@ -409,7 +419,8 @@ an empty list—meaning no data was present on that line.
 
 There’s a possibility that this could cause your program to die with
 an exception.  Use the `try` and `except` statements to catch this as
-appropriate.
+appropriate.  Thought: would it be better to guard against bad data with
+an `if`-statement instead?
 
 Once you have written your `read_prices()` function, test it
 interactively to make sure it works:
@@ -425,10 +436,11 @@ interactively to make sure it works:
 
 ### Exercise 2.7: Finding out if you can retire
 
-Tie all of this work together by adding the statements to your
-`report.py` program.  It takes the list of stocks in Exercise 2.5 and
-the dictionary of prices in Exercise 2.6 and computes the current
-value of the portfolio along with the gain/loss.
+Tie all of this work together by adding a few additional statements to
+your `report.py` program that compute gain/loss. These statements
+should take the list of stocks in Exercise 2.5 and the dictionary of
+prices in Exercise 2.6 and computes the current value of the portfolio
+along with the gain/loss.
 
 [Contents](../Contents) \| [Previous (2.1 Datatypes)](01_Datatypes) \| [Next (2.3 Formatting)](03_Formatting)
 
