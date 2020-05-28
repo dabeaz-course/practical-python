@@ -20,7 +20,7 @@ Float = lambda name: typedproperty(name, float)
 
 # Example
 if __name__ == '__main__':
-    class Stock(object):
+    class Stock:
         name = typedproperty('name', str)
         shares = typedproperty('shares', int)
         price = typedproperty('price', float)

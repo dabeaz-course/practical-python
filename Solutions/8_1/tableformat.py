@@ -1,6 +1,6 @@
 # tableformat.py
 
-class TableFormatter(object):
+class TableFormatter:
     def headings(self, headers):
         '''
         Emit the table headers

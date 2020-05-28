@@ -3,7 +3,7 @@
 import fileparse
 import stock
 
-class Portfolio(object):
+class Portfolio:
     def __init__(self):
         self._holdings = []
 

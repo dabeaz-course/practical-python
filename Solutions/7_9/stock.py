@@ -2,7 +2,7 @@
 
 from typedproperty import String, Integer, Float
 
-class Stock(object):
+class Stock:
     '''
     An instance of a stock holding consisting of name, shares, and price.
     '''
