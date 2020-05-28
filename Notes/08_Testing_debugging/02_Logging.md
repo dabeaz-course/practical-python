@@ -4,7 +4,7 @@
 
 This section briefly introduces the logging module.
 
-### `logging` Module
+### logging Module
 
 The `logging` module is a standard library module for recording
 diagnostic information.  It's also a very large module with a lot of
@@ -54,7 +54,7 @@ except ValueError as e:
 
 Neither solution is satisfactory because you often want *both* behaviors (user selectable).
 
-### Using `logging`
+### Using logging
 
 The `logging` module can address this.
 
