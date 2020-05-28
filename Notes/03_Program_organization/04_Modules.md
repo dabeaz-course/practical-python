@@ -1,6 +1,9 @@
+[Contents](../Contents) \| [Previous (3.3 Error Checking)](03_Error_checking) \| [Next (3.5 Main Module)](05_Main_module)
+
 # 3.4 Modules
 
-This section introduces the concept of modules.
+This section introduces the concept of modules and working with functions that span 
+multiple files. 
 
 ### Modules and import
 
@@ -27,9 +30,10 @@ b = foo.spam('Hello')
 
 ### Namespaces
 
-A module is a collection of named values and is sometimes said to be a *namespace*.
-The names are all of the global variables and functions defined in the source file.
-After importing, the module name is used as a prefix. Hence the *namespace*.
+A module is a collection of named values and is sometimes said to be a
+*namespace*.  The names are all of the global variables and functions
+defined in the source file.  After importing, the module name is used
+as a prefix. Hence the *namespace*.
 
 ```python
 import foo
@@ -39,12 +43,12 @@ b = foo.spam('Hello')
 ...
 ```
 
-The module name is tied to the file name (foo -> foo.py).
+The module name is directly tied to the file name (foo -> foo.py).
 
 ### Global Definitions
 
 Everything defined in the *global* scope is what populates the module
-namespace. `foo` in our previous example.   Consider two modules
+namespace. Consider two modules
 that define the same variable `x`.
 
 ```python
@@ -118,14 +122,16 @@ def rectangular(r, theta):
     return x, y
 ```
 
-It allows parts of a module to be used without having to type the module prefix.
-Useful for frequently used names.
+This allows parts of a module to be used without having to type the module prefix.
+It's useful for frequently used names.
 
 ### Comments on importing
 
 Variations on import do *not* change the way that modules work.
 
 ```python
+import math
+# vs
 import math as m
 # vs
 from math import cos, sin
@@ -135,7 +141,10 @@ from math import cos, sin
 Specifically, `import` always executes the *entire* file and modules
 are still isolated environments.
 
-The `import module as` statement is only manipulating the names.
+The `import module as` statement is only changing the name locally.
+The `from math import cos, sin` statement still loads the entire
+math module behind the scenes. It's merely copying the `cos` and `sin`
+names from the module into the local space after it's done.
 
 ### Module Loading
 
@@ -150,6 +159,12 @@ Each module loads and executes only *once*.
 ['copy_reg', '__main__', 'site', '__builtin__', 'encodings', 'encodings.encodings', 'posixpath', ...]
 >>>
 ```
+
+**Caution:** A common confusion arises if you repeat an `import` statement after
+changing the source code for a module.  Because of the module cache `sys.modules`,
+repeated imports always return the previously loaded module--even if a change
+was made.  The safest way to load modified code into Python is to quit and restart
+the interpreter.   
 
 ### Locating Modules
 
@@ -166,12 +181,11 @@ Python consults a path list (sys.path) when looking for modules.
 ]
 ```
 
-Current working directory is usually first.
+The current working directory is usually first.
 
 ### Module Search Path
 
-`sys.path` contains the search paths.
-
+As noted, `sys.path` contains the search paths.
 You can manually adjust if you need to.
 
 ```python
@@ -179,7 +193,7 @@ import sys
 sys.path.append('/project/foo/pyfiles')
 ```
 
-Paths are also added via environment variables.
+Paths can also be added via environment variables.
 
 ```python
 % env PYTHONPATH=/project/foo/pyfiles python3
@@ -190,16 +204,26 @@ Python 3.6.0 (default, Feb 3 2017, 05:53:21)
 ['','/project/foo/pyfiles', ...]
 ```
 
+As a general rule, it should not be necessary to manually adjust
+the module search path.  However, it sometimes arises if you're
+trying to import Python code that's in an unusual location or
+not readily accessible from the current working directory.
+
 ## Exercises
 
 For this exercise involving modules, it is critically important to
-make sure you are running Python in a proper environment.  Modules
-are usually when programmers encounter problems with the current working
-directory or with Python's path settings.
+make sure you are running Python in a proper environment.  Modules are
+usually when programmers encounter problems with the current working
+directory or with Python's path settings.  For this course, it is 
+assumed that you're writing all of your code in the `Work/` directory.
+For best results, you should make sure you're also in that directory
+when you launch the interpreter.  If not, you need to make sure
+`practical-python/Work` is added to `sys.path`.
 
 ### Exercise 3.11: Module imports
 
-In section 3, we created a general purpose function `parse_csv()` for parsing the contents of CSV datafiles.
+In section 3, we created a general purpose function `parse_csv()` for
+parsing the contents of CSV datafiles.
 
 Now, we’re going to see how to use that function in other programs.
 First, start in a new shell window.  Navigate to the folder where you
@@ -217,7 +241,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 Once you’ve done that, try importing some of the programs you
 previously wrote.  You should see their output exactly as before.
-Just emphasize, importing a module runs its code.
+Just to emphasize, importing a module runs its code.
 
 ```python
 >>> import bounce
@@ -272,16 +296,16 @@ Try importing a function so that you don’t need to include the module name:
 
 In section 2, you wrote a program `report.py` that produced a stock report like this:
 
-```shell
-          Name     Shares      Price     Change
-    ---------- ---------- ---------- ----------
-            AA        100      39.91       7.71
-           IBM         50     106.11      15.01
-           CAT        150      78.58      -4.86
-          MSFT        200      30.47     -20.76
-            GE         95      37.38      -2.99
-          MSFT         50      30.47     -34.63
-           IBM        100     106.11      35.67
+```
+      Name     Shares      Price     Change
+---------- ---------- ---------- ----------
+        AA        100      39.91       7.71
+       IBM         50     106.11      15.01
+       CAT        150      78.58      -4.86
+      MSFT        200      30.47     -20.76
+        GE         95      37.38      -2.99
+      MSFT         50      30.47     -34.63
+       IBM        100     106.11      35.67
 ```
 
 Take that program and modify it so that all of the input file
@@ -312,6 +336,6 @@ programs. `fileparse.py` which contains a general purpose
 `parse_csv()` function.  `report.py` which produces a nice report, but
 also contains `read_portfolio()` and `read_prices()` functions.  And
 finally, `pcost.py` which computes the portfolio cost, but makes use
-of the code written for the `report.py` program.
+of the `read_portfolio()` function written for the `report.py` program.
 
 [Contents](../Contents) \| [Previous (3.3 Error Checking)](03_Error_checking) \| [Next (3.5 Main Module)](05_Main_module)

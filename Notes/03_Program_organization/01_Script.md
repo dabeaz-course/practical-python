@@ -1,3 +1,5 @@
+[Contents](../Contents) \| [Previous (2.7 Object Model)](../02_Working_with_data/07_Objects) \| [Next (3.2 More on Functions)](02_More_functions)
+
 # 3.1 Scripting
 
 In this part we look more closely at the practice of writing Python
@@ -16,7 +18,7 @@ statement3
 ...
 ```
 
-We have been writing scripts to this point.
+We have mostly been writing scripts to this point.
 
 ### A Problem
 
@@ -28,7 +30,7 @@ organized.
 
 ### Defining Things
 
-You must always define things before they get used later on in a program.
+Names must always be defined before they get used later.
 
 ```python
 def square(x):
@@ -41,11 +43,12 @@ z = square(b) # Requires `square` and `b` to be defined
 ```
 
 **The order is important.**
-You almost always put the definitions of variables an functions near the beginning.
+You almost always put the definitions of variables and functions near the top.
 
 ### Defining Functions
 
 It is a good idea to put all of the code related to a single *task* all in one place.
+Use a function.
 
 ```python
 def read_prices(filename):
@@ -85,7 +88,7 @@ def foo():
     help(math)
 ```
 
-There are no *special* statements in Python.
+There are no *special* statements in Python (which makes it easy to remember).
 
 ### Function Definition
 
@@ -106,13 +109,14 @@ def foo(x):
     bar(x)
 ```
 
-Functions must only be defined before they are actually *used* (or called) during program execution.
+Functions must only be defined prior to actually being *used* (or called) during program execution.
 
 ```python
 foo(3)        # foo must be defined already
 ```
 
-Stylistically, it is probably more common to see functions defined in a *bottom-up* fashion.
+Stylistically, it is probably more common to see functions defined in
+a *bottom-up* fashion.
 
 ### Bottom-up Style
 
@@ -137,24 +141,26 @@ def spam(x):
 spam(42)            # Code that uses the functions appears at the end
 ```
 
-Later functions build upon earlier functions.
+Later functions build upon earlier functions.  Again, this is only
+a point of style.  The only thing that matters in the above program
+is that the call to `spam(42)` go last.  
 
 ### Function Design
 
 Ideally, functions should be a *black box*.
 They should only operate on passed inputs and avoid global variables
-and mysterious side-effects.  Main goals: *Modularity* and *Predictability*.
+and mysterious side-effects.  Your main goals: *Modularity* and *Predictability*.
 
 ### Doc Strings
 
-A good practice is to include documentations in the form of
-doc-strings.  Doc-strings are strings written immediately after the
+It's good practice to include documentation in the form of a 
+doc-string.  Doc-strings are strings written immediately after the
 name of the function. They feed `help()`, IDEs and other tools.
 
 ```python
 def read_prices(filename):
     '''
-    Read prices from a CSV file of name,price
+    Read prices from a CSV file of name,price data
     '''
     prices = {}
     with open(filename) as f:
@@ -164,14 +170,19 @@ def read_prices(filename):
     return prices
 ```
 
+A good practice for doc strings is to write a short one sentence
+summary of what the function does.  If more information is needed,
+include a short example of usage along with a more detailed
+description of the arguments.
+
 ### Type Annotations
 
-You can also add some optional type annotations to your function definitions.
+You can also add optional type hints to function definitions.
 
 ```python
 def read_prices(filename: str) -> dict:
     '''
-    Read prices from a CSV file of name,price
+    Read prices from a CSV file of name,price data
     '''
     prices = {}
     with open(filename) as f:
@@ -181,13 +192,15 @@ def read_prices(filename: str) -> dict:
     return prices
 ```
 
-These do nothing. It is purely informational.
-They may be used by IDEs, code checkers, etc.
+The hints do nothing operationally. They are purely informational.
+However, they may be used by IDEs, code checkers, and other tools
+to do more. 
 
 ## Exercises
 
-In section 2, you wrote a program called `report.py` that printed out a report showing the performance of a stock portfolio.
-This program consisted of some functions. For example:
+In section 2, you wrote a program called `report.py` that printed out
+a report showing the performance of a stock portfolio.  This program
+consisted of some functions. For example:
 
 ```python
 # report.py
@@ -215,8 +228,9 @@ def read_portfolio(filename):
 ...
 ```
 
-However, there were also portions of the program that just performed a series of scripted calculations.
-This code appeared near the end of the program. For example:
+However, there were also portions of the program that just performed a
+series of scripted calculations.  This code appeared near the end of
+the program. For example:
 
 ```python
 ...
@@ -231,7 +245,8 @@ for row in report:
 ...
 ```
 
-In this exercise, we’re going take this program and organize it a little more strongly around the use of functions.
+In this exercise, we’re going take this program and organize it a
+little more strongly around the use of functions.
 
 ### Exercise 3.1: Structuring a program as a collection of functions
 
@@ -242,10 +257,12 @@ functions. Specifically:
 * Create a function `print_report(report)` that prints out the report.
 * Change the last part of the program so that it is nothing more than a series of function calls and no other computation.
 
-### Exercise 3.2: Creating a function for program execution
+### Exercise 3.2: Creating a top-level function for program execution
 
-Take the last part of your program and package it into a single function `portfolio_report(portfolio_filename, prices_filename)`.
-Have the function work so that the following function call creates the report as before:
+Take the last part of your program and package it into a single
+function `portfolio_report(portfolio_filename, prices_filename)`.
+Have the function work so that the following function call creates the
+report as before:
 
 ```python
 portfolio_report('Data/portfolio.csv', 'Data/prices.csv')
@@ -256,8 +273,9 @@ of function definitions followed by a single function call to
 `portfolio_report()` at the very end (which executes all of the steps
 involved in the program).
 
-By turning your program into a single function, it becomes easy to run it on different inputs.
-For example, try these statements interactively after running your program:
+By turning your program into a single function, it becomes easy to run
+it on different inputs.  For example, try these statements
+interactively after running your program:
 
 ```python
 >>> portfolio_report('Data/portfolio2.csv', 'Data/prices.csv')
@@ -271,5 +289,14 @@ For example, try these statements interactively after running your program:
 ... look at the output ...
 >>>
 ```
+
+### Commentary
+
+Python makes it very easy to write relatively unstructured scripting code
+where you just have a file with a sequence of statements in it. In the
+big picture, it's almost always better to utilize functions whenever
+you can.  At some point, that script is going to grow and you'll wish
+you had a bit more organization.  Also, a little known fact is that Python
+runs a bit faster if you use functions.
 
 [Contents](../Contents) \| [Previous (2.7 Object Model)](../02_Working_with_data/07_Objects) \| [Next (3.2 More on Functions)](02_More_functions)

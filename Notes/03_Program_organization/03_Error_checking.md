@@ -1,11 +1,15 @@
+[Contents](../Contents) \| [Previous (3.2 More on Functions)](02_More_functions) \| [Next (3.4 Modules)](04_Modules)
+
 # 3.3 Error Checking
 
-This section discusses some aspects of error checking and exception handling.
+Although exceptions were introduced earlier, this section fills in some additional
+details about error checking and exception handling.
 
 ### How programs fail
 
-Python performs no checking or validation of function argument types or values.
-A function will work on any data that is compatible with the statements in the function.
+Python performs no checking or validation of function argument types
+or values.  A function will work on any data that is compatible with
+the statements in the function.
 
 ```python
 def add(x, y):
@@ -16,7 +20,7 @@ add('Hello', 'World')   # 'HelloWorld'
 add('3', '4')           # '34'
 ```
 
-If there are errors in a function, they will show up at run time (as an exception).
+If there are errors in a function, they appear at run time (as an exception).
 
 ```python
 def add(x, y):
@@ -38,8 +42,8 @@ Exceptions are used to signal errors.
 To raise an exception yourself, use `raise` statement.
 
 ```python
-if name not in names:
-    raise RuntimeError('Name not found')
+if name not in authorized:
+    raise RuntimeError(f'{name} not authorized')
 ```
 
 To catch an exception use `try-except`.
@@ -78,7 +82,8 @@ def foo():
 foo()
 ```
 
-To handle the exception, use the `except` block. You can add any statements you want to handle the error.
+To handle the exception, put statements in the `except` block. You can add any
+statements you want to handle the error.
 
 ```python
 def grok(): ...
@@ -95,7 +100,8 @@ def bar():
 bar()
 ```
 
-After handling, execution resumes with the first statement after the `try-except`.
+After handling, execution resumes with the first statement after the
+`try-except`.
 
 ```python
 def grok(): ...
@@ -117,8 +123,10 @@ bar()
 
 ### Built-in Exceptions
 
-There are about two-dozen built-in exceptions.
-This is not an exhaustive list. Check the documentation for more.
+There are about two-dozen built-in exceptions.  Usually the name of
+the exception is indicative of what's wrong (e.g., a `ValueError` is
+raised because you supplied a bad value). This is not an
+exhaustive list. Check the documentation for more.
 
 ```python
 ArithmeticError
@@ -141,22 +149,23 @@ ValueError
 
 ### Exception Values
 
-Most exceptions have an associated value. It contains more information about what's wrong.
+Exceptions have an associated value. It contains more specific
+information about what's wrong.
 
 ```python
 raise RuntimeError('Invalid user name')
 ```
 
-This value is passed to the variable supplied in `except`.
+This value is part of the exception instance that's placed in the variable supplied to `except`.
 
 ```python
 try:
     ...
-except RuntimeError as e:   # `e` holds the value raised
+except RuntimeError as e:   # `e` holds the exception raised
     ...
 ```
 
-The value is an instance of the exception type. However, it often looks like a string when
+`e` is an instance of the exception type. However, it often looks like a string when
 printed.
 
 ```python
@@ -166,7 +175,7 @@ except RuntimeError as e:
 
 ### Catching Multiple Errors
 
-You can catch different kinds of exceptions with multiple `except` blocks.
+You can catch different kinds of exceptions using multiple `except` blocks.
 
 ```python
 try:
@@ -181,7 +190,7 @@ except KeyboardInterrupt as e:
   ...
 ```
 
-Alternatively, if the block to handle them is the same, you can group them:
+Alternatively, if the statements to handle them is the same, you can group them:
 
 ```python
 try:
@@ -197,12 +206,12 @@ To catch any exception, use `Exception` like this:
 ```python
 try:
     ...
-except Exception:
+except Exception:       # DANGER. See below
     print('An error occurred')
 ```
 
-In general, writing code like that is a bad idea because you'll have no idea
-why it failed.
+In general, writing code like that is a bad idea because you'll have
+no idea why it failed.
 
 ### Wrong Way to Catch Errors
 
@@ -215,13 +224,13 @@ except Exception:
     print('Computer says no')
 ```
 
-This swallows all possible errors.  It may make it impossible to debug
+This catches all possible errors and it may make it impossible to debug
 when the code is failing for some reason you didn't expect at all
 (e.g. uninstalled Python module, etc.).
 
 ### Somewhat Better Approach
 
-This is a more sane approach.
+If you're going to catch all errors, this is a more sane approach.
 
 ```python
 try:
@@ -234,9 +243,9 @@ It reports a specific reason for failure.  It is almost always a good
 idea to have some mechanism for viewing/reporting errors when you
 write code that catches all possible exceptions.  
 
-In general though, it's better to catch the error more narrowly.  Only
-catch the errors you can actually deal with. Let other errors pass to
-other code.
+In general though, it's better to catch the error as narrowly as is
+reasonable. Only catch the errors you can actually handle. Let
+other errors pass by--maybe some other code can handle them.
 
 ### Reraising an Exception
 
@@ -250,7 +259,8 @@ except Exception as e:
     raise
 ```
 
-It allows you to take action (e.g. logging) and pass the error on to the caller.
+This allows you to take action (e.g. logging) and pass the error on to
+the caller.
 
 ### Exception Best Practices
 
@@ -261,7 +271,8 @@ and sanely keep going.
 
 ### `finally` statement
 
-It specifies code that must fun regardless of whether or not an exception occurs.
+It specifies code that must run regardless of whether or not an
+exception occurs.
 
 ```python
 lock = Lock()
@@ -273,11 +284,11 @@ finally:
     lock.release()  # this will ALWAYS be executed. With and without exception.
 ```
 
-Comonly used to properly manage resources (especially locks, files, etc.).
+Commonly used to safely manage resources (especially locks, files, etc.).
 
 ### `with` statement
 
-In modern code, `try-finally` often replaced with the `with` statement.
+In modern code, `try-finally` is often replaced with the `with` statement.
 
 ```python
 lock = Lock()
@@ -296,8 +307,9 @@ with open(filename) as f:
 # File closed
 ```
 
-It defines a usage *context* for a resource.  When execution leaves that context, 
-resources are released. `with` only works with certain objects.
+`with` defines a usage *context* for a resource.  When execution
+leaves that context, resources are released. `with` only works with
+certain objects that have been specifically programmed to support it.
 
 ## Exercises
 
@@ -308,8 +320,7 @@ user-specified columns to be selected, but that only works if the
 input data file has column headers.
 
 Modify the code so that an exception gets raised if both the `select`
-and `has_headers=False` arguments are passed.
-For example:
+and `has_headers=False` arguments are passed.  For example:
 
 ```python
 >>> parse_csv('Data/prices.csv', select=['name','price'], has_headers=False)
@@ -335,6 +346,7 @@ in a non-sensical mode (e.g., using a feature that requires column
 headers, but simultaneously specifying that there are no headers).
 
 This indicates a programming error on the part of the calling code.
+Checking for cases that "aren't supposed to happen" is often a good idea.
 
 ### Exercise 3.9: Catching exceptions
 
@@ -357,9 +369,9 @@ Modify the `parse_csv()` function to catch all `ValueError` exceptions
 generated during record creation and print a warning message for rows
 that can’t be converted.
 
-The message should include the row number and information about the reason why it failed.
-To test your function, try reading the file `Data/missing.csv` above.
-For example:
+The message should include the row number and information about the
+reason why it failed.  To test your function, try reading the file
+`Data/missing.csv` above.  For example:
 
 ```python
 >>> portfolio = parse_csv('Data/missing.csv', types=[str, int, float])
@@ -375,8 +387,8 @@ Row 7: Reason invalid literal for int() with base 10: ''
 
 ### Exercise 3.10: Silencing Errors
 
-Modify the `parse_csv()` function so that parsing error messages can be silenced if explicitly desired by the user.
-For example:
+Modify the `parse_csv()` function so that parsing error messages can
+be silenced if explicitly desired by the user.  For example:
 
 ```python
 >>> portfolio = parse_csv('Data/missing.csv', types=[str,int,float], silence_errors=True)

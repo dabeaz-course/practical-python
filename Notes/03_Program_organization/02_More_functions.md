@@ -1,6 +1,10 @@
+[Contents](../Contents) \| [Previous (3.1 Scripting)](01_Script) \| [Next (3.3 Error Checking)](03_Error_checking)
+
 # 3.2 More on Functions
 
-This section fills in a few more details about how functions work and are defined.
+Although functions were introduced earlier, very few details were provided on how
+they actually work at a deeper level.  This section aims to fill in some gaps
+and discuss matters such as calling conventions, scoping rules, and more.
 
 ### Calling a Function
 
@@ -25,7 +29,8 @@ prices = read_prices(filename='prices.csv', debug=True)
 
 ### Default Arguments
 
-Sometimes you want an optional argument.
+Sometimes you want an argument to be optional.  If so, assign a default value
+in the function definition.
 
 ```python
 def read_prices(filename, debug=False):
@@ -53,7 +58,8 @@ parse_data(data, debug=True)
 parse_data(data, debug=True, ignore_errors=True)
 ```
 
-Keyword arguments improve code clarity.
+In most cases, keyword arguments improve code clarity--especially for arguments that
+serve as flags or which are related to optional features.
 
 ### Design Best Practices
 
@@ -67,7 +73,7 @@ d = read_prices('prices.csv', debug=True)
 
 Python development tools will show the names in help features and documentation.
 
-### Return Values
+### Returning Values
 
 The `return` statement returns a value
 
@@ -76,7 +82,7 @@ def square(x):
     return x * x
 ```
 
-If no return value or `return` not specified, `None` is returned.
+If no return value is given or `return` is missing, `None` is returned.
 
 ```python
 def bar(x):
@@ -94,8 +100,8 @@ b = foo(4)      # b = None
 
 ### Multiple Return Values
 
-Functions can only return one value.
-However, a function may return multiple values by returning a tuple.
+Functions can only return one value.  However, a function may return
+multiple values by returning them in a tuple.
 
 ```python
 def divide(a,b):
@@ -124,18 +130,19 @@ def foo():
 ```
 
 Variables assignments occur outside and inside function definitions.
-Variables defined outside are "global". Variables inside a function are "local".
+Variables defined outside are "global". Variables inside a function
+are "local".
 
 ### Local Variables
 
-Variables inside functions are private.
+Variables assigned inside functions are private.
 
 ```python
 def read_portfolio(filename):
     portfolio = []
     for line in open(filename):
-        fields = line.split()
-        s = (fields[0],int(fields[1]),float(fields[2]))
+        fields = line.split(',')
+        s = (fields[0], int(fields[1]), float(fields[2]))
         portfolio.append(s)
     return portfolio
 ```
@@ -143,8 +150,8 @@ def read_portfolio(filename):
 In this example, `filename`, `portfolio`, `line`, `fields` and `s` are local variables.
 Those variables are not retained or accessible after the function call.
 
-```pycon
->>> stocks = read_portfolio('stocks.dat')
+```python
+>>> stocks = read_portfolio('portfolio.csv')
 >>> fields
 Traceback (most recent call last):
 File "<stdin>", line 1, in ?
@@ -152,11 +159,12 @@ NameError: name 'fields' is not defined
 >>>
 ```
 
-They also can't conflict with variables found elsewhere.
+Locals also can't conflict with variables found elsewhere.
 
 ### Global Variables
 
-Functions can freely access the values of globals.
+Functions can freely access the values of globals defined in the same
+file.
 
 ```python
 name = 'Dave'
@@ -185,20 +193,24 @@ If you must modify a global variable you must declare it as such.
 
 ```python
 name = 'Dave'
+
 def spam():
     global name
     name = 'Guido' # Changes the global name above
 ```
 
-The global declaration must appear before its use.   Having seen this,
-know that it is considered poor form.  In fact, try to avoid entirely
+The global declaration must appear before its use and the corresponding
+variable must exist in the same file as the function.   Having seen this,
+know that it is considered poor form.  In fact, try to avoid `global` entirely
 if you can.  If you need a function to modify some kind of state outside
 of the function, it's better to use a class instead (more on this later).
 
 ### Argument Passing
 
-When you call a function, the argument variables are names for passed values.
-If mutable data types are passed (e.g. lists, dicts), they can be modified *in-place*.
+When you call a function, the argument variables are names that refer
+to the passed values. These values are NOT copies (see [section
+2.7](../02_Working_with_data/07_Objects)). If mutable data types are
+passed (e.g. lists, dicts), they can be modified *in-place*.
 
 ```python
 def foo(items):
@@ -213,7 +225,8 @@ print(a)                # [1, 2, 3, 42]
 
 ### Reassignment vs Modifying
 
-Make sure you understand the subtle difference between modifying a value and reassigning a variable name.
+Make sure you understand the subtle difference between modifying a
+value and reassigning a variable name.
 
 ```python
 def foo(items):
@@ -225,19 +238,22 @@ print(a)                # [1, 2, 3, 42]
 
 # VS
 def bar(items):
-    items = [4,5,6]    # Reassigns `items` variable
+    items = [4,5,6]    # Changes local `items` variable to point to a different object
 
 b = [1, 2, 3]
 bar(b)
 print(b)                # [1, 2, 3]
 ```
 
-*Reminder: Variable assignment never overwrites memory. The name is simply bound to a new value.*
+*Reminder: Variable assignment never overwrites memory. The name is merely bound to a new value.*
 
 ## Exercises
 
-This exercise involves a lot of steps and putting concepts together from past exercises. 
-The final solution is only about 25 lines of code, but take your time and make sure you understand each part.
+This set of exercises have you implement what is, perhaps, the most
+powerful and difficult part of the course.  There are a lot of steps
+and many concepts from past exercises are put together all at once.
+The final solution is only about 25 lines of code, but take your time
+and make sure you understand each part.
 
 A central part of your `report.py` program focuses on the reading of
 CSV files.  For example, the function `read_portfolio()` reads a file
@@ -251,12 +267,13 @@ If you were doing a lot of file parsing for real, you’d probably want
 to clean some of this up and make it more general purpose.  That's
 our goal.
 
-Start this exercise by creating a new file called `fileparse.py`. This is where we will be doing our work.
+Start this exercise by creating a new file called
+`Work/fileparse.py`. This is where we will be doing our work.
 
 ### Exercise 3.3: Reading CSV Files
 
 To start, let’s just focus on the problem of reading a CSV file into a
-list of dictionaries.  In the file `fileparse.py`, define a simple
+list of dictionaries.  In the file `fileparse.py`, define a 
 function that looks like this:
 
 ```python
@@ -290,20 +307,23 @@ Try it out:
 
 Hint: `python3 -i fileparse.py`.
 
-```pycon
+```python
 >>> portfolio = parse_csv('Data/portfolio.csv')
 >>> portfolio
 [{'price': '32.20', 'name': 'AA', 'shares': '100'}, {'price': '91.10', 'name': 'IBM', 'shares': '50'}, {'price': '83.44', 'name': 'CAT', 'shares': '150'}, {'price': '51.23', 'name': 'MSFT', 'shares': '200'}, {'price': '40.37', 'name': 'GE', 'shares': '95'}, {'price': '65.10', 'name': 'MSFT', 'shares': '50'}, {'price': '70.44', 'name': 'IBM', 'shares': '100'}]
 >>>
 ```
 
-This is great except that you can’t do any kind of useful calculation with the data because everything is represented as a string.
-We’ll fix this shortly, but let’s keep building on it.
+This is good except that you can’t do any kind of useful calculation
+with the data because everything is represented as a string.  We’ll
+fix this shortly, but let’s keep building on it.
 
 ### Exercise 3.4: Building a Column Selector
 
-In many cases, you’re only interested in selected columns from a CSV file, not all of the data.
-Modify the `parse_csv()` function so that it optionally allows user-specified columns to be picked out as follows:
+In many cases, you’re only interested in selected columns from a CSV
+file, not all of the data.  Modify the `parse_csv()` function so that
+it optionally allows user-specified columns to be picked out as
+follows:
 
 ```python
 >>> # Read all of the data
@@ -311,14 +331,14 @@ Modify the `parse_csv()` function so that it optionally allows user-specified co
 >>> portfolio
 [{'price': '32.20', 'name': 'AA', 'shares': '100'}, {'price': '91.10', 'name': 'IBM', 'shares': '50'}, {'price': '83.44', 'name': 'CAT', 'shares': '150'}, {'price': '51.23', 'name': 'MSFT', 'shares': '200'}, {'price': '40.37', 'name': 'GE', 'shares': '95'}, {'price': '65.10', 'name': 'MSFT', 'shares': '50'}, {'price': '70.44', 'name': 'IBM', 'shares': '100'}]
 
->>> # Read some of the data
+>>> # Read only some of the data
 >>> shares_held = parse_csv('portfolio.csv', select=['name','shares'])
 >>> shares_held
 [{'name': 'AA', 'shares': '100'}, {'name': 'IBM', 'shares': '50'}, {'name': 'CAT', 'shares': '150'}, {'name': 'MSFT', 'shares': '200'}, {'name': 'GE', 'shares': '95'}, {'name': 'MSFT', 'shares': '50'}, {'name': 'IBM', 'shares': '100'}]
 >>>
 ```
 
-An example of a column selector was given in [Exercise 2.23](../02_Working_with_data/06_List_comprehension).
+An example of a column selector was given in [Exercise 2.23](../02_Working_with_data/06_List_comprehension).  
 However, here’s one way to do it:
 
 ```python
@@ -358,17 +378,18 @@ def parse_csv(filename, select=None):
     return records
 ```
 
-There are a number of tricky bits to this part. Probably the most important one is the mapping of the column selections to row indices.
+There are a number of tricky bits to this part. Probably the most
+important one is the mapping of the column selections to row indices.
 For example, suppose the input file had the following headers:
 
-```pycon
+```python
 >>> headers = ['name', 'date', 'time', 'shares', 'price']
 >>>
 ```
 
 Now, suppose the selected columns were as follows:
 
-```pycon
+```python
 >>> select = ['name', 'shares']
 >>>
 ```
@@ -376,7 +397,7 @@ Now, suppose the selected columns were as follows:
 To perform the proper selection, you have to map the selected column names to column indices in the file.
 That’s what this step is doing:
 
-```pycon
+```python
 >>> indices = [headers.index(colname) for colname in select ]
 >>> indices
 [0, 3]
@@ -386,7 +407,7 @@ That’s what this step is doing:
 In other words, "name" is column 0 and "shares" is column 3.
 When you read a row of data from the file, the indices are used to filter it:
 
-```pycon
+```python
 >>> row = ['AA', '6/11/2007', '9:50am', '100', '32.20' ]
 >>> row = [ row[index] for index in indices ]
 >>> row
@@ -396,10 +417,10 @@ When you read a row of data from the file, the indices are used to filter it:
 
 ### Exercise 3.5: Performing Type Conversion
 
-Modify the `parse_csv()` function so that it optionally allows type-conversions to be applied to the returned data.
-For example:
+Modify the `parse_csv()` function so that it optionally allows
+type-conversions to be applied to the returned data.  For example:
 
-```pycon
+```python
 >>> portfolio = parse_csv('Data/portfolio.csv', types=[str, int, float])
 >>> portfolio
 [{'price': 32.2, 'name': 'AA', 'shares': 100}, {'price': 91.1, 'name': 'IBM', 'shares': 50}, {'price': 83.44, 'name': 'CAT', 'shares': 150}, {'price': 51.23, 'name': 'MSFT', 'shares': 200}, {'price': 40.37, 'name': 'GE', 'shares': 95}, {'price': 65.1, 'name': 'MSFT', 'shares': 50}, {'price': 70.44, 'name': 'IBM', 'shares': 100}]
@@ -410,8 +431,8 @@ For example:
 >>>
 ```
 
-You already explored this in [Exercise 2.24](../02_Working_with_data/07_Objects).  You'll need to insert the
-following fragment of code into your solution:
+You already explored this in [Exercise 2.24](../02_Working_with_data/07_Objects).  
+You'll need to insert the following fragment of code into your solution:
 
 ```python
 ...
@@ -420,7 +441,7 @@ if types:
 ...
 ```
 
-### Exercise 3.6: Working with Headers
+### Exercise 3.6: Working without Headers
 
 Some CSV files don’t include any header information.
 For example, the file `prices.csv` looks like this:
@@ -433,8 +454,8 @@ For example, the file `prices.csv` looks like this:
 ...
 ```
 
-Modify the `parse_csv()` function so that it can work with such files by creating a list of tuples instead.
-For example:
+Modify the `parse_csv()` function so that it can work with such files
+by creating a list of tuples instead.  For example:
 
 ```python
 >>> prices = parse_csv('Data/prices.csv', types=[str,float], has_headers=False)
@@ -450,8 +471,10 @@ column names to use for keys.
 
 ### Exercise 3.7: Picking a different column delimitier
 
-Although CSV files are pretty common, it’s also possible that you could encounter a file that uses a different column separator such as a tab or space.
-For example, the file `Data/portfolio.dat` looks like this:
+Although CSV files are pretty common, it’s also possible that you
+could encounter a file that uses a different column separator such as
+a tab or space.  For example, the file `Data/portfolio.dat` looks like
+this:
 
 ```csv
 name shares price
@@ -464,26 +487,30 @@ name shares price
 "IBM" 100 70.44
 ```
 
-The `csv.reader()` function allows a different delimiter to be given as follows:
+The `csv.reader()` function allows a different column delimiter to be given as follows:
 
 ```python
 rows = csv.reader(f, delimiter=' ')
 ```
 
-Modify your `parse_csv()` function so that it also allows the delimiter to be changed. 
+Modify your `parse_csv()` function so that it also allows the
+delimiter to be changed.
 
 For example:
 
-```pycon
+```python
 >>> portfolio = parse_csv('Data/portfolio.dat', types=[str, int, float], delimiter=' ')
 >>> portfolio
 [{'price': '32.20', 'name': 'AA', 'shares': '100'}, {'price': '91.10', 'name': 'IBM', 'shares': '50'}, {'price': '83.44', 'name': 'CAT', 'shares': '150'}, {'price': '51.23', 'name': 'MSFT', 'shares': '200'}, {'price': '40.37', 'name': 'GE', 'shares': '95'}, {'price': '65.10', 'name': 'MSFT', 'shares': '50'}, {'price': '70.44', 'name': 'IBM', 'shares': '100'}]
 >>>
 ```
 
-If you’ve made it this far, you’ve created a nice library function that’s genuinely useful.
-You can use it to parse arbitrary CSV files, select out columns of
-interest, perform type conversions, without having to worry too much
-about the inner workings of files or the `csv` module.
+### Commentary
+
+If you’ve made it this far, you’ve created a nice library function
+that’s genuinely useful.  You can use it to parse arbitrary CSV files,
+select out columns of interest, perform type conversions, without
+having to worry too much about the inner workings of files or the
+`csv` module.
 
 [Contents](../Contents) \| [Previous (3.1 Scripting)](01_Script) \| [Next (3.3 Error Checking)](03_Error_checking)

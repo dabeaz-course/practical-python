@@ -1,6 +1,8 @@
+[Contents](../Contents) \| [Previous (3.5 Main module)](05_Main_module) \| [Next (4 Classes)](../04_Classes_objects/00_Overview)
+
 # 3.6 Design Discussion
 
-In this section we consider some design decisions made in code so far.
+In this section we reconsider a design decision made earlier.
 
 ### Filenames versus Iterables
 
@@ -35,15 +37,17 @@ with open('file.csv') as f:
 * Which of these functions do you prefer? Why?
 * Which of these functions is more flexible?
 
-
 ### Deep Idea: "Duck Typing"
 
-[Duck Typing](https://en.wikipedia.org/wiki/Duck_typing) is a computer programming concept to determine whether an object can be used for a particular purpose.  It is an application of the [duck test](https://en.wikipedia.org/wiki/Duck_test).
+[Duck Typing](https://en.wikipedia.org/wiki/Duck_typing) is a computer
+programming concept to determine whether an object can be used for a
+particular purpose.  It is an application of the [duck
+test](https://en.wikipedia.org/wiki/Duck_test).
 
 > If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck.
 
-In our previous example that reads the lines, our `read_data` expects
-any iterable object. Not just the lines of a file.
+In the second version of `read_data()` above, the function expects any
+iterable object. Not just the lines of a file.
 
 ```python
 def read_data(lines):
@@ -76,7 +80,7 @@ data = read_data(lines)
 
 There is considerable flexibility with this design.
 
-*Question: Shall we embrace or fight this flexibility?*
+*Question: Should we embrace or fight this flexibility?*
 
 ### Library Design Best Practices
 
@@ -87,10 +91,10 @@ Don't restrict your options.  With great flexibility comes great power.
 
 ### Exercise 3.17: From filenames to file-like objects
 
-In this section, you worked on a file `fileparse.py` that contained a 
+You've now created a file `fileparse.py` that contained a 
 function `parse_csv()`.  The function worked like this:
 
-```pycon
+```python
 >>> import fileparse
 >>> portfolio = fileparse.parse_csv('Data/portfolio.csv', types=[str,int,float])
 >>>
@@ -103,8 +107,8 @@ with any file-like/iterable object.  For example:
 ```
 >>> import fileparse
 >>> import gzip
->>> with gzip.open('Data/portfolio.csv.gz', 'rt') as f:
-...      port = fileparse.parse_csv(f, types=[str,int,float])
+>>> with gzip.open('Data/portfolio.csv.gz', 'rt') as file:
+...      port = fileparse.parse_csv(file, types=[str,int,float])
 ...
 >>> lines = ['name,shares,price', 'AA,34.23,100', 'IBM,50,91.1', 'HPE,75,45.1']
 >>> port = fileparse.parse_csv(lines, types=[str,int,float])
@@ -120,8 +124,7 @@ In this new code, what happens if you pass a filename as before?
 >>>
 ```
 
-With flexibility comes power and with power comes responsibility.  Sometimes you'll
-need to be careful.
+Yes, you'll need to be careful.   Could you add a safety check to avoid this?
 
 ### Exercise 3.18: Fixing existing functions
 

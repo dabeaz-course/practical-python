@@ -1,3 +1,5 @@
+[Contents](../Contents) \| [Previous (3.4 Modules)](04_Modules) \| [Next (3.6 Design Discussion)](06_Design_discussion)
+
 # 3.5 Main Module
 
 This section introduces the concept of a main program or main module.
@@ -22,7 +24,7 @@ class myprog {
 }
 ```
 
-This is the first function that is being executing when an application is launched.
+This is the first function that executes when an application is launched.
 
 ### Python Main Module
 
@@ -34,11 +36,11 @@ bash % python3 prog.py
 ...
 ```
 
-Whatever module you give to the interpreter at startup becomes *main*. It doesn't matter the name.
+Whatever file you give to the interpreter at startup becomes *main*. It doesn't matter the name.
 
 ### `__main__` check
 
-It is standard practice for modules that can run as a main script to use this convention:
+It is standard practice for modules that run as a main script to use this convention:
 
 ```python
 # prog.py
@@ -53,22 +55,22 @@ Statements inclosed inside the `if` statement become the *main* program.
 
 ### Main programs vs. library imports
 
-Any file can either run as main or as a library import:
+Any Python file can either run as main or as a library import:
 
 ```bash
 bash % python3 prog.py # Running as main
 ```
 
 ```python
-import prog
+import prog   # Running as library import
 ```
 
 In both cases, `__name__` is the name of the module.  However, it will only be set to `__main__` if
 running as main.
 
-As a general rule, you don't want statements that are part of the main
-program to execute on a library import.   So, it's common to have an `if-`check in code
-that might be used either way.
+Usually, you don't want statements that are part of the main program
+to execute on a library import.  So, it's common to have an `if-`check
+in code that might be used either way.
 
 ```python
 if __name__ == '__main__':
@@ -221,7 +223,8 @@ bash % prog.py
 
 ### Script Template
 
-Here is a common code template for Python programs that run as command-line scripts:
+Finally, here is a common code template for Python programs that run
+as command-line scripts:
 
 ```python
 #!/usr/bin/env python3
@@ -251,8 +254,9 @@ if __name__ == '__main__':
 
 ### Exercise 3.15: `main()` functions
 
-In the file `report.py` add a `main()` function that accepts a list of command line options and produces the same output as before.
-You should be able to run it interatively like this:
+In the file `report.py` add a `main()` function that accepts a list of
+command line options and produces the same output as before.  You
+should be able to run it interatively like this:
 
 ```python
 >>> import report
@@ -280,7 +284,8 @@ Total cost: 44671.15
 
 ### Exercise 3.16: Making Scripts
 
-Modify the `report.py` and `pcost.py` programs so that they can execute as a script on the command line:
+Modify the `report.py` and `pcost.py` programs so that they can
+execute as a script on the command line:
 
 ```bash
 bash $ python3 report.py Data/portfolio.csv Data/prices.csv
