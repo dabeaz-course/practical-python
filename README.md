@@ -71,6 +71,11 @@ give you stink-eye when they look at your code.
 
 Ok, ok. Point your browser [HERE](Notes/Contents)!
 
+## Community Discussion
+
+Want to discuss the course?  You can join the conversation on 
+[Gitter](https://gitter.im/dabeaz-course/practical-python). 
+
 ## Acknowledgements
 
 Llorenç Muntaner was instrumental in converting the course content from
