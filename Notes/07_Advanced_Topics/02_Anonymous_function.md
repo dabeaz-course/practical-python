@@ -1,3 +1,5 @@
+[Contents](../Contents) \| [Previous (7.1 Variable Arguments)](01_Variable_arguments) \| [Next (7.3 Returning Functions)](03_Returning_functions)
+
 # 7.2 Anonymous Functions and Lambda
 
 ### List Sorting Revisited
@@ -30,7 +32,9 @@ It seems simple enough. However, how do we sort a list of dicts?
 
 By what criteria?
 
-You can guide the sorting by using a *key function*. The *key function* is a function that receives the dictionary and returns the value in a specific key.
+You can guide the sorting by using a *key function*. The *key
+function* is a function that receives the dictionary and returns the
+value of interest for sorting.
 
 ```python
 def stock_name(s):
@@ -39,7 +43,7 @@ def stock_name(s):
 portfolio.sort(key=stock_name)
 ```
 
-The value returned by the *key function* determines the sorting.
+Here's the result.
 
 ```python
 # Check how the dictionaries are sorted by the `name` key
@@ -56,13 +60,16 @@ The value returned by the *key function* determines the sorting.
 
 ### Callback Functions
 
-Callback functions are often short one-line functions that are only used for that one operation. For example of previous sorting example.
-Programmers often ask for a short-cut, so is there a shorter way to specify custom processing for `sort()`?
+In the above example, the key function is an example of a callback
+function. The `sort()` method "calls back" to a function you supply.
+Callback functions are often short one-line functions that are only
+used for that one operation.  Programmers often ask for a short-cut
+for specifying this extra processing.
 
 ### Lambda: Anonymous Functions
 
-Use a lambda instead of creating the function.
-In our previous sorting example.
+Use a lambda instead of creating the function.  In our previous
+sorting example.
 
 ```python
 portfolio.sort(key=lambda s: s['name'])
@@ -156,6 +163,6 @@ Try sorting the portfolio according to the price of each stock
 
 Note: `lambda` is a useful shortcut because it allows you to
 define a special processing function directly in the call to `sort()` as
-opposed to having to define a separate function first (as in part a).
+opposed to having to define a separate function first.
 
 [Contents](../Contents) \| [Previous (7.1 Variable Arguments)](01_Variable_arguments) \| [Next (7.3 Returning Functions)](03_Returning_functions)

@@ -1,6 +1,10 @@
+[Contents](../Contents) \| [Previous (8.3 Debugging)](../08_Testing_debugging/03_Debugging) \| [Next (9.2 Third Party Packages)](02_Third_party)
+
 # 9.1 Packages
 
-This section introduces the concept of a package.
+If writing a larger program, you don't really want to organize it as a
+large of collection of standalone files at the top level.  This
+section introduces the concept of a package.
 
 ### Modules
 
@@ -27,7 +31,8 @@ b = foo.spam('Hello')
 
 ### Packages vs Modules
 
-For larger collections of code, it is common to organize modules into a package.
+For larger collections of code, it is common to organize modules into
+a package.
 
 ```code
 # From this
@@ -43,17 +48,18 @@ porty/
     fileparse.py
 ```
 
-You pick a name and make a top-level directory. `porty` in the example above.
+You pick a name and make a top-level directory. `porty` in the example
+above (clearly picking this name is the most important first step).
 
-Add an `__init__.py` file. It may be empty.
+Add an `__init__.py` file to the directory. It may be empty.
 
-Put your source files into it.
+Put your source files into the directory.
 
 ### Using a Package
 
 A package serves as a namespace for imports.
 
-This means that there are multilevel imports.
+This means that there are now multilevel imports.
 
 ```python
 import porty.report
@@ -64,25 +70,25 @@ There are other variations of import statements.
 
 ```python
 from porty import report
-port = report.read_portfolio('port.csv')
+port = report.read_portfolio('portfolio.csv')
 
 from porty.report import read_portfolio
-port = read_portfolio('port.csv')
+port = read_portfolio('portfolio.csv')
 ```
 
 ### Two problems
 
 There are two main problems with this approach.
 
-* imports between files in the same package.
-* Main scripts placed inside the package.
+* imports between files in the same package break.
+* Main scripts placed inside the package break.
 
-Both break.
+So, basically everything breaks. But, other than that, it works.
 
 ### Problem: Imports
 
-Imports between files in the same package *must include the package name in the import*.
-Remember the structure.
+Imports between files in the same package *must now include the
+package name in the import*.  Remember the structure.
 
 ```code
 porty/
@@ -92,7 +98,7 @@ porty/
     fileparse.py
 ```
 
-Import example.
+Modified import example.
 
 ```python
 # report.py
@@ -113,7 +119,8 @@ import fileparse    # BREAKS. fileparse not found
 
 ### Relative Imports
 
-However, you can use `.` to refer to the current package. Instead of the package name.
+Instead of directly using the package name, 
+you can use `.` to refer to the current package.
 
 ```python
 # report.py
@@ -133,16 +140,24 @@ This makes it easy to rename the package.
 
 ### Problem: Main Scripts
 
-Running a submodule as a main script breaks.
+Running a package submodule as a main script breaks.
 
 ```bash
 bash $ python porty/pcost.py # BREAKS
 ...
 ```
 
-*Reason: You are running Python on a single file and Python doesn't see the rest of the package structure correctly (`sys.path` is wrong).*
+*Reason: You are running Python on a single file and Python doesn't
+ see the rest of the package structure correctly (`sys.path` is
+ wrong).*
 
-All imports break.
+All imports break.   To fix this, you need to run your program in
+a different way, using the `-m` option.
+
+```bash
+bash $ python -m porty.pcost # WORKS
+...
+```
 
 ### `__init__.py` files
 
@@ -156,7 +171,7 @@ from .pcost import portfolio_cost
 from .report import portfolio_report
 ```
 
-Makes names appear at the *top-level* when importing.
+This makes names appear at the *top-level* when importing.
 
 ```python
 from porty import portfolio_cost
@@ -170,15 +185,14 @@ from porty import pcost
 pcost.portfolio_cost('portfolio.csv')
 ```
 
-### Solution for scripts
+### Another solution for scripts
 
-Use `-m package.module` option.
+As noted, you now need to use `-m package.module` to
+run scripts within your package.
 
 ```bash
 bash % python3 -m porty.pcost portfolio.csv
 ```
-
-It will run the code in a proper package environment.
 
 There is another alternative: Write a new top-level script.
 
@@ -190,13 +204,24 @@ import sys
 porty.pcost.main(sys.argv)
 ```
 
-This script lives *outside* the package.
+This script lives *outside* the package.  For example, looking at the directory 
+structure:
+
+```
+pcost.py       # top-level-script
+porty/         # package directory
+    __init__.py
+    pcost.py
+    ...
+```
 
 ### Application Structure
 
-Code organization and file structure is key to the maintainability of an application.
+Code organization and file structure is key to the maintainability of
+an application.
 
-One recommended structure is the following.
+There is no "one-size fits all" approach for Python.  However, one
+structure that works for a lot of problems is something like this.
 
 ```code
 porty-app/
@@ -210,11 +235,15 @@ porty-app/
     fileparse.py
 ```
 
-Top-level scripts need to exist outside the code package. One level up.
+The top-level `porty-app` is a container for everything else--documentation,
+top-level scripts, examples, etc.
+
+Again, top-level scripts (if any) need to exist outside the code
+package. One level up.
 
 ```python
 #!/usr/bin/env python3
-# script.py
+# porty-add/script.py
 import sys
 import porty
 
@@ -306,7 +335,7 @@ scripts, and other things.  These files need to exist OUTSIDE of the
 `porty/` directory you made above.
 
 Create a new directory called `porty-app`.  Move the `porty` directory
-you created in part (a) into that directory.  Copy the
+you created in Exercise 9.1 into that directory.  Copy the
 `Data/portfolio.csv` and `Data/prices.csv` test files into this
 directory.  Additionally create a `README.txt` file with some
 information about yourself.  Your code should now be organized as

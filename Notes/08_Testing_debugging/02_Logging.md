@@ -1,16 +1,20 @@
+[Contents](../Contents) \| [Previous (8.1 Testing)](01_Testing) \| [Next (8.3 Debugging)](03_Debugging)
+
 # 8.2 Logging
 
 This section briefly introduces the logging module.
 
 ### `logging` Module
 
-The `logging` module is a standard library module for recording diagnostic information.
-It's also a very large module with a lot of sophisticated functionality.
-We will show a simple example to illustrate its usefulness.
+The `logging` module is a standard library module for recording
+diagnostic information.  It's also a very large module with a lot of
+sophisticated functionality.  We will show a simple example to
+illustrate its usefulness.
 
 ### Exceptions Revisited
 
-In the exercises, we wrote a function `parse()` that looked something like this:
+In the exercises, we wrote a function `parse()` that looked something
+like this:
 
 ```python
 # fileparse.py
@@ -91,7 +95,7 @@ log.debug(message [, args])
 
 *Each method represents a different level of severity.*
 
-All of them create a formatted log message. `args` is used for the `%` operator.
+All of them create a formatted log message. `args` is used with the `%` operator to create the message.
 
 ```python
 logmsg = message % args # Written to the log
@@ -114,21 +118,21 @@ if __name__ == '__main__':
     )
 ```
 
-Typically, this is a one-time configuration at program startup.
-The configuration is separate from the code that makes the logging calls.
+Typically, this is a one-time configuration at program startup.  The
+configuration is separate from the code that makes the logging calls.
 
 ### Comments
 
-Logging is highly configurable.
-You can adjust every aspect of it: output files, levels, message formats, etc.
-However, the code that uses logging doesn't have to worry about that.
+Logging is highly configurable.  You can adjust every aspect of it:
+output files, levels, message formats, etc.  However, the code that
+uses logging doesn't have to worry about that.
 
 ## Exercises
 
 ### Exercise 8.2: Adding logging to a module
 
-In Exercise 3.3, you added some error handling to the
-`fileparse.parse_csv()` function.  It looked like this:
+In `fileparse.py`, there is some error handling related to 
+exceptions caused by bad input. It looks like this:
 
 ```python
 # fileparse.py
@@ -300,6 +304,6 @@ logging.basicConfig(
 ```
 
 Again, you'd need to put this someplace in the startup steps of your
-program.
+program.  For example, where would you put this in your `report.py` program?
 
 [Contents](../Contents) \| [Previous (8.1 Testing)](01_Testing) \| [Next (8.3 Debugging)](03_Debugging)

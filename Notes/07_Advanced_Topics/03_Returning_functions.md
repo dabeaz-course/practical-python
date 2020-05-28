@@ -1,6 +1,8 @@
+[Contents](../Contents) \| [Previous (7.2 Anonymous Functions)](02_Anonymous_function) \| [Next (7.4 Decorators)](04_Function_decorators)
+
 # 7.3 Returning Functions
 
-This section introduces the idea of closures.
+This section introduces the idea of using functions to create other functions. 
 
 ### Introduction
 
@@ -27,7 +29,8 @@ Adding 3 4
 
 ### Local Variables
 
-Observe how to inner function refers to variables defined by the outer function.
+Observe how to inner function refers to variables defined by the outer
+function.
 
 ```python
 def add(x, y):
@@ -38,7 +41,8 @@ def add(x, y):
     return do_add
 ```
 
-Further observe that those variables are somehow kept alive after `add()` has finished.
+Further observe that those variables are somehow kept alive after
+`add()` has finished.
 
 ```python
 >>> a = add(3,4)
@@ -51,7 +55,7 @@ Adding 3 4      # Where are these values coming from?
 
 ### Closures
 
-When an inner function is returned as a result, the inner function is known as a *closure*.
+When an inner function is returned as a result, that inner function is known as a *closure*.
 
 ```python
 def add(x, y):
@@ -62,7 +66,10 @@ def add(x, y):
     return do_add
 ```
 
-*Essential feature: A closure retains the values of all variables needed for the function to run properly later on.*
+*Essential feature: A closure retains the values of all variables
+ needed for the function to run properly later on.*   Think of a
+closure as a function plus an extra environment that holds the values
+of variables that it depends on.
 
 ### Using Closures
 
@@ -99,7 +106,7 @@ Closures carry extra information around.
 ```python
 def add(x, y):
     def do_add():
-        print('Adding %s + %s -> %s' % (x, y, x + y))
+        print(f'Adding {x} + {y} -> {x+y}')
     return do_add
 
 def after(seconds, func):
@@ -109,8 +116,6 @@ def after(seconds, func):
 after(30, add(2, 3))
 # `do_add` has the references x -> 2 and y -> 3
 ```
-
-A function can have its own little environment.
 
 ### Code Repetition
 
@@ -122,11 +127,12 @@ You can write functions that make code.
 ### Exercise 7.7: Using Closures to Avoid Repetition
 
 One of the more powerful features of closures is their use in
-generating repetitive code.  If you refer back to exercise 5.2
-recall the code for defining a property with type checking.
+generating repetitive code.  If you refer back to [Exercise
+5.7](../05_Object_model/02_Classes_encapsulation), recall the code for
+defining a property with type checking.
 
 ```python
-class Stock(object):
+class Stock:
     def __init__(self, name, shares, price):
         self.name = name
         self.shares = shares
@@ -173,7 +179,7 @@ Now, try it out by defining a class like this:
 ```python
 from typedproperty import typedproperty
 
-class Stock(object):
+class Stock:
     name = typedproperty('name', str)
     shares = typedproperty('shares', int)
     price = typedproperty('price', float)
@@ -211,7 +217,7 @@ Float = lambda name: typedproperty(name, float)
 Now, rewrite the `Stock` class to use these functions instead:
 
 ```python
-class Stock(object):
+class Stock:
     name = String('name')
     shares = Integer('shares')
     price = Float('price')

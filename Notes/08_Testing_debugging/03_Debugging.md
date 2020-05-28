@@ -1,3 +1,5 @@
+[Contents](../Contents) \| [Previous (8.2 Logging)](02_Logging) \| [Next (9 Packages)](../09_Packages/00_Overview)
+
 # 8.3 Debugging
 
 ### Debugging Tips
@@ -62,7 +64,8 @@ AttributeError: 'int' object has no attribute 'append'
 >>>
 ```
 
-It preserves the interpreter state. That means that you can go poking around after the crash. Checking variable values and other state.
+It preserves the interpreter state. That means that you can go poking
+around after the crash. Checking variable values and other state.
 
 ### Debugging with Print
 
@@ -102,7 +105,9 @@ def some_function():
 ```
 
 This starts the debugger at the `breakpoint()` call.
-For earlier Python versions:
+
+In earlier Python versions, you did this.  You'll sometimes see this
+mentioned in other debugging guides.
 
 ```python
 import pdb
@@ -119,7 +124,9 @@ You can also run an entire program under debugger.
 bash % python3 -m pdb someprogram.py
 ```
 
-It will automatically enter the debugger before the first statement. Allowing you to set breakpoints and change the configuration.
+It will automatically enter the debugger before the first
+statement. Allowing you to set breakpoints and change the
+configuration.
 
 Common debugger commands:
 

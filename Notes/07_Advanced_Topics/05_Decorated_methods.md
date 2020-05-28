@@ -1,6 +1,8 @@
+[Contents](../Contents) \| [Previous (7.4 Decorators)](04_Function_decorators) \| [Next (8 Testing and Debugging)](../08_Testing_debugging/00_Overview)
+
 # 7.5 Decorated Methods
 
-This section discusses a few common decorators that are used in
+This section discusses a few built-in decorators that are used in
 combination with method definitions.
 
 ### Predefined Decorators
@@ -8,7 +10,7 @@ combination with method definitions.
 There are predefined decorators used to specify special kinds of methods in class definitions.
 
 ```python
-class Foo(object):
+class Foo:
     def bar(self,a):
         ...
 
@@ -29,8 +31,9 @@ Let's go one by one.
 
 ### Static Methods
 
-`@staticmethod` is used to define a so-called *static* class methods (from C++/Java).
-A static method is a function that is part of the class, but which does *not* operate on instances.
+`@staticmethod` is used to define a so-called *static* class methods
+(from C++/Java).  A static method is a function that is part of the
+class, but which does *not* operate on instances.
 
 ```python
 class Foo(object):
@@ -42,17 +45,19 @@ class Foo(object):
 >>>
 ```
 
-Static methods are sometimes used to implement internal supporting code for a class.
-For example, code to help manage created instances (memory management, system resources, persistence, locking, etc).
+Static methods are sometimes used to implement internal supporting
+code for a class.  For example, code to help manage created instances
+(memory management, system resources, persistence, locking, etc).
 They're also used by certain design patterns (not discussed here).
 
 ### Class Methods
 
-`@classmethod` is used to define class methods.
-A class method is a method that receives the *class* object as the first parameter instead of the instance.
+`@classmethod` is used to define class methods.  A class method is a
+method that receives the *class* object as the first parameter instead
+of the instance.
 
 ```python
-class Foo(object):
+class Foo:
     def bar(self):
         print(self)
 
@@ -71,7 +76,7 @@ class Foo(object):
 Class methods are most often used as a tool for defining alternate constructors.
 
 ```python
-class Date(object):
+class Date:
     def __init__(self,year,month,day):
         self.year = year
         self.month = month
@@ -90,7 +95,7 @@ d = Date.today()
 Class methods solve some tricky problems with features like inheritance.
 
 ```python
-class Date(object):
+class Date:
     ...
     @classmethod
     def today(cls):
@@ -106,62 +111,7 @@ d = NewDate.today()
 
 ## Exercises
 
-Start this exercise by defining a `Date` class.  For example:
-
-```
->>> class Date(object):
-       def __init__(self,year,month,day):
-           self.year = year
-           self.month = month
-           self.day = day
-
->>> d = Date(2010, 4, 13)
->>> d.year, d.month, d.day
-(2010, 4, 13)
->>>
-```
-
-### Exercise 7.11: Class Methods
-
-A common use of class methods is to provide alternate constructors
-(epecially since Python doesn't support overloaded methods).  Modify
-the `Date` class to have a class method `today()` that creates a date
-from today's date.
-
-```python
->>> import time
->>> class Date(object):
-       def __init__(self,year,month,day):
-           self.year = year
-           self.month = month
-           self.day = day
-       @classmethod
-       def today(cls):
-           t = time.localtime()
-           return cls(t.tm_year, t.tm_mon, t.tm_mday)
-
->>> d = Date.today()
->>> d.year, d.month, d.day
-... output varies. Should be today ...
->>>
-```
-
-One reason you should use class methods for this is that they work
-with inheritance.  For example, try this:
-
-```python
->>> class CustomDate(Date):
-        def yow(self):
-            print('Yow!')
-
->>> d = CustomDate.today()
-<__main__.CustomDate object at 0x10923d400>
->>> d.yow()
-Yow!
->>>
-```
-
-### Exercise 7.12: Class Methods in Practice
+### Exercise 7.11: Class Methods in Practice
 
 In your `report.py` and `portfolio.py` files, the creation of a `Portfolio`
 object is a bit muddled.  For example, the `report.py` program has code like this:
@@ -186,7 +136,7 @@ and the `portfolio.py` file defines `Portfolio()` with an odd initializer
 like this:
 
 ```python
-class Portfolio(object):
+class Portfolio:
     def __init__(self, holdings):
         self.holdings = holdings
     ...
@@ -202,7 +152,7 @@ Like this:
 
 import stock
 
-class Portfolio(object):
+class Portfolio:
     def __init__(self):
         self.holdings = []
 
@@ -222,7 +172,7 @@ class method for it:
 import fileparse
 import stock
 
-class Portfolio(object):
+class Portfolio:
     def __init__(self):
         self.holdings = []
 

@@ -1,3 +1,5 @@
+[Contents](../Contents) \| [Previous (7.3 Returning Functions)](03_Returning_functions) \| [Next (7.5 Decorated Methods)](05_Decorated_methods)
+
 # 7.4 Function Decorators
 
 This section introduces the concept of a decorator.  This is an advanced
@@ -12,7 +14,7 @@ def add(x, y):
     return x + y
 ```
 
-Now, consider the function with some logging.
+Now, consider the function with some logging added to it.
 
 ```python
 def add(x, y):
@@ -32,13 +34,15 @@ def sub(x, y):
 
 *Observation: It's kind of repetitive.*
 
-Writing programs where there is a lot of code replication is often really annoying.
-They are tedious to write and hard to maintain.
-Especially if you decide that you want to change how it works (i.e., a different kind of logging perhaps).
+Writing programs where there is a lot of code replication is often
+really annoying.  They are tedious to write and hard to maintain.
+Especially if you decide that you want to change how it works (i.e., a
+different kind of logging perhaps).
 
-### Example continuation
+### Code that makes logging
 
-Perhaps you can make *logging wrappers*.
+Perhaps you can make a function that makes functions with logging
+added to them. A wrapper.
 
 ```python
 def logged(func):
@@ -65,7 +69,9 @@ logged_add(3, 4)      # You see the logging message appear
 
 This example illustrates the process of creating a so-called *wrapper function*.
 
-**A wrapper is a function that wraps another function with some extra bits of processing.**
+A wrapper is a function that wraps around another function with some
+extra bits of processing, but otherwise works in the exact same way
+as the original function.
 
 ```python
 >>> logged_add(3, 4)
@@ -100,6 +106,8 @@ It is said to *decorate* the function.
 There are many more subtle details to decorators than what has been presented here.
 For example, using them in classes. Or using multiple decorators with a function.
 However, the previous example is a good illustration of how their use tends to arise.
+Usually, it's in response to repetitive code appearing across a wide range of 
+function definitions.  A decorator can move that code to a central definition.
 
 ## Exercises
 
