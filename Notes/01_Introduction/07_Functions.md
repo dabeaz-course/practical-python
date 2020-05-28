@@ -1,7 +1,9 @@
+[Contents](../Contents) \| [Previous (1.6 Files)](06_Files) \| [Next (2.0 Working with Data)](../02_Working_with_data/00_Overview)
+
 # 1.7 Functions
 
 As your programs start to get larger, you'll want to get organized.  This section
-introduces functions.  Error handling with exceptions is also introduced.
+briefly introduces functions and library modules.  Error handling with exceptions is also introduced.
 
 ### Custom Functions
 
@@ -19,10 +21,9 @@ def sumcount(n):
     return total
 ```
 
-Calling a function.
+To call a function.
 
 ```python
-# Use parenthesis to call the function
 a = sumcount(100)
 ```
 
@@ -33,13 +34,12 @@ The `return` keyword is needed to explicitly specify the return value of the fun
 
 Python comes with a large standard library.
 Library modules are accessed using `import`.
+For example:
 
 ```python
-# `math` module
 import math
 x = math.sqrt(10)
 
-# `urllib.request` module
 import urllib.request
 u = urllib.request.urlopen('http://www.python.org/') 
 data = u.read()
@@ -49,11 +49,12 @@ We will cover libraries and modules in more detail later.
 
 ### Errors and exceptions
 
-Functions report errors as exceptions.  An exception causes the program to stop.
+Functions report errors as exceptions.  An exception causes a function to abort and may 
+cause your entire program to stop if unhandled.
 
 Try this in your python REPL.
 
-```pycon
+```python
 >>> int('N/A')
 Traceback (most recent call last):
 File "<stdin>", line 1, in <module>
@@ -82,6 +83,12 @@ for line in f:
 
 The name `ValueError` must match the kind of error you are trying to catch.
 
+It is often difficult to know exactly what kinds of errors might occur
+in advance depending on the operation being performed.  For better or
+for worse, exception handling often gets added *after* a program has
+unexpectedly crashed (i.e., "oh, we forgot to catch that error. We
+should handle that!").
+
 ### Raising Exceptions
 
 To raise an exception, use the `raise` statement.
@@ -104,7 +111,7 @@ RuntimeError: What a kerfuffle
 
 ### Exercise 1.29: Defining a function
 
-You can define a simple function using the `def` statement. For example,
+Try defining a simple function:
 
 ```python
 >>> def greeting(name):
@@ -124,7 +131,7 @@ Try typing a command such as `help(greeting)` to see it displayed.
 ### Exercise 1.30: Turning a script into a function
 
 Take the code you wrote for the `pcost.py` program in [Exercise 1.27](06_Files) 
-and turn it into a function `portfolio_cost(filename)`.  The
+and turn it into a function `portfolio_cost(filename)`.  This
 function takes a filename as input, reads the portfolio data in that
 file, and returns the total cost of the portfolio as a float.
 
@@ -160,9 +167,11 @@ This will allow you to call your function from the interactive mode.
 Being able to experiment with your code interactively is useful for
 testing and debugging.
 
+### Exercise 1.31: Error handling
+
 What happens if you try your function on a file with some missing fields?
 
-```pycon
+```python
 >>> portfolio_cost('Data/missing.csv')
 Traceback (most recent call last):
     File "<stdin>", line 1, in <module>
@@ -180,14 +189,14 @@ manner.
 Modify the `pcost.py` program to catch the exception, print a warning
 message, and continue processing the rest of the file.
 
-### Exercise 1.31: Using a library function
+### Exercise 1.32: Using a library function
 
 Python comes with a large standard library of useful functions.  One
 library that might be useful here is the `csv` module. You should use
 it whenever you have to work with CSV data files.  Here is an example
 of how it works:
 
-```pycon
+```python
 >>> import csv
 >>> f = open('Data/portfolio.csv')
 >>> rows = csv.reader(f)
@@ -216,7 +225,7 @@ away from the names in the first column.
 Modify your `pcost.py` program so that it uses the `csv` module for
 parsing and try running earlier examples.
 
-### Exercise 1.32: Reading from the command line
+### Exercise 1.33: Reading from the command line
 
 In the `pcost.py` program, the name of the input file has been hardwired into the code:
 
@@ -250,7 +259,7 @@ def portfolio_cost(filename):
 if len(sys.argv) == 2:
     filename = sys.argv[1]
 else:
-    filename = 'portfolio.csv'
+    filename = 'Data/portfolio.csv'
 
 cost = portfolio_cost(filename)
 print('Total cost:', cost)

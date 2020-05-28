@@ -1,4 +1,8 @@
+[Contents](../Contents) \| [Previous (1.5 Lists)](05_Lists) \| [Next (1.7 Functions)](07_Functions)
+
 # 1.6 File Management
+
+Most programs need to read input from somewhere. This section discusses file access. 
 
 ### File Input and Output
 
@@ -9,7 +13,7 @@ f = open('foo.txt', 'rt')     # Open for reading (text)
 g = open('bar.txt', 'wt')     # Open for writing (text)
 ```
 
-Reading data.
+Read all of the data.
 
 ```python
 data = f.read()
@@ -18,7 +22,7 @@ data = f.read()
 data = f.read([maxbytes])
 ```
 
-Writing text to a file.
+Write some text.
 
 ```python
 g.write('some text')
@@ -31,11 +35,12 @@ f.close()
 g.close()
 ```
 
-Files should be properly closed. This is why the preferred approach is to use the `with` statement.
+Files should be properly closed and it's an easy step to forget.
+Thus, the preferred approach is to use the `with` statement like this.
 
 ```python
-with open(filename, 'rt') as f:
-    # Use the file `f`
+with open(filename, 'rt') as file:
+    # Use the file `file`
     ...
     # No need to close explicitly
 ...statements
@@ -45,61 +50,63 @@ This automatically closes the file when control leaves the indented code block.
 
 ### Common Idioms for Reading File Data
 
-Reading an entire file all at once as a string.
+Read an entire file all at once as a string.
 
 ```python
-with open('foo.txt', 'rt') as f:
-    data = f.read()
+with open('foo.txt', 'rt') as file:
+    data = file.read()
     # `data` is a string with all the text in `foo.txt`
 ```
 
-Reading a file line-by-line
+Read a file line-by-line by iterating.
 
 ```python
-with open(filename, 'rt') as f:
-    for line in f:
-        # Process the line `f`
+with open(filename, 'rt') as file:
+    for line in file:
+        # Process the line 
 ```
 
-Writing string data.
+### Common Idioms for Write to a File
+
+Write string data.
 
 ```python
-with open('outfile', 'wt') as f:
-    f.write('Hello World\n')
+with open('outfile', 'wt') as out:
+    out.write('Hello World\n')
     ...
 ```
 
-Redirecting the print function.
+Redirect the print function.
 
 ```python
-with open('outfile', 'wt') as f:
-    print('Hello World', file=f)
+with open('outfile', 'wt') as out:
+    print('Hello World', file=out)
     ...
 ```
 
 ## Exercises
 
-This exercise depends on a file `Data/portfolio.csv`.  The file contains a list of lines with information on a portfolio of stocks.
-Locate the file and look at its contents:
+These exercises depend on a file `Data/portfolio.csv`.  The file
+contains a list of lines with information on a portfolio of stocks.
+It is assumed that you are working in the `practical-python/Work/`
+directory.  If you're not sure, you can find out where Python thinks
+it's running by doing this:
 
-### Exercise 1.26: File Preliminaries
-
-*Note: Make sure you are running Python in a location where you can access the `portfolio.csv` file.
-It's normally located in `Data/portfolio.csv`. 
-You can find out where Python thinks it's running by doing this:
-
-```pycon
+```python
 >>> import os
 >>> os.getcwd()
-'/Users/beazley/Desktop/practical-python' # Output vary
+'/Users/beazley/Desktop/practical-python/Work' # Output vary
 >>>
 ```
 
+### Exercise 1.26: File Preliminaries
+
 First, try reading the entire file all at once as a big string:
 
-```pycon
+```python
 >>> with open('Data/portfolio.csv', 'rt') as f:
         data = f.read()
+
 >>> data
 'name,shares,price\n"AA",100,32.20\n"IBM",50,91.10\n"CAT",150,83.44\n"MSFT",200,51.23\n"GE",95,40.37\n"MSFT",50,65.10\n"IBM",100,70.44\n'
 >>> print(data)
@@ -127,10 +134,11 @@ time.
 
 To read a file line-by-line, use a for-loop like this:
 
-```pycon
+```python
 >>> with open('Data/portfolio.csv', 'rt') as f:
     for line in f:
         print(line, end='')
+
 name,shares,price
 "AA",100,32.20
 "IBM",50,91.10
@@ -145,7 +153,7 @@ On certain occasions, you might want to manually read or skip a
 *single* line of text (e.g., perhaps you want to skip the first line
 of column headers).
 
-```pycon
+```python
 >>> f = open('Data/portfolio.csv', 'rt')
 >>> headers = next(f)
 >>> headers
@@ -167,7 +175,7 @@ Thus, you normally wouldn’t call it directly unless you’re trying to explici
 Once you’re reading lines of a file, you can start to perform more processing such as splitting.
 For example, try this:
 
-```pycon
+```python
 >>> f = open('Data/portfolio.csv', 'rt')
 >>> headers = next(f).split(',')
 >>> headers
@@ -189,7 +197,7 @@ For example, try this:
 Now that you know how to read a file, let’s write a program to perform a simple calculation.
 
 The columns in `portfolio.csv` correspond to the stock name, number of
-shares, and purchase price of a single share.  Write a program called
+shares, and purchase price of a single stock holding.  Write a program called
 `pcost.py` that opens this file, reads all lines, and calculates how
 much it cost to purchase all of the shares in the portfolio.
 
@@ -201,7 +209,7 @@ Your program should print output such as the following:
 Total cost 44671.15
 ```
 
-### Exercise 1.28: Other kinds of 'files'
+### Exercise 1.28: Other kinds of "files"
 
 What if you wanted to read a non-text file such as a gzip-compressed
 datafile?  The builtin `open()` function won’t help you here, but
@@ -210,7 +218,7 @@ files.
 
 Try it:
 
-```pycon
+```python
 >>> import gzip
 >>> with gzip.open('Data/portfolio.csv.gz') as f:
     for line in f:

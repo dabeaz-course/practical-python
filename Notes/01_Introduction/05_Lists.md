@@ -1,8 +1,12 @@
+[Contents](../Contents) \| [Previous (1.4 Strings)](04_Strings) \| [Next (1.6 Files)](06_Files)
+
 # 1.5 Lists
+
+This section introduces lists, Python's primary type for holding an ordered collection of values.
 
 ### Creating a List
 
-Use square brackets to define a list:
+Use square brackets to define a list literal:
 
 ```python
 names = [ 'Elwood', 'Jake', 'Curtis' ]
@@ -12,7 +16,7 @@ nums = [ 39, 38, 42, 65, 111]
 Sometimes lists are created by other methods.  For example, a string can be split into a
 list using the `split()` method:
 
-```pycon
+```python
 >>> line = 'GOOG,100,490.10'
 >>> row = line.split(',')
 >>> row
@@ -53,7 +57,7 @@ Negative indices count from the end.
 names[-1] # 'Curtis'
 ```
 
-You can change any item in the list.
+You can change any item in a list.
 
 ```python
 names[1] = 'Joliet Jake'
@@ -83,7 +87,7 @@ s * 3   # [1, 2, 3, 1, 2, 3, 1, 2, 3]
 
 ### List Iteration and Search
 
-Iterating over the list contents.
+Use `for` to iterate over the list contents.
 
 ```python
 for name in names:
@@ -117,8 +121,9 @@ names.remove('Curtis')
 del names[1]
 ```
 
-Removing an item does not create a hole.  Other items will move down to fill the space vacated.
-If there are more than one occurrence of the element, `.remove()` will remove only the first occurrence.
+Removing an item does not create a hole.  Other items will move down
+to fill the space vacated.  If there are more than one occurrence of
+the element, `remove()` will remove only the first occurrence.
 
 ### List Sorting
 
@@ -137,11 +142,17 @@ s = ['foo', 'bar', 'spam']
 s.sort()                    # ['bar', 'foo', 'spam']
 ```
 
+Use `sorted()` if you'd like to make a new list instead:
+
+```python
+t = sorted(s)               # s unchanged, t holds sorted values
+```
+
 ### Lists and Math
 
 *Caution: Lists were not designed for math operations.*
 
-```pycon
+```python
 >>> nums = [1, 2, 3, 4, 5]
 >>> nums * 2
 [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
@@ -149,7 +160,7 @@ s.sort()                    # ['bar', 'foo', 'spam']
 [1, 2, 3, 4, 5, 10, 11, 12, 13, 14] >>>
 ```
 
-Specifically, lists don't represent vectors/matrices as in MATLAB, Octave, IDL, etc.
+Specifically, lists don't represent vectors/matrices as in MATLAB, Octave, R, etc.
 However, there are some packages to help you with that (e.g. [numpy](https://numpy.org)).
 
 ## Exercises
@@ -157,13 +168,13 @@ However, there are some packages to help you with that (e.g. [numpy](https://num
 In this exercise, we experiment with Python's list datatype. In the last section,
 you worked with strings containing stock symbols.
 
-```pycon
+```python
 >>> symbols = 'HPQ,AAPL,IBM,MSFT,YHOO,DOA,GOOG'
 ```
 
 Split it into a list of names using the `split()` operation of strings:
 
-```pycon
+```python
 >>> symlist = symbols.split(',')
 ```
 
@@ -228,7 +239,7 @@ For instance, in the above example, the last two items of `symlist` got replaced
 The `for` loop works by looping over data in a sequence such as a list.
 Check this out by typing the following loop and watching what happens:
 
-```pycon
+```python
 >>> for s in symlist:
         print('s =', s)
 # Look at the output
@@ -238,7 +249,7 @@ Check this out by typing the following loop and watching what happens:
 
 Use the `in` or `not in` operator to check if `'AIG'`,`'AA'`, and `'CAT'` are in the list of symbols.
 
-```pycon
+```python
 >>> # Is 'AIG' IN the `symlist`?
 True
 >>> # Is 'AA' IN the `symlist`?
@@ -252,7 +263,7 @@ True
 
 Use the `append()` method to add the symbol `'RHT'` to end of `symlist`.
 
-```pycon
+```python
 >>> # append 'RHT'
 >>> symlist
 ['HPQ', 'AAPL', 'AIG', 'MSFT', 'YHOO', 'GOOG', 'RHT']
@@ -261,7 +272,7 @@ Use the `append()` method to add the symbol `'RHT'` to end of `symlist`.
 
 Use the `insert()` method to insert the symbol `'AA'` as the second item in the list.
 
-```pycon
+```python
 >>> # Insert 'AA' as the second item in the list
 >>> symlist
 ['HPQ', 'AA', 'AAPL', 'AIG', 'MSFT', 'YHOO', 'GOOG', 'RHT']
@@ -270,7 +281,7 @@ Use the `insert()` method to insert the symbol `'AA'` as the second item in the 
 
 Use the `remove()` method to remove `'MSFT'` from the list.
 
-```pycon
+```python
 >>> # Remove 'MSFT'
 >>> symlist
 ['HPQ', 'AA', 'AAPL', 'AIG', 'YHOO', 'GOOG', 'RHT']
@@ -281,7 +292,7 @@ Append a duplicate entry for `'YHOO'` at the end of the list.
 
 *Note: it is perfectly fine for a list to have duplicate values.*
 
-```pycon
+```python
 >>> # Append 'YHOO'
 >>> symlist
 ['HPQ', 'AA', 'AAPL', 'AIG', 'YHOO', 'GOOG', 'RHT', 'YHOO']
@@ -290,7 +301,7 @@ Append a duplicate entry for `'YHOO'` at the end of the list.
 
 Use the `index()` method to find the first position of `'YHOO'` in the list.
 
-```pycon
+```python
 >>> # Find the first index of 'YHOO'
 4
 >>> symlist[4]
@@ -300,7 +311,7 @@ Use the `index()` method to find the first position of `'YHOO'` in the list.
 
 Count how many times `'YHOO'` is in the list:
 
-```pycon
+```python
 >>> symlist.count('YHOO')
 2
 >>>
@@ -308,7 +319,7 @@ Count how many times `'YHOO'` is in the list:
 
 Remove the first occurrence of `'YHOO'`.
 
-```pycon
+```python
 >>> # Remove first occurrence 'YHOO'
 >>> symlist
 ['HPQ', 'AA', 'AAPL', 'AIG', 'GOOG', 'RHT', 'YHOO']
@@ -322,7 +333,7 @@ However, we'll see an elegant way to do this in section 2.
 
 Want to sort a list?  Use the `sort()` method. Try it out:
 
-```pycon
+```python
 >>> symlist.sort()
 >>> symlist
 ['AA', 'AAPL', 'AIG', 'GOOG', 'HPQ', 'RHT', 'YHOO']
@@ -331,7 +342,7 @@ Want to sort a list?  Use the `sort()` method. Try it out:
 
 Want to sort in reverse? Try this:
 
-```pycon
+```python
 >>> symlist.sort(reverse=True)
 >>> symlist
 ['YHOO', 'RHT', 'HPQ', 'GOOG', 'AIG', 'AAPL', 'AA']
@@ -345,7 +356,7 @@ Note: Sorting a list modifies its contents 'in-place'.  That is, the elements of
 Want to take a list of strings and join them together into one string?
 Use the `join()` method of strings like this (note: this looks funny at first).
 
-```pycon
+```python
 >>> a = ','.join(symlist)
 >>> a
 'YHOO,RHT,HPQ,GOOG,AIG,AAPL,AA'
@@ -363,7 +374,7 @@ Use the `join()` method of strings like this (note: this looks funny at first).
 Lists can contain any kind of object, including other lists (e.g., nested lists).
 Try this out:
 
-```pycon
+```python
 >>> nums = [101, 102, 103]
 >>> items = ['spam', symlist, nums]
 >>> items
@@ -375,7 +386,7 @@ The first element is a string, but the other two elements are lists.
 
 You can access items in the nested lists by using multiple indexing operations.
 
-```pycon
+```python
 >>> items[0]
 'spam'
 >>> items[0][0]

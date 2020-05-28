@@ -326,6 +326,15 @@ Oops!  That's not what you wanted. Fix it so that the `symbols` variable holds t
 >>>
 ```
 
+Add `'HPQ'` to the front the string:
+
+```python
+>>> symbols = ?
+>>> symbols
+'HPQ,AAPL,IBM,MSFT,YHOO,SCO,GOOG'
+>>>
+```
+
 In these examples, it might look like the original string is being
 modified, in an apparent violation of strings being read only.  Not
 so. Operations on strings create an entirely new string each
