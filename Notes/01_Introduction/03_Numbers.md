@@ -1,4 +1,8 @@
+[Contents](../Contents) \| [Previous (1.2 A First Program)](02_Hello_world) \| [Next (1.4 Strings)](04_Strings)
+
 # 1.3 Numbers 
+
+This section discusses mathematical calculations.
 
 ### Types of Numbers
 
@@ -27,7 +31,7 @@ if d == 0:
     print('d is False')
 ```
 
-*Don't write code like that. It would be odd.*
+*But, don't write code like that. It would be odd.*
 
 ### Integers (int)
 
@@ -47,9 +51,9 @@ Common operations:
 x + y      Add
 x - y      Subtract
 x * y      Multiply
-x / y      Divide
-x // y     Floor Divide
-x % y      Modulo
+x / y      Divide (produces a float)
+x // y     Floor Divide (produces an integer)
+x % y      Modulo (remainder)
 x ** y     Power
 x << n     Bit shift left  
 x >> n     Bit shift right
@@ -165,12 +169,18 @@ Try it out.
 
 ## Exercises
 
+Reminder: These exercises assume you are working in the `practical-python/Work` directory. Look
+for the file `mortgage.py`. 
+
 ### Exercise 1.7: Dave's mortgage
 
-Dave has decided to take out a 30-year fixed rate mortgage of $500,000 with Guido’s Mortgage, Stock Investment, and Bitcoin trading corporation.
-The interest rate is 5% and the monthly payment is $2684.11.
+Dave has decided to take out a 30-year fixed rate mortgage of $500,000
+with Guido’s Mortgage, Stock Investment, and Bitcoin trading
+corporation.  The interest rate is 5% and the monthly payment is
+$2684.11.
 
-Here is a program that calculates the total amount that Dave will have to pay over the life of the mortgage:
+Here is a program that calculates the total amount that Dave will have
+to pay over the life of the mortgage:
 
 ```python
 # mortgage.py
@@ -238,7 +248,7 @@ While you’re at it, fix the program to correct the for overpayment that occurs
 
 `int()` and `float()` can be used to convert numbers.  For example,
 
-```pycon
+```python
 >>> int("123")
 123
 >>> float("1.23")
@@ -248,7 +258,7 @@ While you’re at it, fix the program to correct the for overpayment that occurs
 
 With that in mind, can you explain this behavior?
 
-```pycon
+```python
 >>> bool("False")
 True
 >>>
