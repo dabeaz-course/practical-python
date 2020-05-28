@@ -66,7 +66,7 @@ with open(filename, 'rt') as file:
         # Process the line 
 ```
 
-### Common Idioms for Write to a File
+### Common Idioms for Writing to a File
 
 Write string data.
 

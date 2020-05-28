@@ -1,3 +1,5 @@
+[Contents](../Contents) \| [Previous (4.3 Special methods)](03_Special_methods) \| [Next (5 Object Model)](../05_Object_model/00_Overview)
+
 # 4.4 Defining Exceptions
 
 User defined exceptions are defined by classes.
@@ -8,6 +10,7 @@ class NetworkError(Exception):
 ```
 
 **Exceptions always inherit from `Exception`.**
+
 Usually they are empty classes. Use `pass` for the body.
 
 You can also make a hierarchy of your exceptions.

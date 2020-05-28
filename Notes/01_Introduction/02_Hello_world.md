@@ -291,10 +291,8 @@ The `if` statement is used to execute a conditional:
 
 ```python
 if a > b:
-    # a is greater than b
     print('Computer says no')
 else:
-    # a is lower or equal to b
     print('Computer says yes')
 ```
 
@@ -302,13 +300,10 @@ You can check for multiple conditions by adding extra checks using `elif`.
 
 ```python
 if a > b:
-    # a is greater than b
     print('Computer says no')
 elif a == b:
-     # a is equal to b
     print('Computer says yes')
 else:
-    # a is lower to b
     print('Computer says maybe')
 ```
 

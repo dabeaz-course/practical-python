@@ -1,17 +1,22 @@
+[Contents](../Contents) \| [Previous (3.6 Design discussion)](../03_Program_organization/06_Design_discussion) \| [Next (4.2 Inheritance)](02_Inheritance)
+
 # 4.1 Classes
+
+This section introduces the class statement and the idea of creating new objects.
 
 ### Object Oriented (OO) programming
 
-A Programming technique where code is organized as a collection of *objects*.
+A Programming technique where code is organized as a collection of
+*objects*.
 
 An *object* consists of:
 
 * Data. Attributes
-* Behavior. Methods, functions applied to the object.
+* Behavior. Methods which are functions applied to the object.
 
 You have already been using some OO during this course.
 
-For example with Lists.
+For example, manipulating a list.
 
 ```python
 >>> nums = [1, 2, 3]
@@ -24,14 +29,14 @@ For example with Lists.
 
 `nums` is an *instance* of a list.
 
-Methods (`append` and `insert`) are attached to the instance (`nums`).
+Methods (`append()` and `insert()`) are attached to the instance (`nums`).
 
 ### The `class` statement
 
 Use the `class` statement to define a new object.
 
 ```python
-class Player(object):
+class Player:
     def __init__(self, x, y):
         self.x = x
         self.y = y
@@ -59,9 +64,10 @@ They are created by calling the class as a function.
 >>>
 ```
 
-`a` anb `b` are instances of `Player`.
+`a` and `b` are instances of `Player`.
 
-*Emphasize: The class statement is just the definition (it does nothing by itself). Similar to a function definition.*
+*Emphasize: The class statement is just the definition (it does
+ nothing by itself). Similar to a function definition.*
 
 ### Instance Data
 
@@ -77,7 +83,7 @@ Each instance has its own local data.
 This data is initialized by the `__init__()`.
 
 ```python
-class Player(object):
+class Player:
     def __init__(self, x, y):
         # Any value stored on `self` is instance data
         self.x = x
@@ -92,7 +98,7 @@ There are no restrictions on the total number or type of attributes stored.
 Instance methods are functions applied to instances of an object.
 
 ```python
-class Player(object):
+class Player:
     ...
     # `move` is a method
     def move(self, dx, dy):
@@ -113,15 +119,15 @@ def move(self, dx, dy):
 
 By convention, the instance is called `self`. However, the actual name
 used is unimportant. The object is always passed as the first
-argument. It is simply Python programming style to call this argument
+argument. It is merely Python programming style to call this argument
 `self`.
 
 ### Class Scoping
 
-Classes do not define a scope.
+Classes do not define a scope of names.
 
 ```python
-class Player(object):
+class Player:
     ...
     def move(self, dx, dy):
         self.x += dx
@@ -132,13 +138,15 @@ class Player(object):
         self.move(-amt, 0)  # YES. Calls method `move` from above.
 ```
 
-If you want to operate on an instance, you always have to refer too it explicitly (e.g., `self`).
+If you want to operate on an instance, you always refer to it explicitly (e.g., `self`).
 
 ## Exercises
 
-Note: For this exercise you want to have fully working code from earlier
-exercises.   If things are broken look at the solution code for Exercise 3.18.
-You can find this code in the `Solutions/3_18` directory.
+Starting with this set of exercises, we start to make a series of
+changes to existing code from previous sctions.  It is critical that
+you have a working version of Exercise 3.18 to start.  If you don't
+have that, please work from the solution code found in the
+`Solutions/3_18` directory.  It's fine to copy it.
 
 ### Exercise 4.1: Objects as Data Structures
 
@@ -206,8 +214,8 @@ Create a few more `Stock` objects and manipulate them.  For example:
 
 One thing to emphasize here is that the class `Stock` acts like a
 factory for creating instances of objects.  Basically, you call
-it as a function and it creates a new object for you.  Also, it needs
-to be emphasized that each object is distinct---they each have their
+it as a function and it creates a new object for you.  Also, it must
+be emphasized that each object is distinct---they each have their
 own data that is separate from other objects that have been created.
 
 An object defined by a class is somewhat similar to a dictionary--just
@@ -238,8 +246,8 @@ stored inside an object.  Add a `cost()` and `sell()` method to your
 
 ### Exercise 4.3: Creating a list of instances
 
-Try these steps to make a list of Stock instances and compute the total
-cost:
+Try these steps to make a list of Stock instances from a list of
+dictionaries. Then compute the total cost:
 
 ```python
 >>> import fileparse
@@ -258,10 +266,11 @@ cost:
 
 ### Exercise 4.4: Using your class
 
-Modify the `read_portfolio()` function in the `report.py` program so that it
-reads a portfolio into a list of `Stock` instances.  Once you have done that,
-fix all of the code in `report.py` and `pcost.py` so that it works with
-`Stock` instances instead of dictionaries.
+Modify the `read_portfolio()` function in the `report.py` program so
+that it reads a portfolio into a list of `Stock` instances as just
+shown in Exercise 4.3.  Once you have done that, fix all of the code
+in `report.py` and `pcost.py` so that it works with `Stock` instances
+instead of dictionaries.
 
 Hint: You should not have to make major changes to the code.  You will mainly
 be changing dictionary access such as `s['shares']` into `s.shares`.

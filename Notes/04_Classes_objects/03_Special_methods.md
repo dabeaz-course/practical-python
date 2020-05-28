@@ -1,12 +1,16 @@
+[Contents](../Contents) \| [Previous (4.2 Inheritance)](02_Inheritance) \| [Next (4.4 Exceptions)](04_Defining_exceptions)
+
 # 4.3 Special Methods
 
-Various parts of Python's behavior can be customized via special or magic methods.
-This section introduces that idea.
+Various parts of Python's behavior can be customized via special or so-called "magic" methods.
+This section introduces that idea.  In addition dynamic attribute access and bound methods
+are discussed.
 
 ### Introduction
 
-Classes may define special methods. These have special meaning to the Python interpreter.
-They are always preceded and followed by `__`. For example `__init__`.
+Classes may define special methods. These have special meaning to the
+Python interpreter.  They are always preceded and followed by
+`__`. For example `__init__`.
 
 ```python
 class Stock(object):
@@ -49,7 +53,8 @@ for programmers.
 >>>
 ```
 
-Those functions, `str()` and `repr()`, use a pair of special methods in the class to get the string to be printed.
+Those functions, `str()` and `repr()`, use a pair of special methods
+in the class to produce the string to be displayed.
 
 ```python
 class Date(object):
@@ -68,19 +73,19 @@ class Date(object):
 ```
 
 *Note: The convention for `__repr__()` is to return a string that,
- when fed to `eval()`., will recreate the underlying object. If this
+ when fed to `eval()`, will recreate the underlying object. If this
  is not possible, some kind of easily readable representation is used
  instead.*
 
 ### Special Methods for Mathematics
 
-Mathematical operators are just calls to special methods.
+Mathematical operators involve calls to the following methods.
 
 ```python
 a + b       a.__add__(b)
 a - b       a.__sub__(b)
 a * b       a.__mul__(b)
-a / b       a.__div__(b)
+a / b       a.__truediv__(b)
 a // b      a.__floordiv__(b)
 a % b       a.__mod__(b)
 a << b      a.__lshift__(b)
@@ -108,7 +113,7 @@ del x[a]    x.__delitem__(a)
 You can use them in your classes.
 
 ```python
-class Sequence(object):
+class Sequence:
     def __len__(self):
         ...
     def __getitem__(self,a):
@@ -203,33 +208,6 @@ x = getattr(obj, 'x', None)
 ## Exercises
 
 ### Exercise 4.9: Better output for printing objects
-
-All Python objects have two string representations.  The first
-representation is created by string conversion via `str()`
-(which is called by `print`).   The string representation is
-usually a nicely formatted version of the object meant for humans.
-The second representation is a code representation of the object
-created by `repr()` (or by viewing a value in the
-interactive shell).   The code representation typically shows you the
-code that you have to type to get the object.
-
-The two representations of an object are often different. For example,
-you can see the difference by trying the following:
-
-```python
->>> from datetime import date
->>> d = date(2017, 4, 9)
->>> print(d)             # Nice output
-2017-04-09
->>> print(repr(d))       # Representation output
-datetime.date(2017, 4, 9)
->>> print(f'{d!r}')      # Alternate way to get repr() string
-datetime.date(2017, 4, 9)
->>>
-```
-
-Both kinds of string conversions can be redefined in a class if it
-defines the `__str__()` and `__repr__()` methods.
 
 Modify the `Stock` object that you defined in `stock.py`
 so that the `__repr__()` method produces more useful output.  For

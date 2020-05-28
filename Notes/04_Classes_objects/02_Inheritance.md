@@ -1,6 +1,9 @@
+[Contents](../Contents) \| [Previous (4.1 Classes)](01_Class) \| [Next (4.3 Special methods)](03_Special_methods)
+
 # 4.2 Inheritance
 
-Inheritance is a commonly used tool for writing extensible programs.  This section explores that idea.
+Inheritance is a commonly used tool for writing extensible programs.
+This section explores that idea.
 
 ### Introduction
 
@@ -10,13 +13,13 @@ Inheritance is used to specialize existing objects:
 class Parent:
     ...
 
-class Child(Parent): # Check how `Parent` is between the parenthesis
+class Child(Parent):
     ...
 ```
 
-The new class `Child` is called a derived class or subclass.
-The `Parent` class is known as base class or superclass. 
-`Parent` is specified in `()` after the class name, `class Child(Parent):`.
+The new class `Child` is called a derived class or subclass.  The
+`Parent` class is known as base class or superclass.  `Parent` is
+specified in `()` after the class name, `class Child(Parent):`.
 
 ### Extending
 
@@ -33,7 +36,7 @@ In the end you are **extending existing code**.
 Suppose that this is your starting class:
 
 ```python
-class Stock(object):
+class Stock:
     def __init__(self, name, shares, price):
         self.name = name
         self.shares = shares
@@ -61,9 +64,11 @@ Usage example.
 ```python
 >>> s = MyStock('GOOG', 100, 490.1)
 >>> s.sell(25)
->>> s.shares 75
+>>> s.shares
+75
 >>> s.panic()
->>> s.shares 0
+>>> s.shares
+0
 >>>
 ```
 
@@ -84,15 +89,15 @@ Usage example.
 >>>
 ```
 
-The new method takes the place of the old one. The other methods are unaffected.
+The new method takes the place of the old one. The other methods are unaffected. It's tremendous.
 
 ## Overriding
 
-Sometimes a class extends an existing method, but it wants to use the original implementation.
-For this, use `super()`:
+Sometimes a class extends an existing method, but it wants to use the
+original implementation inside the redefinition.  For this, use `super()`:
 
 ```python
-class Stock(object):
+class Stock:
     ...
     def cost(self):
         return self.shares * self.price
@@ -107,7 +112,7 @@ class MyStock(Stock):
 
 Use `super()` to call the previous version.
 
-*Caution: Python 2 is different.*
+*Caution: In Python 2, the syntax was more verbose.*
 
 ```python
 actual_cost = super(MyStock, self).cost()
@@ -115,10 +120,10 @@ actual_cost = super(MyStock, self).cost()
 
 ### `__init__` and inheritance
 
-If `__init__` is redefined, it is mandatory to initialize the parent.
+If `__init__` is redefined, it is essential to initialize the parent.
 
 ```python
-class Stock(object):
+class Stock:
     def __init__(self, name, shares, price):
         self.name = name
         self.shares = shares
@@ -134,14 +139,15 @@ class MyStock(Stock):
         return self.factor * super().cost()
 ```
 
-You should call the `init` on the `super` which is the way to call the previous version as shown previously.
+You should call the `__init__()` method on the `super` which is the
+way to call the previous version as shown previously.
 
 ### Using Inheritance
 
 Inheritance is sometimes used to organize related objects.
 
 ```python
-class Shape(object):
+class Shape:
     ...
 
 class Circle(Shape):
@@ -151,8 +157,10 @@ class Rectangle(Shape):
     ...
 ```
 
-Think of a logical hierarchy or taxonomy.   However, a more common usage is
-related to making reusable or extensible code:
+Think of a logical hierarchy or taxonomy.  However, a more common (and
+practical) usage is related to making reusable or extensible code. 
+For example, a framework might define a base class and instruct you
+to customize it.
 
 ```python
 class CustomHandler(TCPHandler):
@@ -162,14 +170,14 @@ class CustomHandler(TCPHandler):
 ```
 
 The base class contains some general purpose code.
-Your class inherits and customized specific parts. Maybe it plugs into a framework.
+Your class inherits and customized specific parts. 
 
 ### "is a" relationship
 
 Inheritance establishes a type relationship.
 
 ```python
-class Shape(object):
+class Shape:
     ...
 
 class Circle(Shape):
@@ -185,7 +193,8 @@ True
 >>>
 ```
 
-*Important: Code that works with the parent is also supposed to work with the child.*
+*Important: Ideally, any code that worked with instances of the parent 
+class will also work with instances of the child class.*
 
 ### `object` base class
 
@@ -198,25 +207,29 @@ class Shape(object):
 
 `object` is the parent of all objects in Python.
 
-*Note: it's not technically required in Python 3. If omitted in Python 2, it results in an "old style class" which should be avoided.*
+*Note: it's not technically required, but you often see it specified
+as a hold-over from it's required use in Python 2. If omitted, the
+class still implicitly inherits from `object`.
 
 ### Multiple Inheritance
 
 You can inherit from multiple classes by specifying them in the definition of the class.
 
 ```python
-class Mother(object):
+class Mother:
     ...
 
-class Father(object):
+class Father:
     ...
 
 class Child(Mother, Father):
     ...
 ```
 
-The class `Child` inherits features from both parents.  There are some rather tricky details. Don't do it unless you know what you are doing.
-We're not going to explore multiple inheritance further in this course.
+The class `Child` inherits features from both parents.  There are some
+rather tricky details. Don't do it unless you know what you are doing.
+Some further information will be given in the next section, but we're not
+going to utilize multiple inheritance further in this course.
 
 ## Exercises
 
@@ -271,7 +284,7 @@ following class:
 ```python
 # tableformat.py
 
-class TableFormatter(object):
+class TableFormatter:
     def headings(self, headers):
         '''
         Emit the table headings.
@@ -286,10 +299,12 @@ class TableFormatter(object):
 ```
 
 This class does nothing, but it serves as a kind of design specification for 
-additional classes that will be defined shortly.  
+additional classes that will be defined shortly.  A class like this is
+sometimes called an "abstract base class."
 
-Modify the `print_report()` function so that it accepts a `TableFormatter` object
-as input and invokes methods on it to produce the output.  For example, like this:
+Modify the `print_report()` function so that it accepts a
+`TableFormatter` object as input and invokes methods on it to produce
+the output.  For example, like this:
 
 ```python
 # report.py
@@ -341,12 +356,13 @@ Run this new code:
 ```
 
 It should immediately crash with a `NotImplementedError` exception.  That's not 
-too exciting, but continue to the next part.
+too exciting, but it's exactly what we expected.  Continue to the next part.
 
 ### Exercise 4.6: Using Inheritance to Produce Different Output
 
-The `TableFormatter` class you defined in part (a) is meant to be extended via inheritance. 
-In fact, that's the whole idea.   To illustrate, define a class `TextTableFormatter` like this:
+The `TableFormatter` class you defined in part (a) is meant to be
+extended via inheritance.  In fact, that's the whole idea.  To
+illustrate, define a class `TextTableFormatter` like this:
 
 ```python
 # tableformat.py
@@ -485,11 +501,11 @@ that expected to use a `TableFormatter` object, it would work no
 matter what kind of `TableFormatter` you actually gave it.  This
 behavior is sometimes referred to as "polymorphism."
 
-One potential problem is figuring out how to allow a user to pick
-out the formatter that they want.  Direct use of the class names
-such as `TextTableFormatter` is often annoying.  Thus, you
-might consider some simplified approach.  Perhaps you embed an `if-`statement
-into the code like this:
+One potential problem is figuring out how to allow a user to pick out
+the formatter that they want.  Direct use of the class names such as
+`TextTableFormatter` is often annoying.  Thus, you might consider some
+simplified approach.  Perhaps you embed an `if-`statement into the
+code like this:
 
 ```python
 def portfolio_report(portfoliofile, pricefile, fmt='txt'):
@@ -521,10 +537,10 @@ the `portfolio_report()` function like that the best idea?  It might
 be better to move that code to a general purpose function somewhere
 else.
 
-In the `tableformat.py` file, add a
-function `create_formatter(name)` that allows a user to create a 
-formatter given an output name such as `'txt'`, `'csv'`, or `'html'`.
-Modify `portfolio_report()` so that it looks like this:
+In the `tableformat.py` file, add a function `create_formatter(name)`
+that allows a user to create a formatter given an output name such as
+`'txt'`, `'csv'`, or `'html'`.  Modify `portfolio_report()` so that it
+looks like this:
 
 ```python
 def portfolio_report(portfoliofile, pricefile, fmt='txt'):
@@ -587,9 +603,25 @@ you to define your own object that inherits from a provided base
 class.  You're then told to fill in various methods that implement
 various bits of functionality.
 
-That said, designing object oriented programs can be extremely difficult.
-For more information, you should probably look for books on the topic of
-design patterns (although understanding what happened in this exercise
-will take you pretty far in terms of using most library modules).
+Another somewhat deeper concept is the idea of "owning your
+abstractions."  In the exercises, we defined *our own class* for
+formatting a table.  You may look at your code and tell yourself "I should
+just use a formatting library or something that someone else already
+made instead!"  No, you should use BOTH your class and a library.
+Using your own class promotes loose coupling and is more flexible.
+As long as your application uses the programming interface of your class,
+you can change the internal implementation to work in any way that you
+want.  You can write all-custom code.  You can use someone's third
+party package.  You swap out one third-party package for a different
+package when you find a better one.  It doesn't matter--none of
+your application code will break as long as you preserve keep the 
+interface.   That's a powerful idea and it's one of the reasons why
+you might consider inheritance for something like this.
+
+That said, designing object oriented programs can be extremely
+difficult.  For more information, you should probably look for books
+on the topic of design patterns (although understanding what happened
+in this exercise will take you pretty far in terms of using objects in
+a practically useful way).
 
 [Contents](../Contents) \| [Previous (4.1 Classes)](01_Class) \| [Next (4.3 Special methods)](03_Special_methods)
