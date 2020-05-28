@@ -1,3 +1,5 @@
+[Contents](../Contents) \| [Next (1.2 A First Program)](02_Hello_world)
+
 # 1.1 Python
 
 ### What is Python?
@@ -67,7 +69,7 @@ share. Today, shares of Google are priced at $711.25. Using Python’s
 interactive mode as a calculator, figure out how much profit Larry would
 make if he sold all of his shares.
 
-```pycon
+```python
 >>> (711.25 - 235.14) * 75
 35708.25
 >>>
@@ -77,7 +79,7 @@ Pro-tip: Use the underscore (\_) variable to use the result of the last
 calculation. For example, how much profit does Larry make after his evil
 broker takes their 20% cut?
 
-```pycon
+```python
 >>> _ * 0.80
 28566.600000000002
 >>>
@@ -117,7 +119,7 @@ run, you may have to hit "Return" once after you’ve pasted it in.
 
 Use cut-and-paste to execute the Python statements in this session:
 
-```pycon
+```python
 >>> 12 + 20
 32
 >>> (3 + 4
@@ -147,7 +149,7 @@ Try something more advanced and type these statements to find out how
 long people waiting on the corner of Clark street and Balmoral in
 Chicago will have to wait for the next northbound CTA \#22 bus:
 
-```pycon
+```python
 >>> import urllib.request
 >>> u = urllib.request.urlopen('http://ctabustracker.com/bustime/map/getStopPredictions.jsp?stop=14791&route=22')
 >>> from xml.etree.ElementTree import parse
@@ -176,7 +178,7 @@ If your work environment requires the use of an HTTP proxy server, you may need
 to set the `HTTP_PROXY` environment variable to make this part of the
 exercise work. For example:
 
-```pycon
+```python
 >>> import os
 >>> os.environ['HTTP_PROXY'] = 'http://yourproxy.server.com'
 >>>

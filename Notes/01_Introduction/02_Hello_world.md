@@ -1,3 +1,5 @@
+[Contents](../Contents) \| [Previous (1.1 Python)](01_Python) \| [Next (1.3 Numbers)](03_Numbers)
+
 # 1.2 A First Program
 
 This section discusses the creation of your first program, running the
@@ -46,19 +48,24 @@ hello world
 >>>
 ```
 
-This so-called *read-eval* loop is very useful for debugging and exploration.
+This so-called *read-eval-print-loop* (or REPL) is very useful for debugging and exploration.
 
-Let's take a closer look at the elements:
+**STOP**: If you can't figure out how to interact with Python, stop what you're doing
+and figure out how to do it.  If you're using an IDE, it might be hidden behind a 
+menu option or other window.  Many parts of this course assume that you can
+interact with the interpreter.
+
+Let's take a closer look at the elements of the REPL:
 
 - `>>>` is the interpreter prompt for starting a new statement.
 - `...` is the interpreter prompt for continuing a statements. Enter a blank line to finish typing and run the statements.
 
-The `...` prompt may or may not be shown depending on how you are using Python.  For this course,
+The `...` prompt may or may not be shown depending on your environment. For this course,
 it is shown as blanks to make it easier to cut/paste code samples.
 
 The underscore `_` holds the last result. 
 
-```pycon
+```python
 >>> 37 * 42
 1554
 >>> _ * 2
@@ -94,7 +101,7 @@ bash %
 
 Or from the Windows shell:
 
-```shell
+```
 C:\SomeFolder>hello.py
 hello world
 
@@ -103,6 +110,8 @@ hello world
 ```
 
 Note: On Windows, you may need to specify a full path to the Python interpreter such as `c:\python36\python`.  
+However, if Python is installed in its usual way, you might be able to just type the name of the program
+such as `hello.py`.
 
 ### A Sample Program
 
@@ -134,7 +143,8 @@ print('Final height', num_bills * bill_thickness)
 When you run it, you get the following output:
 
 ```bash
-bash % python3 sears.py 1 1 0.00011
+bash % python3 sears.py
+1 1 0.00011
 2 2 0.00022
 3 4 0.00044
 4 8 0.00088
@@ -197,6 +207,9 @@ height = 442           # Floating point
 height = 'Really tall' # A string
 ```
 
+Python is dynamically typed. The perceived "type" of a variable might change
+as a program executes depending on the current value assigned to it.
+
 ### Case Sensitivity
 
 Python is case sensitive. Upper and lower-case letters are considered different letters.
@@ -228,11 +241,11 @@ while num_bills * bill_thickness < sears_height:
 print('Number of days', days)
 ```
 
-The statements below the `while` will execute as long as the expression after the `while` is `true`.
+The statements indented below the `while` will execute as long as the expression after the `while` is `true`.
 
 ### Indentation
 
-Indentation in Python is used to denote a set of statements that go together.
+Indentation is used to denote groups of statements that go together.
 Consider the previous example:
 
 ```python
@@ -244,8 +257,7 @@ while num_bills * bill_thickness < sears_height:
 print('Number of days', days)
 ```
 
-Indentation groups the following statements together as the operations that 
-execute repeatedly:
+Indentation groups the following statements together as the operations that repeat:
 
 ```python
     print(day, num_bills, num_bills * bill_thickness)
@@ -253,8 +265,8 @@ execute repeatedly:
     num_bills = num_bills * 2
 ```
 
-Because the `print()` statement at the end is not indented, it means
-that it does not belong to the loop. The empty line is just for
+Because the `print()` statement at the end is not indented, it 
+does not belong to the loop. The empty line is just for
 readability. It does not affect the execution.
 
 ### Indentation best practices
@@ -285,8 +297,6 @@ else:
     # a is lower or equal to b
     print('Computer says yes')
 ```
-
-Depending on the values of `a` and `b`, the execution will jump to `print('Computer says no')` or `print('Computer says yes')`.
 
 You can check for multiple conditions by adding extra checks using `elif`.
 
@@ -324,7 +334,7 @@ name = 'Jake'
 print('My name is', name) # Print the text 'My name is Jake'
 ```
 
-`print()` always puts a new line at the end.
+`print()` always puts a newline at the end.
 
 ```python
 print('Hello')
@@ -364,7 +374,7 @@ print('Your name is', name)
 This is useful for small programs, learning exercises or simple debugging.
 It is not widely used for real programs.
 
-### `pass` statement
+### pass statement
 
 Sometimes you need to specify an empty code block. The keyword `pass` is used for it.
 
@@ -379,10 +389,19 @@ This is also called a "no-op" statement. It does nothing. It serves as a placeho
 
 ## Exercises
 
+This is the first set of exercises where you need to create Python
+files and run them.  From this point forward, it is assumed that you
+are editing files in the `practical-python/Work/` directory.  To help
+you locate the proper place, a number of empty starter files have
+been created with the appropriate filenames.  Look for the file
+`Work/bounce.py` that's used in the first exercise.
+
 ### Exercise 1.5: The Bouncing Ball
 
-A rubber ball is dropped from a height of 100 meters and each time it hits the ground, it bounces back up to 3/5 the height it fell.
-Write a program "bounce.py" that prints a table showing the height of the first 10 bounces.
+A rubber ball is dropped from a height of 100 meters and each time it
+hits the ground, it bounces back up to 3/5 the height it fell.  Write
+a program `bounce.py` that prints a table showing the height of the
+first 10 bounces.
 
 Your program should make a table that looks something like this:
 
