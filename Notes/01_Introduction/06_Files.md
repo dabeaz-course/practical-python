@@ -228,4 +228,18 @@ Try it:
 >>>
 ```
 
+### Commentary:  Shouldn't we being using Pandas for this?
+
+Data scientists are quick to point out that libraries like
+[Pandas](https://pandas.pydata.org) already have a function for
+reading CSV files.  This is true--and it works pretty well.
+However, this is not a course on learning Pandas. Reading files
+is a more general problem than the specifics of CSV files. 
+The main reason we're working with a CSV file is that it's a
+familiar format to most coders and it's relatively easy to work with
+directly--illustrating many Python features in the process.
+So, by all means use Pandas when you go back to work.  For the
+rest of this course however, we're going to stick with standard
+Python functionality.
+
 [Contents](../Contents) \| [Previous (1.5 Lists)](05_Lists) \| [Next (1.7 Functions)](07_Functions)
