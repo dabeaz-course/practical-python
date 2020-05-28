@@ -86,3 +86,24 @@ Bryan Van de ven, Peter Wang, and Mark Wiebe.
 I'd also like to thank the thousands of students who have taken this
 course and contributed to its success with their feedback and
 discussion.
+
+## Questions and Answers
+
+### Q: How is this course licensed?
+
+Practical Python Programming is licensed under a Creative Commons Attribution ShareAlike 4.0 International License. 
+
+### Q: May I use this material to teach my own Python course?
+
+Yes, as long as appropriate attribution is given.
+
+### Q: May I make derivative works?
+
+Yes, as long as such works carry the same license terms and provide attribution.
+
+### Q: Do you accept contributions?
+
+Bug reports are appreciated and may be filed through the [issue
+tracker](https://github.com/dabeaz-course/practical-python/issues).
+Pull requests are not accepted except by invitation.  Please file an
+issue first.
