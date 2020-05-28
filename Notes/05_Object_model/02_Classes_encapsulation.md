@@ -1,12 +1,14 @@
+[Contents](../Contents) \| [Previous (5.1 Dictionaries Revisited)](01_Dicts_revisited) \| [Next (6 Generators)](../06_Generators/00_Overview)
+
 # 5.2 Classes and Encapsulation
 
 When writing classes, it is common to try and encapsulate internal details. 
-This section introduces a very Python programming idioms for this including
+This section introduces a few Python programming idioms for this including
 private variables and properties.
 
 ### Public vs Private.
 
-One of the primary roles of a class is to encapsulate data an internal
+One of the primary roles of a class is to encapsulate data and internal
 implementation details of an object.  However, a class also defines a
 *public* interface that the outside world is supposed to use to
 manipulate the object.  This distinction between implementation
@@ -39,7 +41,8 @@ class Person(object):
         self._name = 0
 ```
 
-As mentioned earlier, this is only a programming style. You can still access and change it.
+As mentioned earlier, this is only a programming style. You can still
+access and change it.
 
 ```python
 >>> p = Person('Guido')
@@ -49,22 +52,34 @@ As mentioned earlier, this is only a programming style. You can still access and
 >>>
 ```
 
+As a general rule, any name with a leading `_` is considered internal implementation
+whether it's a variable, a function, or a module name.  If you find yourself using such
+names directly, you're probably doing something wrong. Look for higher level functionality.
+
 ### Simple Attributes
 
 Consider the following class.
 
 ```python
-class Stock(object):
+class Stock:
     def __init__(self, name, shares, price):
         self.name = name
         self.shares = shares
         self.price = price
-
-s = Stock('GOOG', 100, 490.1)
-s.shares = 50
 ```
 
-Suppose later you want to add a validation.
+A surprising feature is that you can set the attributes
+to any value at all:
+
+```python
+>>> s = Stock('IBM', 50, 91.1)
+>>> s.shares = 100
+>>> s.shares = "hundred"
+>>> s.shares = [1, 0, 0]
+>>>
+```
+
+You might look at that and think you want some extra checks.
 
 ```python
 s.shares = '50'     # Raise a TypeError, this is a string
@@ -74,10 +89,10 @@ How would you do it?
 
 ### Managed Attributes
 
-You might introduce accessor methods.
+One approach: introduce accessor methods.
 
 ```python
-class Stock(object):
+class Stock:
     def __init__(self, name, shares, price):
         self.name = name self.set_shares(shares) self.price = price
 
@@ -92,14 +107,15 @@ class Stock(object):
         self._shares = value
 ```
 
-Too bad that this breaks all of our existing code. `s.shares = 50` becomes `s.set_shares(50)`
+Too bad that this breaks all of our existing code. `s.shares = 50`
+becomes `s.set_shares(50)`
 
 ### Properties
 
 There is an alternative approach to the previous pattern.
 
 ```python
-class Stock(object):
+class Stock:
     def __init__(self, name, shares, price):
         self.name = name
         self.shares = shares
@@ -116,33 +132,23 @@ class Stock(object):
         self._shares = value
 ```
 
-Normal attribute access now triggers the getter and setter under `@property` and `@shares.setter`.
+Normal attribute access now triggers the getter and setter methods
+under `@property` and `@shares.setter`.
 
 ```python
-class Stock(object):
-    def __init__(self, name, shares, price):
-        self.name = name
-        self.shares = shares
-        self.price = price
-
-    # Triggered with `s.shares`
-    @property
-    def shares(self):
-        return self._shares
-
-    # Triggered with `s.shares = ...`
-    @shares.setter
-    def shares(self, value):
-        if not isinstance(value, int):
-            raise TypeError('Expected int')
-        self._shares = value
+>>> s = Stock('IBM', 50, 91.1)
+>>> s.shares         # Triggers @property
+50
+>>> s.shares = 75    # Triggers @shares.setter
+>>>
 ```
 
 With this pattern, there are *no changes* needed to the source code.
-The new *setter* is also called when there is an assignment within the class.
+The new *setter* is also called when there is an assignment within the class,
+including inside the `__init__()` method.
 
 ```python
-class Stock(object):
+class Stock:
     def __init__(self, name, shares, price):
         ...
         # This assignment calls the setter below
@@ -164,7 +170,7 @@ of the class (not the property) can continue to use a name like `shares`.
 Properties are also useful for computed data attributes.
 
 ```python
-class Stock(object):
+class Stock:
     def __init__(self, name, shares, price):
         self.name = name
         self.shares = shares
@@ -176,7 +182,7 @@ class Stock(object):
     ...
 ```
 
-This allows you to drop the extra parantheses, hiding the fact that it's actually method:
+This allows you to drop the extra parantheses, hiding the fact that it's actually a method:
 
 ```python
 >>> s = Stock('GOOG', 100, 490.1)
@@ -206,8 +212,8 @@ can fix this.
 
 ### Decorator Syntax
 
-The `@` syntax is known as *decoration".
-It specifies a modifier that's applied to the function definition that immediately follows.
+The `@` syntax is known as *decoration".  It specifies a modifier
+that's applied to the function definition that immediately follows.
 
 ```python
 ...
@@ -216,14 +222,14 @@ def cost(self):
     return self.shares * self.price
 ```
 
-It's kind of like a macro. More details in Section 7.
+More details are given in [Section 7](../07_Advanced_Topics/00_Overview).
 
 ### `__slots__` Attribute
 
 You can restrict the set of attributes names.
 
 ```python
-class Stock(object):
+class Stock:
     __slots__ = ('name','_shares','price')
     def __init__(self, name, shares, price):
         self.name = name
@@ -240,7 +246,7 @@ File "<stdin>", line 1, in ?
 AttributeError: 'Stock' object has no attribute 'prices'
 ```
 
-It prevents errors and restricts usage of objects. It's actually used for performance and
+Although this prevents errors and restricts usage of objects, it's actually used for performance and
 makes Python use memory more efficiently.
 
 ### Final Comments on Encapsulation
@@ -332,7 +338,7 @@ verify that new attributes can't be added:
 >>>
 ```
 
-When you use `__slots__`, Python actually uses a more efficient 
+When you use `__slots__`, Python uses a more efficient 
 internal representation of objects.   What happens if you try to 
 inspect the underlying dictionary of `s` above?
 
@@ -345,5 +351,6 @@ inspect the underlying dictionary of `s` above?
 It should be noted that `__slots__` is most commonly used as an
 optimization on classes that serve as data structures.  Using slots
 will make such programs use far-less memory and run a bit faster.
+You should probably avoid `__slots__` on most other classes however.
 
 [Contents](../Contents) \| [Previous (5.1 Dictionaries Revisited)](01_Dicts_revisited) \| [Next (6 Generators)](../06_Generators/00_Overview)

@@ -1,11 +1,14 @@
+[Contents](../Contents) \| [Previous (6.2 Customizing Iteration)](02_Customizing_iteration) \| [Next (6.4 Generator Expressions)](04_More_generators)
+
 # 6.3 Producers, Consumers and Pipelines
 
-Generators are a useful tool for setting various kinds of producer/consumer 
-problems and dataflow pipelines.  This section discusses that.
+Generators are a useful tool for setting various kinds of
+producer/consumer problems and dataflow pipelines.  This section
+discusses that.
 
 ### Producer-Consumer Problems
 
-Generators are closely related to various forms of *producer-consumer*.
+Generators are closely related to various forms of *producer-consumer* problems.
 
 ```python
 # Producer

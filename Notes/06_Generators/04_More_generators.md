@@ -1,7 +1,9 @@
+[Contents](../Contents) \| [Previous (6.3 Producer/Consumer)](03_Producers_consumers) \| [Next (7 Advanced Topics)](../07_Advanced_Topics/00_Overview)
+
 # 6.4 More Generators
 
-This section introduces a few additional generator related topics including
-generator expressions and the itertools module.
+This section introduces a few additional generator related topics
+including generator expressions and the itertools module.
 
 ### Generator Expressions
 
@@ -62,7 +64,8 @@ for line in lines:
 f.close()
 ```
 
-With generators, the code runs faster and uses little memory. It's like a filter applied to a stream.
+With generators, the code runs faster and uses little memory. It's
+like a filter applied to a stream.
 
 ### Why Generators
 

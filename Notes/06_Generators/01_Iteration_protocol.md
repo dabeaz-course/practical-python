@@ -1,6 +1,8 @@
+[Contents](../Contents) \| [Previous (5.2 Encapsulation)](../05_Classes_objects/02_Classes_encapsulation) \| [Next (6.2 Customizing Iteration)](02_Customizing_iteration)
+
 # 6.1 Iteration Protocol
 
-This section looks at the process of iteration.
+This section looks at the underlying process of iteration.
 
 ### Iteration Everywhere
 
@@ -26,7 +28,7 @@ for x in f: # Loop over lines in a file
 
 ### Iteration: Protocol
 
-Let's take an inside look at the `for` statement.
+Consider the `for`-statement.
 
 ```python
 for x in obj:
@@ -45,7 +47,9 @@ while True:
     # statements ...
 ```
 
-All the objects that work with the `for-loop` implement this low-level iteration protocol.
+All the objects that work with the `for-loop` implement this low-level
+iteration protocol.  
+
 Example: Manual iteration over a list.
 
 ```python
@@ -71,7 +75,7 @@ Knowing about iteration is useful if you want to add it to your own objects.
 For example, making a custom container.
 
 ```python
-class Portfolio(object):
+class Portfolio:
     def __init__(self):
         self.holdings = []
 
@@ -147,7 +151,7 @@ following class:
 ```python
 # portfolio.py
 
-class Portfolio(object):
+class Portfolio:
 
     def __init__(self, holdings):
         self._holdings = holdings
@@ -203,7 +207,7 @@ that `Portfolio` instances aren't iterable.
 Fix this by modifying the `Portfolio` class to support iteration:
 
 ```python
-class Portfolio(object):
+class Portfolio:
 
     def __init__(self, holdings):
         self._holdings = holdings
@@ -256,7 +260,7 @@ iteration. Modify the `Portfolio` class so that it has some other
 special methods like this:
 
 ```python
-class Portfolio(object):
+class Portfolio:
     def __init__(self, holdings):
         self._holdings = holdings
 

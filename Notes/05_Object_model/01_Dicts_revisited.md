@@ -1,7 +1,9 @@
+[Contents](../Contents) \| [Previous (4.4 Exceptions)](../04_Classes_objects/04_Defining_exceptions) \| [Next (5.2 Encapsulation)](02_Classes_encapsulation)
+
 # 5.1 Dictionaries Revisited
 
-The Python object system is largely based on an implementation based on dictionaries.  This
-section discusses that.
+The Python object system is largely based on an implementation
+involving dictionaries.  This section discusses that.
 
 ### Dictionaries, Revisited
 
@@ -15,12 +17,14 @@ stock = {
 }
 ```
 
-Dictionaries are commonly used for simple data structures.
-However, they are used for critical parts of the interpreter and may be the *most important type of data in Python*.
+Dictionaries are commonly used for simple data structures.  However,
+they are used for critical parts of the interpreter and may be the
+*most important type of data in Python*.
 
 ### Dicts and Modules
 
-In a module, a dictionary holds all of the global variables and functions.
+Within a module, a dictionary holds all of the global variables and
+functions.
 
 ```python
 # foo.py
@@ -33,7 +37,7 @@ def spam():
     ...
 ```
 
-If we inspect `foo.__dict__` or `globals()`, you'll see the dictionary.
+If you inspect `foo.__dict__` or `globals()`, you'll see the dictionary.
 
 ```python
 {
@@ -45,8 +49,9 @@ If we inspect `foo.__dict__` or `globals()`, you'll see the dictionary.
 
 ### Dicts and Objects
 
-User defined objects also use dictionaries for both instance data and classes.
-In fact, the entire object system is mostly an extra layer that's put on top of dictionaries.
+User defined objects also use dictionaries for both instance data and
+classes.  In fact, the entire object system is mostly an extra layer
+that's put on top of dictionaries.
 
 A dictionary holds the instance data, `__dict__`.
 
@@ -59,8 +64,8 @@ A dictionary holds the instance data, `__dict__`.
 You populate this dict (and instance) when assigning to `self`.
 
 ```python
-class Stock(object):
-    def __init__(self,name,shares,price):
+class Stock:
+    def __init__(self, name, shares, price):
         self.name = name
         self.shares = shares
         self.price = price
@@ -79,19 +84,20 @@ The instance data, `self.__dict__`, looks like this:
 **Each instance gets its own private dictionary.**
 
 ```python
-s = Stock('GOOG',100,490.1)     # {'name' : 'GOOG','shares' : 100, 'price': 490.1 }
-t = Stock('AAPL',50,123.45)     # {'name' : 'AAPL','shares' : 50, 'price': 123.45 }
+s = Stock('GOOG', 100, 490.1)     # {'name' : 'GOOG','shares' : 100, 'price': 490.1 }
+t = Stock('AAPL', 50, 123.45)     # {'name' : 'AAPL','shares' : 50, 'price': 123.45 }
 ```
 
-If you created 200 instances of some class, there are 100 dictionaries sitting around holding data.
+If you created 100 instances of some class, there are 100 dictionaries
+sitting around holding data.
 
 ### Class Members
 
 A separate dictionary also holds the methods.
 
 ```python
-class Stock(object):
-    def __init__(self,name,shares,price):
+class Stock:
+    def __init__(self, name, shares, price):
         self.name = name
         self.shares = shares
         self.price = price
@@ -99,7 +105,7 @@ class Stock(object):
     def cost(self):
         return self.shares * self.price
 
-    def sell(self,nshares):
+    def sell(self, nshares):
         self.shares -= nshares
 ```
 
@@ -115,8 +121,8 @@ The dictionary is in `Stock.__dict__`.
 
 ### Instances and Classes
 
-Instances and classes are linked together.
-The `__class__` attribute refers back to the class.
+Instances and classes are linked together.  The `__class__` attribute
+refers back to the class.
 
 ```python
 >>> s = Stock('GOOG', 100, 490.1)
@@ -127,7 +133,9 @@ The `__class__` attribute refers back to the class.
 >>>
 ```
 
-The instance dictionary holds data unique to each instance, whereas the class dictionary holds data collectively shared by *all* instances.
+The instance dictionary holds data unique to each instance, whereas
+the class dictionary holds data collectively shared by *all*
+instances.
 
 ### Attribute Access
 
@@ -207,26 +215,30 @@ This provides a link to parent classes.
 
 ### Reading Attributes with Inheritance
 
-First, check in local `__dict__`.  If not found, look in `__dict__` of class through `__class__`.
-If not found in class, look in base classes through `__bases__`.
+Logically, the process of finding an attribute is as follows. First,
+check in local `__dict__`.  If not found, look in `__dict__` of the
+class.  If not found in class, look in the base classes through
+`__bases__`.   However, there are some subtle aspects of this discussed next.
 
 ### Reading Attributes with Single Inheritance
 
-In inheritance hierarchies, attributes are found by walking up the inheritance tree.
+In inheritance hierarchies, attributes are found by walking up the
+inheritance tree in order.
 
 ```python
-class A(object): pass
+class A: pass
 class B(A): pass
 class C(A): pass
 class D(B): pass
 class E(D): pass
 ```
-With Single Inheritance, there ia single path to the top.
+With single inheritance, there is single path to the top.
 You stop with the first match.
 
 ### Method Resolution Order or MRO
 
 Python precomputes an inheritance chain and stores it in the *MRO* attribute on the class.
+You can view it.
 
 ```python
 >>> E.__mro__
@@ -236,38 +248,39 @@ Python precomputes an inheritance chain and stores it in the *MRO* attribute on 
 >>>
 ```
 
-This chain is called the **Method Resolutin Order**.
-The find the attributes, Python walks the MRO. First match, wins.
+This chain is called the **Method Resolutin Order**.  The find an
+attribute, Python walks the MRO in order. The first match wins.
 
 ### MRO in Multiple Inheritance
 
-There is no single path to the top with multiple inheritance.
+With multiple inheritance, there is no single path to the top.
 Let's take a look at an example.
 
 ```python
-class A(object): pass
-class B(object): pass
+class A: pass
+class B: pass
 class C(A, B): pass
 class D(B): pass
 class E(C, D): pass
 ```
 
-What happens when we do?
+What happens when you access at attribute?
 
 ```python
 e = E()
 e.attr
 ```
 
-A similar search process is carried out, but what is the order? That's a problem.
+A attribute search process is carried out, but what is the order? That's a problem.
 
-Python uses *cooperative multiple inheritance*.
-These are some rules about class ordering:
+Python uses *cooperative multiple inheritance* which obeys some rules
+about class ordering.
 
-* Children before parents
-* Parents go in order
+* Children are always checked before parents
+* Parents (if multiple) are always checked in the order listed.
 
-The MRO is computed using those rules.
+The MRO is computed by sorting all of the classes in a hierarchy 
+according to those rules.
 
 ```python
 >>> E.__mro__
@@ -281,12 +294,18 @@ The MRO is computed using those rules.
 >>>
 ```
 
-### An Odd Code Reuse
+The underlying algorithm is called the "C3 Linearization Algorithm."
+The precise details aren't important as long as you remember that a
+class hierarchy obeys the same ordering rules you might follow if your
+house was on fire and you had to evacuate--children first, followed by
+parents.
+
+### An Odd Code Reuse (Involving Multiple Inheritance)
 
 Consider two completely unrelated objects:
 
 ```python
-class Dog(object):
+class Dog:
     def noise(self):
         return 'Bark'
 
@@ -295,14 +314,14 @@ class Dog(object):
 
 class LoudDog(Dog):
     def noise(self):
-        # Code commonality with LoudBike
+        # Code commonality with LoudBike (below)
         return super().noise().upper()
 ```
 
 And
 
 ```python
-class Bike(object):
+class Bike:
     def noise(self):
         return 'On Your Left'
 
@@ -311,19 +330,20 @@ class Bike(object):
 
 class LoudBike(Bike):
     def noise(self):
-        # Code commonality with LoudDog
+        # Code commonality with LoudDog (above)
         return super().noise().upper()
 ```
 
 There is a code commonality in the implementation of `LoudDog.noise()` and
-`LoudBike.noise()`.  In fact, the code is exactly the same.
+`LoudBike.noise()`.  In fact, the code is exactly the same.  Naturally,
+code like that is bound to attract software engineers.
 
 ### The "Mixin" Pattern
 
 The *Mixin* pattern is a class with a fragment of code.
 
 ```python
-class Loud(object):
+class Loud:
     def noise(self):
         return super().noise().upper()
 ```
@@ -339,26 +359,31 @@ class LoudBike(Loud, Bike):
     pass
 ```
 
-This is one of the primary uses of multiple inheritance in Python.
+Miraculously, loudness was now implemented just once and reused
+in two completely unrelated classes.  This sort of trick is one
+of the primary uses of multiple inheritance in Python.
 
 ### Why `super()`
 
 Always use `super()` when overriding methods.
 
 ```python
-class Loud(object):
+class Loud:
     def noise(self):
         return super().noise().upper()
 ```
 
 `super()` delegates to the *next class* on the MRO.
 
-The tricky bit is that you don't know what it is when you create the Mixin.
+The tricky bit is that you don't know what it is.  You especially don't
+know what it is if multiple inheritance is being used.
 
 ### Some Cautions
 
-Multiple inheritance is a powerful tool. Remember that with power comes responsibility.
-Frameworks / libraries sometimes use it for advanced features involving composition of components.
+Multiple inheritance is a powerful tool. Remember that with power
+comes responsibility.  Frameworks / libraries sometimes use it for
+advanced features involving composition of components.  Now, forget
+that you saw that.
 
 ## Exercises
 
@@ -376,7 +401,8 @@ few instances:
 
 ### Exercise 5.1: Representation of Instances
 
-At the interactive shell, inspect the underlying dictionaries of the two instances you created:
+At the interactive shell, inspect the underlying dictionaries of the
+two instances you created:
 
 ```python
 >>> goog.__dict__
@@ -537,7 +563,7 @@ two steps and something known as a bound method.   For example:
 ```python
 >>> s = goog.sell
 >>> s
-<bound method Stock.sell of Stock('GOOG',100,490.1)>
+<bound method Stock.sell of Stock('GOOG', 100, 490.1)>
 >>> s(25)
 >>> goog.shares
 75

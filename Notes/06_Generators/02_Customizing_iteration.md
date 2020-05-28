@@ -1,6 +1,8 @@
+[Contents](../Contents) \| [Previous (6.1 Iteration Protocol)](01_Iteration_protocol) \| [Next (6.3 Producer/Consumer)](03_Producers_consumers)
+
 # 6.2 Customizing Iteration
 
-This section looks at how you can customize iteration using a generator.
+This section looks at how you can customize iteration using a generator function.
 
 ### A problem
 
@@ -42,7 +44,8 @@ For example:
 A generator is any function that uses the `yield` statement.
 
 The behavior of generators is different than a normal function.
-Calling a generator function creates a generator object. It does not execute the function.
+Calling a generator function creates a generator object. It does not
+immediately execute the function.
 
 ```python
 def countdown(n):
@@ -84,7 +87,7 @@ The function resumes on next call to `__next__()`.
 8
 ```
 
-When the generator returns, the iteration raises an error.
+When the generator finally returns, the iteration raises an error.
 
 ```python
 >>> x.__next__()
@@ -95,7 +98,9 @@ File "<stdin>", line 1, in ? StopIteration
 >>>
 ```
 
-*Observation: A generator function implements the same low-level protocol that the for statements uses on lists, tuples, dicts, files, etc.*
+*Observation: A generator function implements the same low-level
+ protocol that the for statements uses on lists, tuples, dicts, files,
+ etc.*
 
 ## Exercises
 
@@ -147,7 +152,7 @@ explore this idea.  To start, follow the next instructions carefully.
 
 The program `Data/stocksim.py` is a program that
 simulates stock market data.  As output, the program constantly writes
-real-time data to a file `stocklog.csv`.  In a
+real-time data to a file `Data/stocklog.csv`.  In a
 separate command window go into the `Data/` directory and run this program:
 
 ```bash
@@ -199,12 +204,12 @@ return new data or an empty string).
 
 ### Exercise 6.6: Using a generator to produce data
 
-If you look at the code in part (b), the first part of the code is producing
+If you look at the code in Exercise 6.5, the first part of the code is producing
 lines of data whereas the statements at the end of the `while` loop are consuming
 the data.  A major feature of generator functions is that you can move all
 of the data production code into a reusable function.
 
-Modify the code in part (b) so that the file-reading is performed by 
+Modify the code in Exercise 6.5  so that the file-reading is performed by 
 a generator function `follow(filename)`.   Make it so the following code
 works:
 
@@ -250,9 +255,9 @@ if __name__ == '__main__':
             print(f'{name:>10s} {price:>10.2f} {change:>10.2f}')
 ```
 
-Note:  For this to work, your `Portfolio` class must support the
-`in` operator.  See the last exercise and make sure you implement the
-`__contains__()` operator.
+Note: For this to work, your `Portfolio` class must support the `in`
+operator.  See [Exercise 6.3](01_Iteration_protocol) and make sure you
+implement the `__contains__()` operator.
 
 ### Discussion
 
