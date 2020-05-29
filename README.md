@@ -19,8 +19,8 @@ training course used for corporate training and professional
 development. It has been in continual development since 2007 and
 battle tested in real-world classrooms.  Usually, it's taught
 in-person over the span of three or four days--requiring approximately
-25-35 hours of work. This includes the completion of approximately 130
-hands-on coding exercises.
+25-35 hours of intense work. This includes the completion of
+approximately 130 hands-on coding exercises.
 
 ## Target Audience
 
