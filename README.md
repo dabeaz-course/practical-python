@@ -16,9 +16,11 @@ to make it freely available under a Creative Commons license. Enjoy!
 
 The material you see here is the heart of an instructor-led Python
 training course used for corporate training and professional
-development.  It is usually taught in-person over the span of three or
-four days--requiring approximately 25-35 hours of work. This includes
-the completion of approximately 130 hands-on coding exercises.
+development. It has been in continual development since 2007 and
+battle tested in real-world classrooms.  Usually, it's taught
+in-person over the span of three or four days--requiring approximately
+25-35 hours of work. This includes the completion of approximately 130
+hands-on coding exercises.
 
 ## Target Audience
 
