@@ -22,24 +22,26 @@ the completion of approximately 130 hands-on coding exercises.
 
 ## Target Audience
 
-The target audience is scientists, engineers, and programmers who
-already have experience in at least one other programming language. No
-prior knowledge of Python is required, but knowledge of common
-programming topics is assumed.  Most participants find the course
-challenging--even if they've already been doing a bit of Python
-programming.
+Students of this course are usually professional scientists,
+engineers, and programmers who already have experience in at least one
+other programming language. No prior knowledge of Python is required,
+but knowledge of common programming topics is assumed.  Most
+participants find the course challenging--even if they've already been
+doing a bit of Python programming.
 
 ## Course Objectives
 
 The goal of this course is to cover foundational aspects of Python
 programming with an emphasis on script writing, data manipulation, and
-program organization.  
+program organization.  By the end of this course, students should be
+able to start writing useful Python programs on their own or be able
+to understand and modify Python code written by their
+coworkers.
 
 ## Requirements
 
 To complete this course, you need nothing more than a basic
-installation of Python 3.6 or newer and time to work on it--especially
-the latter.
+installation of Python 3.6 or newer and time to work on it.
 
 ## What This Course is Not
 
@@ -48,13 +50,9 @@ computer.  It is assumed that you already have programming experience
 in some other programming language or Python itself.
 
 This is not a course for software engineers on how to write or
-maintain a one-million line Python program. I don't write programs
+maintain a one-million line Python application. I don't write programs
 like that, nor do most companies who use Python, and neither should
-you. Delete something already!  Python is a great language for
-personal productivity, prototyping ideas, and getting work done. The
-course is about doing THAT in a way that's practical, accessible, and
-not so "hacky" that your co-workers give you stink-eye when they look
-at your code.
+you. Delete something already!  
 
 ## Take me to the Course Already!
 
