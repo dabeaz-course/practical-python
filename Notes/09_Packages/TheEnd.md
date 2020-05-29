@@ -6,5 +6,5 @@ May your future Python hacking be fun and productive!
 I'm always happy to get feedback.  You can find me at [https://dabeaz.com](https://dabeaz.com)
 or on Twitter at [@dabeaz](https://twitter.com/dabeaz). - David Beazley.
 
-[Contents](../Contents) \| [Home](../..)
+[Contents](../Contents.md) \| [Home](../..)
 

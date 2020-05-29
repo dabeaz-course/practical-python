@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (2.2 Containers)](02_Containers) \| [Next (2.4 Sequences)](04_Sequences)
+[Contents](../Contents.md) \| [Previous (2.2 Containers)](02_Containers.md) \| [Next (2.4 Sequences)](04_Sequences.md)
 
 # 2.3 Formatting
 
@@ -77,7 +77,7 @@ You can use the `format_map()` method to apply string formatting to a dictionary
 ```
 
 It uses the same codes as `f-strings` but takes the values from the
-supplied dictionary.  
+supplied dictionary.
 
 ### format() method
 
@@ -92,7 +92,7 @@ keyword arguments.
 >>>
 ```
 
-Frankly, `format()` is a bit verbose. I prefer f-strings. 
+Frankly, `format()` is a bit verbose. I prefer f-strings.
 
 ### C-Style Formatting
 
@@ -299,4 +299,4 @@ How would you modify your code so that the price includes the currency symbol ($
        IBM        100    $106.28      35.84
 ```
 
-[Contents](../Contents) \| [Previous (2.2 Containers)](02_Containers) \| [Next (2.4 Sequences)](04_Sequences)
+[Contents](../Contents.md) \| [Previous (2.2 Containers)](02_Containers.md) \| [Next (2.4 Sequences)](04_Sequences.md)

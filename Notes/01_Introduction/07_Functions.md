@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (1.6 Files)](06_Files) \| [Next (2.0 Working with Data)](../02_Working_with_data/00_Overview)
+[Contents](../Contents.md) \| [Previous (1.6 Files)](06_Files.md) \| [Next (2.0 Working with Data)](../02_Working_with_data/00_Overview.md)
 
 # 1.7 Functions
 
@@ -41,7 +41,7 @@ import math
 x = math.sqrt(10)
 
 import urllib.request
-u = urllib.request.urlopen('http://www.python.org/') 
+u = urllib.request.urlopen('http://www.python.org/')
 data = u.read()
 ```
 
@@ -49,7 +49,7 @@ We will cover libraries and modules in more detail later.
 
 ### Errors and exceptions
 
-Functions report errors as exceptions.  An exception causes a function to abort and may 
+Functions report errors as exceptions.  An exception causes a function to abort and may
 cause your entire program to stop if unhandled.
 
 Try this in your python REPL.
@@ -130,7 +130,7 @@ Try typing a command such as `help(greeting)` to see it displayed.
 
 ### Exercise 1.30: Turning a script into a function
 
-Take the code you wrote for the `pcost.py` program in [Exercise 1.27](06_Files) 
+Take the code you wrote for the `pcost.py` program in [Exercise 1.27](06_Files.md)
 and turn it into a function `portfolio_cost(filename)`.  This
 function takes a filename as input, reads the portfolio data in that
 file, and returns the total cost of the portfolio as a float.
@@ -278,4 +278,4 @@ Total cost: 44671.15
 bash %
 ```
 
-[Contents](../Contents) \| [Previous (1.6 Files)](06_Files) \| [Next (2.0 Working with Data)](../02_Working_with_data/00_Overview)
+[Contents](../Contents.md) \| [Previous (1.6 Files)](06_Files.md) \| [Next (2.0 Working with Data)](../02_Working_with_data/00_Overview.md)

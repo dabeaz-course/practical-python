@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (1.1 Python)](01_Python) \| [Next (1.3 Numbers)](03_Numbers)
+[Contents](../Contents.md) \| [Previous (1.1 Python)](01_Python.md) \| [Next (1.3 Numbers)](03_Numbers.md)
 
 # 1.2 A First Program
 
@@ -51,7 +51,7 @@ hello world
 This so-called *read-eval-print-loop* (or REPL) is very useful for debugging and exploration.
 
 **STOP**: If you can't figure out how to interact with Python, stop what you're doing
-and figure out how to do it.  If you're using an IDE, it might be hidden behind a 
+and figure out how to do it.  If you're using an IDE, it might be hidden behind a
 menu option or other window.  Many parts of this course assume that you can
 interact with the interpreter.
 
@@ -63,7 +63,7 @@ Let's take a closer look at the elements of the REPL:
 The `...` prompt may or may not be shown depending on your environment. For this course,
 it is shown as blanks to make it easier to cut/paste code samples.
 
-The underscore `_` holds the last result. 
+The underscore `_` holds the last result.
 
 ```python
 >>> 37 * 42
@@ -109,7 +109,7 @@ C:\SomeFolder>c:\python36\python hello.py
 hello world
 ```
 
-Note: On Windows, you may need to specify a full path to the Python interpreter such as `c:\python36\python`.  
+Note: On Windows, you may need to specify a full path to the Python interpreter such as `c:\python36\python`.
 However, if Python is installed in its usual way, you might be able to just type the name of the program
 such as `hello.py`.
 
@@ -152,7 +152,10 @@ bash % python3 sears.py
 6 32 0.00352
 ...
 21 1048576 115.34336
-22 2097152 230.68672 Number of days 23 Number of bills 4194304 Final height 461.37344
+22 2097152 230.68672
+Number of days 23 
+Number of bills 4194304 
+Final height 461.37344
 ```
 
 Using this program as a guide, you can learn a number of important core concepts about Python.
@@ -203,7 +206,7 @@ is associated with the value on the right hand side, not name of the variable.
 
 ```python
 height = 442           # An integer
-height = 442           # Floating point
+height = 442.0         # Floating point
 height = 'Really tall' # A string
 ```
 
@@ -265,7 +268,7 @@ Indentation groups the following statements together as the operations that repe
     num_bills = num_bills * 2
 ```
 
-Because the `print()` statement at the end is not indented, it 
+Because the `print()` statement at the end is not indented, it
 does not belong to the loop. The empty line is just for
 readability. It does not affect the execution.
 
@@ -275,7 +278,7 @@ readability. It does not affect the execution.
 * Use 4 spaces per level.
 * Use a Python-aware editor.
 
-Python's only requirement is that indentation within the same block 
+Python's only requirement is that indentation within the same block
 be consistent.   For example, this is an error:
 
 ```python
@@ -464,7 +467,7 @@ NameError: name 'days' is not defined
 Reading error messages is an important part of Python code. If your program
 crashes, the very last line of the traceback message is the actual reason why the
 the program crashed. Above that, you should see a fragment of source code and then
-an identifying filename and line number. 
+an identifying filename and line number.
 
 * Which line is the error?
 * What is the error?
@@ -472,4 +475,4 @@ an identifying filename and line number.
 * Run the program successfully
 
 
-[Contents](../Contents) \| [Previous (1.1 Python)](01_Python) \| [Next (1.3 Numbers)](03_Numbers)
+[Contents](../Contents.md) \| [Previous (1.1 Python)](01_Python.md) \| [Next (1.3 Numbers)](03_Numbers.md)

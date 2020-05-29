@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (4.3 Special methods)](03_Special_methods) \| [Next (5 Object Model)](../05_Object_model/00_Overview)
+[Contents](../Contents.md) \| [Previous (4.3 Special methods)](03_Special_methods.md) \| [Next (5 Object Model)](../05_Object_model/00_Overview.md)
 
 # 4.4 Defining Exceptions
 
@@ -51,4 +51,4 @@ FormatError: Unknown table format xls
 >>>
 ```
 
-[Contents](../Contents) \| [Previous (4.3 Special methods)](03_Special_methods) \| [Next (5 Object Model)](../05_Object_model/00_Overview)
+[Contents](../Contents.md) \| [Previous (4.3 Special methods)](03_Special_methods.md) \| [Next (5 Object Model)](../05_Object_model/00_Overview.md)

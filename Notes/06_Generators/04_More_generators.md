@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (6.3 Producer/Consumer)](03_Producers_consumers) \| [Next (7 Advanced Topics)](../07_Advanced_Topics/00_Overview)
+[Contents](../Contents.md) \| [Previous (6.3 Producer/Consumer)](03_Producers_consumers.md) \| [Next (7 Advanced Topics)](../07_Advanced_Topics/00_Overview.md)
 
 # 6.4 More Generators
 
@@ -119,7 +119,7 @@ For example:
 <generator object <genexpr> at 0x109207e60>
 >>> for n in squares:
 ...     print(n)
-... 
+...
 1
 4
 9
@@ -133,8 +133,8 @@ Thus, if you try another for-loop, you get nothing:
 ```python
 >>> for n in squares:
 ...     print(n)
-... 
->>> 
+...
+>>>
 ```
 
 ### Exercise 6.14: Generator Expressions in Function Arguments
@@ -180,4 +180,4 @@ Modify the `ticker.py` program to use generator expressions
 as appropriate.
 
 
-[Contents](../Contents) \| [Previous (6.3 Producer/Consumer)](03_Producers_consumers) \| [Next (7 Advanced Topics)](../07_Advanced_Topics/00_Overview)
+[Contents](../Contents.md) \| [Previous (6.3 Producer/Consumer)](03_Producers_consumers.md) \| [Next (7 Advanced Topics)](../07_Advanced_Topics/00_Overview.md)

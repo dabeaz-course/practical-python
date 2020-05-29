@@ -1,6 +1,6 @@
-[Contents](../Contents) \| [Previous (1.2 A First Program)](02_Hello_world) \| [Next (1.4 Strings)](04_Strings)
+[Contents](../Contents.md) \| [Previous (1.2 A First Program)](02_Hello_world.md) \| [Next (1.4 Strings)](04_Strings.md)
 
-# 1.3 Numbers 
+# 1.3 Numbers
 
 This section discusses mathematical calculations.
 
@@ -55,7 +55,7 @@ x / y      Divide (produces a float)
 x // y     Floor Divide (produces an integer)
 x % y      Modulo (remainder)
 x ** y     Power
-x << n     Bit shift left  
+x << n     Bit shift left
 x >> n     Bit shift right
 x & y      Bit-wise AND
 x | y      Bit-wise OR
@@ -84,7 +84,7 @@ Be aware that floating point numbers are inexact when representing decimals.
 
 ```python
 >>> a = 2.1 + 4.2
->>> a === 6.3
+>>> a == 6.3
 False
 >>> a
 6.300000000000001
@@ -163,14 +163,14 @@ Try it out.
 3
 >>> b = '3.14159' # It also works with strings containing numbers
 >>> float(b)
-3.15159
+3.14159
 >>>
 ```
 
 ## Exercises
 
 Reminder: These exercises assume you are working in the `practical-python/Work` directory. Look
-for the file `mortgage.py`. 
+for the file `mortgage.py`.
 
 ### Exercise 1.7: Dave's mortgage
 
@@ -224,7 +224,7 @@ How much will Dave pay if he pays an extra $1000/month for 4 years starting in y
 
 ### Exercise 1.10: Making a table
 
-Modify the program to print out a table showing the month, total paid so far, and the remaining principal. 
+Modify the program to print out a table showing the month, total paid so far, and the remaining principal.
 The output should look something like this:
 
 ```bash
@@ -264,4 +264,4 @@ True
 >>>
 ```
 
-[Contents](../Contents) \| [Previous (1.2 A First Program)](02_Hello_world) \| [Next (1.4 Strings)](04_Strings)
+[Contents](../Contents.md) \| [Previous (1.2 A First Program)](02_Hello_world.md) \| [Next (1.4 Strings)](04_Strings.md)

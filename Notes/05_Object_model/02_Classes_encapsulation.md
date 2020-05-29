@@ -1,8 +1,8 @@
-[Contents](../Contents) \| [Previous (5.1 Dictionaries Revisited)](01_Dicts_revisited) \| [Next (6 Generators)](../06_Generators/00_Overview)
+[Contents](../Contents.md) \| [Previous (5.1 Dictionaries Revisited)](01_Dicts_revisited.md) \| [Next (6 Generators)](../06_Generators/00_Overview.md)
 
 # 5.2 Classes and Encapsulation
 
-When writing classes, it is common to try and encapsulate internal details. 
+When writing classes, it is common to try and encapsulate internal details.
 This section introduces a few Python programming idioms for this including
 private variables and properties.
 
@@ -279,7 +279,7 @@ are extracted:
 
 Specifically, notice how you have to add the extra () to `cost` because it is a method.
 
-You can get rid of the extra () on `cost()` if you turn it into a property.   
+You can get rid of the extra () on `cost()` if you turn it into a property.
 Take your `Stock` class and modify it so that the cost calculation works like this:
 
 ```python
@@ -338,8 +338,8 @@ verify that new attributes can't be added:
 >>>
 ```
 
-When you use `__slots__`, Python uses a more efficient 
-internal representation of objects.   What happens if you try to 
+When you use `__slots__`, Python uses a more efficient
+internal representation of objects.   What happens if you try to
 inspect the underlying dictionary of `s` above?
 
 ```python
@@ -353,4 +353,4 @@ optimization on classes that serve as data structures.  Using slots
 will make such programs use far-less memory and run a bit faster.
 You should probably avoid `__slots__` on most other classes however.
 
-[Contents](../Contents) \| [Previous (5.1 Dictionaries Revisited)](01_Dicts_revisited) \| [Next (6 Generators)](../06_Generators/00_Overview)
+[Contents](../Contents.md) \| [Previous (5.1 Dictionaries Revisited)](01_Dicts_revisited.md) \| [Next (6 Generators)](../06_Generators/00_Overview.md)

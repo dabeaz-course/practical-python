@@ -1,9 +1,9 @@
-[Contents](../Contents) \| [Previous (3.3 Error Checking)](03_Error_checking) \| [Next (3.5 Main Module)](05_Main_module)
+[Contents](../Contents.md) \| [Previous (3.3 Error Checking)](03_Error_checking.md) \| [Next (3.5 Main Module)](05_Main_module.md)
 
 # 3.4 Modules
 
-This section introduces the concept of modules and working with functions that span 
-multiple files. 
+This section introduces the concept of modules and working with functions that span
+multiple files.
 
 ### Modules and import
 
@@ -164,7 +164,7 @@ Each module loads and executes only *once*.
 changing the source code for a module.  Because of the module cache `sys.modules`,
 repeated imports always return the previously loaded module--even if a change
 was made.  The safest way to load modified code into Python is to quit and restart
-the interpreter.   
+the interpreter.
 
 ### Locating Modules
 
@@ -214,7 +214,7 @@ not readily accessible from the current working directory.
 For this exercise involving modules, it is critically important to
 make sure you are running Python in a proper environment.  Modules are
 usually when programmers encounter problems with the current working
-directory or with Python's path settings.  For this course, it is 
+directory or with Python's path settings.  For this course, it is
 assumed that you're writing all of your code in the `Work/` directory.
 For best results, you should make sure you're also in that directory
 when you launch the interpreter.  If not, you need to make sure
@@ -338,4 +338,4 @@ also contains `read_portfolio()` and `read_prices()` functions.  And
 finally, `pcost.py` which computes the portfolio cost, but makes use
 of the `read_portfolio()` function written for the `report.py` program.
 
-[Contents](../Contents) \| [Previous (3.3 Error Checking)](03_Error_checking) \| [Next (3.5 Main Module)](05_Main_module)
+[Contents](../Contents.md) \| [Previous (3.3 Error Checking)](03_Error_checking.md) \| [Next (3.5 Main Module)](05_Main_module.md)

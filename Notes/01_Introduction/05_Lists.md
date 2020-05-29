@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (1.4 Strings)](04_Strings) \| [Next (1.6 Files)](06_Files)
+[Contents](../Contents.md) \| [Previous (1.4 Strings)](04_Strings.md) \| [Next (1.6 Files)](06_Files.md)
 
 # 1.5 Lists
 
@@ -98,7 +98,7 @@ for name in names:
 
 This is similar to a `foreach` statement from other programming languages.
 
-To find the position of something quickly, use `index()`. 
+To find the position of something quickly, use `index()`.
 
 ```python
 names = ['Elwood','Jake','Curtis']
@@ -267,7 +267,7 @@ Use the `append()` method to add the symbol `'RHT'` to end of `symlist`.
 >>> # append 'RHT'
 >>> symlist
 ['HPQ', 'AAPL', 'AIG', 'MSFT', 'YHOO', 'GOOG', 'RHT']
->>> 
+>>>
 ```
 
 Use the `insert()` method to insert the symbol `'AA'` as the second item in the list.
@@ -411,4 +411,4 @@ example, a list that consists entirely of numbers or a list of text
 strings.  Mixing different kinds of data together in the same list is
 often a good way to make your head explode so it's best avoided.
 
-[Contents](../Contents) \| [Previous (1.4 Strings)](04_Strings) \| [Next (1.6 Files)](06_Files)
+[Contents](../Contents.md) \| [Previous (1.4 Strings)](04_Strings.md) \| [Next (1.6 Files)](06_Files.md)

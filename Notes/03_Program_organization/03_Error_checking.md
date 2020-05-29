@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (3.2 More on Functions)](02_More_functions) \| [Next (3.4 Modules)](04_Modules)
+[Contents](../Contents.md) \| [Previous (3.2 More on Functions)](02_More_functions.md) \| [Next (3.4 Modules)](04_Modules.md)
 
 # 3.3 Error Checking
 
@@ -241,7 +241,7 @@ except Exception as e:
 
 It reports a specific reason for failure.  It is almost always a good
 idea to have some mechanism for viewing/reporting errors when you
-write code that catches all possible exceptions.  
+write code that catches all possible exceptions.
 
 In general though, it's better to catch the error as narrowly as is
 reasonable. Only catch the errors you can actually handle. Let
@@ -402,4 +402,4 @@ most programs.  As a general rule, you shouldn’t silently ignore
 errors.  Instead, it’s better to report problems and to give the user
 an option to the silence the error message if they choose to do so.
 
-[Contents](../Contents) \| [Previous (3.2 More on Functions)](02_More_functions) \| [Next (3.4 Modules)](04_Modules)
+[Contents](../Contents.md) \| [Previous (3.2 More on Functions)](02_More_functions.md) \| [Next (3.4 Modules)](04_Modules.md)

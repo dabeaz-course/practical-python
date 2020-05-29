@@ -1,11 +1,11 @@
-[Contents](../Contents) \| [Next (1.2 A First Program)](02_Hello_world)
+[Contents](../Contents.md) \| [Next (1.2 A First Program)](02_Hello_world.md)
 
 # 1.1 Python
 
 ### What is Python?
 
 Python is an interpreted high level programming language.  It is often classified as a
-["scripting language"](https://en.wikipedia.org/wiki/Scripting_language) and 
+["scripting language"](https://en.wikipedia.org/wiki/Scripting_language) and
 is considered similar to languages such as Perl, Tcl, or Ruby.  The syntax
 of Python is loosely inspired by elements of C programming.
 
@@ -40,12 +40,12 @@ able to type `python` like this:
 
 ```
 bash $ python
-Python 3.8.1 (default, Feb 20 2020, 09:29:22) 
+Python 3.8.1 (default, Feb 20 2020, 09:29:22)
 [Clang 10.0.0 (clang-1000.10.44.4)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> print("hello world")
 hello world
->>> 
+>>>
 ```
 
 If you are new to using the shell or a terminal, you should probably
@@ -187,5 +187,5 @@ exercise work. For example:
 If you can't make this work, don't worry about it.  The rest of this course
 has nothing to do with parsing XML.
 
-[Contents](../Contents) \| [Next (1.2 A First Program)](02_Hello_world)
+[Contents](../Contents.md) \| [Next (1.2 A First Program)](02_Hello_world.md)
 

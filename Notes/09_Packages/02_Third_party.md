@@ -1,13 +1,13 @@
-[Contents](../Contents) \| [Previous (9.1 Packages)](01_Packages) \| [Next (9.3 Distribution)](03_Distribution)
+[Contents](../Contents.md) \| [Previous (9.1 Packages)](01_Packages.md) \| [Next (9.3 Distribution)](03_Distribution.md)
 
 # 9.2 Third Party Modules
 
 Python has a large library of built-in modules (*batteries included*).
 
-There are even more third party modules. Check them in the [Python Package Index](https://pypi.org/) or PyPi. 
+There are even more third party modules. Check them in the [Python Package Index](https://pypi.org/) or PyPi.
 Or just do a Google search for a specific topic.
 
-How to handle third-party dependencies is an ever-evolving topic with 
+How to handle third-party dependencies is an ever-evolving topic with
 Python.  This section merely covers the basics to help you wrap
 your brain around how it works.
 
@@ -24,7 +24,7 @@ checked by the `import` statement. Look at it:
 ```
 
 If you import something and it's not located in one of those
-directories, you will get an `ImportError` exception. 
+directories, you will get an `ImportError` exception.
 
 ### Standard Library Modules
 
@@ -39,19 +39,19 @@ by trying a short test:
 >>>
 ```
 
-Simply looking at a module in the REPL is a good debugging tip 
+Simply looking at a module in the REPL is a good debugging tip
 to know about.  It will show you the location of the file.
 
 ### Third-party Modules
 
-Third party modules are usually located in a dedicated 
+Third party modules are usually located in a dedicated
 `site-packages` directory.   You'll see it if you perform
 the same steps as above:
 
 ```python
 >>> import numpy
 <module 'numpy' from '/usr/local/lib/python3.6/site-packages/numpy/__init__.py'>
->>> 
+>>>
 ```
 
 Again, looking at a module is a good debugging tip if you're
@@ -114,7 +114,7 @@ For example:
 For the purposes of experimenting and trying out different
 packages, a virtual environment will usually work fine.  If,
 on the other hand, you're creating an application and it
-has specific package dependencies, that is a slightly 
+has specific package dependencies, that is a slightly
 different problem.
 
 ### Handling Third-Party Dependencies in Your Application
@@ -135,7 +135,7 @@ I refer you to the [Python Packaging User Guide](https://packaging.python.org).
 See if you can recreate the steps of making a virtual environment and installing
 pandas into it as shown above.
 
-[Contents](../Contents) \| [Previous (9.1 Packages)](01_Packages) \| [Next (9.3 Distribution)](03_Distribution)
+[Contents](../Contents.md) \| [Previous (9.1 Packages)](01_Packages.md) \| [Next (9.3 Distribution)](03_Distribution.md)
 
 
 
