@@ -84,7 +84,7 @@ Be aware that floating point numbers are inexact when representing decimals.
 
 ```python
 >>> a = 2.1 + 4.2
->>> a === 6.3
+>>> a == 6.3
 False
 >>> a
 6.300000000000001
