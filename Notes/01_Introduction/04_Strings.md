@@ -42,7 +42,7 @@ directly at the keyboard.  Here are some common escape codes:
 '\t'      Tab
 '\''      Literal single quote
 '\"'      Literal double quote
-'\\'`     Literal backslash
+'\\'      Literal backslash
 ```
 
 ### String Representation
