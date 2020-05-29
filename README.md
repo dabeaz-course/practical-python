@@ -51,6 +51,10 @@ This is not a course for absolute beginners on how to program a
 computer.  It is assumed that you already have programming experience
 in some other programming language or Python itself.
 
+This is not a course on web development.  That's a different
+circus. However, if you stick around for this circus, you'll still see
+some interesting acts--just nothing involving animals. 
+
 This is not a course for software engineers on how to write or
 maintain a one-million line Python application. I don't write programs
 like that, nor do most companies who use Python, and neither should
