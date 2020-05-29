@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (7.3 Returning Functions)](03_Returning_functions) \| [Next (7.5 Decorated Methods)](05_Decorated_methods)
+[Contents](../Contents.md) \| [Previous (7.3 Returning Functions)](03_Returning_functions.md) \| [Next (7.5 Decorated Methods)](05_Decorated_methods.md)
 
 # 7.4 Function Decorators
 
@@ -157,4 +157,4 @@ Discussion:  This `@timethis` decorator can be placed in front of any
 function definition.   Thus, you might use it as a diagnostic tool for
 performance tuning.
 
-[Contents](../Contents.md) \| [Previous (7.3 Returning Functions)](03_Returning_functions) \| [Next (7.5 Decorated Methods)](05_Decorated_methods)
+[Contents](../Contents.md) \| [Previous (7.3 Returning Functions)](03_Returning_functions.md) \| [Next (7.5 Decorated Methods)](05_Decorated_methods.md)

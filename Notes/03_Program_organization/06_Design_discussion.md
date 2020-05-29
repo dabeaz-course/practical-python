@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (3.5 Main module)](05_Main_module) \| [Next (4 Classes)](../04_Classes_objects/00_Overview)
+[Contents](../Contents.md) \| [Previous (3.5 Main module)](05_Main_module.md) \| [Next (4 Classes)](../04_Classes_objects/00_Overview.md)
 
 # 3.6 Design Discussion
 
@@ -134,4 +134,4 @@ Fix the `read_portfolio()` and `read_prices()` functions in the
 Afterwards, your `report.py` and `pcost.py` programs should work
 the same way they always did.
 
-[Contents](../Contents.md) \| [Previous (3.5 Main module)](05_Main_module) \| [Next (4 Classes)](../04_Classes_objects/00_Overview)
+[Contents](../Contents.md) \| [Previous (3.5 Main module)](05_Main_module.md) \| [Next (4 Classes)](../04_Classes_objects/00_Overview.md)

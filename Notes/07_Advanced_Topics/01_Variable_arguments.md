@@ -1,5 +1,5 @@
 
-[Contents](../Contents.md) \| [Previous (6.4 Generator Expressions)](../06_Generators/04_More_generators) \| [Next (7.2 Anonymous Functions)](02_Anonymous_function)
+[Contents](../Contents.md) \| [Previous (6.4 Generator Expressions)](../06_Generators/04_More_generators.md) \| [Next (7.2 Anonymous Functions)](02_Anonymous_function.md)
 
 # 7.1 Variable Arguments
 
@@ -230,4 +230,4 @@ Now, try silencing the errors:
 >>>
 ```
 
-[Contents](../Contents.md) \| [Previous (6.4 Generator Expressions)](../06_Generators/04_More_generators) \| [Next (7.2 Anonymous Functions)](02_Anonymous_function)
+[Contents](../Contents.md) \| [Previous (6.4 Generator Expressions)](../06_Generators/04_More_generators.md) \| [Next (7.2 Anonymous Functions)](02_Anonymous_function.md)

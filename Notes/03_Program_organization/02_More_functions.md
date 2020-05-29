@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (3.1 Scripting)](01_Script) \| [Next (3.3 Error Checking)](03_Error_checking)
+[Contents](../Contents.md) \| [Previous (3.1 Scripting)](01_Script.md) \| [Next (3.3 Error Checking)](03_Error_checking.md)
 
 # 3.2 More on Functions
 
@@ -513,4 +513,4 @@ select out columns of interest, perform type conversions, without
 having to worry too much about the inner workings of files or the
 `csv` module.
 
-[Contents](../Contents.md) \| [Previous (3.1 Scripting)](01_Script) \| [Next (3.3 Error Checking)](03_Error_checking)
+[Contents](../Contents.md) \| [Previous (3.1 Scripting)](01_Script.md) \| [Next (3.3 Error Checking)](03_Error_checking.md)

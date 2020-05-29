@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (4.1 Classes)](01_Class) \| [Next (4.3 Special methods)](03_Special_methods)
+[Contents](../Contents.md) \| [Previous (4.1 Classes)](01_Class.md) \| [Next (4.3 Special methods)](03_Special_methods.md)
 
 # 4.2 Inheritance
 
@@ -624,4 +624,4 @@ on the topic of design patterns (although understanding what happened
 in this exercise will take you pretty far in terms of using objects in
 a practically useful way).
 
-[Contents](../Contents.md) \| [Previous (4.1 Classes)](01_Class) \| [Next (4.3 Special methods)](03_Special_methods)
+[Contents](../Contents.md) \| [Previous (4.1 Classes)](01_Class.md) \| [Next (4.3 Special methods)](03_Special_methods.md)

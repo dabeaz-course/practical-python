@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (6.2 Customizing Iteration)](02_Customizing_iteration) \| [Next (6.4 Generator Expressions)](04_More_generators)
+[Contents](../Contents.md) \| [Previous (6.2 Customizing Iteration)](02_Customizing_iteration.md) \| [Next (6.4 Generator Expressions)](04_More_generators.md)
 
 # 6.3 Producers, Consumers and Pipelines
 
@@ -299,6 +299,4 @@ pipelines.  In addition, you can create functions that package a
 series of pipeline stages into a single function call (for example,
 the `parse_stock_data()` function).
 
-[Contents](../Contents.md) \| [Previous (6.2 Customizing Iteration)](02_Customizing_iteration) \| [Next (6.4 Generator Expressions)](04_More_generators)
-
-
+[Contents](../Contents.md) \| [Previous (6.2 Customizing Iteration)](02_Customizing_iteration.md) \| [Next (6.4 Generator Expressions)](04_More_generators.md)

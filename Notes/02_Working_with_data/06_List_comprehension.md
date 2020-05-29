@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (2.5 Collections)](05_Collections) \| [Next (2.7 Object Model)](07_Objects)
+[Contents](../Contents.md) \| [Previous (2.5 Collections)](05_Collections.md) \| [Next (2.7 Object Model)](07_Objects.md)
 
 # 2.6 List Comprehensions
 
@@ -326,4 +326,4 @@ extraction, and so forth.  Becoming a guru master of list
 comprehensions can substantially reduce the time spent devising a
 solution.  Also, don't forget about the `collections` module.
 
-[Contents](../Contents.md) \| [Previous (2.5 Collections)](05_Collections) \| [Next (2.7 Object Model)](07_Objects)
+[Contents](../Contents.md) \| [Previous (2.5 Collections)](05_Collections.md) \| [Next (2.7 Object Model)](07_Objects.md)

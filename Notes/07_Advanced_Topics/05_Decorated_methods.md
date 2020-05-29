@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (7.4 Decorators)](04_Function_decorators) \| [Next (8 Testing and Debugging)](../08_Testing_debugging/00_Overview)
+[Contents](../Contents.md) \| [Previous (7.4 Decorators)](04_Function_decorators.md) \| [Next (8 Testing and Debugging)](../08_Testing_debugging/00_Overview.md)
 
 # 7.5 Decorated Methods
 
@@ -208,4 +208,4 @@ To use this new Portfolio class, you can now write code like this:
 Make these changes to the `Portfolio` class and modify the `report.py`
 code to use the class method.
 
-[Contents](../Contents.md) \| [Previous (7.4 Decorators)](04_Function_decorators) \| [Next (8 Testing and Debugging)](../08_Testing_debugging/00_Overview)
+[Contents](../Contents.md) \| [Previous (7.4 Decorators)](04_Function_decorators.md) \| [Next (8 Testing and Debugging)](../08_Testing_debugging/00_Overview.md)

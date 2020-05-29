@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (7.5 Decorated Methods)](../07_Advanced_Topics/05_Decorated_methods) \| [Next (8.2 Logging)](02_Logging)
+[Contents](../Contents.md) \| [Previous (7.5 Decorated Methods)](../07_Advanced_Topics/05_Decorated_methods.md) \| [Next (8.2 Logging)](02_Logging.md)
 
 # 8.1 Testing
 
@@ -290,4 +290,4 @@ class TestStock(unittest.TestCase):
              s.shares = '100'
 ```
 
-[Contents](../Contents.md) \| [Previous (7.5 Decorated Methods)](../07_Advanced_Topics/05_Decorated_methods) \| [Next (8.2 Logging)](02_Logging)
+[Contents](../Contents.md) \| [Previous (7.5 Decorated Methods)](../07_Advanced_Topics/05_Decorated_methods.md) \| [Next (8.2 Logging)](02_Logging.md)

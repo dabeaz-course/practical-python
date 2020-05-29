@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (3.2 More on Functions)](02_More_functions) \| [Next (3.4 Modules)](04_Modules)
+[Contents](../Contents.md) \| [Previous (3.2 More on Functions)](02_More_functions.md) \| [Next (3.4 Modules)](04_Modules.md)
 
 # 3.3 Error Checking
 
@@ -402,4 +402,4 @@ most programs.  As a general rule, you shouldn’t silently ignore
 errors.  Instead, it’s better to report problems and to give the user
 an option to the silence the error message if they choose to do so.
 
-[Contents](../Contents.md) \| [Previous (3.2 More on Functions)](02_More_functions) \| [Next (3.4 Modules)](04_Modules)
+[Contents](../Contents.md) \| [Previous (3.2 More on Functions)](02_More_functions.md) \| [Next (3.4 Modules)](04_Modules.md)

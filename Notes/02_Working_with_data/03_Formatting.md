@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (2.2 Containers)](02_Containers) \| [Next (2.4 Sequences)](04_Sequences)
+[Contents](../Contents.md) \| [Previous (2.2 Containers)](02_Containers.md) \| [Next (2.4 Sequences)](04_Sequences.md)
 
 # 2.3 Formatting
 
@@ -299,4 +299,4 @@ How would you modify your code so that the price includes the currency symbol ($
        IBM        100    $106.28      35.84
 ```
 
-[Contents](../Contents.md) \| [Previous (2.2 Containers)](02_Containers) \| [Next (2.4 Sequences)](04_Sequences)
+[Contents](../Contents.md) \| [Previous (2.2 Containers)](02_Containers.md) \| [Next (2.4 Sequences)](04_Sequences.md)

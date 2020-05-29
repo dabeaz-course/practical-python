@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (3.3 Error Checking)](03_Error_checking) \| [Next (3.5 Main Module)](05_Main_module)
+[Contents](../Contents.md) \| [Previous (3.3 Error Checking)](03_Error_checking.md) \| [Next (3.5 Main Module)](05_Main_module.md)
 
 # 3.4 Modules
 
@@ -338,4 +338,4 @@ also contains `read_portfolio()` and `read_prices()` functions.  And
 finally, `pcost.py` which computes the portfolio cost, but makes use
 of the `read_portfolio()` function written for the `report.py` program.
 
-[Contents](../Contents.md) \| [Previous (3.3 Error Checking)](03_Error_checking) \| [Next (3.5 Main Module)](05_Main_module)
+[Contents](../Contents.md) \| [Previous (3.3 Error Checking)](03_Error_checking.md) \| [Next (3.5 Main Module)](05_Main_module.md)

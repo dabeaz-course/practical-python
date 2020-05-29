@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (9.1 Packages)](01_Packages) \| [Next (9.3 Distribution)](03_Distribution)
+[Contents](../Contents.md) \| [Previous (9.1 Packages)](01_Packages.md) \| [Next (9.3 Distribution)](03_Distribution.md)
 
 # 9.2 Third Party Modules
 
@@ -135,7 +135,7 @@ I refer you to the [Python Packaging User Guide](https://packaging.python.org).
 See if you can recreate the steps of making a virtual environment and installing
 pandas into it as shown above.
 
-[Contents](../Contents.md) \| [Previous (9.1 Packages)](01_Packages) \| [Next (9.3 Distribution)](03_Distribution)
+[Contents](../Contents.md) \| [Previous (9.1 Packages)](01_Packages.md) \| [Next (9.3 Distribution)](03_Distribution.md)
 
 
 

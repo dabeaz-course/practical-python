@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (3.6 Design discussion)](../03_Program_organization/06_Design_discussion) \| [Next (4.2 Inheritance)](02_Inheritance)
+[Contents](../Contents.md) \| [Previous (3.6 Design discussion)](../03_Program_organization/06_Design_discussion.md) \| [Next (4.2 Inheritance)](02_Inheritance.md)
 
 # 4.1 Classes
 
@@ -295,4 +295,4 @@ You should be able to run your functions the same as before:
 >>>
 ```
 
-[Contents](../Contents.md) \| [Previous (3.6 Design discussion)](../03_Program_organization/06_Design_discussion) \| [Next (4.2 Inheritance)](02_Inheritance)
+[Contents](../Contents.md) \| [Previous (3.6 Design discussion)](../03_Program_organization/06_Design_discussion.md) \| [Next (4.2 Inheritance)](02_Inheritance.md)

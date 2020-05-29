@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (6.3 Producer/Consumer)](03_Producers_consumers) \| [Next (7 Advanced Topics)](../07_Advanced_Topics/00_Overview)
+[Contents](../Contents.md) \| [Previous (6.3 Producer/Consumer)](03_Producers_consumers.md) \| [Next (7 Advanced Topics)](../07_Advanced_Topics/00_Overview.md)
 
 # 6.4 More Generators
 
@@ -180,4 +180,4 @@ Modify the `ticker.py` program to use generator expressions
 as appropriate.
 
 
-[Contents](../Contents.md) \| [Previous (6.3 Producer/Consumer)](03_Producers_consumers) \| [Next (7 Advanced Topics)](../07_Advanced_Topics/00_Overview)
+[Contents](../Contents.md) \| [Previous (6.3 Producer/Consumer)](03_Producers_consumers.md) \| [Next (7 Advanced Topics)](../07_Advanced_Topics/00_Overview.md)

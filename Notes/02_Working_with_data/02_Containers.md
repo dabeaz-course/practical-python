@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (2.1 Datatypes)](01_Datatypes) \| [Next (2.3 Formatting)](03_Formatting)
+[Contents](../Contents.md) \| [Previous (2.1 Datatypes)](01_Datatypes.md) \| [Next (2.3 Formatting)](03_Formatting.md)
 
 # 2.2 Containers
 
@@ -442,5 +442,4 @@ should take the list of stocks in Exercise 2.5 and the dictionary of
 prices in Exercise 2.6 and computes the current value of the portfolio
 along with the gain/loss.
 
-[Contents](../Contents.md) \| [Previous (2.1 Datatypes)](01_Datatypes) \| [Next (2.3 Formatting)](03_Formatting)
-
+[Contents](../Contents.md) \| [Previous (2.1 Datatypes)](01_Datatypes.md) \| [Next (2.3 Formatting)](03_Formatting.md)

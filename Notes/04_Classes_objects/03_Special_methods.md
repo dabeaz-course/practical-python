@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Previous (4.2 Inheritance)](02_Inheritance) \| [Next (4.4 Exceptions)](04_Defining_exceptions)
+[Contents](../Contents.md) \| [Previous (4.2 Inheritance)](02_Inheritance.md) \| [Next (4.4 Exceptions)](04_Defining_exceptions.md)
 
 # 4.3 Special Methods
 
@@ -287,5 +287,5 @@ it should work:
 >>>
 ```
 
-[Contents](../Contents.md) \| [Previous (4.2 Inheritance)](02_Inheritance) \| [Next (4.4 Exceptions)](04_Defining_exceptions)
+[Contents](../Contents.md) \| [Previous (4.2 Inheritance)](02_Inheritance.md) \| [Next (4.4 Exceptions)](04_Defining_exceptions.md)
 
