@@ -1,3 +1,5 @@
+[Contents](../Contents.md) \| [Prev (6 Generators)](../06_Generators/00_Overview.md) \| [Next (8 Testing and Debugging](../08_Testing_debugging/00_Overview.md)
+
 # 7. Advanced Topics
 
 In this section, we look at a small set of somewhat more advanced
@@ -16,4 +18,4 @@ to seek more advanced material to fill out details.
 * [7.4 Function decorators](04_Function_decorators.md)
 * [7.5 Static and class methods](05_Decorated_methods.md)
 
-[Contents](../Contents.md)
+[Contents](../Contents.md) \| [Prev (6 Generators)](../06_Generators/00_Overview.md) \| [Next (8 Testing and Debugging](../08_Testing_debugging/00_Overview.md)

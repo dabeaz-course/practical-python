@@ -1,3 +1,5 @@
+[Contents](../Contents.md) \| [Prev (5 Inner Workings of Python Objects)](../05_Object_model/00_Overview.md) \| [Next (7 Advanced Topics)](../07_Advanced_Topics/00_Overview.md)
+
 # 6. Generators
 
 Iteration (the `for`-loop) is one of the most common programming
@@ -13,4 +15,4 @@ process some real-time streaming data in an interesting way.
 * [6.3 Producer/Consumer Problems and Workflows](03_Producers_consumers.md)
 * [6.4 Generator Expressions](04_More_generators.md)
 
-[Contents](../Contents.md)
+[Contents](../Contents.md) \| [Prev (5 Inner Workings of Python Objects)](../05_Object_model/00_Overview.md) \| [Next (7 Advanced Topics)](../07_Advanced_Topics/00_Overview.md)

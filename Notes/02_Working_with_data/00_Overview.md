@@ -1,3 +1,5 @@
+[Contents](../Contents.md) \| [Prev (1 Introduction to Python)](../01_Introduction/00_Overview.md) \| [Next (3 Program Organization)](../03_Program_organization/00_Overview.md)
+
 # 2. Working With Data
 
 To write useful programs, you need to be able to work with data.
@@ -14,4 +16,4 @@ into Python's underlying object model.
 * [2.6 List comprehensions](06_List_comprehension.md)
 * [2.7 Object model](07_Objects.md)
 
-[Contents](../Contents.md)
+[Contents](../Contents.md) \| [Prev (1 Introduction to Python)](../01_Introduction/00_Overview.md) \| [Next (3 Program Organization)](../03_Program_organization/00_Overview.md)
