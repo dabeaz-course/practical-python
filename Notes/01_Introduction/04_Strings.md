@@ -77,7 +77,7 @@ You can also slice or select substrings specifying a range of indices with `:`.
 ```python
 d = a[:5]     # 'Hello'
 e = a[6:]     # 'world'
-f = a[3:8]    # 'lowo'
+f = a[3:8]    # 'lo wo'
 g = a[-5:]    # 'world'
 ```
 
