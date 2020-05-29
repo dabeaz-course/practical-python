@@ -152,7 +152,10 @@ bash % python3 sears.py
 6 32 0.00352
 ...
 21 1048576 115.34336
-22 2097152 230.68672 Number of days 23 Number of bills 4194304 Final height 461.37344
+22 2097152 230.68672
+Number of days 23 
+Number of bills 4194304 
+Final height 461.37344
 ```
 
 Using this program as a guide, you can learn a number of important core concepts about Python.
