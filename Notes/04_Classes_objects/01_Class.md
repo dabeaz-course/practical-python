@@ -262,7 +262,7 @@ dictionaries. Then compute the total cost:
 >>> sum([s.cost() for s in portfolio])
 44671.15
 >>>
-----
+```
 
 ### Exercise 4.4: Using your class
 
