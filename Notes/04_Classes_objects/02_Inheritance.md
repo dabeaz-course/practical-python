@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (4.1 Classes)](01_Class) \| [Next (4.3 Special methods)](03_Special_methods)
+[Contents](../Contents.md) \| [Previous (4.1 Classes)](01_Class.md) \| [Next (4.3 Special methods)](03_Special_methods.md)
 
 # 4.2 Inheritance
 
@@ -158,7 +158,7 @@ class Rectangle(Shape):
 ```
 
 Think of a logical hierarchy or taxonomy.  However, a more common (and
-practical) usage is related to making reusable or extensible code. 
+practical) usage is related to making reusable or extensible code.
 For example, a framework might define a base class and instruct you
 to customize it.
 
@@ -170,7 +170,7 @@ class CustomHandler(TCPHandler):
 ```
 
 The base class contains some general purpose code.
-Your class inherits and customized specific parts. 
+Your class inherits and customized specific parts.
 
 ### "is a" relationship
 
@@ -193,7 +193,7 @@ True
 >>>
 ```
 
-*Important: Ideally, any code that worked with instances of the parent 
+*Important: Ideally, any code that worked with instances of the parent
 class will also work with instances of the child class.*
 
 ### `object` base class
@@ -235,7 +235,7 @@ going to utilize multiple inheritance further in this course.
 
 A major use of inheritance is in writing code that's meant to be
 extended or customized in various ways--especially in libraries or
-frameworks. To illustrate, consider the `print_report()` function 
+frameworks. To illustrate, consider the `print_report()` function
 in your `report.py` program.  It should look something like this:
 
 ```python
@@ -298,7 +298,7 @@ class TableFormatter:
 	raise NotImplementedError()
 ```
 
-This class does nothing, but it serves as a kind of design specification for 
+This class does nothing, but it serves as a kind of design specification for
 additional classes that will be defined shortly.  A class like this is
 sometimes called an "abstract base class."
 
@@ -334,7 +334,7 @@ def portfolio_report(portfoliofile, pricefile):
     '''
     Make a stock report given portfolio and price data files.
     '''
-    # Read data files 
+    # Read data files
     portfolio = read_portfolio(portfoliofile)
     prices = read_prices(pricefile)
 
@@ -355,7 +355,7 @@ Run this new code:
 ... crashes ...
 ```
 
-It should immediately crash with a `NotImplementedError` exception.  That's not 
+It should immediately crash with a `NotImplementedError` exception.  That's not
 too exciting, but it's exactly what we expected.  Continue to the next part.
 
 ### Exercise 4.6: Using Inheritance to Produce Different Output
@@ -392,7 +392,7 @@ def portfolio_report(portfoliofile, pricefile):
     '''
     Make a stock report given portfolio and price data files.
     '''
-    # Read data files 
+    # Read data files
     portfolio = read_portfolio(portfoliofile)
     prices = read_prices(pricefile)
 
@@ -446,7 +446,7 @@ def portfolio_report(portfoliofile, pricefile):
     '''
     Make a stock report given portfolio and price data files.
     '''
-    # Read data files 
+    # Read data files
     portfolio = read_portfolio(portfoliofile)
     prices = read_prices(pricefile)
 
@@ -494,7 +494,7 @@ Test your code by modifying the main program to create a
 
 ### Exercise 4.7: Polymorphism in Action
 
-A major feature of object-oriented programming is that you can 
+A major feature of object-oriented programming is that you can
 plug an object into a program and it will work without having to
 change any of the existing code.  For example, if you wrote a program
 that expected to use a `TableFormatter` object, it would work no
@@ -512,7 +512,7 @@ def portfolio_report(portfoliofile, pricefile, fmt='txt'):
     '''
     Make a stock report given portfolio and price data files.
     '''
-    # Read data files 
+    # Read data files
     portfolio = read_portfolio(portfoliofile)
     prices = read_prices(pricefile)
 
@@ -547,7 +547,7 @@ def portfolio_report(portfoliofile, pricefile, fmt='txt'):
     '''
     Make a stock report given portfolio and price data files.
     '''
-    # Read data files 
+    # Read data files
     portfolio = read_portfolio(portfoliofile)
     prices = read_prices(pricefile)
 
@@ -568,15 +568,15 @@ an optional argument specifying the output format. For example:
 
 ```python
 >>> report.portfolio_report('Data/portfolio.csv', 'Data/prices.csv', 'txt')
-      Name     Shares      Price     Change 
----------- ---------- ---------- ---------- 
-        AA        100       9.22     -22.98 
-       IBM         50     106.28      15.18 
-       CAT        150      35.46     -47.98 
-      MSFT        200      20.89     -30.34 
-        GE         95      13.48     -26.89 
-      MSFT         50      20.89     -44.21 
-       IBM        100     106.28      35.84 
+      Name     Shares      Price     Change
+---------- ---------- ---------- ----------
+        AA        100       9.22     -22.98
+       IBM         50     106.28      15.18
+       CAT        150      35.46     -47.98
+      MSFT        200      20.89     -30.34
+        GE         95      13.48     -26.89
+      MSFT         50      20.89     -44.21
+       IBM        100     106.28      35.84
 >>>
 ```
 
@@ -614,7 +614,7 @@ you can change the internal implementation to work in any way that you
 want.  You can write all-custom code.  You can use someone's third
 party package.  You swap out one third-party package for a different
 package when you find a better one.  It doesn't matter--none of
-your application code will break as long as you preserve keep the 
+your application code will break as long as you preserve keep the
 interface.   That's a powerful idea and it's one of the reasons why
 you might consider inheritance for something like this.
 
@@ -624,4 +624,4 @@ on the topic of design patterns (although understanding what happened
 in this exercise will take you pretty far in terms of using objects in
 a practically useful way).
 
-[Contents](../Contents) \| [Previous (4.1 Classes)](01_Class) \| [Next (4.3 Special methods)](03_Special_methods)
+[Contents](../Contents.md) \| [Previous (4.1 Classes)](01_Class.md) \| [Next (4.3 Special methods)](03_Special_methods.md)

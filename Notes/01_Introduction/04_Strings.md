@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (1.3 Numbers)](03_Numbers) \| [Next (1.5 Lists)](05_Lists)
+[Contents](../Contents.md) \| [Previous (1.3 Numbers)](03_Numbers.md) \| [Next (1.5 Lists)](05_Lists.md)
 
 # 1.4 Strings
 
@@ -299,7 +299,7 @@ Verify this by trying to change the first character of `symbols` to a lower-case
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: 'str' object does not support item assignment
->>> 
+>>>
 ```
 
 ### Exercise 1.14: String concatenation
@@ -408,10 +408,10 @@ To do that, use an f-string. For example:
 >>> price = 91.1
 >>> f'{shares} shares of {name} at ${price:0.2f}'
 '100 shares of IBM at $91.10'
->>> 
+>>>
 ```
 
-Modify the `mortgage.py` program from [Exercise 1.10](03_Numbers) to create its output using f-strings.
+Modify the `mortgage.py` program from [Exercise 1.10](03_Numbers.md) to create its output using f-strings.
 Try to make it so that output is nicely aligned.
 
 
@@ -419,7 +419,7 @@ Try to make it so that output is nicely aligned.
 
 One limitation of the basic string operations is that they don't
 support any kind of advanced pattern matching.  For that, you
-need to turn to Python's `re` module and regular expressions.  
+need to turn to Python's `re` module and regular expressions.
 Regular expression handling is a big topic, but here is a short
 example:
 
@@ -485,4 +485,4 @@ upper(...)
 >>>
 ```
 
-[Contents](../Contents) \| [Previous (1.3 Numbers)](03_Numbers) \| [Next (1.5 Lists)](05_Lists)
+[Contents](../Contents.md) \| [Previous (1.3 Numbers)](03_Numbers.md) \| [Next (1.5 Lists)](05_Lists.md)

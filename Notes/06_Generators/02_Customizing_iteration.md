@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (6.1 Iteration Protocol)](01_Iteration_protocol) \| [Next (6.3 Producer/Consumer)](03_Producers_consumers)
+[Contents](../Contents.md) \| [Previous (6.1 Iteration Protocol)](01_Iteration_protocol.md) \| [Next (6.3 Producer/Consumer)](03_Producers_consumers.md)
 
 # 6.2 Customizing Iteration
 
@@ -137,7 +137,7 @@ name,shares,price
 
 "IBM",50,91.10
 "IBM",100,70.44
->>> 
+>>>
 ```
 
 This is kind of interesting--the idea that you can hide a bunch of
@@ -209,14 +209,14 @@ lines of data whereas the statements at the end of the `while` loop are consumin
 the data.  A major feature of generator functions is that you can move all
 of the data production code into a reusable function.
 
-Modify the code in Exercise 6.5  so that the file-reading is performed by 
+Modify the code in Exercise 6.5  so that the file-reading is performed by
 a generator function `follow(filename)`.   Make it so the following code
 works:
 
 ```python
 >>> for line in follow('Data/stocklog.csv'):
           print(line, end='')
-   
+
 ... Should see lines of output produced here ...
 ```
 
@@ -267,4 +267,4 @@ is now this completely general purpose utility that you can use in any program. 
 example, you could use it to watch server logs, debugging logs, and other similar data sources.
 That's kind of cool.
 
-[Contents](../Contents) \| [Previous (6.1 Iteration Protocol)](01_Iteration_protocol) \| [Next (6.3 Producer/Consumer)](03_Producers_consumers)
+[Contents](../Contents.md) \| [Previous (6.1 Iteration Protocol)](01_Iteration_protocol.md) \| [Next (6.3 Producer/Consumer)](03_Producers_consumers.md)

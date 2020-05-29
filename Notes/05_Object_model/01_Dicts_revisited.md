@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (4.4 Exceptions)](../04_Classes_objects/04_Defining_exceptions) \| [Next (5.2 Encapsulation)](02_Classes_encapsulation)
+[Contents](../Contents.md) \| [Previous (4.4 Exceptions)](../04_Classes_objects/04_Defining_exceptions.md) \| [Next (5.2 Encapsulation)](02_Classes_encapsulation.md)
 
 # 5.1 Dictionaries Revisited
 
@@ -279,7 +279,7 @@ about class ordering.
 * Children are always checked before parents
 * Parents (if multiple) are always checked in the order listed.
 
-The MRO is computed by sorting all of the classes in a hierarchy 
+The MRO is computed by sorting all of the classes in a hierarchy
 according to those rules.
 
 ```python
@@ -387,7 +387,7 @@ that you saw that.
 
 ## Exercises
 
-In Section 4, you defined a class `Stock` that represented a holding of stock. 
+In Section 4, you defined a class `Stock` that represented a holding of stock.
 In this exercise, we will use that class.  Restart the interpreter and make a
 few instances:
 
@@ -444,7 +444,7 @@ the `__dict__` object:
 Here, you really notice the fact that an instance is just a layer on
 top of a dictionary.  Note: it should be emphasized that direct
 manipulation of the dictionary is uncommon--you should always write
-your code to use the (.) syntax. 
+your code to use the (.) syntax.
 
 ### Exercise 5.3: The role of classes
 
@@ -457,7 +457,7 @@ to their associated class:
 ... look at output ...
 >>> ibm.__class__
 ... look at output ...
->>> 
+>>>
 ```
 
 Try calling a method on the instances:
@@ -520,7 +520,7 @@ However, notice that it is not part of the instance dictionary:
 
 The reason you can access the `foo` attribute on instances is that
 Python always checks the class dictionary if it can't find something
-on the instance itself. 
+on the instance itself.
 
 Note: This part of the exercise illustrates something known as a class
 variable.  Suppose, for instance, you have a class like this:
@@ -567,7 +567,7 @@ two steps and something known as a bound method.   For example:
 >>> s(25)
 >>> goog.shares
 75
->>> 
+>>>
 ```
 
 Bound methods actually contain all of the pieces needed to call a
@@ -656,5 +656,4 @@ Here's how the `cost()` method of instance `n` above would be found:
 >>>
 ```
 
-[Contents](../Contents) \| [Previous (4.4 Exceptions)](../04_Classes_objects/04_Defining_exceptions) \| [Next (5.2 Encapsulation)](02_Classes_encapsulation)
-
+[Contents](../Contents.md) \| [Previous (4.4 Exceptions)](../04_Classes_objects/04_Defining_exceptions.md) \| [Next (5.2 Encapsulation)](02_Classes_encapsulation.md)

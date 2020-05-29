@@ -1,5 +1,5 @@
 
-[Contents](../Contents) \| [Previous (6.4 Generator Expressions)](../06_Generators/04_More_generators) \| [Next (7.2 Anonymous Functions)](02_Anonymous_function)
+[Contents](../Contents.md) \| [Previous (6.4 Generator Expressions)](../06_Generators/04_More_generators.md) \| [Next (7.2 Anonymous Functions)](02_Anonymous_function.md)
 
 # 7.1 Variable Arguments
 
@@ -144,7 +144,7 @@ data.  If you try to pass `data` directly, it doesn't work:
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: __init__() takes exactly 4 arguments (2 given)
->>> 
+>>>
 ```
 
 This is easily fixed using `*data` instead.  Try this:
@@ -177,11 +177,11 @@ def read_portfolio(filename):
     name, shares, and price.
     '''
     with open(filename) as lines:
-        portdicts = fileparse.parse_csv(lines, 
-                               select=['name','shares','price'], 
+        portdicts = fileparse.parse_csv(lines,
+                               select=['name','shares','price'],
                                types=[str,int,float])
 
-    portfolio = [ Stock(d['name'], d['shares'], d['price']) 
+    portfolio = [ Stock(d['name'], d['shares'], d['price'])
                   for d in portdicts ]
     return Portfolio(portfolio)
 ```
@@ -201,8 +201,8 @@ def read_portfolio(filename, **opts):
     name, shares, and price.
     '''
     with open(filename) as lines:
-        portdicts = fileparse.parse_csv(lines, 
-                                        select=['name','shares','price'], 
+        portdicts = fileparse.parse_csv(lines,
+                                        select=['name','shares','price'],
                                         types=[str,int,float],
                                         **opts)
 
@@ -230,4 +230,4 @@ Now, try silencing the errors:
 >>>
 ```
 
-[Contents](../Contents) \| [Previous (6.4 Generator Expressions)](../06_Generators/04_More_generators) \| [Next (7.2 Anonymous Functions)](02_Anonymous_function)
+[Contents](../Contents.md) \| [Previous (6.4 Generator Expressions)](../06_Generators/04_More_generators.md) \| [Next (7.2 Anonymous Functions)](02_Anonymous_function.md)

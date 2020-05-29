@@ -53,20 +53,20 @@ in some other programming language or Python itself.
 
 This is not a course on web development.  That's a different
 circus. However, if you stick around for this circus, you'll still see
-some interesting acts--just nothing involving animals. 
+some interesting acts--just nothing involving animals.
 
 This is not a course for software engineers on how to write or
 maintain a one-million line Python application. I don't write programs
 like that, nor do most companies who use Python, and neither should
-you. Delete something already!  
+you. Delete something already!
 
 ## Take me to the Course Already!
 
-Ok, ok. Point your browser [HERE](Notes/Contents)!
+Ok, ok. Point your browser [HERE](Notes/Contents.md)!
 
 ## Community Discussion
 
-Want to discuss the course?  You can join the conversation on 
+Want to discuss the course?  You can join the conversation on
 [Gitter](https://gitter.im/dabeaz-course/practical-python).  I can't
 promise an individual response, but perhaps others can jump in to help.
 
@@ -94,7 +94,7 @@ No. This course is about you writing Python code, not watching someone else.
 
 ### Q: How is this course licensed?
 
-Practical Python Programming is licensed under a Creative Commons Attribution ShareAlike 4.0 International License. 
+Practical Python Programming is licensed under a Creative Commons Attribution ShareAlike 4.0 International License.
 
 ### Q: May I use this material to teach my own Python course?
 
@@ -116,5 +116,5 @@ cover it in the first place.
 Bug reports are appreciated and may be filed through the [issue
 tracker](https://github.com/dabeaz-course/practical-python/issues).
 Pull requests are not accepted except by invitation.  Please file an
-issue first.   
+issue first.
 

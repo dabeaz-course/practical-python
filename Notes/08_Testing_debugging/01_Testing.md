@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (7.5 Decorated Methods)](../07_Advanced_Topics/05_Decorated_methods) \| [Next (8.2 Logging)](02_Logging)
+[Contents](../Contents.md) \| [Previous (7.5 Decorated Methods)](../07_Advanced_Topics/05_Decorated_methods.md) \| [Next (8.2 Logging)](02_Logging.md)
 
 # 8.1 Testing
 
@@ -28,7 +28,7 @@ assert isinstance(10, int), 'Expected int'
 
 It shouldn't be used to check the user-input (i.e., data entered
 on a web form or something).  It's purpose is more for internal
-checks and invariants (conditions that should always be true).  
+checks and invariants (conditions that should always be true).
 
 ### Contract Programming
 
@@ -274,7 +274,7 @@ Once you're satisifed that it works, write additional unit tests that
 check for the following:
 
 - Make sure the `s.cost` property returns the correct value (49010.0)
-- Make sure the `s.sell()` method works correctly.  It should 
+- Make sure the `s.sell()` method works correctly.  It should
   decrement the value of `s.shares` accordingly.
 - Make sure that the `s.shares` attribute can't be set to a non-integer value.
 
@@ -290,4 +290,4 @@ class TestStock(unittest.TestCase):
              s.shares = '100'
 ```
 
-[Contents](../Contents) \| [Previous (7.5 Decorated Methods)](../07_Advanced_Topics/05_Decorated_methods) \| [Next (8.2 Logging)](02_Logging)
+[Contents](../Contents.md) \| [Previous (7.5 Decorated Methods)](../07_Advanced_Topics/05_Decorated_methods.md) \| [Next (8.2 Logging)](02_Logging.md)

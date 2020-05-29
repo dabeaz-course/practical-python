@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (6.2 Customizing Iteration)](02_Customizing_iteration) \| [Next (6.4 Generator Expressions)](04_More_generators)
+[Contents](../Contents.md) \| [Previous (6.2 Customizing Iteration)](02_Customizing_iteration.md) \| [Next (6.4 Generator Expressions)](04_More_generators.md)
 
 # 6.3 Producers, Consumers and Pipelines
 
@@ -101,7 +101,7 @@ You will notice that data incrementally flows through the different functions.
 
 ## Exercises
 
-For this exercise the `stocksim.py` program should still be running in the background. 
+For this exercise the `stocksim.py` program should still be running in the background.
 You’re going to use the `follow()` function you wrote in the previous exercise.
 
 ### Exercise 6.8: Setting up a simple pipeline
@@ -133,7 +133,7 @@ to it as an argument.  Now, try this:
 ```
 
 It might take awhile for output to appear, but eventually you
-should see some lines containing data for IBM.  
+should see some lines containing data for IBM.
 
 ### Exercise 6.9: Setting up a more complex pipeline
 
@@ -157,7 +157,7 @@ more actions.
 
 Well, that's interesting.  What you're seeing here is that the output of the
 `follow()` function has been piped into the `csv.reader()` function and we're
-now getting a sequence of split rows.   
+now getting a sequence of split rows.
 
 ### Exercise 6.10: Making more pipeline components
 
@@ -274,12 +274,12 @@ and table format.  For example::
 ```python
 >>> from ticker import ticker
 >>> ticker('Data/portfolio.csv', 'Data/stocklog.csv', 'txt')
-      Name      Price     Change 
----------- ---------- ---------- 
-        GE      37.14      -0.18 
-      MSFT      29.96      -0.09 
-       CAT      78.03      -0.49 
-        AA      39.34      -0.32 
+      Name      Price     Change
+---------- ---------- ----------
+        GE      37.14      -0.18
+      MSFT      29.96      -0.09
+       CAT      78.03      -0.49
+        AA      39.34      -0.32
 ...
 
 >>> ticker('Data/portfolio.csv', 'Data/stocklog.csv', 'csv')
@@ -299,6 +299,4 @@ pipelines.  In addition, you can create functions that package a
 series of pipeline stages into a single function call (for example,
 the `parse_stock_data()` function).
 
-[Contents](../Contents) \| [Previous (6.2 Customizing Iteration)](02_Customizing_iteration) \| [Next (6.4 Generator Expressions)](04_More_generators)
-
-
+[Contents](../Contents.md) \| [Previous (6.2 Customizing Iteration)](02_Customizing_iteration.md) \| [Next (6.4 Generator Expressions)](04_More_generators.md)

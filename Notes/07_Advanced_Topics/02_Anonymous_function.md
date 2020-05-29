@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (7.1 Variable Arguments)](01_Variable_arguments) \| [Next (7.3 Returning Functions)](03_Returning_functions)
+[Contents](../Contents.md) \| [Previous (7.1 Variable Arguments)](01_Variable_arguments.md) \| [Next (7.3 Returning Functions)](03_Returning_functions.md)
 
 # 7.2 Anonymous Functions and Lambda
 
@@ -165,4 +165,4 @@ Note: `lambda` is a useful shortcut because it allows you to
 define a special processing function directly in the call to `sort()` as
 opposed to having to define a separate function first.
 
-[Contents](../Contents) \| [Previous (7.1 Variable Arguments)](01_Variable_arguments) \| [Next (7.3 Returning Functions)](03_Returning_functions)
+[Contents](../Contents.md) \| [Previous (7.1 Variable Arguments)](01_Variable_arguments.md) \| [Next (7.3 Returning Functions)](03_Returning_functions.md)

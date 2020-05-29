@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (7.4 Decorators)](04_Function_decorators) \| [Next (8 Testing and Debugging)](../08_Testing_debugging/00_Overview)
+[Contents](../Contents.md) \| [Previous (7.4 Decorators)](04_Function_decorators.md) \| [Next (8 Testing and Debugging)](../08_Testing_debugging/00_Overview.md)
 
 # 7.5 Decorated Methods
 
@@ -123,8 +123,8 @@ def read_portfolio(filename, **opts):
     name, shares, and price.
     '''
     with open(filename) as lines:
-        portdicts = fileparse.parse_csv(lines, 
-                                        select=['name','shares','price'], 
+        portdicts = fileparse.parse_csv(lines,
+                                        select=['name','shares','price'],
                                         types=[str,int,float],
                                         **opts)
 
@@ -163,7 +163,7 @@ class Portfolio:
     ...
 ```
 
-If you want to read a portfolio from a CSV file, maybe you should make a 
+If you want to read a portfolio from a CSV file, maybe you should make a
 class method for it:
 
 ```python
@@ -184,8 +184,8 @@ class Portfolio:
     @classmethod
     def from_csv(cls, lines, **opts):
         self = cls()
-        portdicts = fileparse.parse_csv(lines, 
-                                        select=['name','shares','price'], 
+        portdicts = fileparse.parse_csv(lines,
+                                        select=['name','shares','price'],
                                         types=[str,int,float],
                                         **opts)
 
@@ -208,4 +208,4 @@ To use this new Portfolio class, you can now write code like this:
 Make these changes to the `Portfolio` class and modify the `report.py`
 code to use the class method.
 
-[Contents](../Contents) \| [Previous (7.4 Decorators)](04_Function_decorators) \| [Next (8 Testing and Debugging)](../08_Testing_debugging/00_Overview)
+[Contents](../Contents.md) \| [Previous (7.4 Decorators)](04_Function_decorators.md) \| [Next (8 Testing and Debugging)](../08_Testing_debugging/00_Overview.md)
