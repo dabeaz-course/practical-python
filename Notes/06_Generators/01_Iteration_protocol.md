@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (5.2 Encapsulation)](../05_Classes_objects/02_Classes_encapsulation) \| [Next (6.2 Customizing Iteration)](02_Customizing_iteration)
+[Contents](../Contents) \| [Previous (5.2 Encapsulation)](../05_Object_model/02_Classes_encapsulation) \| [Next (6.2 Customizing Iteration)](02_Customizing_iteration)
 
 # 6.1 Iteration Protocol
 
@@ -314,4 +314,4 @@ Python normally work.  For container objects, supporting iteration,
 indexing, containment, and other kinds of operators is an important
 part of this.
 
-[Contents](../Contents) \| [Previous (5.2 Encapsulation)](../05_Classes_objects/02_Classes_encapsulation) \| [Next (6.2 Customizing Iteration)](02_Customizing_iteration)
+[Contents](../Contents) \| [Previous (5.2 Encapsulation)](../05_Object_model/02_Classes_encapsulation) \| [Next (6.2 Customizing Iteration)](02_Customizing_iteration)
