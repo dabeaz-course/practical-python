@@ -6,9 +6,9 @@ projects. Fast-forward a decade and I found myself teaching others the
 same fun.  The result of that teaching is this course--A no-nonsense
 treatment of Python that has been actively taught to more than 400
 in-person groups since 2007.  Traders, systems admins, astronomers,
-tinkerers, and even a few rocket scientists who used Python to help
-land a rover on Mars--they've all taken this course. Now, I'm pleased
-to make it freely available under a Creative Commons license. Enjoy!
+tinkerers, and even a few hundred rocket scientists who used Python to
+help land a rover on Mars--they've all taken this course. Now, I'm
+pleased to make it available under a Creative Commons license. Enjoy!
 
 --David Beazley ([https://dabeaz.com](https://dabeaz.com)), [@dabeaz](https://twitter.com/dabeaz)
 
@@ -103,6 +103,13 @@ Yes, as long as appropriate attribution is given.
 ### Q: May I make derivative works?
 
 Yes, as long as such works carry the same license terms and provide attribution.
+
+### Q: Why wasn't topic X covered?
+
+There is only so much material that you can cover in a 3-4 days.  If
+it wasn't covered, it was probably because it was once covered and it
+caused everyone's head to explode or there was never enough time to
+cover it in the first place.
 
 ### Q: Do you accept pull requests?
 
