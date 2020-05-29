@@ -67,7 +67,7 @@ maintain a one-million line Python program. I don't write programs
 like that and neither should you. Delete something already! 
 Python is a great language for personal productivity, prototyping ideas,
 and hacking cool things together. The course is about doing THAT in
-a way that's both practical and not so "hacky" that you co-workers
+a way that's both practical and not so "hacky" that your co-workers
 give you stink-eye when they look at your code. 
 
 ## Take me to the Course Already!
