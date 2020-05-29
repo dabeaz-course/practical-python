@@ -43,8 +43,8 @@ class Player:
         self.health = 100
 
     def move(self, dx, dy):
-        self.dx += dx
-        self.dy += dy
+        self.x += dx
+        self.y += dy
 
     def damage(self, pts):
         self.health -= pts
