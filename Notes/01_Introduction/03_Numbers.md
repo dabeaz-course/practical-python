@@ -163,7 +163,7 @@ Try it out.
 3
 >>> b = '3.14159' # It also works with strings containing numbers
 >>> float(b)
-3.15159
+3.14159
 >>>
 ```
 
