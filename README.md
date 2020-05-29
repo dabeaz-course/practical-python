@@ -106,7 +106,7 @@ Yes, as long as such works carry the same license terms and provide attribution.
 
 ### Q: Why wasn't topic X covered?
 
-There is only so much material that you can cover in a 3-4 days.  If
+There is only so much material that you can cover in 3-4 days.  If
 it wasn't covered, it was probably because it was once covered and it
 caused everyone's head to explode or there was never enough time to
 cover it in the first place.

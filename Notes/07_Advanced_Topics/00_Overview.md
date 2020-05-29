@@ -12,7 +12,7 @@ to seek more advanced material to fill out details.
 
 * [7.1 Variable argument functions](01_Variable_arguments)
 * [7.2 Anonymous functions and lambda](02_Anonymous_function)
-* [7.3 Returning function and closures](03_Retuning_functions)
+* [7.3 Returning function and closures](03_Returning_functions)
 * [7.4 Function decorators](04_Function_decorators)
 * [7.5 Static and class methods](05_Decorated_methods)
 
