@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (8.1 Testing)](01_Testing) \| [Next (8.3 Debugging)](03_Debugging)
+[Contents](../Contents.md) \| [Previous (8.1 Testing)](01_Testing) \| [Next (8.3 Debugging)](03_Debugging)
 
 # 8.2 Logging
 
@@ -131,7 +131,7 @@ uses logging doesn't have to worry about that.
 
 ### Exercise 8.2: Adding logging to a module
 
-In `fileparse.py`, there is some error handling related to 
+In `fileparse.py`, there is some error handling related to
 exceptions caused by bad input. It looks like this:
 
 ```python
@@ -262,7 +262,7 @@ steps to see that:
 >>> a = report.read_portfolio('Data/missing.csv')
 WARNING:fileparse:Row 4: Bad row: ['MSFT', '', '51.23']
 WARNING:fileparse:Row 7: Bad row: ['IBM', '', '70.44']
->>> 
+>>>
 ```
 
 You will notice that you don't see the output from the `log.debug()`
@@ -275,7 +275,7 @@ WARNING:fileparse:Row 4: Bad row: ['MSFT', '', '51.23']
 DEBUG:fileparse:Row 4: Reason: invalid literal for int() with base 10: ''
 WARNING:fileparse:Row 7: Bad row: ['IBM', '', '70.44']
 DEBUG:fileparse:Row 7: Reason: invalid literal for int() with base 10: ''
->>> 
+>>>
 ```
 
 Turn off all, but the most critical logging messages:
@@ -294,7 +294,7 @@ do this is to include some setup code that looks like this:
 
 ```
 # This file sets up basic configuration of the logging module.
-# Change settings here to adjust logging output as needed.   
+# Change settings here to adjust logging output as needed.
 import logging
 logging.basicConfig(
     filename = 'app.log',            # Name of the log file (omit to use stderr)
@@ -306,4 +306,4 @@ logging.basicConfig(
 Again, you'd need to put this someplace in the startup steps of your
 program.  For example, where would you put this in your `report.py` program?
 
-[Contents](../Contents) \| [Previous (8.1 Testing)](01_Testing) \| [Next (8.3 Debugging)](03_Debugging)
+[Contents](../Contents.md) \| [Previous (8.1 Testing)](01_Testing) \| [Next (8.3 Debugging)](03_Debugging)

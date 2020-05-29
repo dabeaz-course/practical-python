@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (3.6 Design discussion)](../03_Program_organization/06_Design_discussion) \| [Next (4.2 Inheritance)](02_Inheritance)
+[Contents](../Contents.md) \| [Previous (3.6 Design discussion)](../03_Program_organization/06_Design_discussion) \| [Next (4.2 Inheritance)](02_Inheritance)
 
 # 4.1 Classes
 
@@ -256,8 +256,8 @@ dictionaries. Then compute the total cost:
 ...
 >>> portfolio = [ stock.Stock(d['name'], d['shares'], d['price']) for d in portdicts]
 >>> portfolio
-[<stock.Stock object at 0x10c9e2128>, <stock.Stock object at 0x10c9e2048>, <stock.Stock object at 0x10c9e2080>, 
- <stock.Stock object at 0x10c9e25f8>, <stock.Stock object at 0x10c9e2630>, <stock.Stock object at 0x10ca6f748>, 
+[<stock.Stock object at 0x10c9e2128>, <stock.Stock object at 0x10c9e2048>, <stock.Stock object at 0x10c9e2080>,
+ <stock.Stock object at 0x10c9e25f8>, <stock.Stock object at 0x10c9e2630>, <stock.Stock object at 0x10ca6f748>,
  <stock.Stock object at 0x10ca6f7b8>]
 >>> sum([s.cost() for s in portfolio])
 44671.15
@@ -283,16 +283,16 @@ You should be able to run your functions the same as before:
 44671.15
 >>> import report
 >>> report.portfolio_report('Data/portfolio.csv', 'Data/prices.csv')
-      Name     Shares      Price     Change 
----------- ---------- ---------- ---------- 
-        AA        100       9.22     -22.98 
-       IBM         50     106.28      15.18 
-       CAT        150      35.46     -47.98 
-      MSFT        200      20.89     -30.34 
-        GE         95      13.48     -26.89 
-      MSFT         50      20.89     -44.21 
-       IBM        100     106.28      35.84 
+      Name     Shares      Price     Change
+---------- ---------- ---------- ----------
+        AA        100       9.22     -22.98
+       IBM         50     106.28      15.18
+       CAT        150      35.46     -47.98
+      MSFT        200      20.89     -30.34
+        GE         95      13.48     -26.89
+      MSFT         50      20.89     -44.21
+       IBM        100     106.28      35.84
 >>>
 ```
 
-[Contents](../Contents) \| [Previous (3.6 Design discussion)](../03_Program_organization/06_Design_discussion) \| [Next (4.2 Inheritance)](02_Inheritance)
+[Contents](../Contents.md) \| [Previous (3.6 Design discussion)](../03_Program_organization/06_Design_discussion) \| [Next (4.2 Inheritance)](02_Inheritance)

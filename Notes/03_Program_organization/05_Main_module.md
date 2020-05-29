@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (3.4 Modules)](04_Modules) \| [Next (3.6 Design Discussion)](06_Design_discussion)
+[Contents](../Contents.md) \| [Previous (3.4 Modules)](04_Modules) \| [Next (3.6 Design Discussion)](06_Design_discussion)
 
 # 3.5 Main Module
 
@@ -303,4 +303,4 @@ bash $ python3 pcost.py Data/portfolio.csv
 Total cost: 44671.15
 ```
 
-[Contents](../Contents) \| [Previous (3.4 Modules)](04_Modules) \| [Next (3.6 Design Discussion)](06_Design_discussion)
+[Contents](../Contents.md) \| [Previous (3.4 Modules)](04_Modules) \| [Next (3.6 Design Discussion)](06_Design_discussion)

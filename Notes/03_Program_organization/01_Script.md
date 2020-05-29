@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (2.7 Object Model)](../02_Working_with_data/07_Objects) \| [Next (3.2 More on Functions)](02_More_functions)
+[Contents](../Contents.md) \| [Previous (2.7 Object Model)](../02_Working_with_data/07_Objects) \| [Next (3.2 More on Functions)](02_More_functions)
 
 # 3.1 Scripting
 
@@ -143,7 +143,7 @@ spam(42)            # Code that uses the functions appears at the end
 
 Later functions build upon earlier functions.  Again, this is only
 a point of style.  The only thing that matters in the above program
-is that the call to `spam(42)` go last.  
+is that the call to `spam(42)` go last.
 
 ### Function Design
 
@@ -153,7 +153,7 @@ and mysterious side-effects.  Your main goals: *Modularity* and *Predictability*
 
 ### Doc Strings
 
-It's good practice to include documentation in the form of a 
+It's good practice to include documentation in the form of a
 doc-string.  Doc-strings are strings written immediately after the
 name of the function. They feed `help()`, IDEs and other tools.
 
@@ -194,7 +194,7 @@ def read_prices(filename: str) -> dict:
 
 The hints do nothing operationally. They are purely informational.
 However, they may be used by IDEs, code checkers, and other tools
-to do more. 
+to do more.
 
 ## Exercises
 
@@ -299,4 +299,4 @@ you can.  At some point, that script is going to grow and you'll wish
 you had a bit more organization.  Also, a little known fact is that Python
 runs a bit faster if you use functions.
 
-[Contents](../Contents) \| [Previous (2.7 Object Model)](../02_Working_with_data/07_Objects) \| [Next (3.2 More on Functions)](02_More_functions)
+[Contents](../Contents.md) \| [Previous (2.7 Object Model)](../02_Working_with_data/07_Objects) \| [Next (3.2 More on Functions)](02_More_functions)

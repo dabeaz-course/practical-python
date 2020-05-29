@@ -1,8 +1,8 @@
-[Contents](../Contents) \| [Previous (7.2 Anonymous Functions)](02_Anonymous_function) \| [Next (7.4 Decorators)](04_Function_decorators)
+[Contents](../Contents.md) \| [Previous (7.2 Anonymous Functions)](02_Anonymous_function) \| [Next (7.4 Decorators)](04_Function_decorators)
 
 # 7.3 Returning Functions
 
-This section introduces the idea of using functions to create other functions. 
+This section introduces the idea of using functions to create other functions.
 
 ### Introduction
 
@@ -237,4 +237,4 @@ is often good.
 Rewrite the `Stock` class in the file `stock.py` so that it uses typed properties
 as shown.
 
-[Contents](../Contents) \| [Previous (7.2 Anonymous Functions)](02_Anonymous_function) \| [Next (7.4 Decorators)](04_Function_decorators)
+[Contents](../Contents.md) \| [Previous (7.2 Anonymous Functions)](02_Anonymous_function) \| [Next (7.4 Decorators)](04_Function_decorators)

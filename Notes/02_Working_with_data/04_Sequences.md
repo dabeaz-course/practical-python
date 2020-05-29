@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (2.3 Formatting)](03_Formatting) \| [Next (2.5 Collections)](05_Collections)
+[Contents](../Contents.md) \| [Previous (2.3 Formatting)](03_Formatting) \| [Next (2.5 Collections)](05_Collections)
 
 # 2.4 Sequences
 
@@ -546,4 +546,4 @@ Also, be aware that `zip()` stops once the shortest input sequence is exhausted.
 >>>
 ```
 
-[Contents](../Contents) \| [Previous (2.3 Formatting)](03_Formatting) \| [Next (2.5 Collections)](05_Collections)
+[Contents](../Contents.md) \| [Previous (2.3 Formatting)](03_Formatting) \| [Next (2.5 Collections)](05_Collections)

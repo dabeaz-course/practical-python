@@ -1,8 +1,8 @@
-[Contents](../Contents) \| [Previous (2.1 Datatypes)](01_Datatypes) \| [Next (2.3 Formatting)](03_Formatting)
+[Contents](../Contents.md) \| [Previous (2.1 Datatypes)](01_Datatypes) \| [Next (2.3 Formatting)](03_Formatting)
 
 # 2.2 Containers
 
-This section discusses lists, dictionaries, and sets. 
+This section discusses lists, dictionaries, and sets.
 
 ### Overview
 
@@ -205,7 +205,7 @@ for the rest of this course.  Do your work in the file `Work/report.py`.
 ### Exercise 2.4: A list of tuples
 
 The file `Data/portfolio.csv` contains a list of stocks in a
-portfolio.  In [Exercise 1.30](../01_Introduction/07_Functions), you
+portfolio.  In [Exercise 1.30](../01_Introduction/07_Functions.md), you
 wrote a function `portfolio_cost(filename)` that read this file and
 performed a simple calculation.
 
@@ -442,5 +442,5 @@ should take the list of stocks in Exercise 2.5 and the dictionary of
 prices in Exercise 2.6 and computes the current value of the portfolio
 along with the gain/loss.
 
-[Contents](../Contents) \| [Previous (2.1 Datatypes)](01_Datatypes) \| [Next (2.3 Formatting)](03_Formatting)
+[Contents](../Contents.md) \| [Previous (2.1 Datatypes)](01_Datatypes) \| [Next (2.3 Formatting)](03_Formatting)
 

@@ -13,8 +13,8 @@ It's not necessary to worry about the inner details to be productive.
 However, most Python coders have a basic awareness of how classes
 work.  So, that's why we're covering it.
 
-* [5.1 Dictionaries Revisited (Object Implementation)](01_Dicts_revisited)
-* [5.2 Encapsulation Techniques](02_Classes_encapsulation)
+* [5.1 Dictionaries Revisited (Object Implementation)](01_Dicts_revisited.md)
+* [5.2 Encapsulation Techniques](02_Classes_encapsulation.md)
 
-[Contents](../Contents)
+[Contents](../Contents.md)
 

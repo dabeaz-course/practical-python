@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (2.5 Collections)](05_Collections) \| [Next (2.7 Object Model)](07_Objects)
+[Contents](../Contents.md) \| [Previous (2.5 Collections)](05_Collections) \| [Next (2.7 Object Model)](07_Objects)
 
 # 2.6 List Comprehensions
 
@@ -310,7 +310,7 @@ of the file:
 
 Oh my, you just reduced much of the `read_portfolio()` function to a single statement.
 
-### Commentary 
+### Commentary
 
 List comprehensions are commonly used in Python as an efficient means
 for transforming, filtering, or collecting data.  Due to the syntax,
@@ -326,4 +326,4 @@ extraction, and so forth.  Becoming a guru master of list
 comprehensions can substantially reduce the time spent devising a
 solution.  Also, don't forget about the `collections` module.
 
-[Contents](../Contents) \| [Previous (2.5 Collections)](05_Collections) \| [Next (2.7 Object Model)](07_Objects)
+[Contents](../Contents.md) \| [Previous (2.5 Collections)](05_Collections) \| [Next (2.7 Object Model)](07_Objects)

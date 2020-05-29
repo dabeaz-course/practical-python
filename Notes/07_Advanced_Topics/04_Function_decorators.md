@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (7.3 Returning Functions)](03_Returning_functions) \| [Next (7.5 Decorated Methods)](05_Decorated_methods)
+[Contents](../Contents.md) \| [Previous (7.3 Returning Functions)](03_Returning_functions) \| [Next (7.5 Decorated Methods)](05_Decorated_methods)
 
 # 7.4 Function Decorators
 
@@ -106,7 +106,7 @@ It is said to *decorate* the function.
 There are many more subtle details to decorators than what has been presented here.
 For example, using them in classes. Or using multiple decorators with a function.
 However, the previous example is a good illustration of how their use tends to arise.
-Usually, it's in response to repetitive code appearing across a wide range of 
+Usually, it's in response to repetitive code appearing across a wide range of
 function definitions.  A decorator can move that code to a central definition.
 
 ## Exercises
@@ -154,7 +154,7 @@ __main__.countdown : 0.076562
 ```
 
 Discussion:  This `@timethis` decorator can be placed in front of any
-function definition.   Thus, you might use it as a diagnostic tool for 
+function definition.   Thus, you might use it as a diagnostic tool for
 performance tuning.
 
-[Contents](../Contents) \| [Previous (7.3 Returning Functions)](03_Returning_functions) \| [Next (7.5 Decorated Methods)](05_Decorated_methods)
+[Contents](../Contents.md) \| [Previous (7.3 Returning Functions)](03_Returning_functions) \| [Next (7.5 Decorated Methods)](05_Decorated_methods)

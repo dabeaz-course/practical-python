@@ -7,11 +7,11 @@ and introduces modules.  By the end you should be able to write programs
 that are subdivided into functions across multiple files. We'll also give
 some useful code templates for writing more useful scripts.
 
-* [3.1 Functions and Script Writing](01_Script)
-* [3.2 More Detail on Functions](02_More_functions)
-* [3.3 Exception Handling](03_Error_checking)
-* [3.4 Modules](04_Modules)
-* [3.5 Main module](05_Main_module)
-* [3.6 Design Discussion about Embracing Flexibilty](06_Design_discussion)
+* [3.1 Functions and Script Writing](01_Script.md)
+* [3.2 More Detail on Functions](02_More_functions.md)
+* [3.3 Exception Handling](03_Error_checking.md)
+* [3.4 Modules](04_Modules.md)
+* [3.5 Main module](05_Main_module.md)
+* [3.6 Design Discussion about Embracing Flexibilty](06_Design_discussion.md)
 
-[Contents](../Contents)
+[Contents](../Contents.md)

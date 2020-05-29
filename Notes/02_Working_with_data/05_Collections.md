@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (2.4 Sequences)](04_Sequences) \| [Next (2.6 List Comprehensions)](06_List_comprehension)
+[Contents](../Contents.md) \| [Previous (2.4 Sequences)](04_Sequences) \| [Next (2.6 List Comprehensions)](06_List_comprehension)
 
 # 2.5 collections module
 
@@ -168,4 +168,4 @@ in all of Python.  In fact, we could do an extended tutorial on just
 that.  However, doing so now would also be a distraction.  For now,
 put `collections` on your list of bedtime reading for later.
 
-[Contents](../Contents) \| [Previous (2.4 Sequences)](04_Sequences) \| [Next (2.6 List Comprehensions)](06_List_comprehension)
+[Contents](../Contents.md) \| [Previous (2.4 Sequences)](04_Sequences) \| [Next (2.6 List Comprehensions)](06_List_comprehension)

@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (8.3 Debugging)](../08_Testing_debugging/03_Debugging) \| [Next (9.2 Third Party Packages)](02_Third_party)
+[Contents](../Contents.md) \| [Previous (8.3 Debugging)](../08_Testing_debugging/03_Debugging) \| [Next (9.2 Third Party Packages)](02_Third_party.md)
 
 # 9.1 Packages
 
@@ -119,7 +119,7 @@ import fileparse    # BREAKS. fileparse not found
 
 ### Relative Imports
 
-Instead of directly using the package name, 
+Instead of directly using the package name,
 you can use `.` to refer to the current package.
 
 ```python
@@ -204,7 +204,7 @@ import sys
 porty.pcost.main(sys.argv)
 ```
 
-This script lives *outside* the package.  For example, looking at the directory 
+This script lives *outside* the package.  For example, looking at the directory
 structure:
 
 ```
@@ -375,7 +375,7 @@ Try running some of your prior scripts as a main program:
 shell % cd porty-app
 shell % python3 -m porty.report portfolio.csv prices.csv txt
       Name     Shares      Price     Change
----------- ---------- ---------- ---------- 
+---------- ---------- ---------- ----------
         AA        100       9.22     -22.98
        IBM         50     106.28      15.18
        CAT        150      35.46     -47.98
@@ -408,7 +408,7 @@ can run it in that location:
 shell % cd porty-app
 shell % python3 print-report.py portfolio.csv prices.csv txt
       Name     Shares      Price     Change
----------- ---------- ---------- ---------- 
+---------- ---------- ---------- ----------
         AA        100       9.22     -22.98
        IBM         50     106.28      15.18
        CAT        150      35.46     -47.98
@@ -441,4 +441,4 @@ porty-app/
         typedproperty.py
 ```
 
-[Contents](../Contents) \| [Previous (8.3 Debugging)](../08_Testing_debugging/03_Debugging) \| [Next (9.2 Third Party Packages)](02_Third_party)
+[Contents](../Contents.md) \| [Previous (8.3 Debugging)](../08_Testing_debugging/03_Debugging) \| [Next (9.2 Third Party Packages)](02_Third_party.md)

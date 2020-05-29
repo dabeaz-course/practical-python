@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (9.2 Third Party Packages)](02_Third_party) \| [Next (The End)](TheEnd)
+[Contents](../Contents.md) \| [Previous (9.2 Third Party Packages)](02_Third_party.md) \| [Next (The End)](TheEnd.md)
 
 # 9.3 Distribution
 
@@ -8,7 +8,7 @@ information, you'll need to consult the [Python Packaging User Guide](https://pa
 
 ### Creating a setup.py file
 
-Add a `setup.py` file to the top-level of your project directory. 
+Add a `setup.py` file to the top-level of your project directory.
 
 ```python
 # setup.py
@@ -20,7 +20,7 @@ setuptools.setup(
     author="Your Name",
     author_email="you@example.com",
     description="Practical Python Code",
-    packages=setuptools.find_packages(),	
+    packages=setuptools.find_packages(),
 )
 ```
 
@@ -45,7 +45,7 @@ bash % python setup.py sdist
 ```
 
 This will create a `.tar.gz` or `.zip` file in the directory `dist/`.  That file is something
-that you can now give away to others.  
+that you can now give away to others.
 
 ### Installing your code
 
@@ -72,13 +72,13 @@ this course.  We've only taken a tiny first step.
 
 Take the `porty-app/` code you created for Exercise 9.3 and see if you
 can recreate the steps described here.  Specifically, add a `setup.py`
-file and a `MANIFEST.in` file to the top-level directory.  
+file and a `MANIFEST.in` file to the top-level directory.
 Create a source distribution file by running `python setup.py sdist`.
 
 As a final step, see if you can install your package into a Python
 virtual environment.
 
-[Contents](../Contents) \| [Previous (9.2 Third Party Packages)](02_Third_party) \| [Next (The End)](TheEnd)
+[Contents](../Contents.md) \| [Previous (9.2 Third Party Packages)](02_Third_party.md) \| [Next (The End)](TheEnd.md)
 
 
 

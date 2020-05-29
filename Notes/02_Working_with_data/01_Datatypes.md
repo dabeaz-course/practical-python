@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (1.6 Files)](../01_Introduction/06_Files) \| [Next (2.2 Containers)](02_Containers)
+[Contents](../Contents.md) \| [Previous (1.6 Files)](../01_Introduction/06_Files.md) \| [Next (2.2 Containers)](02_Containers)
 
 # 2.1 Datatypes and Data structures
 
@@ -242,7 +242,7 @@ shares and the price:
 ```
 
 Is math broken in Python? What’s the deal with the answer of
-3220.0000000000005?  
+3220.0000000000005?
 
 This is an artifact of the floating point hardware on your computer
 only being able to accurately represent decimals in Base-2, not
@@ -446,4 +446,4 @@ dict_items([('name', 'AA'), ('shares', 75), ('price', 32.2), ('date', (6, 11, 20
 >>>
 ```
 
-[Contents](../Contents) \| [Previous (1.6 Files)](../01_Introduction/06_Files) \| [Next (2.2 Containers)](02_Containers)
+[Contents](../Contents.md) \| [Previous (1.6 Files)](../01_Introduction/06_Files.md) \| [Next (2.2 Containers)](02_Containers)

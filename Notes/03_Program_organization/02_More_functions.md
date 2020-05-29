@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (3.1 Scripting)](01_Script) \| [Next (3.3 Error Checking)](03_Error_checking)
+[Contents](../Contents.md) \| [Previous (3.1 Scripting)](01_Script) \| [Next (3.3 Error Checking)](03_Error_checking)
 
 # 3.2 More on Functions
 
@@ -273,7 +273,7 @@ Start this exercise by creating a new file called
 ### Exercise 3.3: Reading CSV Files
 
 To start, let’s just focus on the problem of reading a CSV file into a
-list of dictionaries.  In the file `fileparse.py`, define a 
+list of dictionaries.  In the file `fileparse.py`, define a
 function that looks like this:
 
 ```python
@@ -338,7 +338,7 @@ follows:
 >>>
 ```
 
-An example of a column selector was given in [Exercise 2.23](../02_Working_with_data/06_List_comprehension).  
+An example of a column selector was given in [Exercise 2.23](../02_Working_with_data/06_List_comprehension).
 However, here’s one way to do it:
 
 ```python
@@ -431,7 +431,7 @@ type-conversions to be applied to the returned data.  For example:
 >>>
 ```
 
-You already explored this in [Exercise 2.24](../02_Working_with_data/07_Objects).  
+You already explored this in [Exercise 2.24](../02_Working_with_data/07_Objects).
 You'll need to insert the following fragment of code into your solution:
 
 ```python
@@ -513,4 +513,4 @@ select out columns of interest, perform type conversions, without
 having to worry too much about the inner workings of files or the
 `csv` module.
 
-[Contents](../Contents) \| [Previous (3.1 Scripting)](01_Script) \| [Next (3.3 Error Checking)](03_Error_checking)
+[Contents](../Contents.md) \| [Previous (3.1 Scripting)](01_Script) \| [Next (3.3 Error Checking)](03_Error_checking)

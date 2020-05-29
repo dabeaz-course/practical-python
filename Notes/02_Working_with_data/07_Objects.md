@@ -1,8 +1,8 @@
-[Contents](../Contents) \| [Previous (2.6 List Comprehensions)](06_List_comprehension) \| [Next (3 Program Organization)](../03_Program_organization/00_Overview)
+[Contents](../Contents.md) \| [Previous (2.6 List Comprehensions)](06_List_comprehension) \| [Next (3 Program Organization)](../03_Program_organization/00_Overview)
 
 # 2.7 Objects
 
-This section introduces more details about Python's internal object model and 
+This section introduces more details about Python's internal object model and
 discusses some matters related to memory management, copying, and type checking.
 
 ### Assignment
@@ -451,4 +451,4 @@ Bonus: How would you modify this example to additionally parse the
 Spend some time to ponder what you’ve done in this exercise. We’ll
 revisit these ideas a little later.
 
-[Contents](../Contents) \| [Previous (2.6 List Comprehensions)](06_List_comprehension) \| [Next (3 Program Organization)](../03_Program_organization/00_Overview)
+[Contents](../Contents.md) \| [Previous (2.6 List Comprehensions)](06_List_comprehension) \| [Next (3 Program Organization)](../03_Program_organization/00_Overview)

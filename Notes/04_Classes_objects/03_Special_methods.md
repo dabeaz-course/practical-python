@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (4.2 Inheritance)](02_Inheritance) \| [Next (4.4 Exceptions)](04_Defining_exceptions)
+[Contents](../Contents.md) \| [Previous (4.2 Inheritance)](02_Inheritance) \| [Next (4.4 Exceptions)](04_Defining_exceptions)
 
 # 4.3 Special Methods
 
@@ -177,7 +177,7 @@ f.close     # Oops, Didn't do anything at all. `f` still open.
 ```
 
 In both of these cases, the error is cause by forgetting to include the
-trailing parentheses.  For example, `s.cost()` or `f.close()`. 
+trailing parentheses.  For example, `s.cost()` or `f.close()`.
 
 ### Attribute Access
 
@@ -276,7 +276,7 @@ it should work:
 
 >>> print_table(portfolio, ['name','shares','price'], formatter)
       name     shares      price
----------- ---------- ---------- 
+---------- ---------- ----------
         AA        100       32.2
        IBM         50       91.1
        CAT        150      83.44
@@ -284,8 +284,8 @@ it should work:
         GE         95      40.37
       MSFT         50       65.1
        IBM        100      70.44
->>> 
+>>>
 ```
 
-[Contents](../Contents) \| [Previous (4.2 Inheritance)](02_Inheritance) \| [Next (4.4 Exceptions)](04_Defining_exceptions)
+[Contents](../Contents.md) \| [Previous (4.2 Inheritance)](02_Inheritance) \| [Next (4.4 Exceptions)](04_Defining_exceptions)
 

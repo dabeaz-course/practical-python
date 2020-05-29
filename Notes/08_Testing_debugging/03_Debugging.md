@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (8.2 Logging)](02_Logging) \| [Next (9 Packages)](../09_Packages/00_Overview)
+[Contents](../Contents.md) \| [Previous (8.2 Logging)](02_Logging) \| [Next (9 Packages)](../09_Packages/00_Overview)
 
 # 8.3 Debugging
 
@@ -158,4 +158,4 @@ For breakpoints location is one of the following.
 
 It runs. Ship it!
 
-[Contents](../Contents) \| [Previous (8.2 Logging)](02_Logging) \| [Next (9 Packages)](../09_Packages/00_Overview)
+[Contents](../Contents.md) \| [Previous (8.2 Logging)](02_Logging) \| [Next (9 Packages)](../09_Packages/00_Overview)

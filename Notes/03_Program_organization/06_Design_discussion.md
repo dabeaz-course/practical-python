@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (3.5 Main module)](05_Main_module) \| [Next (4 Classes)](../04_Classes_objects/00_Overview)
+[Contents](../Contents.md) \| [Previous (3.5 Main module)](05_Main_module) \| [Next (4 Classes)](../04_Classes_objects/00_Overview)
 
 # 3.6 Design Discussion
 
@@ -91,7 +91,7 @@ Don't restrict your options.  With great flexibility comes great power.
 
 ### Exercise 3.17: From filenames to file-like objects
 
-You've now created a file `fileparse.py` that contained a 
+You've now created a file `fileparse.py` that contained a
 function `parse_csv()`.  The function worked like this:
 
 ```python
@@ -100,7 +100,7 @@ function `parse_csv()`.  The function worked like this:
 >>>
 ```
 
-Right now, the function expects to be passed a filename.  However, you 
+Right now, the function expects to be passed a filename.  However, you
 can make the code more flexible.  Modify the function so that it works
 with any file-like/iterable object.  For example:
 
@@ -134,4 +134,4 @@ Fix the `read_portfolio()` and `read_prices()` functions in the
 Afterwards, your `report.py` and `pcost.py` programs should work
 the same way they always did.
 
-[Contents](../Contents) \| [Previous (3.5 Main module)](05_Main_module) \| [Next (4 Classes)](../04_Classes_objects/00_Overview)
+[Contents](../Contents.md) \| [Previous (3.5 Main module)](05_Main_module) \| [Next (4 Classes)](../04_Classes_objects/00_Overview)

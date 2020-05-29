@@ -1,8 +1,8 @@
-[Contents](../Contents) \| [Previous (1.5 Lists)](05_Lists) \| [Next (1.7 Functions)](07_Functions)
+[Contents](../Contents.md) \| [Previous (1.5 Lists)](05_Lists.md) \| [Next (1.7 Functions)](07_Functions.md)
 
 # 1.6 File Management
 
-Most programs need to read input from somewhere. This section discusses file access. 
+Most programs need to read input from somewhere. This section discusses file access.
 
 ### File Input and Output
 
@@ -63,7 +63,7 @@ Read a file line-by-line by iterating.
 ```python
 with open(filename, 'rt') as file:
     for line in file:
-        # Process the line 
+        # Process the line
 ```
 
 ### Common Idioms for Writing to a File
@@ -168,7 +168,7 @@ of column headers).
 >>>
 ```
 
-`next()` returns the next line of text in the file. If you were to call it repeatedly, you would get successive lines. 
+`next()` returns the next line of text in the file. If you were to call it repeatedly, you would get successive lines.
 However, just so you know, the `for` loop already uses `next()` to obtain its data.
 Thus, you normally wouldn’t call it directly unless you’re trying to explicitly skip or read a single line as shown.
 
@@ -234,7 +234,7 @@ Data scientists are quick to point out that libraries like
 [Pandas](https://pandas.pydata.org) already have a function for
 reading CSV files.  This is true--and it works pretty well.
 However, this is not a course on learning Pandas. Reading files
-is a more general problem than the specifics of CSV files. 
+is a more general problem than the specifics of CSV files.
 The main reason we're working with a CSV file is that it's a
 familiar format to most coders and it's relatively easy to work with
 directly--illustrating many Python features in the process.
@@ -242,4 +242,4 @@ So, by all means use Pandas when you go back to work.  For the
 rest of this course however, we're going to stick with standard
 Python functionality.
 
-[Contents](../Contents) \| [Previous (1.5 Lists)](05_Lists) \| [Next (1.7 Functions)](07_Functions)
+[Contents](../Contents.md) \| [Previous (1.5 Lists)](05_Lists.md) \| [Next (1.7 Functions)](07_Functions.md)

@@ -1,4 +1,4 @@
-[Contents](../Contents) \| [Previous (5.2 Encapsulation)](../05_Object_model/02_Classes_encapsulation) \| [Next (6.2 Customizing Iteration)](02_Customizing_iteration)
+[Contents](../Contents.md) \| [Previous (5.2 Encapsulation)](../05_Object_model/02_Classes_encapsulation) \| [Next (6.2 Customizing Iteration)](02_Customizing_iteration)
 
 # 6.1 Iteration Protocol
 
@@ -48,7 +48,7 @@ while True:
 ```
 
 All the objects that work with the `for-loop` implement this low-level
-iteration protocol.  
+iteration protocol.
 
 Example: Manual iteration over a list.
 
@@ -186,8 +186,8 @@ def read_portfolio(filename):
     name, shares, and price.
     '''
     with open(filename) as file:
-        portdicts = fileparse.parse_csv(file, 
-                                        select=['name','shares','price'], 
+        portdicts = fileparse.parse_csv(file,
+                                        select=['name','shares','price'],
                                         types=[str,int,float])
 
     portfolio = [ Stock(d['name'], d['shares'], d['price']) for d in portdicts ]
@@ -196,7 +196,7 @@ def read_portfolio(filename):
 ```
 
 Try running the `report.py` program. You will find that it fails spectacularly due to the fact
-that `Portfolio` instances aren't iterable. 
+that `Portfolio` instances aren't iterable.
 
 ```python
 >>> import report
@@ -305,7 +305,7 @@ Stock('IBM', 50, 91.1)
 True
 >>> 'AAPL' in portfolio
 False
->>> 
+>>>
 ```
 
 One important observation about this--generally code is considered
@@ -314,4 +314,4 @@ Python normally work.  For container objects, supporting iteration,
 indexing, containment, and other kinds of operators is an important
 part of this.
 
-[Contents](../Contents) \| [Previous (5.2 Encapsulation)](../05_Object_model/02_Classes_encapsulation) \| [Next (6.2 Customizing Iteration)](02_Customizing_iteration)
+[Contents](../Contents.md) \| [Previous (5.2 Encapsulation)](../05_Object_model/02_Classes_encapsulation) \| [Next (6.2 Customizing Iteration)](02_Customizing_iteration)
