@@ -249,7 +249,7 @@ The `zip` function takes multiple sequences and makes an iterator that combines 
 ```python
 columns = ['name', 'shares', 'price']
 values = ['GOOG', 100, 490.1 ]
-pairs = zip(a, b)
+pairs = zip(columns, values)
 # ('name','GOOG'), ('shares',100), ('price',490.1)
 ```
 
