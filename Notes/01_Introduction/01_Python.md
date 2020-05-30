@@ -169,6 +169,10 @@ you accessed is actually feeding the website
 <http://ctabustracker.com/bustime/home.jsp>. Try it again and watch
 the predictions change.
 
+Note: This service only reports arrival times within the next 30 minutes.
+If you're in a different timezone and it happens to be 3am in Chicago, you
+might not get any output.  You use the tracker link above to double check.
+
 If the first import statement `import urllib.request` fails, you’re
 probably using Python 2. For this course, you need to make sure you’re
 using Python 3.6 or newer. Go to <https://www.python.org> to download
