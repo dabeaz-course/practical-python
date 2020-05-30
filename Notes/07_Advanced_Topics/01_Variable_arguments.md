@@ -149,7 +149,7 @@ TypeError: __init__() takes exactly 4 arguments (2 given)
 
 This is easily fixed using `*data` instead.  Try this:
 
-``python
+```python
 >>> s = Stock(*data)
 >>> s
 Stock('GOOG', 100, 490.1)
