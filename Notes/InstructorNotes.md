@@ -196,7 +196,7 @@ Section 3.4 Introduces module imports.  The file written in Section
 may need to help students fix issues with IDLE, sys.path, and other
 assorted settings related to import.
 
-Section 3.5 talks about __main__ and script writing.  There's a bit
+Section 3.5 talks about `__main__` and script writing.  There's a bit
 about command line arguments.  You might be inclined to discuss a
 module like argparse.  However, be warned that doing so opens up
 a quagmire. It's usually better to just mention it and move on.
@@ -256,8 +256,8 @@ commonly used in libraries and frameworks--especially in situations
 where more control over what a user is allowed to do is desired.
 
 An astute Python master will notice that I do not talk about advanced
-topics such as descriptors, or attribute access methods (__getattr__,
-__setattr__) at all.  I have found, through experience, that this is
+topics such as descriptors, or attribute access methods (`__getattr__`,
+`__setattr__`) at all.  I have found, through experience, that this is
 just too much mental overload for students taking the intro course.
 Everyone’s head is already on the verge of exploding at this point and
 if you go talk about how something like descriptors work, you’ll lose
@@ -285,7 +285,7 @@ and think about streams, large datasets, etc.
 
 Some omissions: Although the iteration protocol is described, the
 notes don’t go into detail about creating iterable objects (i.e.,
-classes with __iter__() and next()).  In practice, I’ve found that
+classes with `__iter__()` and `next()`).  In practice, I’ve found that
 it’s not necessary to do this so often (generators are often
 better/easier).  So, in the interest of time, I’ve made a conscious
 decision to omit it.  Also not included are extended generators
@@ -329,7 +329,7 @@ follow.py, etc.).  Two main goals in this section.  First, put all of
 the code into a Python package structure.  This is only a gentle
 introduction to that, but they'll move the files into a directory and
 everything will break.  They'll need to fix their import statements
-(package relative imports) and maybe fiddle with an __init__.py file.
+(package relative imports) and maybe fiddle with an `__init__.py` file.
 Second goal, write a simple setup.py file that they can use to package
 up the code and give it away to someone.  That's it.  End of the
 course.
