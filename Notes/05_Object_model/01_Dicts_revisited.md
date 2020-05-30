@@ -248,7 +248,7 @@ You can view it.
 >>>
 ```
 
-This chain is called the **Method Resolutin Order**.  The find an
+This chain is called the **Method Resolution Order**.  The find an
 attribute, Python walks the MRO in order. The first match wins.
 
 ### MRO in Multiple Inheritance
@@ -264,7 +264,7 @@ class D(B): pass
 class E(C, D): pass
 ```
 
-What happens when you access at attribute?
+What happens when you access an attribute?
 
 ```python
 e = E()
