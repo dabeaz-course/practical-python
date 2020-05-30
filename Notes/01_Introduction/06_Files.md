@@ -136,8 +136,8 @@ To read a file line-by-line, use a for-loop like this:
 
 ```python
 >>> with open('Data/portfolio.csv', 'rt') as f:
-    for line in f:
-        print(line, end='')
+        for line in f:
+            print(line, end='')
 
 name,shares,price
 "AA",100,32.20
