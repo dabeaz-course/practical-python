@@ -51,7 +51,7 @@ if __name__ == '__main__':
     ...
 ```
 
-Statements inclosed inside the `if` statement become the *main* program.
+Statements enclosed inside the `if` statement become the *main* program.
 
 ### Main programs vs. library imports
 
