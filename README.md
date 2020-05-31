@@ -105,17 +105,25 @@ Yes, as long as appropriate attribution is given.
 
 Yes, as long as such works carry the same license terms and provide attribution.
 
+### Q: Can I translate this to another language?
+
+Yes, that would be awesome.  Send me a link when you're done.
+
+### Q: Can I live-stream the course or make a video?
+
+Yes, go for it!  You'll probably learn a lot of Python doing that.
+
 ### Q: Why wasn't topic X covered?
 
 There is only so much material that you can cover in 3-4 days.  If
 it wasn't covered, it was probably because it was once covered and it
 caused everyone's head to explode or there was never enough time to
-cover it in the first place.
+cover it in the first place.   Also, this is a course, not a Python
+reference manual.
 
 ### Q: Do you accept pull requests?
 
-Bug reports are appreciated and may be filed through the [issue
-tracker](https://github.com/dabeaz-course/practical-python/issues).
-Pull requests are not accepted except by invitation.  Please file an
-issue first.
+Bug reports are appreciated and may be filed through the
+[issue tracker](https://github.com/dabeaz-course/practical-python/issues).
+Pull requests are not accepted except by invitation. Please file an issue first.
 
