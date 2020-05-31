@@ -161,7 +161,7 @@ Sets are collection of unordered unique items.
 
 ```python
 tech_stocks = { 'IBM','AAPL','MSFT' }
-# Alternative sintax
+# Alternative syntax
 tech_stocks = set(['IBM', 'AAPL', 'MSFT'])
 ```
 
