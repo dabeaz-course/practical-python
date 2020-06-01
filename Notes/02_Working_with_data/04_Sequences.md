@@ -463,7 +463,7 @@ The change made here is subtle, but significant.  Instead of
 the new version reads any CSV file and picks the values of interest
 out of it.  As long as the file has the required columns, the code will work.
 
-Modify the `report.py` program you wrote in Section 2.3 that it uses
+Modify the `report.py` program you wrote in Section 2.3 so that it uses
 the same technique to pick out column headers.
 
 Try running the `report.py` program on the `Data/portfoliodate.csv`
