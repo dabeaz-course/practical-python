@@ -52,7 +52,7 @@ Example:
 s = ('GOOG', 100, 490.1)
 ```
 
-Sometimes the `()` are ommitted in the syntax.
+Sometimes the `()` are omitted in the syntax.
 
 ```python
 s = 'GOOG', 100, 490.1
