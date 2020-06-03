@@ -58,7 +58,8 @@ Common modifiers adjust the field width and decimal precision.  This is a partia
 ```code
 :>10d   Integer right aligned in 10-character field
 :<10d   Integer left aligned in 10-character field
-:^10d   Integer centered in 10-character field :0.2f Float with 2 digit precision
+:^10d   Integer centered in 10-character field
+:0.2f   Float with 2 digit precision
 ```
 
 ### Dictionary Formatting
