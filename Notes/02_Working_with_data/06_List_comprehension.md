@@ -80,7 +80,7 @@ for variable_name in sequence:
 
 ### Historical Digression
 
-List comprehension come from math (set-builder notation).
+List comprehensions come from math (set-builder notation).
 
 ```code
 a = [ x * x for x in s if x > 0 ] # Python
