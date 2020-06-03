@@ -157,7 +157,7 @@ t = sorted(s)               # s unchanged, t holds sorted values
 >>> nums * 2
 [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
 >>> nums + [10, 11, 12, 13, 14]
-[1, 2, 3, 4, 5, 10, 11, 12, 13, 14] >>>
+[1, 2, 3, 4, 5, 10, 11, 12, 13, 14]
 ```
 
 Specifically, lists don't represent vectors/matrices as in MATLAB, Octave, R, etc.
