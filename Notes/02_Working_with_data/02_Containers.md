@@ -335,7 +335,7 @@ accessed by key names instead of numeric column numbers.  This is
 often preferred because the resulting code is easier to read later.
 
 Viewing large dictionaries and lists can be messy. To clean up the
-output for debugging, considering using the `pprint` function.
+output for debugging, consider using the `pprint` function.
 
 ```python
 >>> from pprint import pprint
