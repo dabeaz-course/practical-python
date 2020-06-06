@@ -7,7 +7,7 @@ involving dictionaries.  This section discusses that.
 
 ### Dictionaries, Revisited
 
-Remember that a dictionary is a collection of names values.
+Remember that a dictionary is a collection of named values.
 
 ```python
 stock = {
@@ -58,7 +58,7 @@ A dictionary holds the instance data, `__dict__`.
 ```python
 >>> s = Stock('GOOG', 100, 490.1)
 >>> s.__dict__
-{'name' : 'GOOG','shares' : 100, 'price': 490.1 }
+{'name' : 'GOOG', 'shares' : 100, 'price': 490.1 }
 ```
 
 You populate this dict (and instance) when assigning to `self`.
@@ -271,7 +271,7 @@ e = E()
 e.attr
 ```
 
-A attribute search process is carried out, but what is the order? That's a problem.
+An attribute search process is carried out, but what is the order? That's a problem.
 
 Python uses *cooperative multiple inheritance* which obeys some rules
 about class ordering.
