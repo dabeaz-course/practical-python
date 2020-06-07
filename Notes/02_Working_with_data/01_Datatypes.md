@@ -58,7 +58,7 @@ Sometimes the `()` are omitted in the syntax.
 s = 'GOOG', 100, 490.1
 ```
 
-Special cases (0-tuple, 1-typle).
+Special cases (0-tuple, 1-tuple).
 
 ```python
 t = ()            # An empty tuple
