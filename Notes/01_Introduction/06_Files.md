@@ -228,7 +228,7 @@ Try it:
 >>>
 ```
 
-### Commentary:  Shouldn't we be using Pandas for this?
+### Commentary:  Shouldn't we being using Pandas for this?
 
 Data scientists are quick to point out that libraries like
 [Pandas](https://pandas.pydata.org) already have a function for

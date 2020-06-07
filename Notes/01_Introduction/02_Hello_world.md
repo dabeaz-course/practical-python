@@ -58,7 +58,7 @@ interact with the interpreter.
 Let's take a closer look at the elements of the REPL:
 
 - `>>>` is the interpreter prompt for starting a new statement.
-- `...` is the interpreter prompt for continuing a statements. Enter a blank line to finish typing and run the statements.
+- `...` is the interpreter prompt for continuing a statement. Enter a blank line to finish typing and run what you've entered.
 
 The `...` prompt may or may not be shown depending on your environment. For this course,
 it is shown as blanks to make it easier to cut/paste code samples.

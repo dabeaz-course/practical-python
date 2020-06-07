@@ -52,9 +52,10 @@ An example when reading records from a file.
 records = []  # Initial empty list
 
 with open('Data/portfolio.csv', 'rt') as f:
+    next(f) # Skip header
     for line in f:
         row = line.split(',')
-        records.append((row[0], int(row[1])), float(row[2]))
+        records.append((row[0], int(row[1]), float(row[2])))
 ```
 
 ### Dicts as a Container
@@ -104,6 +105,11 @@ with open('Data/prices.csv', 'rt') as f:
         row = line.split(',')
         prices[row[0]] = float(row[1])
 ```
+
+Note: If you try this on the `Data/prices.csv` file, you'll find that
+it almost works--there's a blank line at the end that causes it to
+crash.  You'll need to figure out some way to modify the code to
+account for that (see Exercise 2.6).
 
 ### Dictionary Lookups
 
