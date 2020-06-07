@@ -341,7 +341,7 @@ accessed by key names instead of numeric column numbers.  This is
 often preferred because the resulting code is easier to read later.
 
 Viewing large dictionaries and lists can be messy. To clean up the
-output for debugging, considering using the `pprint` function.
+output for debugging, consider using the `pprint` function.
 
 ```python
 >>> from pprint import pprint
@@ -443,9 +443,9 @@ interactively to make sure it works:
 ### Exercise 2.7: Finding out if you can retire
 
 Tie all of this work together by adding a few additional statements to
-your `report.py` program that compute gain/loss. These statements
+your `report.py` program that computes gain/loss. These statements
 should take the list of stocks in Exercise 2.5 and the dictionary of
-prices in Exercise 2.6 and computes the current value of the portfolio
+prices in Exercise 2.6 and compute the current value of the portfolio
 along with the gain/loss.
 
 [Contents](../Contents.md) \| [Previous (2.1 Datatypes)](01_Datatypes.md) \| [Next (2.3 Formatting)](03_Formatting.md)
