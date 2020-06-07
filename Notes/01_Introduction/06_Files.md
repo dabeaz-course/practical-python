@@ -220,13 +220,16 @@ Try it:
 
 ```python
 >>> import gzip
->>> with gzip.open('Data/portfolio.csv.gz') as f:
+>>> with gzip.open('Data/portfolio.csv.gz', 'rt') as f:
     for line in f:
         print(line, end='')
 
 ... look at the output ...
 >>>
 ```
+
+Note: Including the file mode of `'rt'` is critical here.  If you forget that,
+you'll get byte strings instead of normal text strings.
 
 ### Commentary:  Shouldn't we being using Pandas for this?
 
