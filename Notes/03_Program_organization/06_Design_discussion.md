@@ -110,7 +110,7 @@ with any file-like/iterable object.  For example:
 >>> with gzip.open('Data/portfolio.csv.gz', 'rt') as file:
 ...      port = fileparse.parse_csv(file, types=[str,int,float])
 ...
->>> lines = ['name,shares,price', 'AA,34.23,100', 'IBM,50,91.1', 'HPE,75,45.1']
+>>> lines = ['name,shares,price', 'AA,100,34.23', 'IBM,50,91.1', 'HPE,75,45.1']
 >>> port = fileparse.parse_csv(lines, types=[str,int,float])
 >>>
 ```
