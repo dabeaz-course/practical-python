@@ -143,7 +143,7 @@ If you want to operate on an instance, you always refer to it explicitly (e.g., 
 ## Exercises
 
 Starting with this set of exercises, we start to make a series of
-changes to existing code from previous sctions.  It is critical that
+changes to existing code from previous sections.  It is critical that
 you have a working version of Exercise 3.18 to start.  If you don't
 have that, please work from the solution code found in the
 `Solutions/3_18` directory.  It's fine to copy it.
