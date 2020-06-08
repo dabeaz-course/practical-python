@@ -146,7 +146,7 @@ This is known as a shallow copy.  Here is a picture.
 
 ### Deep copies
 
-Sometimes you need to make a copy of an object and all the objects contained withn it.
+Sometimes you need to make a copy of an object and all the objects contained within it.
 You can use the `copy` module for this:
 
 ```python
