@@ -144,7 +144,7 @@ s.isalpha()            # Check if characters are alphabetic
 s.isdigit()            # Check if characters are numeric
 s.islower()            # Check if characters are lower-case
 s.isupper()            # Check if characters are upper-case
-s.join(slist)          # Joins lists using s as delimiter
+s.join(slist)          # Join a list of strings using s as delimiter
 s.lower()              # Convert to lower case
 s.replace(old,new)     # Replace text
 s.rfind(t)             # Search for t from end of string
