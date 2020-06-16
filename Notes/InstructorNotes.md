@@ -334,6 +334,6 @@ Second goal, write a simple setup.py file that they can use to package
 up the code and give it away to someone.  That's it.  End of the
 course.
 
-[Contents](Contents.html)
+[Contents](Contents.md)
 
 
