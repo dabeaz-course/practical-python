@@ -92,7 +92,7 @@ numbers = (2,3,4)
 f(1, *numbers)      # Same as f(1,2,3,4)
 ```
 
-Dictionaries can also be expaded into keyword arguments.
+Dictionaries can also be expanded into keyword arguments.
 
 ```python
 options = {
