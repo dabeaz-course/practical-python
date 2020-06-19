@@ -243,7 +243,7 @@ package. One level up.
 
 ```python
 #!/usr/bin/env python3
-# porty-add/script.py
+# porty-app/script.py
 import sys
 import porty
 
