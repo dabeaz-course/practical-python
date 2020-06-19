@@ -102,7 +102,7 @@ def bar(x):
     statements
 
 # OR
-def bar(x)
+def bar(x):
     statements
 
 def foo(x):
