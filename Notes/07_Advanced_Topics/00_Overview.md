@@ -1,4 +1,4 @@
-[Contents](../Contents.md) \| [Prev (6 Generators)](../06_Generators/00_Overview.md) \| [Next (8 Testing and Debugging](../08_Testing_debugging/00_Overview.md)
+[Contents](../Contents.md) \| [Prev (6 Generators)](../06_Generators/00_Overview.md) \| [Next (8 Testing and Debugging)](../08_Testing_debugging/00_Overview.md)
 
 # 7. Advanced Topics
 
