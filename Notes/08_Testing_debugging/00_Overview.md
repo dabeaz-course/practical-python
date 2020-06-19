@@ -1,6 +1,6 @@
 [Contents](../Contents.md) \| [Prev (7 Advanced Topics)](../07_Advanced_Topics/00_Overview.md) \| [Next (9 Packages)](../09_Packages/00_Overview.md)
 
-# 8. Overview
+# 8. Testing and debugging
 
 This section introduces a few basic topics related to testing,
 logging, and debugging.
