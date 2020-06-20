@@ -28,8 +28,8 @@ Normally strings may only span a single line. Triple quotes capture all text enc
 including all formatting.
 
 There is no difference between using single (') versus double (")
-quotes.  The same type of quote used to start a string must be used to
-terminate it.
+quotes. *However, the same type of quote used to start a string must be used to
+terminate it*.
 
 ### String escape codes
 
