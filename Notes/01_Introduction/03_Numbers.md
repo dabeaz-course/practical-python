@@ -222,6 +222,8 @@ Make the program look at these variables and calculate the total paid appropriat
 
 How much will Dave pay if he pays an extra $1000/month for 4 years starting in year 5 of the mortgage?
 
+When you run the new program, it should report a total payment of `878389.99` over 309 months.
+
 ### Exercise 1.10: Making a table
 
 Modify the program to print out a table showing the month, total paid so far, and the remaining principal.
