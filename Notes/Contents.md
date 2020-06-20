@@ -16,7 +16,7 @@
 Please see the [Instructor Notes](InstructorNotes.md) if you plan on
 teaching the course.
 
-[Home](..)
+[Home](../README.md)
 
 
 
