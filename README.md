@@ -9,7 +9,8 @@ in-person groups since 2007.  Traders, systems admins, astronomers,
 tinkerers, and even a few hundred rocket scientists who used Python to
 help land a rover on Mars--they've all taken this course. Now, I'm
 pleased to make it available under a Creative Commons license. Enjoy!
-[GitHub Repo](https://github.com/dabeaz-course/practical-python).
+
+[GitHub Pages](https://dabeaz-course.github.io/practical-python) | [GitHub Repo](https://github.com/dabeaz-course/practical-python).
 
 --David Beazley ([https://dabeaz.com](https://dabeaz.com)), [@dabeaz](https://twitter.com/dabeaz)
 
