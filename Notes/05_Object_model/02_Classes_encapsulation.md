@@ -120,7 +120,7 @@ There is an alternative approach to the previous pattern.
 class Stock:
     def __init__(self, name, shares, price):
         self.name = name
-        self.shares = shares
+        self._shares = shares
         self.price = price
 
     @property
