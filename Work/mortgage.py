@@ -14,7 +14,7 @@ extra_payment_end_month = extra_payment_start_month + 12*4
 extra_payment = 1000
 # Month counter
 current_month = 0
-
+print('Month\tTotal Paid\tPrincipal')
 while principal > 0:
     # Increase month counter
     current_month += 1
@@ -30,7 +30,7 @@ while principal > 0:
     if principal < 0:
         principal = 0
         total_paid += principal        
-    print(current_month, round(total_paid,2), round(principal,2))
+    print(f'{current_month}\t{round(total_paid,2)}\t{round(principal,2)}')
 
-print('Total paid', round(total_paid, 2))
-print('Months', current_month)
+print('\nTotal paid\t\t', round(total_paid, 2))
+print('Months\t\t\t', current_month)
