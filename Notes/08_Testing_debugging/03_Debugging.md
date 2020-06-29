@@ -4,7 +4,7 @@
 
 ### Debugging Tips
 
-So, you're program has crashed...
+So, your program has crashed...
 
 ```bash
 bash % python3 blah.py
