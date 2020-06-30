@@ -338,7 +338,7 @@ above. Change the number of shares to 75.
 ```python
 >>> d['shares'] = 75
 >>> d
-{'name': 'AA', 'shares': 75, 'price': 75}
+{'name': 'AA', 'shares': 75, 'price': 32.2 }
 >>>
 ```
 
