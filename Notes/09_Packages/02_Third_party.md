@@ -50,6 +50,7 @@ the same steps as above:
 
 ```python
 >>> import numpy
+>>> numpy
 <module 'numpy' from '/usr/local/lib/python3.6/site-packages/numpy/__init__.py'>
 >>>
 ```
