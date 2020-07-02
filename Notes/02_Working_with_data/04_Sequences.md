@@ -242,7 +242,7 @@ for x, y in points:
 ```
 
 When using multiple variables, each tuple is *unpacked* into a set of iteration variables.
-The number of variables must match the of items in each tuple.
+The number of variables must match the number of items in each tuple.
 
 ### zip() function
 
