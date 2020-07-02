@@ -49,7 +49,8 @@ b       Binary integer
 x       Hexadecimal integer
 f       Float as [-]m.dddddd
 e       Float as [-]m.dddddde+-xx
-g       Float, but selective use of E notation s String
+g       Float, but selective use of E notation
+s       String
 c       Character (from integer)
 ```
 
