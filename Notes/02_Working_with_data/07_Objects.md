@@ -11,7 +11,7 @@ Many operations in Python are related to *assigning* or *storing* values.
 
 ```python
 a = value         # Assignment to a variable
-s[n] = value      # Assignment to an list
+s[n] = value      # Assignment to a list
 s.append(value)   # Appending to a list
 d['key'] = value  # Adding to a dictionary
 ```
