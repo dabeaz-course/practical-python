@@ -341,7 +341,7 @@ As a general rule, it’s usually best to skip such tests and to just
 let the program fail on bad inputs.  The traceback message will point
 at the source of the problem and can assist in debugging.
 
-The main reason for adding the above check to avoid running the code
+The main reason for adding the above check is to avoid running the code
 in a non-sensical mode (e.g., using a feature that requires column
 headers, but simultaneously specifying that there are no headers).
 
