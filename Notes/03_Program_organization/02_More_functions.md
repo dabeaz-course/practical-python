@@ -267,7 +267,7 @@ If you were doing a lot of file parsing for real, you’d probably want
 to clean some of this up and make it more general purpose.  That's
 our goal.
 
-Start this exercise by creating a new file called
+Start this exercise by opening the file called
 `Work/fileparse.py`. This is where we will be doing our work.
 
 ### Exercise 3.3: Reading CSV Files
