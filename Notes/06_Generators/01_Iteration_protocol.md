@@ -42,9 +42,9 @@ _iter = obj.__iter__()        # Get iterator object
 while True:
     try:
         x = _iter.__next__()  # Get next item
+        # statements ...
     except StopIteration:     # No more items
         break
-    # statements ...
 ```
 
 All the objects that work with the `for-loop` implement this low-level
