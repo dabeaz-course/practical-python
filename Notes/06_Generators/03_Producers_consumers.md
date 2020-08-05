@@ -124,6 +124,7 @@ opening a file--it merely operates on a sequence of lines given
 to it as an argument.  Now, try this:
 
 ```
+>>> from follow import follow
 >>> lines = follow('Data/stocklog.csv')
 >>> ibm = filematch(lines, 'IBM')
 >>> for line in ibm:
