@@ -1,14 +1,15 @@
 # Welcome!
 
 When I first learned Python nearly 25 years ago, I was immediately
-struck by how I could productively apply it to all sorts of messy work
-projects. Fast-forward a decade and I found myself teaching others the
+stuck by how I could productively apply it to all sorts of messy work 
+or projects. Fast-forward a decade and I found myself teaching others the
 same fun.  The result of that teaching is this course--A no-nonsense
 treatment of Python that has been actively taught to more than 400
 in-person groups since 2007.  Traders, systems admins, astronomers,
 tinkerers, and even a few hundred rocket scientists who used Python to
 help land a rover on Mars--they've all taken this course. Now, I'm
-pleased to make it available under a Creative Commons license. Enjoy!
+pleased to make it available under a Creative Commons license. Hope
+you will find this course useful. Enjoy!
 
 [GitHub Pages](https://dabeaz-course.github.io/practical-python) | [GitHub Repo](https://github.com/dabeaz-course/practical-python).
 
