@@ -1,4 +1,4 @@
-# Welcome!
+# Welcome to Python!
 
 When I first learned Python nearly 25 years ago, I was immediately
 struck by how I could productively apply it to all sorts of messy work
