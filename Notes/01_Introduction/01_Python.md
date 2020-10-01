@@ -14,7 +14,7 @@ Python was created by Guido van Rossum around 1990 who named it in honor of Mont
 ### Where to get Python?
 
 [Python.org](https://www.python.org/) is where you obtain Python.  For the purposes of this course, you
-only need a basic installation.  I recommend installing Python 3.6 or newer. Python 3.6 is used in the notes
+only need a basic installation.  I recommend installing latest version of Python. Python 3.6 is used in the notes
 and solutions.
 
 ### Why was Python created?
