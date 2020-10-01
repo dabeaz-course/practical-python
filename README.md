@@ -45,7 +45,7 @@ coworkers.
 ## Requirements
 
 To complete this course, you need nothing more than a basic
-installation of Python 3.6 or newer and time to work on it.
+installation of Python 3.7 or newer and time to work on it.
 
 ## What This Course is Not
 
