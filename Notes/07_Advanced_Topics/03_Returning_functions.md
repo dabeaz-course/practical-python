@@ -29,8 +29,7 @@ Adding 3 4
 
 ### Local Variables
 
-Observe how to inner function refers to variables defined by the outer
-function.
+Observe how the inner function refers to variables defined by the outer function.
 
 ```python
 def add(x, y):
