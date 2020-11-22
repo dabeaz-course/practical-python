@@ -121,7 +121,7 @@ different problem.
 ### Handling Third-Party Dependencies in Your Application
 
 If you have written an application and it has specific third-party
-dependencies, one challange concerns the creation and preservation of
+dependencies, one challenge concerns the creation and preservation of
 the environment that includes your code and the dependencies.  Sadly,
 this has been an area of great confusion and frequent change over
 Python's lifetime.  It continues to evolve even now.
