@@ -86,6 +86,7 @@ Consider a function like this:
 
 ```python
 def after(seconds, func):
+    import time
     time.sleep(seconds)
     func()
 ```
@@ -110,6 +111,7 @@ def add(x, y):
     return do_add
 
 def after(seconds, func):
+    import time
     time.sleep(seconds)
     func()
 
