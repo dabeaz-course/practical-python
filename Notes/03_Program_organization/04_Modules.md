@@ -212,8 +212,8 @@ not readily accessible from the current working directory.
 ## Exercises
 
 For this exercise involving modules, it is critically important to
-make sure you are running Python in a proper environment.  Modules are
-usually when programmers encounter problems with the current working
+make sure you are running Python in a proper environment.  Modules 
+often present new programmers with problems related to the current working
 directory or with Python's path settings.  For this course, it is
 assumed that you're writing all of your code in the `Work/` directory.
 For best results, you should make sure you're also in that directory

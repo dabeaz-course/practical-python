@@ -20,7 +20,7 @@ def follow(f):
         ...
 
 # Consumer
-for line in follow(f):    # Consumes vale from `yield` above
+for line in follow(f):    # Consumes value from `yield` above
     ...
 ```
 
