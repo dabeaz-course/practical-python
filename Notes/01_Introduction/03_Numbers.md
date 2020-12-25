@@ -220,7 +220,8 @@ extra_payment = 1000
 
 Make the program look at these variables and calculate the total paid appropriately.
 
-How much will Dave pay if he pays an extra $1000/month for 4 years starting in year 5 of the mortgage?  
+How much will Dave pay if he pays an extra $1000/month for 4 years starting after the first
+five years have already been paid?
 
 ### Exercise 1.10: Making a table
 
