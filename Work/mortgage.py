@@ -2,12 +2,10 @@
 #
 # Exercise 1.7
 mortgage = 500000       # dollars
-loan_period = 30 * 12   # months
 interest_rate = .03
 monthly_payment = 2684.11
 amt_paid = 0
 pmt_cnt = 0
-
 
 extra_payment = int(input('Enter extra payment amount: '))
 extra_payment_start_month = int(input('Enter extra payment start month: '))
