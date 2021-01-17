@@ -8,10 +8,19 @@ monthly_payment = 2684.11
 amt_paid = 0
 pmt_cnt = 0
 
+
+extra_payment = int(input('Enter extra payment amount: '))
+extra_payment_start_month = int(input('Enter extra payment start month: '))
+extra_payment_end_month = int(input('Enter extra payment end month: '))
+
+# extra_payment_start_month = 61
+# extra_payment_end_month = 108
+# extra_payment = 1000
+
 while mortgage > 0:
-    if pmt_cnt < 12:
-        amt_paid += 1000 + monthly_payment
-        mortgage = mortgage * (1 + interest_rate / 12) - (monthly_payment + 1000)
+    if extra_payment_start_month <= pmt_cnt <= extra_payment_end_month:
+        amt_paid += extra_payment + monthly_payment
+        mortgage = mortgage * (1 + interest_rate / 12) - (monthly_payment + extra_payment)
     else:
         amt_paid += monthly_payment
         mortgage = mortgage * (1 + interest_rate / 12) - monthly_payment
