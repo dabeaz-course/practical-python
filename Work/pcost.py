@@ -2,6 +2,8 @@
 #
 # Exercise 1.27
 # from pathlib import Path
+import csv
+import sys
 
 # def extract_sinfo(line, idx):
 #     try:
@@ -15,22 +17,22 @@
 
 #     return info
 
-def shares_x_price(line):
-    ticker, shares, price = line.strip().split(',')
+# def shares_x_price(line):
+#     ticker, shares, price = line.strip().split(',')
 
-    try:
-        shares = int(shares)
-    except ValueError:
-        print(f'could not convert {ticker} shares to int: {shares}')
-        shares = 0
+#     try:
+#         shares = int(shares)
+#     except ValueError:
+#         print(f'could not convert {ticker} shares to int: {shares}')
+#         shares = 0
 
-    try:
-        price = float(price)
-    except ValueError:
-        print(f"could not convert {ticker} price to float: {price}")
-        price = 0
+#     try:
+#         price = float(price)
+#     except ValueError:
+#         print(f"could not convert {ticker} price to float: {price}")
+#         price = 0
 
-    return shares * price
+#     return shares * price
 
 
 # def read_file(filepath):
@@ -64,12 +66,26 @@ def shares_x_price(line):
 
 def read_file(filepath):
     with open(filepath, 'rt') as f:
-        return sum(shares_x_price(line)
-                   for line in f
-                   if line.startswith('"'))
+        rows = csv.reader(f)
+        headers = next(rows)
+        totals = []
+        for row in rows:
+            shares = int(row[1]) if row[1].isdigit() else 0
+            price = float(row[2]) if row[2].replace('.', '').isdigit() else 0
+            totals.append(shares * price)
 
+        return sum(totals)
+
+        # return sum(shares_x_price(line)
+        #            for line in f
+        #            if line.startswith('"'))
+
+if len(sys.argv) == 2:
+    filename = sys.argv[1]
+else:
+    filename = 'Work/Data/portfolio.csv'
 
 if __name__ == '__main__':
     # portfolio = Path() / 'Work' / 'Data' / 'portfolio.csv'
-    portfolio_cost = read_file('./Work/Data/missing.csv')
+    portfolio_cost = read_file(filename)
     print(f'Total cost: ${portfolio_cost:.2f}')
