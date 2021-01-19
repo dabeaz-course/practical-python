@@ -52,7 +52,7 @@ def make_report(portfolio, mkt_prices):
     return report
 
 
-portfolio = read_portfolio('Work/Data/portfoliodate.csv')
+portfolio = read_portfolio('Work/Data/portfolio.csv')
 mkt_prices = read_prices('Work/Data/prices.csv')
 gain_loss = sum(get_stock_perf(stock, mkt_prices) for stock in portfolio)
 report = make_report(portfolio, mkt_prices)
@@ -64,3 +64,19 @@ print(header, divider, sep='\n')
 
 for name, shares, price, change in report:
     print(f"{name:>10s} {shares:10d} {f'${price:.2f}':>10} {change:10.2f}")
+
+
+# from collections import Counter
+
+# holdings = Counter()
+
+# for stock in portfolio:
+#     holdings[stock['name']] += stock['shares']
+
+# portfolio2 = read_portfolio('Work/Data/portfolio2.csv')
+# holdings2 = Counter()
+
+# for stock in portfolio2:
+#     holdings2[stock['name']] += stock['shares']
+
+# print(holdings, holdings2, holdings + holdings2)
