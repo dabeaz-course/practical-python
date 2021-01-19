@@ -18,10 +18,11 @@ def read_portfolio(filename):
         portfolio = []
 
         for row in rows:
+            name, shares, price = row
             holding = {
-                'name': row[0],
-                'shares': int(row[1]),
-                'price': float(row[2])
+                'name': name,
+                'shares': int(shares),
+                'price': float(price)
             }
             portfolio.append(holding)
 
@@ -36,18 +37,18 @@ def read_prices(filename):
 
 
 def get_stock_perf(stock, mkt_prices):
-    bought_price = float(stock['price'])
-    current_price = float(mkt_prices[stock['name']])
-    shares = int(stock['shares'])
-    return (bought_price - current_price) * shares
+    name, shares, price = stock.values()
+    change = float(price) - float(mkt_prices[name])
+    return change * int(shares)
 
 
 def make_report(portfolio, mkt_prices):
     report = []
     for stock in portfolio:
-        current_price = float(mkt_prices[stock['name']])
-        change = current_price - stock['price']
-        report.append((stock['name'], stock['shares'], current_price, change))
+        name, shares, price = stock.values()
+        current_price = float(mkt_prices[name])
+        change = current_price - price
+        report.append((name, shares, current_price, change))
     return report
 
 
@@ -59,7 +60,7 @@ report = make_report(portfolio, mkt_prices)
 fields = ('Name', 'Shares', 'Price', 'Change')
 header = ' '.join(f'{field:>10}' for field in fields)
 divider = ' '.join('-' * 10 for _ in range(len(fields)))
-
 print(header, divider, sep='\n')
+
 for name, shares, price, change in report:
     print(f"{name:>10s} {shares:10d} {f'${price:.2f}':>10} {change:10.2f}")
