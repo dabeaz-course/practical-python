@@ -18,11 +18,11 @@ def read_portfolio(filename):
         portfolio = []
 
         for row in rows:
-            name, shares, price = row
+            record = dict(zip(headers, row))
             holding = {
-                'name': name,
-                'shares': int(shares),
-                'price': float(price)
+                'name': record['name'],
+                'shares': int(record['shares']),
+                'price': float(record['price'])
             }
             portfolio.append(holding)
 
@@ -52,7 +52,7 @@ def make_report(portfolio, mkt_prices):
     return report
 
 
-portfolio = read_portfolio('Work/Data/portfolio.csv')
+portfolio = read_portfolio('Work/Data/portfoliodate.csv')
 mkt_prices = read_prices('Work/Data/prices.csv')
 gain_loss = sum(get_stock_perf(stock, mkt_prices) for stock in portfolio)
 report = make_report(portfolio, mkt_prices)

@@ -64,28 +64,32 @@ import sys
 #     return shares * price
 
 
-def read_file(filepath):
+
+def portfolio_cost(filepath):
     with open(filepath, 'rt') as f:
         rows = csv.reader(f)
         headers = next(rows)
         totals = []
-        for row in rows:
-            shares = int(row[1]) if row[1].isdigit() else 0
-            price = float(row[2]) if row[2].replace('.', '').isdigit() else 0
-            totals.append(shares * price)
+
+        for idx, row in enumerate(rows, start=1):
+            record = dict(zip(headers, row))
+
+            try:
+                shares = int(record['shares'])
+                price = float(record['price'])
+                totals.append(shares * price)
+
+            except ValueError:
+                print(f'Row {idx}: Couldn\'t convert: {row}')
 
         return sum(totals)
 
-        # return sum(shares_x_price(line)
-        #            for line in f
-        #            if line.startswith('"'))
 
 if len(sys.argv) == 2:
     filename = sys.argv[1]
 else:
-    filename = 'Work/Data/portfolio.csv'
+    filename = 'Work/Data/portfoliodate.csv'
 
 if __name__ == '__main__':
-    # portfolio = Path() / 'Work' / 'Data' / 'portfolio.csv'
-    portfolio_cost = read_file(filename)
+    portfolio_cost = portfolio_cost(filename)
     print(f'Total cost: ${portfolio_cost:.2f}')
