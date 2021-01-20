@@ -79,4 +79,14 @@ for name, shares, price, change in report:
 # for stock in portfolio2:
 #     holdings2[stock['name']] += stock['shares']
 
+# print()
 # print(holdings, holdings2, holdings + holdings2)
+
+
+def dict_comp(filename):
+    with open(filename) as f:
+        rows = csv.reader(f)
+        headers = next(rows)
+        return [dict(zip(headers, row)) for row in rows]
+
+print(dict_comp('Work/Data/portfoliodate.csv'))
