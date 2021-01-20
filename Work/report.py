@@ -87,6 +87,10 @@ def dict_comp(filename):
     with open(filename) as f:
         rows = csv.reader(f)
         headers = next(rows)
-        return [dict(zip(headers, row)) for row in rows]
+        select = ('name', 'shares', 'price')
+        indices = [headers.index(col) for col in select]
+        return [{field: row[indx] for field, indx in zip(select, indices)}
+                for row in rows]
+        # return [dict(zip(headers, row)) for row in rows]
 
 print(dict_comp('Work/Data/portfoliodate.csv'))
