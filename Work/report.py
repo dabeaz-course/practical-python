@@ -43,13 +43,13 @@ def read_prices(filename: str) -> dict[str, str]:
                 if row}
 
 
-def get_stock_perf(stock, mkt_prices):
+def get_stock_perf(stock: dict[str, str], mkt_prices: dict[str, str]):
     name, shares, price = stock.values()
     change = float(price) - float(mkt_prices[name])
     return change * int(shares)
 
 
-def make_report(portfolio, mkt_prices):
+def make_report(portfolio: list[dict], mkt_prices: dict[str, str]) -> list[tuple]:
     report = []
     for stock in portfolio:
         name, shares, price = stock.values()
@@ -59,7 +59,7 @@ def make_report(portfolio, mkt_prices):
     return report
 
 
-def print_report(report):
+def print_report(report: list[tuple]) -> None:
     fields = ('Name', 'Shares', 'Price', 'Change')
     header = ' '.join(f'{field:>10}' for field in fields)
     divider = ' '.join('-' * 10 for _ in range(len(fields)))
@@ -69,11 +69,15 @@ def print_report(report):
         print(f"{name:>10s} {shares:10d} {f'${price:.2f}':>10} {change:10.2f}")
 
 
-portfolio = read_portfolio('Work/Data/portfolio.csv')
-mkt_prices = read_prices('Work/Data/prices.csv')
-# gain_loss = sum(get_stock_perf(stock, mkt_prices) for stock in portfolio)
-report = make_report(portfolio, mkt_prices)
-print_report(report)
+def portfolio_report(portfolio_filename, prices_filename):
+    portfolio = read_portfolio(portfolio_filename)
+    mkt_prices = read_prices(prices_filename)
+    report = make_report(portfolio, mkt_prices)
+    # gain_loss = sum(get_stock_perf(stock, mkt_prices) for stock in portfolio)
+    print_report(report)
+
+
+portfolio_report('Work/Data/portfolio.csv', 'Work/Data/prices.csv')
 
 
 # from collections import Counter
