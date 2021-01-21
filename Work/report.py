@@ -11,7 +11,11 @@ print = Console(width=100).print
 install(Console(width=100))
 
 
-def read_portfolio(filename):
+def read_portfolio(filename: str) -> list[dict]:
+    '''
+    Read a stock portfolio file into a list of dicts with keys
+    name, shares, and price.
+    '''
     with open(filename, 'rt') as f:
         rows = csv.reader(f)
         headers = next(rows)
@@ -29,7 +33,10 @@ def read_portfolio(filename):
         return portfolio
 
 
-def read_prices(filename):
+def read_prices(filename: str) -> dict[str, str]:
+    '''
+    Read prices from a CSV file of name and price data
+    '''
     with open(filename, 'rt') as f:
         return {row[0]: row[1]
                 for row in csv.reader(f)
@@ -52,18 +59,21 @@ def make_report(portfolio, mkt_prices):
     return report
 
 
+def print_report(report):
+    fields = ('Name', 'Shares', 'Price', 'Change')
+    header = ' '.join(f'{field:>10}' for field in fields)
+    divider = ' '.join('-' * 10 for _ in range(len(fields)))
+    print(header, divider, sep='\n')
+
+    for name, shares, price, change in report:
+        print(f"{name:>10s} {shares:10d} {f'${price:.2f}':>10} {change:10.2f}")
+
+
 portfolio = read_portfolio('Work/Data/portfolio.csv')
 mkt_prices = read_prices('Work/Data/prices.csv')
-gain_loss = sum(get_stock_perf(stock, mkt_prices) for stock in portfolio)
+# gain_loss = sum(get_stock_perf(stock, mkt_prices) for stock in portfolio)
 report = make_report(portfolio, mkt_prices)
-
-fields = ('Name', 'Shares', 'Price', 'Change')
-header = ' '.join(f'{field:>10}' for field in fields)
-divider = ' '.join('-' * 10 for _ in range(len(fields)))
-print(header, divider, sep='\n')
-
-for name, shares, price, change in report:
-    print(f"{name:>10s} {shares:10d} {f'${price:.2f}':>10} {change:10.2f}")
+print_report(report)
 
 
 # from collections import Counter
@@ -83,25 +93,25 @@ for name, shares, price, change in report:
 # print(holdings, holdings2, holdings + holdings2)
 
 
-def dict_comp(filename):
-    with open(filename) as f:
-        rows = csv.reader(f)
-        headers = next(rows)
-        select = ('name', 'shares', 'price')
-        types = (str, int, float)
-        indices = [headers.index(col) for col in select]
-        return [{field: func(row[idx]) for field, func, idx in zip(select, types, indices)}
-                for row in rows]
-        # return [dict(zip(headers, row)) for row in rows]
+# def dict_comp(filename):
+#     with open(filename) as f:
+#         rows = csv.reader(f)
+#         headers = next(rows)
+#         select = ('name', 'shares', 'price')
+#         types = (str, int, float)
+#         indices = [headers.index(col) for col in select]
+#         return [{field: func(row[idx]) for field, func, idx in zip(select, types, indices)}
+#                 for row in rows]
+#         # return [dict(zip(headers, row)) for row in rows]
 
-print(dict_comp('Work/Data/portfoliodate.csv'))
+# print(dict_comp('Work/Data/portfoliodate.csv'))
 
 
-def convert_cols(filename):
-    with open(filename) as f:
-        rows = csv.reader(f)
-        headers = next(rows)
-        types = (str, float, lambda v: tuple(v.split('/')), str, float, float, float, float, int)
-        return [{col: func(val) for col, func, val in zip(headers, types, row)} for row in rows]
+# def convert_cols(filename):
+#     with open(filename) as f:
+#         rows = csv.reader(f)
+#         headers = next(rows)
+#         types = (str, float, lambda v: tuple(v.split('/')), str, float, float, float, float, int)
+#         return [{col: func(val) for col, func, val in zip(headers, types, row)} for row in rows]
 
-cols = convert_cols('Work/Data/dowstocks.csv')
+# cols = convert_cols('Work/Data/dowstocks.csv')
