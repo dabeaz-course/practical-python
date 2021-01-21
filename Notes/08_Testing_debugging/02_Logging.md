@@ -269,7 +269,7 @@ You will notice that you don't see the output from the `log.debug()`
 operation. Type this to change the level.
 
 ```
->>> logging.getLogger('fileparse').level = logging.DEBUG
+>>> logging.getLogger('fileparse').setLevel(logging.DEBUG)
 >>> a = report.read_portfolio('Data/missing.csv')
 WARNING:fileparse:Row 4: Bad row: ['MSFT', '', '51.23']
 DEBUG:fileparse:Row 4: Reason: invalid literal for int() with base 10: ''
@@ -281,7 +281,7 @@ DEBUG:fileparse:Row 7: Reason: invalid literal for int() with base 10: ''
 Turn off all, but the most critical logging messages:
 
 ```
->>> logging.getLogger('fileparse').level=logging.CRITICAL
+>>> logging.getLogger('fileparse').setLevel(logging.CRITICAL)
 >>> a = report.read_portfolio('Data/missing.csv')
 >>>
 ```
