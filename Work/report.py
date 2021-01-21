@@ -88,9 +88,22 @@ def dict_comp(filename):
         rows = csv.reader(f)
         headers = next(rows)
         select = ('name', 'shares', 'price')
+        types = (str, int, float)
         indices = [headers.index(col) for col in select]
-        return [{field: row[indx] for field, indx in zip(select, indices)}
+        return [{field: func(row[idx]) for field, func, idx in zip(select, types, indices)}
                 for row in rows]
         # return [dict(zip(headers, row)) for row in rows]
 
 print(dict_comp('Work/Data/portfoliodate.csv'))
+
+
+def convert_cols(filename):
+    with open(filename) as f:
+        rows = csv.reader(f)
+        headers = next(rows)
+        types = (str, float, str, str, float, float, float, float, int)
+        # [{col: func(row[idx])  for idx, (col, func) in enumerate(zip(headers, types))} for row in rows]
+
+        return [{col: func(val) for col, func, val in zip(headers, types, row)} for row in rows]
+
+cols = convert_cols('Work/Data/dowstocks.csv')
