@@ -28,7 +28,7 @@ def parse_csv(filename: str, *, select=None, types=None,
                 continue
 
             if select:
-                row = [row[idx] for idx in indices]
+                row = [row[idx] for idx in indices]  # type: ignore
 
             if types:
                 row = [func(val) for func, val in zip(types, row)]
