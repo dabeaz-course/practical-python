@@ -102,8 +102,6 @@ def convert_cols(filename):
         rows = csv.reader(f)
         headers = next(rows)
         types = (str, float, str, str, float, float, float, float, int)
-        # [{col: func(row[idx])  for idx, (col, func) in enumerate(zip(headers, types))} for row in rows]
-
         return [{col: func(val) for col, func, val in zip(headers, types, row)} for row in rows]
 
 cols = convert_cols('Work/Data/dowstocks.csv')
