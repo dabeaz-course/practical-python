@@ -11,6 +11,9 @@ def parse_csv(filename, select=None, types=None, has_headers=True, delimiter=","
     types (list): Accepts a list of column types. Types for all columns,
         or selected columns must, be specified.
     """
+    if select and not has_headers:
+        raise RuntimeError("Select argument requires columns headers")
+
     with open(filename) as f:
         rows = csv.reader(f, delimiter=delimiter)
 
@@ -25,7 +28,7 @@ def parse_csv(filename, select=None, types=None, has_headers=True, delimiter=","
             indices = []
 
         records = []
-        for row in rows:
+        for i, row in enumerate(rows):
             if not row:  # Skip rows with no data
                 continue
             # Filter the row is specific columns were selected
@@ -33,7 +36,11 @@ def parse_csv(filename, select=None, types=None, has_headers=True, delimiter=","
                 row = [row[index] for index in indices]
             # Convert data types
             if types:
-                row = [func(val) for func, val in zip(types, row)]
+                try:
+                    row = [func(val) for func, val in zip(types, row)]
+                except ValueError as e:
+                    print(f"Row {i+1}: Couldn't convert {row}")
+                    print(f"Row {i+1}: Reason {e}")
             # Make dictionary
             record = dict(zip(header, row))
             records.append(record)
