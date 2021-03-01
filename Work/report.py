@@ -39,6 +39,16 @@ def read_prices(filename):
     return prices
 
 
+def make_report(portfolio, prices):
+    report = []
+
+    for stock in portfolio:
+        holding = (stock["name"], stock["shares"], stock["price"], prices[stock["name"]] - stock["price"])
+        report.append(holding)
+
+    return report
+
+
 portfolio = read_portfolio("Data/portfolio.csv")
 prices = read_prices("Data/prices.csv")
 
@@ -49,3 +59,11 @@ for stock in portfolio:
     total_actual_value += stock["shares"] * prices[stock["name"]]
 
 print(total_cost, total_actual_value)
+
+report = make_report(portfolio, prices)
+headers = ('Name', 'Shares', 'Price', 'Change')
+sep = "----------"
+print(f"{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s}")
+print(f"{sep:>10s} {sep:>10s} {sep:>10s} {sep:>10s}")
+for name, shares, price, change in report:
+    print(f"{name:>10s} {shares:>10d} {price:>10.2f} {change:>10.2f}")
