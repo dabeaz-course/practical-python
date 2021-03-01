@@ -49,21 +49,29 @@ def make_report(portfolio, prices):
     return report
 
 
-portfolio = read_portfolio("Data/portfolio.csv")
-prices = read_prices("Data/prices.csv")
+def print_report(report, headers):
+    sep = "----------"
+    print(f"{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s}")
+    print(f"{sep:>10s} {sep:>10s} {sep:>10s} {sep:>10s}")
+    for name, shares, price, change in report:
+        print(f"{name:>10s} {shares:>10d} {price:>10.2f} {change:>10.2f}")
 
-total_cost = 0
-total_actual_value = 0
-for stock in portfolio:
-    total_cost += stock["shares"] * stock["price"]
-    total_actual_value += stock["shares"] * prices[stock["name"]]
 
-print(total_cost, total_actual_value)
+def portfolio_report(portfolio_filename, prices_filename):
+    portfolio = read_portfolio(portfolio_filename)
+    prices = read_prices(prices_filename)
 
-report = make_report(portfolio, prices)
-headers = ('Name', 'Shares', 'Price', 'Change')
-sep = "----------"
-print(f"{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s}")
-print(f"{sep:>10s} {sep:>10s} {sep:>10s} {sep:>10s}")
-for name, shares, price, change in report:
-    print(f"{name:>10s} {shares:>10d} {price:>10.2f} {change:>10.2f}")
+    total_cost = 0
+    total_actual_value = 0
+    for stock in portfolio:
+        total_cost += stock["shares"] * stock["price"]
+        total_actual_value += stock["shares"] * prices[stock["name"]]
+
+    report = make_report(portfolio, prices)
+    headers = ('Name', 'Shares', 'Price', 'Change')
+    print_report(report, headers)
+
+    print(total_cost, total_actual_value)
+
+
+portfolio_report("Data/portfolio.csv", "Data/prices.csv")
