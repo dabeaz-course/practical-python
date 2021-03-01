@@ -3,20 +3,24 @@
 # Exercise 1.27
 
 import sys
+import csv
 
 
 def portfolio_cost(filename):
     total_purchase_cost = 0
 
-    f = open(f_path, "rt")
-    headers = next(f)
+    with open(f_path, "rt") as f:
+        rows = csv.reader(f)
+        headers = next(rows)
 
-    for line in f:
-        row = line.split(",")
-        cost = int(row[1]) * float(row[2].strip())
-        total_purchase_cost += cost
-
-    f.close()
+        for i, row in enumerate(rows, start=1):
+            record = dict(zip(headers, row))
+            try:
+                nshares = int(record["shares"])
+                price = float(record["price"])
+                total_purchase_cost += nshares * price
+            except ValueError:
+                print(f"Row {rowno}: Bad row: {row}")
 
     return total_purchase_cost
 

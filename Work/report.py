@@ -30,11 +30,11 @@ def read_prices(filename):
     with open(filename, "rt") as f:
         rows = csv.reader(f)
 
-        for row in rows:
-            if row == []:
-                continue
-            else:
+        for i, row in enumerate(rows):
+            try:
                 prices[row[0]] = float(row[1])
+            except IndexError:
+                print(f"row {i}: Bad row: {row}")
 
     return prices
 
