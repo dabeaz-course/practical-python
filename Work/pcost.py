@@ -11,7 +11,8 @@ def portfolio_cost(filename):
     total_purchase_cost = 0
     portfolio = read_portfolio(filename)
 
-    return sum([stock.cost for stock in portfolio])
+    # return sum([stock.cost for stock in portfolio])
+    return portfolio.total_cost
 
 
 def main(argv):

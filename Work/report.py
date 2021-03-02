@@ -2,8 +2,9 @@
 #
 # Exercise 2.4
 
-from fileparse import parse_csv
 import tableformat
+from fileparse import parse_csv
+from portfolio import Portfolio
 from stock import Stock
 
 
@@ -14,7 +15,7 @@ def read_portfolio(filename):
     # Generate a list of Stock instances
     portfolio = [Stock(d['name'], d['shares'], d['price']) for d in portdicts]
 
-    return portfolio
+    return Portfolio(portfolio)
 
 
 def read_prices(filename):
