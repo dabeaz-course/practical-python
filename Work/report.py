@@ -49,8 +49,14 @@ def portfolio_report(portfolio_filename, prices_filename):
     headers = ('Name', 'Shares', 'Price', 'Change')
     print_report(report, headers)
 
-    print(total_cost, total_actual_value)
 
+def main(argv):
+    if len(argv) != 3:
+        print("Using default data source: `Data/portfolio.csv` and `Data/prices.csv`")
+        portfolio_report("Data/portfolio.csv", "Data/prices.csv")
+    else:
+        portfolio_report(argv[1], argv[2])
 
 if __name__ == "__main__":
-    portfolio_report("Data/portfolio.csv", "Data/prices.csv")
+    import sys
+    main(sys.argv)

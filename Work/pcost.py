@@ -2,8 +2,6 @@
 #
 # Exercise 1.27
 
-import sys
-import csv
 from report import read_portfolio
 
 
@@ -16,10 +14,16 @@ def portfolio_cost(filename):
     return sum([row["shares"] * row["price"] for row in portfolio])
 
 
-if len(sys.argv) == 2:
-    f_path = sys.argv[1]
-else:
-    f_path = "Data/portfolio.csv"
+def main(argv):
+    if len(argv) == 2:
+        f_path = argv[1]
+    else:
+        f_path = "Data/portfolio.csv"
 
-cost = portfolio_cost(f_path)
-print(f"Total purchase cost: {cost}")
+    cost = portfolio_cost(f_path)
+    print(f"Total purchase cost: {cost}")
+
+
+if __name__ == "__main__":
+    import sys
+    main(sys.argv)
