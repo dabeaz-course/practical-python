@@ -64,3 +64,11 @@ def create_formatter(fmt):
         return HTMLTableFormatter()
     else:
         raise ValueError(f"Unknown table format type {fmt}.")
+
+
+def print_table(objects, formatter, columns):
+    
+    formatter.headings(columns)
+    for obj in objects:
+        rowdata = [str(getattr(obj, name)) for name in columns]
+        formatter.row(rowdata)
