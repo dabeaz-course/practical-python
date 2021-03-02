@@ -20,6 +20,8 @@ def parse_csv(filename, select=None, types=None, has_headers=True, delimiter=","
         # Read the file headers
         if has_headers:
             header = next(rows)
+        else:
+            header = []
 
         if select:
             indices = [header.index(colname) for colname in select]
@@ -42,7 +44,10 @@ def parse_csv(filename, select=None, types=None, has_headers=True, delimiter=","
                     print(f"Row {i+1}: Couldn't convert {row}")
                     print(f"Row {i+1}: Reason {e}")
             # Make dictionary
-            record = dict(zip(header, row))
+            if header:
+                record = dict(zip(header, row))
+            else:
+                record = tuple(row)
             records.append(record)
 
     return records

@@ -4,25 +4,16 @@
 
 import sys
 import csv
+from report import read_portfolio
 
 
 def portfolio_cost(filename):
+    """Calculate total cost of stocks portfolio
+    """
     total_purchase_cost = 0
+    portfolio = read_portfolio(filename)
 
-    with open(f_path, "rt") as f:
-        rows = csv.reader(f)
-        headers = next(rows)
-
-        for i, row in enumerate(rows, start=1):
-            record = dict(zip(headers, row))
-            try:
-                nshares = int(record["shares"])
-                price = float(record["price"])
-                total_purchase_cost += nshares * price
-            except ValueError:
-                print(f"Row {rowno}: Bad row: {row}")
-
-    return total_purchase_cost
+    return sum([row["shares"] * row["price"] for row in portfolio])
 
 
 if len(sys.argv) == 2:
