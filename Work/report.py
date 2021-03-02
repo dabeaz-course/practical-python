@@ -3,6 +3,7 @@
 # Exercise 2.4
 
 from fileparse import parse_csv
+import tableformat
 from stock import Stock
 
 
@@ -33,15 +34,21 @@ def make_report(portfolio, prices):
     return report
 
 
-def print_report(report, headers):
-    sep = "----------"
-    print(f"{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s}")
-    print(f"{sep:>10s} {sep:>10s} {sep:>10s} {sep:>10s}")
+def print_report(report, formatter):
+
+    formatter.headings(['Name','Shares','Price','Change'])
     for name, shares, price, change in report:
-        print(f"{name:>10s} {shares:>10d} {price:>10.2f} {change:>10.2f}")
+        rowdata = [name, str(shares), f"{price:0.2f}", f"{change:0.2f}"]
+        formatter.row(rowdata)
 
 
-def portfolio_report(portfolio_filename, prices_filename):
+def portfolio_report(portfolio_filename, prices_filename, fmt="txt"):
+    """Print a report in a nicely formatted way.
+
+    Parameters:
+    fmt (str): Format type. Types of format available: txt (default), csv, html
+    """
+
     portfolio = read_portfolio(portfolio_filename)
     prices = read_prices(prices_filename)
 
@@ -52,16 +59,16 @@ def portfolio_report(portfolio_filename, prices_filename):
         total_actual_value += stock.shares * prices[stock.name]
 
     report = make_report(portfolio, prices)
-    headers = ('Name', 'Shares', 'Price', 'Change')
-    print_report(report, headers)
+    formatter = tableformat.create_formatter(fmt)
+    print_report(report, formatter)
 
 
 def main(argv):
-    if len(argv) != 3:
+    if len(argv) != 4:
         print("Using default data source: `Data/portfolio.csv` and `Data/prices.csv`")
-        portfolio_report("Data/portfolio.csv", "Data/prices.csv")
+        portfolio_report("Data/portfolio.csv", "Data/prices.csv", "txt")
     else:
-        portfolio_report(argv[1], argv[2])
+        portfolio_report(argv[1], argv[2], argv[3])
 
 if __name__ == "__main__":
     import sys
