@@ -14,3 +14,9 @@ class Stock:
 
     def sell(self, amount):
         self.shares -= amount
+
+
+class NewStock(Stock):
+
+    def yow(self):
+        print('Yow!')
