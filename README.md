@@ -92,7 +92,7 @@ discussion.
 
 ### Q: Are there course videos I can watch?
 
-No. This course is about you writing Python code, not watching someone else.
+No. This course is about you writing Python code, not watching someone else write Python code.
 
 ### Q: How is this course licensed?
 
