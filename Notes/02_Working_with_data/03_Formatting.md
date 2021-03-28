@@ -115,7 +115,7 @@ modeled after the C `printf()` as well.
 *Note: This is the only formatting available on byte strings.*
 
 ```python
->>> b'%s has %n messages' % (b'Dave', 37)
+>>> b'%s has %d messages' % (b'Dave', 37)
 b'Dave has 37 messages'
 >>>
 ```
