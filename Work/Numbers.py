@@ -18,3 +18,4 @@ while float(Mortgage) > 0: #int(Mortgage) > 0
 
 print(float(Month), "Months that passed.")
 print(float(total_payed), "Total amount of money payed.")
+print(f'Tony took {Month} months to pay off his mortgage with a 5% yearly interest rate, In total he payed ${total_payed}')
