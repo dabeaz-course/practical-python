@@ -9,6 +9,6 @@ while count < 10:
     count+=1
     ball = wall*bounce
     wall = ball
-    print(count," ", ball)
+    print(count," ", round(ball,4))
     
 
