@@ -1,5 +1,9 @@
 # report.py
 import csv
+import sys
+import fileparse
+
+
 
 def read_portfolio(filename):
     '''
@@ -85,4 +89,15 @@ def portfolio_report(portfoliofile,pricefile):
     # Print it out
     print_report(report)
 
-portfolio_report('Work/Data/portfolio.csv','Work/Data/prices.csv')
+#portfolio_report('Work/Data/portfolio.csv','Work/Data/prices.csv')
+
+def main(args):
+    if len(args) != 3:
+        raise SystemExit('Usage: %s portfile pricefile' % args[0])
+    portfolio_report(args[1], args[2])
+
+if __name__ == '__main__':
+    import sys
+    main(sys.argv)
+
+fileparse.parse_csv(portfolio_file)
