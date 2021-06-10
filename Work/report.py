@@ -61,8 +61,28 @@ prices    = read_prices(price_file)
 report    = make_report_data(portfolio, prices)
 
 # Output the report
-headers = ('Name', 'Shares', 'Price', 'Change')
-print('%10s %10s %10s %10s' % headers)
-print(('-' * 10 + ' ') * len(headers))
-for row in report:
-    print('%10s %10d %10.2f %10.2f' % row)
+def print_report(report):
+
+    headers = ('Name', 'Shares', 'Price', 'Change')
+    print('%10s %10s %10s %10s' % headers)
+    print(('-' * 10 + ' ') * len(headers))
+    for row in report:
+        print('%10s %10d %10.2f %10.2f' % row)
+
+#print_report(report)
+
+def portfolio_report(portfoliofile,pricefile):        
+    '''
+    Make a stock report given portfolio and price data files.
+    '''
+    # Read data files 
+    portfolio = read_portfolio(portfoliofile)
+    prices = read_prices(pricefile)
+
+    # Create the report data
+    report = make_report_data(portfolio,prices)
+
+    # Print it out
+    print_report(report)
+
+portfolio_report('Work/Data/portfolio.csv','Work/Data/prices.csv')
