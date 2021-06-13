@@ -1,0 +1,6 @@
+portfolio = read_portfolio('Data/portfolio.csv')
+from collections import Counter
+holding = Counter()
+for s in portfolio:
+	Goldings[s['name]] += s['shares']
+print(holding)
