@@ -19,8 +19,7 @@ while principal > 0:
     if months >= extra_payment_start_month and months <= extra_payment_end_month:
         principal -= extra_payment
         total_paid += extra_payment
-    print("Month: " + str(months) + " TotalPaid: " + str(round(total_paid,2)) +
-          " PrincipalRemaining: " + str(round(principal,2)))
+print(f"Month: {months:17}\nTotalPaid: {total_paid:19.2f}\nPrincipalRemaining: {principal:6.2f}")
 
-print("Total paid: ", round(total_paid, 2))
-print("It took " + str(months) + " months to payoff loan")
+print(f"Total paid: {total_paid:18.2f}")
+print(f"It took {months} months to payoff loan")
