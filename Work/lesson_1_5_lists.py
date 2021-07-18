@@ -32,3 +32,10 @@ symlist.append('YHOO')
 # Use the index() method to find the first position of 'YHOO' in the list.
 
 symlist.index('YHOO')
+
+# Want to take a list of strings and join them together into one string? 
+# Use the join() method of strings like this (note: this looks funny at first).
+
+a = ";".join(symlist)
+
+
