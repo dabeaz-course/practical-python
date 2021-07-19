@@ -2,19 +2,19 @@
 #
 # Exercise 1.27
 
-with open('Data/portfolio.csv','rt') as file:
-    header = next(file)
-    data = []
-    cost = 0
-    for line in file:
-        data = line.split(',')
-        shares = int(data[1])
-        cost += shares * float(data[2])
-    
-    print(f"Total cost {cost}")
+# Exercise 1.27
 
 
-import gzip                                         
-with gzip.open('Data/portfolio.csv.gz', 'rt') as f: 
-     for line in f:
-             print(line, end='')        
+def portfolio_cost(filename):
+    with open(filename,'rt') as file:
+        header = next(file)
+        data = []
+        cost = 0
+        for line in file:
+            data = line.split(',')
+            try:
+                shares = int(data[1])
+                cost += shares * float(data[2])
+            except ValueError:
+                print(f'This is an improper line: {data}')
+        return cost
