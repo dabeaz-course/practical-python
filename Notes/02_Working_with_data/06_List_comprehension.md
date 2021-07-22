@@ -207,7 +207,7 @@ Show how you could build a list of tuples `(name, shares)` where `name` and `sha
 >>>
 ```
 
-If you change the the square brackets (`[`,`]`) to curly braces (`{`, `}`), you get something known as a set comprehension.
+If you change the square brackets (`[`,`]`) to curly braces (`{`, `}`), you get something known as a set comprehension.
 This gives you unique or distinct values.
 
 For example, this determines the set of unique stock names that appear in `portfolio`:
