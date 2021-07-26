@@ -6,8 +6,14 @@ def read_portfolio(filename):
     with open(filename) as f:
         rows = csv.reader(f)
         headers = next(rows)
-        for row in rows:
-            holding = dict(zip(headers, (row[0], int(row[1]), float(row[2]))))
+        for row_number, row in enumerate(rows, start=1):
+            holding = dict(zip(headers, row))
+            try:
+                holding['shares'] = int(holding['shares'])
+                holding['price'] = float(holding['price'])
+            except ValueError:
+                print(f'Row {row_number}: Could\'t convert: {row!r}')
+                continue
             portfolio.append(holding)
         return portfolio
 
@@ -36,8 +42,16 @@ def make_report(portfolio, prices):
 
 
 if __name__ == '__main__':
+    import sys
+
+
     def main():
-        portfolio = read_portfolio('Data/portfolio.csv')
+        if len(sys.argv) == 2:
+            filename = sys.argv[1]
+        else:
+            filename = 'Data/portfolio.csv'
+
+        portfolio = read_portfolio(filename)
         prices = read_prices('Data/prices.csv')
         report = make_report(portfolio, prices)
 
