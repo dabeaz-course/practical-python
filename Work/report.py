@@ -22,3 +22,20 @@ def read_prices(filename):
             except IndexError:
                 pass
     return prices
+
+
+if __name__ == '__main__':
+    def main():
+        portfolio = read_portfolio('Data/portfolio.csv')
+        prices = read_prices('Data/prices.csv')
+        start_cost = 0
+        current_cost = 0
+        for holding in portfolio:
+            start_cost += holding['shares'] * holding['price']
+            current_cost += holding['shares'] * prices[holding['name']]
+        print(f'Start cost: {start_cost:.2f}')
+        print(f'Current cost: {current_cost:.2f}')
+        print(f'Gain: {current_cost - start_cost:.2f}')
+
+
+    main()
