@@ -46,7 +46,7 @@ if __name__ == '__main__':
         print('-' * 10, '-' * 10, '-' * 10, '-' * 10)
 
         for name, shares, price, change in report:
-            print(f'{name:>10s} {shares:>10d} {price:>10.2f} {change:>10.2f}')
+            print(f'{name:>10s} {shares:>10d} {"$" + str(round(price, 2)):>10s} {change:>10.2f}')
 
         start_cost = 0
         current_cost = 0
