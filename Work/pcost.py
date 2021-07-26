@@ -1,10 +1,14 @@
-with open('Data/portfolio.csv') as f:
-    next(f)
+def portfolio_cost(filename):
     total_cost = 0.0
-    for line in f:
-        name, shares, price = line.strip().split(',')
-        shares = int(shares)
-        price = float(price)
-        total_cost += shares * price
+    with open(filename) as f:
+        next(f)
+        for line in f:
+            name, shares, price = line.strip().split(',')
+            shares = int(shares)
+            price = float(price)
+            total_cost += shares * price
+    return total_cost
 
-print(f'Total cost {total_cost}')
+
+cost = portfolio_cost('Data/portfolio.csv')
+print(f'Total cost: {cost}')
