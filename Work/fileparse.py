@@ -7,16 +7,18 @@ def parse_csv(
         *,
         select: Optional[Sequence[str]] = None,
         types: Optional[Sequence[Callable]] = None,
-        has_header: bool = True
+        has_header: bool = True,
+        delimiter: str = ','
 ) -> List[Dict[str, Any]]:
     """
     Parse a csv-file `filename` into a list of records.
+    Use `delimiter` as a delimiter for columns in the file.
     If `select` is provided, then only columns from `select` are added to result records.
     If `types` is provided, then values are converted according to it.
     If `has_header` is falsy, then `select` is ignored and return result is a list of tuples.
     """
     with open(filename) as f:
-        rows = csv.reader(f)
+        rows = csv.reader(f, delimiter=delimiter)
 
         indices: Optional[List[int]] = None
         if has_header:
