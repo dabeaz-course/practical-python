@@ -1,15 +1,17 @@
 import csv
-from typing import Any, Dict, List, Optional, Sequence
+from typing import Any, Callable, Dict, List, Optional, Sequence
 
 
 def parse_csv(
         filename: str,
         *,
-        select: Optional[Sequence[str]] = None
+        select: Optional[Sequence[str]] = None,
+        types: Optional[Sequence[Callable]] = None
 ) -> List[Dict[str, Any]]:
     """
     Parse a csv-file `filename` into a list of records.
     If `select` is provided, then only columns from `select` are added to result records.
+    If `types` is provided, then values are converted according to it.
     """
     with open(filename) as f:
         rows = csv.reader(f)
@@ -31,6 +33,10 @@ def parse_csv(
             # Filter the row if specific columns were selected.
             if indices is not None:
                 row = [row[index] for index in indices]
+
+            # Convert the row values to corresponding types
+            if types is not None:
+                row = [func(value) for func, value in zip(types, row)]
 
             record = dict(zip(headers, row))
             records.append(record)
