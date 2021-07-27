@@ -1,5 +1,5 @@
 import csv
-from typing import Any, Callable, Dict, List, Optional, Sequence
+from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple, Union
 
 
 def parse_csv(
@@ -10,7 +10,7 @@ def parse_csv(
         has_header: bool = True,
         delimiter: str = ',',
         silence_errors: bool = False
-) -> List[Dict[str, Any]]:
+) -> List[Union[Dict[str, Any], Tuple]]:
     """
     Parse a csv-file `filename` into a list of records.
     Use `delimiter` as a delimiter for columns in the file.
