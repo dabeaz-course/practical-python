@@ -84,6 +84,14 @@ def print_gain(
     print(f'Gain: {current_cost - start_cost:.2f}')
 
 
+def portfolio_report(portfolio_filename: str, prices_filename: str) -> None:
+    portfolio = read_portfolio(portfolio_filename)
+    prices = read_prices(prices_filename)
+    report = make_report(portfolio, prices)
+    print_report(report)
+    print_gain(portfolio, prices)
+
+
 if __name__ == '__main__':
     import sys
 
@@ -91,11 +99,7 @@ if __name__ == '__main__':
     def main():
         portfolio_filename = sys.argv[1] if len(sys.argv) >= 2 else 'Data/portfolio.csv'
         prices_filename = sys.argv[2] if len(sys.argv) == 3 else 'Data/prices.csv'
-        portfolio = read_portfolio(portfolio_filename)
-        prices = read_prices(prices_filename)
-        report = make_report(portfolio, prices)
-        print_report(report)
-        print_gain(portfolio, prices)
+        portfolio_report(portfolio_filename, prices_filename)
 
 
     main()
