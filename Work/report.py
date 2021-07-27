@@ -1,25 +1,17 @@
-import csv
 from typing import Any, Dict, List, Tuple
+
+from fileparse import parse_csv
 
 
 def read_portfolio(filename: str) -> List[Dict[str, Any]]:
     """
     Read a csv-file `filename` to a list of portfolio holdings and return the list.
     """
-    portfolio = []
-    with open(filename) as f:
-        rows = csv.reader(f)
-        headers = next(rows)
-        for row_number, row in enumerate(rows, start=1):
-            holding = dict(zip(headers, row))
-            try:
-                holding['shares'] = int(holding['shares'])
-                holding['price'] = float(holding['price'])
-            except ValueError:
-                print(f'Row {row_number}: Could\'t convert: {row!r}')
-                continue
-            portfolio.append(holding)
-        return portfolio
+    return parse_csv(
+        filename,
+        select=('name', 'shares', 'price'),
+        types=(str, int, float)
+    )
 
 
 def read_prices(filename: str) -> Dict[str, float]:
@@ -27,15 +19,11 @@ def read_prices(filename: str) -> Dict[str, float]:
     Read a csv-file `filename` of price data into a dict mapping names to prices
     and return the dict.
     """
-    prices = {}
-    with open(filename) as f:
-        rows = csv.reader(f)
-        for row in rows:
-            try:
-                prices[row[0]] = float(row[1])
-            except IndexError:
-                pass
-    return prices
+    return dict(parse_csv(
+        filename,
+        types=(str, float),
+        has_header=False
+    ))
 
 
 def make_report(
