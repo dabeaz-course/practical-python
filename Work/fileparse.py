@@ -1,17 +1,37 @@
 import csv
+from typing import Any, Dict, List, Optional, Sequence
 
 
-def parse_csv(filename):
+def parse_csv(
+        filename: str,
+        *,
+        select: Optional[Sequence[str]] = None
+) -> List[Dict[str, Any]]:
     """
-    Parse a csv-file into a list of records.
+    Parse a csv-file `filename` into a list of records.
+    If `select` is provided, then only columns from `select` are added to result records.
     """
     with open(filename) as f:
         rows = csv.reader(f)
         headers = next(rows)  # Read the file headers.
+
+        # If a column selector was given, find indices of the specified columns.
+        # Also narrow the set of headers used for resulting dictionaries.
+        indices: Optional[List[int]] = None
+        if select is not None:
+            indices = [headers.index(column_name) for column_name in select]
+            headers = list(select)
+
         records = []
         for row in rows:
-            if not row:  # Skip rows with no data.
+            # Skip rows with no data.
+            if not row:
                 continue
+
+            # Filter the row if specific columns were selected.
+            if indices is not None:
+                row = [row[index] for index in indices]
+
             record = dict(zip(headers, row))
             records.append(record)
 
