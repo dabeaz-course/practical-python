@@ -80,14 +80,13 @@ def portfolio_report(portfolio_filename: str, prices_filename: str) -> None:
     print_gain(portfolio, prices)
 
 
+def main(args: List[str]) -> None:
+    if len(args) != 3:
+        raise SystemExit(f'Usage: {args[0]} PORTFOLIO_FILE PRICE_FILE')
+    portfolio_report(args[1], args[2])
+
+
 if __name__ == '__main__':
     import sys
 
-
-    def main():
-        portfolio_filename = sys.argv[1] if len(sys.argv) >= 2 else 'Data/portfolio.csv'
-        prices_filename = sys.argv[2] if len(sys.argv) == 3 else 'Data/prices.csv'
-        portfolio_report(portfolio_filename, prices_filename)
-
-
-    main()
+    main(sys.argv)

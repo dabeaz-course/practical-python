@@ -1,3 +1,5 @@
+from typing import List
+
 from report import read_portfolio
 
 
@@ -6,14 +8,13 @@ def portfolio_cost(filename):
     return sum(h['shares'] * h['price'] for h in portfolio)
 
 
+def main(args: List[str]) -> None:
+    if len(args) != 2:
+        raise SystemExit(f'Usage: {args[0]} PORTFOLIO_FILE')
+    print(f'Total cost: {portfolio_cost(args[1])}')
+
+
 if __name__ == '__main__':
     import sys
 
-
-    def main():
-        portfolio_filename = sys.argv[1] if len(sys.argv) == 2 else 'Data/portfolio.csv'
-        cost = portfolio_cost(portfolio_filename)
-        print(f'Total cost: {cost}')
-
-
-    main()
+    main(sys.argv)
