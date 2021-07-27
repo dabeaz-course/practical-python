@@ -35,7 +35,7 @@ def parse_csv(
                 headers = list(select)
 
         records = []
-        for row in rows:
+        for row_number, row in enumerate(rows, start=1):
             # Skip rows with no data.
             if not row:
                 continue
@@ -44,9 +44,15 @@ def parse_csv(
             if indices is not None:
                 row = [row[index] for index in indices]
 
-            # Convert the row values to corresponding types
+            # Convert the row values to corresponding types.
+            # Skip inconvertible rows.
             if types is not None:
-                row = [func(value) for func, value in zip(types, row)]
+                try:
+                    row = [func(value) for func, value in zip(types, row)]
+                except ValueError as e:
+                    print(f"Row {row_number}: Couldn't convert {row!r}")
+                    print(f'Row {row_number}: Reason - {e}')
+                    continue
 
             if has_header:
                 record = dict(zip(headers, row))
