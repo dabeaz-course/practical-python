@@ -8,7 +8,8 @@ def parse_csv(
         select: Optional[Sequence[str]] = None,
         types: Optional[Sequence[Callable]] = None,
         has_header: bool = True,
-        delimiter: str = ','
+        delimiter: str = ',',
+        silence_errors: bool = False
 ) -> List[Dict[str, Any]]:
     """
     Parse a csv-file `filename` into a list of records.
@@ -16,7 +17,8 @@ def parse_csv(
     If `select` is provided, then only columns from `select` are added to result records.
     If `types` is provided, then values are converted according to it.
     If `has_header` is falsy, then return result is a list of tuples.
-    If `has_header` is false and `select` is set RuntimeError is raised.
+    If `has_header` is falsy and `select` is set, then RuntimeError is raised.
+    If `silence_errors` is truthy, then conversion errors are silenced.
     """
     if not has_header and select is not None:
         raise RuntimeError('`select` argument requires column headers')
@@ -50,8 +52,9 @@ def parse_csv(
                 try:
                     row = [func(value) for func, value in zip(types, row)]
                 except ValueError as e:
-                    print(f"Row {row_number}: Couldn't convert {row!r}")
-                    print(f'Row {row_number}: Reason - {e}')
+                    if not silence_errors:
+                        print(f"Row {row_number}: Couldn't convert {row!r}")
+                        print(f'Row {row_number}: Reason - {e}')
                     continue
 
             if has_header:
