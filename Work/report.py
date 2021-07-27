@@ -7,11 +7,12 @@ def read_portfolio(filename: str) -> List[Dict[str, Any]]:
     """
     Read a csv-file `filename` to a list of portfolio holdings and return the list.
     """
-    return parse_csv(
-        filename,
-        select=('name', 'shares', 'price'),
-        types=(str, int, float)
-    )
+    with open(filename) as f:
+        return parse_csv(
+            f,
+            select=('name', 'shares', 'price'),
+            types=(str, int, float)
+        )
 
 
 def read_prices(filename: str) -> Dict[str, float]:
@@ -19,11 +20,12 @@ def read_prices(filename: str) -> Dict[str, float]:
     Read a csv-file `filename` of price data into a dict mapping names to prices
     and return the dict.
     """
-    return dict(parse_csv(
-        filename,
-        types=(str, float),
-        has_header=False
-    ))
+    with open(filename) as f:
+        return dict(parse_csv(
+            f,
+            types=(str, float),
+            has_header=False
+        ))
 
 
 def make_report(

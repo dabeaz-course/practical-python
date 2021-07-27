@@ -1,9 +1,10 @@
 import csv
-from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple, Union
+from typing import (Any, Callable, Dict, Iterable, List, Optional, Sequence,
+                    Tuple, Union)
 
 
 def parse_csv(
-        lines: Sequence[str],
+        lines: Iterable[str],
         *,
         select: Optional[Sequence[str]] = None,
         types: Optional[Sequence[Callable]] = None,
