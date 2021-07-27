@@ -15,8 +15,12 @@ def parse_csv(
     Use `delimiter` as a delimiter for columns in the file.
     If `select` is provided, then only columns from `select` are added to result records.
     If `types` is provided, then values are converted according to it.
-    If `has_header` is falsy, then `select` is ignored and return result is a list of tuples.
+    If `has_header` is falsy, then return result is a list of tuples.
+    If `has_header` is false and `select` is set RuntimeError is raised.
     """
+    if not has_header and select is not None:
+        raise RuntimeError('`select` argument requires column headers')
+
     with open(filename) as f:
         rows = csv.reader(f, delimiter=delimiter)
 
