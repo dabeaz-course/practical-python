@@ -2,6 +2,7 @@ from typing import Dict, List, Tuple
 
 from fileparse import parse_csv
 from stock import Stock
+from tableformat import TableFormatter
 
 
 def read_portfolio(filename: str) -> List[Stock]:
@@ -53,15 +54,17 @@ def make_report(
     return report
 
 
-def print_report(report: List[Tuple[str, int, float, float]]) -> None:
+def print_report(
+        report: List[Tuple[str, int, float, float]],
+        formatter: TableFormatter
+) -> None:
     """
     Print a nicely formatted table from a list of (name, shares, price, change) tuples.
     """
-    headers = ('Name', 'Shares', 'Price', 'Change')
-    print('{:>10s} {:>10s} {:>10s} {:>10s}'.format(*headers))
-    print('-' * 10, '-' * 10, '-' * 10, '-' * 10)
+    formatter.headings(('Name', 'Shares', 'Price', 'Change'))
     for name, shares, price, change in report:
-        print(f'{name:>10s} {shares:>10d} {"$" + str(round(price, 2)):>10s} {change:>10.2f}')
+        row_data = [f'{name}', f'{shares}', f'{price:.2f}', f'{change:.2f}']
+        formatter.row(row_data)
 
 
 def print_gain(
@@ -82,10 +85,16 @@ def print_gain(
 
 
 def portfolio_report(portfolio_filename: str, prices_filename: str) -> None:
+    # Read data files.
     portfolio = read_portfolio(portfolio_filename)
     prices = read_prices(prices_filename)
+
+    # Create report data.
     report = make_report(portfolio, prices)
-    print_report(report)
+
+    # Print report data.
+    formatter = TableFormatter()
+    print_report(report, formatter)
     print_gain(portfolio, prices)
 
 
