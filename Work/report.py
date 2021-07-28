@@ -2,7 +2,7 @@ from typing import Dict, List, Tuple
 
 from fileparse import parse_csv
 from stock import Stock
-from tableformat import TableFormatter, TextTableFormatter
+from tableformat import TableFormatter, create_formatter
 
 
 def read_portfolio(filename: str) -> List[Stock]:
@@ -84,7 +84,11 @@ def print_gain(
     print(f'Gain: {current_cost - start_cost:.2f}')
 
 
-def portfolio_report(portfolio_filename: str, prices_filename: str) -> None:
+def portfolio_report(
+        portfolio_filename: str,
+        prices_filename: str,
+        fmt: str = 'txt'
+) -> None:
     # Read data files.
     portfolio = read_portfolio(portfolio_filename)
     prices = read_prices(prices_filename)
@@ -93,7 +97,7 @@ def portfolio_report(portfolio_filename: str, prices_filename: str) -> None:
     report = make_report(portfolio, prices)
 
     # Print report data.
-    formatter = TextTableFormatter()
+    formatter = create_formatter(fmt)
     print_report(report, formatter)
     print_gain(portfolio, prices)
 

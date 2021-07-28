@@ -50,3 +50,14 @@ class HTMLTableFormatter(TableFormatter):
 
     def row(self, row_data: Sequence[str]) -> None:
         print(f'<tr>{"".join(f"<td>{d}</td>" for d in row_data)}</tr>')
+
+
+def create_formatter(name: str) -> TableFormatter:
+    if name == 'txt':
+        return TextTableFormatter()
+    elif name == 'csv':
+        return CSVTableFormatter()
+    elif name == 'html':
+        return HTMLTableFormatter()
+    else:
+        raise RuntimeError(f'Unknown format {name}')
