@@ -1,18 +1,25 @@
-from typing import Any, Dict, List, Tuple
+from typing import Dict, List, Tuple
 
 from fileparse import parse_csv
+from stock import Stock
 
 
-def read_portfolio(filename: str) -> List[Dict[str, Any]]:
+def read_portfolio(filename: str) -> List[Stock]:
     """
     Read a csv-file `filename` to a list of portfolio holdings and return the list.
     """
     with open(filename) as f:
-        return parse_csv(
+        portfolio_as_dicts = parse_csv(
             f,
             select=('name', 'shares', 'price'),
             types=(str, int, float)
         )
+        portfolio = [Stock(
+            name=d['name'],
+            shares=d['shares'],
+            price=d['price']
+        ) for d in portfolio_as_dicts]
+        return portfolio
 
 
 def read_prices(filename: str) -> Dict[str, float]:
@@ -29,7 +36,7 @@ def read_prices(filename: str) -> Dict[str, float]:
 
 
 def make_report(
-        portfolio: List[Dict[str, Any]],
+        portfolio: List[Stock],
         prices: Dict[str, float]
 ) -> List[Tuple[str, int, float, float]]:
     """
@@ -38,10 +45,10 @@ def make_report(
     """
     report = []
     for holding in portfolio:
-        name = holding['name']
-        shares = holding['shares']
+        name = holding.name
+        shares = holding.shares
         price = prices[name]
-        change = price - holding['price']
+        change = price - holding.price
         report.append((name, shares, price, change))
     return report
 
@@ -58,7 +65,7 @@ def print_report(report: List[Tuple[str, int, float, float]]) -> None:
 
 
 def print_gain(
-        portfolio: List[Dict[str, Any]],
+        portfolio: List[Stock],
         prices: Dict[str, float]
 ) -> None:
     """
@@ -67,8 +74,8 @@ def print_gain(
     start_cost = 0
     current_cost = 0
     for holding in portfolio:
-        start_cost += holding['shares'] * holding['price']
-        current_cost += holding['shares'] * prices[holding['name']]
+        start_cost += holding.cost()
+        current_cost += holding.shares * prices[holding.name]
     print(f'Start cost: {start_cost:.2f}')
     print(f'Current cost: {current_cost:.2f}')
     print(f'Gain: {current_cost - start_cost:.2f}')

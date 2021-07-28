@@ -3,9 +3,9 @@ from typing import List
 from report import read_portfolio
 
 
-def portfolio_cost(filename):
+def portfolio_cost(filename: str) -> float:
     portfolio = read_portfolio(filename)
-    return sum(h['shares'] * h['price'] for h in portfolio)
+    return sum(s.cost() for s in portfolio)
 
 
 def main(args: List[str]) -> None:
