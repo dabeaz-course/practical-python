@@ -1,4 +1,4 @@
-from typing import Sequence
+from typing import List, Sequence
 
 
 class TableFormatter:
@@ -61,3 +61,17 @@ def create_formatter(name: str) -> TableFormatter:
         return HTMLTableFormatter()
     else:
         raise RuntimeError(f'Unknown format {name}')
+
+
+def print_table(
+        objects: List[object],
+        attributes: List[str],
+        formatter: TableFormatter
+) -> None:
+    """
+    Print a table showing user-specified `attributes` of a list of arbitrary `objects`.
+    """
+    formatter.headings(attributes)
+    for obj in objects:
+        row_data = [f'{getattr(obj, attr)}' for attr in attributes]
+        formatter.row(row_data)
