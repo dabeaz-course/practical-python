@@ -7,3 +7,9 @@ class Stock:
         self.name = name
         self.shares = shares
         self.price = price
+
+    def cost(self) -> float:
+        return self.shares * self.price
+
+    def sell(self, shares: int) -> None:
+        self.shares -= shares
