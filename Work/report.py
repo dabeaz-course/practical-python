@@ -103,9 +103,12 @@ def portfolio_report(
 
 
 def main(args: List[str]) -> None:
-    if len(args) != 3:
-        raise SystemExit(f'Usage: {args[0]} PORTFOLIO_FILE PRICE_FILE')
-    portfolio_report(args[1], args[2])
+    if len(args) not in (3, 4):
+        raise SystemExit(f'Usage: {args[0]} PORTFOLIO_FILE PRICE_FILE [REPORT_FORMAT: txt, csv, html]')
+    if len(args) == 3:
+        portfolio_report(portfolio_filename=args[1], prices_filename=args[2])
+    else:
+        portfolio_report(portfolio_filename=args[1], prices_filename=args[2], fmt=args[3])
 
 
 if __name__ == '__main__':
