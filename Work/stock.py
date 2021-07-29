@@ -11,6 +11,7 @@ class Stock:
     def __repr__(self) -> str:
         return f'{self.__class__.__name__}({self.name!r}, {self.shares!r}, {self.price!r})'
 
+    @property
     def cost(self) -> float:
         return self.shares * self.price
 

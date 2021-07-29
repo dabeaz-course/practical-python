@@ -77,7 +77,7 @@ def print_gain(
     start_cost = 0
     current_cost = 0
     for holding in portfolio:
-        start_cost += holding.cost()
+        start_cost += holding.cost
         current_cost += holding.shares * prices[holding.name]
     print(f'Start cost: {start_cost:.2f}')
     print(f'Current cost: {current_cost:.2f}')
