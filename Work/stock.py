@@ -2,6 +2,7 @@ class Stock:
     """
     Represent a single holding of stock.
     """
+    __slots__ = ('name', '_shares', 'price')
 
     def __init__(self, name: str, shares: int, price: float) -> None:
         self.name = name
