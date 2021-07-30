@@ -6,7 +6,7 @@ from stock import Stock
 from tableformat import TableFormatter, create_formatter
 
 
-def read_portfolio(filename: str) -> Portfolio:
+def read_portfolio(filename: str, **kwargs) -> Portfolio:
     """
     Read a csv-file `filename` to a list of portfolio holdings and return the list.
     """
@@ -14,7 +14,8 @@ def read_portfolio(filename: str) -> Portfolio:
         portfolio_as_dicts = parse_csv(
             f,
             select=('name', 'shares', 'price'),
-            types=(str, int, float)
+            types=(str, int, float),
+            **kwargs
         )
         portfolio = [Stock(**d) for d in portfolio_as_dicts]
         return Portfolio(portfolio)
