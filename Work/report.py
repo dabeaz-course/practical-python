@@ -1,11 +1,12 @@
 from typing import Dict, List, Tuple
 
 from fileparse import parse_csv
+from portfolio import Portfolio
 from stock import Stock
 from tableformat import TableFormatter, create_formatter
 
 
-def read_portfolio(filename: str) -> List[Stock]:
+def read_portfolio(filename: str) -> Portfolio:
     """
     Read a csv-file `filename` to a list of portfolio holdings and return the list.
     """
@@ -20,7 +21,7 @@ def read_portfolio(filename: str) -> List[Stock]:
             shares=d['shares'],
             price=d['price']
         ) for d in portfolio_as_dicts]
-        return portfolio
+        return Portfolio(portfolio)
 
 
 def read_prices(filename: str) -> Dict[str, float]:
@@ -37,7 +38,7 @@ def read_prices(filename: str) -> Dict[str, float]:
 
 
 def make_report(
-        portfolio: List[Stock],
+        portfolio: Portfolio,
         prices: Dict[str, float]
 ) -> List[Tuple[str, int, float, float]]:
     """
@@ -68,7 +69,7 @@ def print_report(
 
 
 def print_gain(
-        portfolio: List[Stock],
+        portfolio: Portfolio,
         prices: Dict[str, float]
 ) -> None:
     """
