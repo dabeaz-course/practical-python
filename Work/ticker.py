@@ -29,17 +29,11 @@ def make_dicts(rows: Iterator[List[Any]], headers: List[str]) -> Iterator[Dict[s
         yield dict(zip(headers, row))
 
 
-def filter_symbols(rows: Iterator[Dict[str, Any]], names) -> Iterator[Dict[str, Any]]:
-    for row in rows:
-        if row['name'] in names:
-            yield row
-
-
 def ticker(portfolio_file: str, stock_log_file: str, fmt: str) -> None:
     portfolio = read_portfolio(portfolio_file)
     lines = follow(stock_log_file)
     rows = parse_stock_data(lines)
-    rows = filter_symbols(rows, portfolio)
+    rows = (row for row in rows if row['name'] in portfolio)
     formatter = tableformat.create_formatter(fmt)
     formatter.headings(['Name', 'Price', 'Change'])
     for row in rows:
