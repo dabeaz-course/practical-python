@@ -2,6 +2,8 @@ import os
 import time
 from typing import Iterator, List
 
+import report
+
 
 def follow(filename: str) -> Iterator[str]:
     """
@@ -18,15 +20,22 @@ def follow(filename: str) -> Iterator[str]:
 
 
 def main(args: List[str]) -> None:
-    if len(args) != 2:
-        raise SystemExit(f'Usage: {args[0]} STOCK_LOG_FILE')
+    """
+    Watch the stream of stock data and prints a ticker showing information
+    for only those stocks in a portfolio.
+    """
 
-    for line in follow(args[1]):
+    if len(args) != 3:
+        raise SystemExit(f'Usage: {args[0]} PORTFOLIO_FILE STOCK_LOG_FILE')
+
+    portfolio = report.read_portfolio(args[1])
+
+    for line in follow(args[2]):
         fields = line.split(',')
         name = fields[0].strip('"')
         price = float(fields[1])
         change = float(fields[4])
-        if change < 0:
+        if name in portfolio:
             print(f'{name:>10s} {price:>10.2f} {change:>10.2f}')
 
 
