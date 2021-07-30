@@ -1,7 +1,8 @@
-from typing import Iterator, List, Type, Any, Dict
+import csv
+from typing import Any, Dict, Iterator, List, Type
 
 from follow import follow
-import csv
+from report import read_portfolio
 
 
 def parse_stock_data(lines: Iterator[str]) -> Iterator:
@@ -27,9 +28,17 @@ def make_dicts(rows: Iterator[List[Any]], headers: List[str]) -> Iterator[Dict[s
         yield dict(zip(headers, row))
 
 
+def filter_symbols(rows: Iterator[Dict[str, Any]], names) -> Iterator[Dict[str, Any]]:
+    for row in rows:
+        if row['name'] in names:
+            yield row
+
+
 def main():
+    portfolio = read_portfolio('Data/portfolio.csv')
     lines = follow('Data/stocklog.csv')
     rows = parse_stock_data(lines)
+    rows = filter_symbols(rows, portfolio)
     for row in rows:
         print(row)
 
