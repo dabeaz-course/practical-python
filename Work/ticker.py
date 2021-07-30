@@ -1,6 +1,7 @@
 import csv
 from typing import Any, Dict, Iterator, List, Type
 
+import tableformat
 from follow import follow
 from report import read_portfolio
 
@@ -34,14 +35,24 @@ def filter_symbols(rows: Iterator[Dict[str, Any]], names) -> Iterator[Dict[str, 
             yield row
 
 
-def main():
-    portfolio = read_portfolio('Data/portfolio.csv')
-    lines = follow('Data/stocklog.csv')
+def ticker(portfolio_file: str, stock_log_file: str, fmt: str) -> None:
+    portfolio = read_portfolio(portfolio_file)
+    lines = follow(stock_log_file)
     rows = parse_stock_data(lines)
     rows = filter_symbols(rows, portfolio)
+    formatter = tableformat.create_formatter(fmt)
+    formatter.headings(['Name', 'Price', 'Change'])
     for row in rows:
-        print(row)
+        formatter.row([row['name'], f'{row["price"]:.2f}', f'{row["change"]:.2f}'])
+
+
+def main(args: List[str]) -> None:
+    if len(args) != 4:
+        raise SystemExit(f'Usage: {args[0]} PORTFOLIO_FILE STOCK_LOG_FILE REPORT_FORMAT')
+    ticker(args[1], args[2], args[3])
 
 
 if __name__ == '__main__':
-    main()
+    import sys
+
+    main(sys.argv)
