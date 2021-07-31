@@ -1,6 +1,9 @@
 import csv
+import logging
 from typing import (Any, Callable, Dict, Iterable, List, Optional, Sequence,
                     Tuple, Union)
+
+log = logging.getLogger(__name__)
 
 
 def parse_csv(
@@ -57,8 +60,8 @@ def parse_csv(
                 row = [func(value) for func, value in zip(types, row)]
             except ValueError as e:
                 if not silence_errors:
-                    print(f"Row {row_number}: Couldn't convert {row!r}")
-                    print(f'Row {row_number}: Reason - {e}')
+                    log.warning(f"Row {row_number}: Couldn't convert {row!r}")
+                    log.debug(f'Row {row_number}: Reason - {e}')
                 continue
 
         if has_header:
