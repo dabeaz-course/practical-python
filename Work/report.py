@@ -1,8 +1,15 @@
+import logging
 from typing import Dict, List, Tuple
 
 from fileparse import parse_csv
 from portfolio import Portfolio
 from tableformat import TableFormatter, create_formatter
+
+logging.basicConfig(
+    filename='app.log',
+    filemode='w',
+    level=logging.WARNING
+)
 
 
 def read_portfolio(filename: str, **kwargs) -> Portfolio:
