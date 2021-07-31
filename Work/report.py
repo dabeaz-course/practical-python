@@ -2,23 +2,15 @@ from typing import Dict, List, Tuple
 
 from fileparse import parse_csv
 from portfolio import Portfolio
-from stock import Stock
 from tableformat import TableFormatter, create_formatter
 
 
 def read_portfolio(filename: str, **kwargs) -> Portfolio:
     """
-    Read a csv-file `filename` to a list of portfolio holdings and return the list.
+    Read a csv-file `filename` to a list of holdings in portfolio and return it.
     """
-    with open(filename) as f:
-        portfolio_as_dicts = parse_csv(
-            f,
-            select=('name', 'shares', 'price'),
-            types=(str, int, float),
-            **kwargs
-        )
-        portfolio = [Stock(**d) for d in portfolio_as_dicts]
-        return Portfolio(portfolio)
+    with open(filename) as lines:
+        return Portfolio.from_csv(lines, **kwargs)
 
 
 def read_prices(filename: str) -> Dict[str, float]:
