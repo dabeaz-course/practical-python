@@ -3,8 +3,8 @@ from __future__ import annotations
 from collections import Counter
 from typing import Iterable, Iterator
 
-from fileparse import parse_csv
-from stock import Stock
+from .fileparse import parse_csv
+from .stock import Stock
 
 
 class Portfolio:

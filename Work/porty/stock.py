@@ -1,4 +1,4 @@
-from typedproperty import Float, Integer, String
+from .typedproperty import Float, Integer, String
 
 
 class Stock:

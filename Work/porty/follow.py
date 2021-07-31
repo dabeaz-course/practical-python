@@ -2,7 +2,7 @@ import os
 import time
 from typing import Iterator, List
 
-import report
+from . import report
 
 
 def follow(filename: str) -> Iterator[str]:

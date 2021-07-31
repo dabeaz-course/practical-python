@@ -1,9 +1,9 @@
 import csv
 from typing import Any, Dict, Iterator, List, Type
 
-import tableformat
-from follow import follow
-from report import read_portfolio
+from . import tableformat
+from .follow import follow
+from .report import read_portfolio
 
 
 def parse_stock_data(lines: Iterator[str]) -> Iterator:
