@@ -38,28 +38,50 @@ def read_prices(filename):
 
     return prices
 
+def make_report(portfolio, prices):
+    '''Adjust Portfolio to include change in price and current price.
+
+       Args: portfolio list of dictionaries. Expecting name, shares, price as keys.
+       Return: adj_portolio list of dictionaries, with additional key 'change'
+    '''
+
+    adj_portfolio = []
+    for row in portfolio:
+        row['change'] = prices[row['name']]-row['price']
+        row['price'] = prices[row['name']]
+        adj_portfolio.append(row)
+
+    return adj_portfolio
+
 
 prices = read_prices('Data/prices.csv')
 portfolio = read_portfolio('Data/portfolio.csv')
+report = make_report(portfolio, prices)
 
 
 # Holdings total
-total = 0.0
-
+total = []
 for row in portfolio:
-    total += row['shares'] * row['price']
+    total.append(row['shares'] * row['price'])
 
 # Actuals
-
-actuals = 0.0
+actuals = []
 for row in portfolio:
-    actuals += row['shares'] * prices[row['name']]
+    actuals.append(row['shares'] * prices[row['name']])
 
-print('Report Summary:')
-print('Holdings:',total)
-print('Actuals:',actuals)
 
-print(f'Gain/Loss:{total-actuals:.2f}')
+
+
+headers = ('Name', 'Shares', 'Price', 'Change')
+
+print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s}')
+print(f'{"":->10s} {"":->10s} {"":->10s} {"":->10s}')
+
+
+for p in report:
+    price = p['price']
+    p['price'] = f'${price:.2f}'
+    print('{name:>10s} {shares:>10d} {price:>10s} {change:>10.2f}'.format_map(p))
 
 
 
