@@ -2,9 +2,6 @@
 #
 # Exercise 1.27
 
-# Exercise 1.27
-
-
 def portfolio_cost(filename):
     with open(filename,'rt') as file:
         header = next(file)
@@ -18,3 +15,5 @@ def portfolio_cost(filename):
             except ValueError:
                 print(f'This is an improper line: {data}')
         return cost
+
+cost = portfolio_cost(filename)

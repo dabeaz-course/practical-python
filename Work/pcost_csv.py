@@ -18,12 +18,12 @@ def portfolio_cost(filename):
 		rows = csv.reader(file)
 		header = next(rows)
 		cost = 0
-		for line in rows:
+		for lineno,line in enumerate(rows,start=1):
 			try:
 				shares = int(line[1])
 				cost += shares * float(line[2])
 			except ValueError:
-				print(f'This is an improper line: {line}')
+				print(f"Row:{lineno:>2d} Couldn't convert: {line}")
 
 		return cost
 
