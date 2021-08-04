@@ -1,4 +1,4 @@
-# report_dict.py 
+# report_dict.py
 #
 # Exercise 2.4 - example with tuple unpacking and list of tuples
 
