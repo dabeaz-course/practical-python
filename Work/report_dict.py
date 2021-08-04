@@ -1,22 +1,24 @@
-# report.py
+# report_dict.py
 #
 # Exercise 2.4 - example with tuple unpacking and list of tuples
 
 import csv
 
 def read_portfolio(filename):
-    '''Computes the total cost (shares*price) of a portfolio file'''
+    '''Reads in portfolio and stores into a list of dictionaries.'''
     portfolio = []
 
     with open(filename, 'rt') as f:
         rows = csv.reader(f)
         headers = next(rows)
-        for name,shares,price in rows:
-            record = {}
-            record['name'] = name
-            record['shares'] = int(shares)
-            record['price'] = float(price)
-            portfolio.append(record)
+        for rowno,line in enumerate(rows):
+            try:
+                record = dict(zip(headers,line))
+                record['shares'] = int(record['shares'])
+                record['price'] = float(record['price'])
+                portfolio.append(record)
+            except ValueError:
+                print(f"Row:{rowno:>2d} Couldn't convert: {line}")
 
     return portfolio
 
@@ -30,11 +32,12 @@ def read_prices(filename):
 
     with open(filename,'rt') as f:
         rows = csv.reader(f)
+
         try:
-            for key,value in rows:
-                prices[key] = float(value)
-        except ValueError:
-            pass
+            for rowno,row in enumerate(rows):
+                prices[row[0]] = float(row[1])
+        except IndexError:
+            print(f"Row:{rowno:>2d} Couldn't convert: {row}")
 
     return prices
 
@@ -73,7 +76,6 @@ for row in portfolio:
 
 
 headers = ('Name', 'Shares', 'Price', 'Change')
-
 print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s}')
 print(f'{"":->10s} {"":->10s} {"":->10s} {"":->10s}')
 

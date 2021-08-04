@@ -15,17 +15,23 @@ import sys
 def portfolio_cost(filename):
 	'Using csv library to parse csv.'
 	with open(filename,'rt') as file:
+
 		rows = csv.reader(file)
 		header = next(rows)
-		cost = 0
-		for lineno,line in enumerate(rows,start=1):
-			try:
-				shares = int(line[1])
-				cost += shares * float(line[2])
-			except ValueError:
-				print(f"Row:{lineno:>2d} Couldn't convert: {line}")
+		total_cost = 0
 
-		return cost
+		for rowno,line in enumerate(rows,start=1):
+			record = dict(zip(header,line))
+			try:
+				nshares = int(record['shares'])
+				price = float(record['price'])
+				total_cost += nshares * price
+			except ValueError:
+				print(f"Row:{rowno:>2d} Couldn't convert: {line}")
+
+		return total_cost
+
+
 
 if len(sys.argv) == 2:
     filename = sys.argv[1]
