@@ -5,7 +5,10 @@
 import csv
 
 def read_portfolio(filename):
-    '''Reads in portfolio and stores into a list of dictionaries.'''
+    '''Reads in portfolio and stores into a list of dictionaries.
+       Args: (string) filename ex: 'Data/portfolio.csv' 
+       Return: (dictonary) List of dictonaries.
+    '''
     portfolio = []
 
     with open(filename, 'rt') as f:
