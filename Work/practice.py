@@ -2,6 +2,7 @@
 import csv
 
 from collections import Counter
+from collections import defaultdict
 
 
 def read_portfolio(filename):
@@ -47,8 +48,24 @@ def print_report(holdings):
 		print(f"{row:>10s}{shares:>10d}")
 
 
+def tabulate_portfolio(portfolio):
+	"""
+	Aggregate lot details per stock ticker.
+	Input: portfolio of holdings as a dictionary
+	Targ: 
+	"""
+	holdings = defaultdict(list)
+
+	for row in portfolio:
+		holdings[row['name']].append((row['shares'],row['price']))
+
+	return holdings
+
+
 
 
 portfolio = read_portfolio('Data/portfolio.csv')
 counts = count_shares(portfolio)
 print_report(counts)
+
+t = tabulate_portfolio(portfolio)

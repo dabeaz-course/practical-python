@@ -66,27 +66,32 @@ report = make_report(portfolio, prices)
 
 
 # Holdings total
-total = []
+total_list = []
 for row in portfolio:
-    total.append(row['shares'] * row['price'])
+    total_list.append(row['shares'] * row['price'])
+
+
+cost = sum([row['shares'] * float(row['price']) for row in portfolio])
 
 # Actuals
-actuals = []
+
+actuals_list = []
 for row in portfolio:
-    actuals.append(row['shares'] * prices[row['name']])
+    actuals_list.append(row['shares'] * prices[row['name']])
 
-
+actuals = sum([prices[row['name']]* row['shares'] for row in portfolio])
 
 
 headers = ('Name', 'Shares', 'Price', 'Change')
 print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s}')
 print(f'{"":->10s} {"":->10s} {"":->10s} {"":->10s}')
 
-
 for p in report:
     price = p['price']
     p['price'] = f'${price:.2f}'
     print('{name:>10s} {shares:>10d} {price:>10s} {change:>10.2f}'.format_map(p))
+
+print(f'{"":>10s} {"":>10s} {"Curr.Val":>10s} {actuals:>10.2f}')
 
 
 
