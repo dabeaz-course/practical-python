@@ -3,6 +3,7 @@
 # Exercise 2.4 - example with tuple unpacking and list of tuples
 
 import csv
+import sys
 
 def read_portfolio(filename):
     '''Reads in portfolio and stores into a list of dictionaries.
@@ -10,26 +11,26 @@ def read_portfolio(filename):
        Return: (dictonary) List of dictonaries.
     '''
     portfolio = []
-
-    with open(filename, 'rt') as f:
-        rows = csv.reader(f)
-        headers = next(rows)
-        for rowno,line in enumerate(rows):
-            try:
-                record = dict(zip(headers,line))
-                record['shares'] = int(record['shares'])
-                record['price'] = float(record['price'])
-                portfolio.append(record)
-            except ValueError:
-                print(f"Row:{rowno:>2d} Couldn't convert: {line}")
+    try:
+        with open(filename, 'rt') as f:
+            rows = csv.reader(f)
+            headers = next(rows)
+            for rowno,line in enumerate(rows):
+                try:
+                    record = dict(zip(headers,line))
+                    record['shares'] = int(record['shares'])
+                    record['price'] = float(record['price'])
+                    portfolio.append(record)
+                except ValueError:
+                    print(f"Row:{rowno:>2d} Couldn't convert: {line}")
+    except FileNotFoundError as err:
+        print(f'File does not exist: {err}')
 
     return portfolio
 
 
 def read_prices(filename):
     '''Read prices form a file and store as dictionary.'''
-
-    import csv
 
     prices = {}
 
@@ -60,9 +61,27 @@ def make_report(portfolio, prices):
     return adj_portfolio
 
 
-prices = read_prices('Data/prices.csv')
-portfolio = read_portfolio('Data/portfolio.csv')
-report = make_report(portfolio, prices)
+
+if len(sys.argv) > 2:
+    try:
+        portfolio_fname = sys.argv[1]
+        prices_fname = sys.argv[2]    
+
+        portfolio = read_portfolio(portfolio_fname)
+        prices = read_prices(prices_fname)
+        report = make_report(portfolio, prices)
+    except IndexError:
+        print(f'Not enough parameters')
+else:
+    prices = read_prices('Data/prices.csv')
+    portfolio = read_portfolio('Data/portfolio.csv')
+    report = make_report(portfolio, prices)
+
+
+
+
+
+
 
 
 # Holdings total
