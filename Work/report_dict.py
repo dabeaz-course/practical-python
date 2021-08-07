@@ -4,6 +4,7 @@
 
 import csv
 import sys
+from collections import defaultdict
 
 def read_portfolio(filename):
     '''Reads in portfolio and stores into a list of dictionaries.
@@ -53,10 +54,15 @@ def make_report(portfolio, prices):
     '''
 
     adj_portfolio = []
+
     for row in portfolio:
-        row['change'] = prices[row['name']]-row['price']
-        row['price'] = prices[row['name']]
-        adj_portfolio.append(row)
+        adj_portfolio.append(({
+            'name':row['name'],
+            'price':row['price'],
+            'shares':row['shares'],
+            'cost': row['price']*row['shares'],
+            'change':prices[row['name']]-row['price']            
+            }))
 
     return adj_portfolio
 
@@ -81,9 +87,6 @@ else:
 
 
 
-
-
-
 # Holdings total
 total_list = []
 for row in portfolio:
@@ -101,16 +104,16 @@ for row in portfolio:
 actuals = sum([prices[row['name']]* row['shares'] for row in portfolio])
 
 
-headers = ('Name', 'Shares', 'Price', 'Change')
-print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s}')
-print(f'{"":->10s} {"":->10s} {"":->10s} {"":->10s}')
+headers = ('Name', 'Shares', 'Price', 'Cost', 'Change')
+print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s} {headers[4]:>10s}')
+print(f'{"":->10s} {"":->10s} {"":->10s} {"":->10s} {"":->10s}')
 
 for p in report:
     price = p['price']
     p['price'] = f'${price:.2f}'
-    print('{name:>10s} {shares:>10d} {price:>10s} {change:>10.2f}'.format_map(p))
+    print('{name:>10s} {shares:>10d} {price:>10s} {cost:>10.2f} {change:>10.2f}'.format_map(p))
 
-print(f'{"":>10s} {"":>10s} {"Curr.Val":>10s} {actuals:>10.2f}')
-
-
+print(f'\n')
+print(f'{"":>10s} {"":>10s} {"Total.Cost":>10s} {cost:>10.2f}')
+print(f'{"":>10s} {"":>10s} {"Curr.Val":>10s} {cost-actuals:>10.2f}')
 
