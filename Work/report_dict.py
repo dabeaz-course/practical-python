@@ -6,7 +6,7 @@ import csv
 import sys
 from collections import defaultdict
 
-def read_portfolio(filename):
+def read_portfolio(filename: str) -> list:
     '''Reads in portfolio and stores into a list of dictionaries.
        Args: (string) filename ex: 'Data/portfolio.csv' 
        Return: (dictonary) List of dictonaries.
@@ -30,7 +30,7 @@ def read_portfolio(filename):
     return portfolio
 
 
-def read_prices(filename):
+def read_prices(filename: str) -> list:
     '''Read prices form a file and store as dictionary.'''
 
     prices = {}
@@ -43,10 +43,12 @@ def read_prices(filename):
                 prices[row[0]] = float(row[1])
         except IndexError:
             print(f"Row:{rowno:>2d} Couldn't convert: {row}")
+        except FileNotFoundError:
+            print(f'The file {filename} does not exist.')
 
     return prices
 
-def make_report(portfolio, prices):
+def make_report(portfolio: list, prices: list) -> list:
     '''Adjust Portfolio to include change in price and current price.
 
        Args: portfolio list of dictionaries. Expecting name, shares, price as keys.
@@ -66,6 +68,41 @@ def make_report(portfolio, prices):
 
     return adj_portfolio
 
+def print_report(report:list,portfolio:list,prices:list) -> None:
+    """
+    Print results of the report.
+    Calculates cost and actuals and displays at bottom for profit/loss.
+    """
+
+    cost = sum([row['shares'] * float(row['price']) for row in portfolio])
+    actuals = sum([prices[row['name']]* row['shares'] for row in portfolio])
+
+    headers = ('Name', 'Shares', 'Price', 'Cost', 'Change')
+    print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s} {headers[4]:>10s}')
+    print(f'{"":->10s} {"":->10s} {"":->10s} {"":->10s} {"":->10s}')
+
+    for p in report:
+        price = p['price']
+        p['price'] = f'${price:.2f}'
+        print('{name:>10s} {shares:>10d} {price:>10s} {cost:>10.2f} {change:>10.2f}'.format_map(p))
+
+    print(f'\n')
+    print(f'{"":>10s} {"":>10s} {"Total.Cost":>10s} {cost:>10.2f}')
+    print(f'{"":>10s} {"":>10s} {"Curr.Val":>10s} {cost-actuals:>10.2f}')
+
+    return None
+
+def portfolio_report(portfolio_fname: str, prices_fname: str) -> None:
+    """
+    Executes program to show portfolio_report.
+    """
+    portfolio = read_portfolio(portfolio_fname)
+    prices = read_prices(prices_fname)
+    report = make_report(portfolio, prices)
+    print_report(report,portfolio,prices)
+
+    return None
+
 
 
 if len(sys.argv) > 2:
@@ -73,47 +110,14 @@ if len(sys.argv) > 2:
         portfolio_fname = sys.argv[1]
         prices_fname = sys.argv[2]    
 
-        portfolio = read_portfolio(portfolio_fname)
-        prices = read_prices(prices_fname)
-        report = make_report(portfolio, prices)
+        portfolio_report(portfolio_fname,prices_fname)
+
     except IndexError:
         print(f'Not enough parameters')
 else:
-    prices = read_prices('Data/prices.csv')
-    portfolio = read_portfolio('Data/portfolio.csv')
-    report = make_report(portfolio, prices)
+    portfolio_report('Data/portfolio.csv','Data/prices.csv')
 
 
 
 
-
-# Holdings total
-total_list = []
-for row in portfolio:
-    total_list.append(row['shares'] * row['price'])
-
-
-cost = sum([row['shares'] * float(row['price']) for row in portfolio])
-
-# Actuals
-
-actuals_list = []
-for row in portfolio:
-    actuals_list.append(row['shares'] * prices[row['name']])
-
-actuals = sum([prices[row['name']]* row['shares'] for row in portfolio])
-
-
-headers = ('Name', 'Shares', 'Price', 'Cost', 'Change')
-print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s} {headers[4]:>10s}')
-print(f'{"":->10s} {"":->10s} {"":->10s} {"":->10s} {"":->10s}')
-
-for p in report:
-    price = p['price']
-    p['price'] = f'${price:.2f}'
-    print('{name:>10s} {shares:>10d} {price:>10s} {cost:>10.2f} {change:>10.2f}'.format_map(p))
-
-print(f'\n')
-print(f'{"":>10s} {"":>10s} {"Total.Cost":>10s} {cost:>10.2f}')
-print(f'{"":>10s} {"":>10s} {"Curr.Val":>10s} {cost-actuals:>10.2f}')
 

@@ -8,14 +8,14 @@
 import sys
 import csv
 
-def parse_date_slashes(string_data):
+def parse_date_slashes(string_data: str) -> tuple:
     # Takes in a single date represented as a string with '/' for dates.
     # Args: string_data (6/02/2017)
     # Returns: tuple split by '/'
 
     return tuple(string_data.split('/'))
 
-def read_portfolio(filename):
+def read_portfolio(filename: str) -> list:
     """ 
     Read portfolio file (made for dowstocks.csv)
     Args: Filename
@@ -38,7 +38,7 @@ def read_portfolio(filename):
         # set of type conversion functions.
 
         types = [str, float, parse_date_slashes, str, float, float, float, float, int]
-        
+
         for rowno,row in enumerate(rows):
             try:
                 portfolio.append({headers:func(val) for headers,func,val in zip(headers,types,row)})
