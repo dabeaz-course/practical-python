@@ -86,7 +86,7 @@ exercises.  Feel free to look at this if you need a hint.  To get the
 most out of the course however, you should try to create your own
 solutions first.
 
-[Contents](Contents.md)
+[Contents](Contents.md) \| [Next (1 Introduction to Python)](01_Introduction/00_Overview.md)
 
 
 

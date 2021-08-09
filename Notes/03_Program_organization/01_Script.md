@@ -283,7 +283,7 @@ interactively after running your program:
 >>> files = ['Data/portfolio.csv', 'Data/portfolio2.csv']
 >>> for name in files:
         print(f'{name:-^43s}')
-        portfolio_report(name, 'prices.csv')
+        portfolio_report(name, 'Data/prices.csv')
         print()
 
 ... look at the output ...

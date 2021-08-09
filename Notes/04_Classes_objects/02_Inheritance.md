@@ -277,7 +277,7 @@ inheritance instead.
 
 To start, focus on the steps that are involved in a creating a table.
 At the top of the table is a set of table headers.  After that, rows
-of table data appear.  Let's take those steps and and put them into
+of table data appear.  Let's take those steps and put them into
 their own class.  Create a file called `tableformat.py` and define the
 following class:
 
