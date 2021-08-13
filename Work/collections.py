@@ -12,7 +12,6 @@ for value in portfolio:
 	holdings[value['name']] += value['shares']
 
 
-
 portfolio = read_portfolio('Data/portfolio.csv')
 
 from collections import defaultdict

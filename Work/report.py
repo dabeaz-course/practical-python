@@ -12,7 +12,7 @@ def read_portfolio(filename: str) -> list:
        Args: (string) filename ex: 'Data/portfolio.csv' 
        Return: (dictonary) List of dictonaries.
     '''
-    portfolio = fileparse.parse_csv(filename)
+    portfolio = fileparse.parse_csv(filename,types=[str, int, float],has_headers=True)
 
     return portfolio
 
@@ -21,9 +21,7 @@ def read_prices(filename: str) -> list:
     '''Read prices form a file and store as dictionary.'''
 
     prices = {}
-
-    prices = fileparse.parse_csv('Data/prices.csv', select=None, types=[str,float],has_headers=False,delimiter=',')
-
+    prices = dict(fileparse.parse_csv('Data/prices.csv', select=None, types=[str,float],has_headers=False,delimiter=','))
     return prices
 
 def make_report(portfolio: list, prices: list) -> list:
@@ -34,15 +32,17 @@ def make_report(portfolio: list, prices: list) -> list:
     '''
 
     adj_portfolio = []
-
     for row in portfolio:
-        adj_portfolio.append(({
-            'name':row['name'],
-            'price':row['price'],
-            'shares':row['shares'],
-            'cost': row['price']*row['shares'],
-            'change':prices[row['name']]-row['price']            
-            }))
+        try:
+            adj_portfolio.append(({
+                'name':row['name'],
+                'price':row['price'],
+                'shares':row['shares'],
+                'cost': (row['price'] * row['shares']),
+                'change':prices[row['name']]-row['price']            
+                }))
+        except TypeError as e:
+            print(e)
 
     return adj_portfolio
 
@@ -76,6 +76,7 @@ def portfolio_report(portfolio_fname: str, prices_fname: str) -> None:
     """
     portfolio = read_portfolio(portfolio_fname)
     prices = read_prices(prices_fname)
+    
     report = make_report(portfolio, prices)
     print_report(report,portfolio,prices)
 
@@ -83,7 +84,7 @@ def portfolio_report(portfolio_fname: str, prices_fname: str) -> None:
 
 
 
-if len(sys.argv) > 2:
+"""if len(sys.argv) > 2:
     try:
         portfolio_fname = sys.argv[1]
         prices_fname = sys.argv[2]    
@@ -94,7 +95,7 @@ if len(sys.argv) > 2:
         print(f'Not enough parameters')
 else:
     portfolio_report('Data/portfolio.csv','Data/prices.csv')
-
+"""
 
 
 
