@@ -1,9 +1,9 @@
-# report_dict.py
+#!/usr/bin/env python3
+# report.py
 #
 # Exercise 2.4 - example with tuple unpacking and list of tuples
 
 import csv
-import sys
 import fileparse
 from collections import defaultdict
 
@@ -12,7 +12,9 @@ def read_portfolio(filename: str) -> list:
        Args: (string) filename ex: 'Data/portfolio.csv' 
        Return: (dictonary) List of dictonaries.
     '''
-    portfolio = fileparse.parse_csv(filename,types=[str, int, float],has_headers=True)
+
+    with open(filename, 'rt') as f:
+        portfolio = fileparse.parse_csv(lines=f,types=[str, int, float],has_headers=True)
 
     return portfolio
 
@@ -21,7 +23,9 @@ def read_prices(filename: str) -> list:
     '''Read prices form a file and store as dictionary.'''
 
     prices = {}
-    prices = dict(fileparse.parse_csv('Data/prices.csv', select=None, types=[str,float],has_headers=False,delimiter=','))
+    with open(filename, 'rt') as f:
+        prices = dict(fileparse.parse_csv(lines=f, select=None, types=[str,float],has_headers=False,delimiter=','))
+
     return prices
 
 def make_report(portfolio: list, prices: list) -> list:
@@ -83,20 +87,17 @@ def portfolio_report(portfolio_fname: str, prices_fname: str) -> None:
     return None
 
 
+# Main function
+def main(argv):
+    # Parse command line args, environment, etc.
+    if len(argv) != 3:
+        raise SystemExit(f'Usage: {argv[0]} ' 'portfile pricefile')
+    portfile = argv[1]
+    pricefile = argv[2]
 
-"""if len(sys.argv) > 2:
-    try:
-        portfolio_fname = sys.argv[1]
-        prices_fname = sys.argv[2]    
-
-        portfolio_report(portfolio_fname,prices_fname)
-
-    except IndexError:
-        print(f'Not enough parameters')
-else:
-    portfolio_report('Data/portfolio.csv','Data/prices.csv')
-"""
+    portfolio_report(portfolio_fname=portfile, prices_fname=pricefile)
 
 
-
-
+if __name__ == '__main__':
+    import sys
+    main(sys.argv)
