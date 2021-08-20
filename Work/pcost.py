@@ -45,7 +45,7 @@ print(portfolio_cost('Data/portfoliodate.csv'))
 
 #line = str(line)
 #line.remove('AA')
-#line.remove('IBM')
+ #line.remove('IBM')
 #line.remove('CAT')
 #line.remove('MSFT')
 #line.remove('GE')
