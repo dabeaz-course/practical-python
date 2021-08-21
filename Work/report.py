@@ -5,7 +5,7 @@
 
 import csv
 import fileparse
-from collections import defaultdict
+import stock
 
 def read_portfolio(filename: str) -> list:
     '''Reads in portfolio and stores into a list of dictionaries.
@@ -16,7 +16,9 @@ def read_portfolio(filename: str) -> list:
     with open(filename, 'rt') as f:
         portfolio = fileparse.parse_csv(lines=f,types=[str, int, float],has_headers=True)
 
-    return portfolio
+    stock_portfolio = [stock.Stock(s['name'],s['shares'],s['price']) for s in portfolio]
+
+    return stock_portfolio
 
 
 def read_prices(filename: str) -> list:
@@ -24,49 +26,44 @@ def read_prices(filename: str) -> list:
 
     prices = {}
     with open(filename, 'rt') as f:
-        prices = dict(fileparse.parse_csv(lines=f, select=None, types=[str,float],has_headers=False,delimiter=','))
+        prices = dict(fileparse.parse_csv(lines=f, types=[str,float],has_headers=False))
 
     return prices
 
-def make_report(portfolio: list, prices: list) -> list:
+def make_report(portfolio: object, prices: list) -> list:
     '''Adjust Portfolio to include change in price and current price.
 
-       Args: portfolio list of dictionaries. Expecting name, shares, price as keys.
+       Args: portfolio list of objects. Expecting Stock() with name, shares, price as attributes.
        Return: adj_portolio list of dictionaries, with additional key 'change'
     '''
 
     adj_portfolio = []
-    for row in portfolio:
+    for stock in portfolio:
         try:
-            adj_portfolio.append(({
-                'name':row['name'],
-                'price':row['price'],
-                'shares':row['shares'],
-                'cost': (row['price'] * row['shares']),
-                'change':prices[row['name']]-row['price']            
-                }))
+            stock.change = prices[stock.name] - stock.price
+            adj_portfolio.append(stock)
         except TypeError as e:
             print(e)
 
     return adj_portfolio
 
-def print_report(report:list,portfolio:list,prices:list) -> None:
+def print_report(report:object,portfolio:object,prices:list) -> None:
     """
     Print results of the report.
     Calculates cost and actuals and displays at bottom for profit/loss.
     """
 
-    cost = sum([row['shares'] * float(row['price']) for row in portfolio])
-    actuals = sum([prices[row['name']]* row['shares'] for row in portfolio])
+    cost = sum([stock.shares * float(stock.price) for stock in portfolio])
+    actuals = sum([prices[stock.name]* stock.shares for stock in portfolio])
 
     headers = ('Name', 'Shares', 'Price', 'Cost', 'Change')
     print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s} {headers[4]:>10s}')
     print(f'{"":->10s} {"":->10s} {"":->10s} {"":->10s} {"":->10s}')
 
     for p in report:
-        price = p['price']
-        p['price'] = f'${price:.2f}'
-        print('{name:>10s} {shares:>10d} {price:>10s} {cost:>10.2f} {change:>10.2f}'.format_map(p))
+        price = p.price
+        p.price = f'${price:.2f}'
+        print(f'{p.name:>10s} {p.shares:>10d} {p.price:>10s} {p.cost:>10.2f} {p.change:>10.2f}')
 
     print(f'\n')
     print(f'{"":>10s} {"":>10s} {"Total.Cost":>10s} {cost:>10.2f}')

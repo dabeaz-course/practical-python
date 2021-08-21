@@ -17,9 +17,7 @@ def portfolio_cost(filename):
     'Using csv library to parse csv.'
     portfolio = report.read_portfolio(filename)
 
-    total_cost = 0
-    for row in portfolio:
-        total_cost += row['shares'] * row['price']  
+    total_cost = sum([stock.shares * stock.price for stock in portfolio])
 
     return total_cost
 
