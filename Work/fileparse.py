@@ -7,6 +7,25 @@ def parse_csv(x, select=None, types=None, has_headers=True, delimiter=','):
 	'''
 	Parse a CSV file into a list of records
 	'''
+
+	if has_headers == False:
+		raise RuntimeError('Does not have header')
+
+	if select != None:
+		raise RuntimeError('The selected is not within the header')
+
+
+	if [str] not in types:
+		raise RuntimeError('Row#:', 'Reason no value in names')
+
+
+	if [int] not in types:
+		raise RuntimeError('Row#:', 'Reason, Not a value of Naturals')
+
+
+	if [float] not in types:
+		raise RuntimeError('Row#', 'Reason, does not contain a number or not a number that belongs to floats')
+
 	with open(x) as f:
 		rows = csv.reader(f, delimiter=delimiter)
 		headers = next(rows) if has_headers else []
@@ -33,3 +52,4 @@ def parse_csv(x, select=None, types=None, has_headers=True, delimiter=','):
 				record = tuple(row)
 			records.append(record)
 	return records
+
