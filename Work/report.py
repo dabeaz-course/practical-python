@@ -54,7 +54,7 @@ def print_report(report:object, formatter:object) -> None:
     Calculates cost and actuals and displays at bottom for profit/loss.
     """
 
-    cost = sum([stock.cost() for stock in report])
+    cost = sum([stock.total_cost for stock in report])
     
     formatter.headings(['Name', 'Shares', 'Price', 'Change'])
 
