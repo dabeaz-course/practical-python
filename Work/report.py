@@ -6,6 +6,7 @@
 import csv
 import fileparse
 import stock
+import tableformat
 
 def read_portfolio(filename: str) -> list:
     '''Reads in portfolio and stores into a list of dictionaries.
@@ -42,44 +43,46 @@ def make_report(portfolio: object, prices: list) -> list:
         try:
             stock.change = prices[stock.name] - stock.price
             adj_portfolio.append(stock)
-        except TypeError as e:
-            print(e)
+        except TypeError as err:
+            print(err)
 
     return adj_portfolio
 
-def print_report(report:object,portfolio:object,prices:list) -> None:
+def print_report(report:object, formatter:object) -> None:
     """
     Print results of the report.
     Calculates cost and actuals and displays at bottom for profit/loss.
     """
 
-    cost = sum([stock.shares * float(stock.price) for stock in portfolio])
-    actuals = sum([prices[stock.name]* stock.shares for stock in portfolio])
+    cost = sum([stock.cost() for stock in report])
+    
+    formatter.headings(['Name', 'Shares', 'Price', 'Change'])
 
-    headers = ('Name', 'Shares', 'Price', 'Cost', 'Change')
-    print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s} {headers[4]:>10s}')
-    print(f'{"":->10s} {"":->10s} {"":->10s} {"":->10s} {"":->10s}')
-
-    for p in report:
-        price = p.price
-        p.price = f'${price:.2f}'
-        print(f'{p.name:>10s} {p.shares:>10d} {p.price:>10s} {p.cost:>10.2f} {p.change:>10.2f}')
+    for stock in report:
+        rowdata = [ stock.name, str(stock.shares), f'{stock.price:0.2f}', f'{stock.change:0.2f}' ]
+        formatter.row(rowdata)
 
     print(f'\n')
     print(f'{"":>10s} {"":>10s} {"Total.Cost":>10s} {cost:>10.2f}')
-    print(f'{"":>10s} {"":>10s} {"Curr.Val":>10s} {cost-actuals:>10.2f}')
+
 
     return None
 
-def portfolio_report(portfolio_fname: str, prices_fname: str) -> None:
+def portfolio_report(portfolio_fname: str, prices_fname: str, fmt='txt') -> None:
     """
     Executes program to show portfolio_report.
     """
+
+    # Read data files
     portfolio = read_portfolio(portfolio_fname)
     prices = read_prices(prices_fname)
-    
+
+    # Create report data    
     report = make_report(portfolio, prices)
-    print_report(report,portfolio,prices)
+
+    # Print it out
+    formatter = tableformat.create_formatter(fmt)
+    print_report(report,formatter)
 
     return None
 
@@ -87,12 +90,14 @@ def portfolio_report(portfolio_fname: str, prices_fname: str) -> None:
 # Main function
 def main(argv):
     # Parse command line args, environment, etc.
-    if len(argv) != 3:
-        raise SystemExit(f'Usage: {argv[0]} ' 'portfile pricefile')
+    if len(argv) != 4:
+        raise SystemExit(f'Usage: {argv[0]} ' 'portfile pricefile [txt|csv|html]')
+    
     portfile = argv[1]
     pricefile = argv[2]
+    print_fmt = argv[3]
 
-    portfolio_report(portfolio_fname=portfile, prices_fname=pricefile)
+    portfolio_report(portfolio_fname=portfile, prices_fname=pricefile, fmt=print_fmt)
 
 
 if __name__ == '__main__':
