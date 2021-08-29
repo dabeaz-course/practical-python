@@ -61,6 +61,9 @@ class HTMLTableFormatter(TableFormatter):
 			temp_string += f'<td>{r}</td>'
 		print(f'<tr>{temp_string}</tr>')
 
+class FormatError(Exception):
+	pass
+
 
 def create_formatter(fmt):
 	if fmt == 'txt':
@@ -70,6 +73,13 @@ def create_formatter(fmt):
 	elif fmt == 'html':
 		formatter = HTMLTableFormatter()
 	else:
-		raise RuntimeError(f'Unknown format {fmt}')
+		raise FormatError(f'Unknown table format {fmt}')
 
 	return formatter
+
+def print_table(report: object, selector:list, formatter:object):
+    formatter.headings(selector)
+    for stock in report:
+    	for colname in selector:
+    		print(f'{getattr(stock, colname):>10}', end=' ')
+    	print()

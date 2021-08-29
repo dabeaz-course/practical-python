@@ -20,6 +20,9 @@ class Stock(object):
 		'''Cost of existing shares'''
 		return self.shares * self.price
 
+	def __repr__(self):
+		return f'Stock({self.name},{self.shares},{self.price})'
+
 class MyStock(Stock):
 
 	def __init__(self, name, shares, price, factor):
