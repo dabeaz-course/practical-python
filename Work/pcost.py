@@ -51,3 +51,20 @@ print(portfolio_cost('Data/portfoliodate.csv'))
 #line.remove('GE')
 #line.remove('MSFT')
 #line.remove('IBM')
+
+def portfolio_report(pricefile):
+
+	cost = portfolio_cost(pricefile)
+
+	report = make_report_data(cost)
+
+	print_report(report)
+
+def main(argv):
+	if len(argv) != 2:
+		raise SystemExit('Usage: %s pricefile' % argv[0])
+	portfolio_report(argv[1], argv[2])
+
+if __name__ == '__main__':
+	import sys
+	main(sys.argv)
