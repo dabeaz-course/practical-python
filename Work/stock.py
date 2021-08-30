@@ -5,20 +5,38 @@
 
 class Stock(object):
 
+	'''
+	When using __slots__, python will make an optimization on a data structure.
+	It also restricts the class from manipulation (adding attributes)
+	'''
+	__slots__ = ('name','_shares','price','change','total_cost')
+
 	def __init__(self, name, shares, price, change=None):
 		self.name = name
-		self.shares = shares
+		self._shares = shares
 		self.price = price
 		self.change = change
-		self.total_cost = self.cost()
+		self.total_cost = self.cost
 
 	def sell(self, num_shares):
 		'''Function to sell shares'''
 		self.shares -= num_shares
 
+	@property
 	def cost(self):
 		'''Cost of existing shares'''
-		return self.shares * self.price
+		return self._shares * self.price
+
+	@property
+	def shares(self):
+		'''Return shares'''
+		return self._shares
+
+	@shares.setter
+	def shares(self, value):
+		if not isinstance(value, int):
+			raise TypeError('Expected int')
+		self._shares = value
 
 	def __repr__(self):
 		return f'Stock({self.name},{self.shares},{self.price})'
@@ -33,5 +51,5 @@ class MyStock(Stock):
 		self.sell(self.shares)
 
 	def cost(self):
-		return self.factor *  super().cost()
+		return self.factor *  super().cost
 
