@@ -12,14 +12,13 @@
 
 import csv
 import report
+from portfolio import Portfolio
 
 def portfolio_cost(filename):
     'Using csv library to parse csv.'
     portfolio = report.read_portfolio(filename)
-
-    total_cost = sum([stock.cost for stock in portfolio])
-
-    return total_cost
+    
+    return portfolio.total_cost
 
 
 def main(argv):
