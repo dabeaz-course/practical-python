@@ -5,8 +5,10 @@
 
 import csv
 import fileparse
-import stock
 import tableformat
+from stock import Stock
+from portfolio import Portfolio
+
 
 def read_portfolio(filename: str) -> list:
     '''Reads in portfolio and stores into a list of dictionaries.
@@ -17,9 +19,9 @@ def read_portfolio(filename: str) -> list:
     with open(filename, 'rt') as f:
         portfolio = fileparse.parse_csv(lines=f,types=[str, int, float],has_headers=True)
 
-    stock_portfolio = [stock.Stock(s['name'],s['shares'],s['price']) for s in portfolio]
+    stock_portfolio = [Stock(s['name'],s['shares'],s['price']) for s in portfolio]
 
-    return stock_portfolio
+    return Portfolio(stock_portfolio)
 
 
 def read_prices(filename: str) -> list:
