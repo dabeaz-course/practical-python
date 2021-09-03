@@ -58,45 +58,24 @@
 #print('-------------------------------------')
 #for row in report:
 #	print('%7s %7d $%7.3f %7.3f' % row)
-
-
-import csv
+import fileparse
 
 def read_portfolio(filename):
     '''
     Read a stock portfolio file into a list of dictionaries with keys
     name, shares, and price.
     '''
-    portfolio = []
-    with open(filename) as f:
-        rows = csv.reader(f)
-        headers = next(rows)
-
-        for row in rows:
-            record = row
-            stock = {
-                 'name'   : row[0],
-                 'shares' : int(row[1]),
-                 'price'   : float(row[2])
-            }
-            portfolio.append(stock)
-
-    return portfolio
+    with open(filename) as lines:
+        return fileparse.parse_csv(lines, select = ['name', 'shares', 'price'], types = [str,int,float])
 
 def read_prices(filename):
     '''
     Read a CSV file of price data into a dict mapping names to prices.
     '''
     prices = {}
-    with open(filename) as f:
-        rows = csv.reader(f)
-        for row in rows:
-            try:
-                prices[row[0]] = float(row[1])
-            except IndexError:
-                pass
+    with open(filename) as lines:
+        return dict(fileparse.parse_csv(lines, types = [str,float], has_headers = False))
 
-    return prices
 
 def make_report_data(portfolio, prices):
     '''
