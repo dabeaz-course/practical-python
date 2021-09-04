@@ -58,6 +58,7 @@
 #print('-------------------------------------')
 #for row in report:
 #	print('%7s %7d $%7.3f %7.3f' % row)
+
 import fileparse
 
 def read_portfolio(filename):
@@ -90,28 +91,23 @@ def make_report_data(portfolio, prices):
         rows.append(summary)
     return rows
 
-# Read data files and create the report data
-
-portfolio = read_portfolio('Data/portfolio.csv')
-prices    = read_prices('Data/prices.csv')
-
 # Generate the report data
-
-report    = make_report_data(portfolio, prices)
+def print_report(reportdata):
+    report = make_report_data(portfolio, prices)
 
 # Output the report
-headers = ('Name', 'Shares', 'Price', 'Change')
-print('%10s %10s %10s %10s' % headers)
-print(('-' * 10 + ' ') * len(headers))
-for row in report:
-    print('%10s %10d %10.2f %10.2f' % row)
+    headers = ('Name', 'Shares', 'Price', 'Change')
+    print('%10s %10s %10s %10s' % headers)
+    print(('-' * 10 + ' ') * len(headers))
+    for row in reportdata:
+        print('%10s %10d %10.2f %10.2f' % row)
 
 def portfolio_report(portfoliofile, pricefile):
 
 	portfolio = read_portfolio(portfoliofile)
 	prices = read_prices(pricefile)
 
-	report = make_report_data(portfolio, prices)
+	report = make_report_data(portfoliofile, pricefile)
 
 	print_report(report)
 
