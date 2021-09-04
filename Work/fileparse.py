@@ -1,56 +1,46 @@
-# fileparse.py
+import csv
 #
-# Exercise 3.3
-import csv
-import csv
-
 def parse_csv(lines, select=None, types=None, has_headers=True, delimiter=',', silence_errors=False):
-	'''
-	Parse a CSV file into a list of records
-	'''
+    '''
+    Parse a CSV file into a list of records with type conversion.
+    '''
+    if select and not has_headers:
+        raise RuntimeError('select requires column headers')
 
-	if select and not has_headers:
-		raise RuntimeError('select requires column headers')
+    rows = csv.reader(lines, delimiter=delimiter)
 
-#	if [str] not in types:
-#		raise RuntimeError('Row#:', 'Reason no value in names')
+    # Read the file headers (if any)
+    headers = next(rows) if has_headers else []
 
+    # If specific columns have been selected, make indices for filtering and set output columns
+    if select:
+        indices = [ headers.index(colname) for colname in select ]
+        headers = select
 
-#	if [int] not in types:
-#		raise RuntimeError('Row#:', 'Reason, Not a value of Naturals')
+    records = []
+    for rowno, row in enumerate(rows, 1):
+        if not row:     # Skip rows with no data
+            continue
 
+        # If specific column indices are selected, pick them out
+        if select:
+            row = [ row[index] for index in indices]
 
-#	if [float] not in types:
-#		raise RuntimeError('Row#', 'Reason, does not contain a number or not a number that belongs to floats')
+        # Apply type conversion to the row
+        if types:
+            try:
+                row = [func(val) for func, val in zip(types, row)]
+            except ValueError as e:
+                if not silence_errors:
+                    print(f"Row {rowno}: Couldn't convert {row}")
+                    print(f"Row {rowno}: Reason {e}")
+                continue
 
-	rows = csv.reader(lines, delimiter=delimiter)
-	headers = next(rows) if has_headers else []
+        # Make a dictionary or a tuple
+        if headers:
+            record = dict(zip(headers, row))
+        else:
+            record = tuple(row)
+        records.append(record)
 
-	if select:
-		indices = [headers.index(colname) for colname in select]
-		headers = select
-
-	records = []
-
-	for rowno, row in enumerate(rows, 1):
-		if not row:
-			continue
-		if select:
-			row = [ row[index] for index in indices]
-
-		if types:
-			try:
-				row = [func(val) for func, val in zip(types, row)]
-			except ValueError as e:
-				if not silence_errors:
-					print(f"Row {rowno}: Couldn't convert {row}")
-					print(f"Row {rowno}: Reason {e}")
-			continue
-
-		if headers:
-			record = dict(zip(headers, row))
-
-		else:
-			record = tuple(row)
-		records.append(record)
-	return records
+    return records
