@@ -1,4 +1,11 @@
+from typedproperty import String, Integer, Float
+
 class Stock:
+
+    name = String('name')
+    shares = Integer('shares')
+    price = Float('price')
+
     '''
     An instance of a stock holding consisting of name, shares, and price.
     '''

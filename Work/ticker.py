@@ -28,6 +28,7 @@ def filter_symbols(rows, names):
 		if row['name'] in names:
 			yield row
 
+
 def ticker(portfile, logfile, fmt):
 	portfolio = report.read_portfolio(portfile)
 	lines = follow(logfile)
