@@ -21,8 +21,5 @@ while principal > 0:
 
     print(month, round(total_paid,2), round(principal, 2))
     
-print('Total paid', round(total_paid, 2))
-print('Months', month)
-
-
-
+print(f'Total pay is {round(total_paid, 2)}')
+print(f'And total pay month is {month}')
