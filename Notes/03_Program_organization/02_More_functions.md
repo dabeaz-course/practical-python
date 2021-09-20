@@ -469,7 +469,7 @@ line of data isn’t interpreted as a header line.  Also, you’ll need to
 make sure you don’t create dictionaries as there are no longer any
 column names to use for keys.
 
-### Exercise 3.7: Picking a different column delimitier
+### Exercise 3.7: Picking a different column delimiter
 
 Although CSV files are pretty common, it’s also possible that you
 could encounter a file that uses a different column separator such as

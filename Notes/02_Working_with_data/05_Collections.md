@@ -1,6 +1,6 @@
 [Contents](../Contents.md) \| [Previous (2.4 Sequences)](04_Sequences.md) \| [Next (2.6 List Comprehensions)](06_List_comprehension.md)
 
-# 2.5 collections module
+# 2.5 Collections module
 
 The `collections` module provides a number of useful objects for data handling.
 This part briefly introduces some of these features.

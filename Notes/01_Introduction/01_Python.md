@@ -61,7 +61,7 @@ will be able to use it everywhere else.
 
 ### Exercise 1.1: Using Python as a Calculator
 
-On your machine, start Python and use it as a calulator to solve the
+On your machine, start Python and use it as a calculator to solve the
 following problem.
 
 Lucky Larry bought 75 shares of Google stock at a price of $235.14 per

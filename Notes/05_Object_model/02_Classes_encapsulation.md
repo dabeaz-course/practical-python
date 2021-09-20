@@ -184,7 +184,7 @@ class Stock:
     ...
 ```
 
-This allows you to drop the extra parantheses, hiding the fact that it's actually a method:
+This allows you to drop the extra parentheses, hiding the fact that it's actually a method:
 
 ```python
 >>> s = Stock('GOOG', 100, 490.1)
