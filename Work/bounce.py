@@ -8,5 +8,5 @@ nb_bounces = 10
 
 while nb_bounces > 0 :
     actual_height = (actual_height*3)/5
-    print(actual_height)
+    print(round(actual_height,5))
     nb_bounces = nb_bounces -1
