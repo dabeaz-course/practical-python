@@ -215,7 +215,7 @@ For example, this determines the set of unique stock names that appear in `portf
 ```python
 >>> names = { s['name'] for s in portfolio }
 >>> names
-{ 'AA', 'GE', 'IBM', 'MSFT', 'CAT'] }
+{ 'AA', 'GE', 'IBM', 'MSFT', 'CAT' }
 >>>
 ```
 

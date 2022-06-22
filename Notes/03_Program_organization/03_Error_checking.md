@@ -126,7 +126,7 @@ bar()
 There are about two-dozen built-in exceptions.  Usually the name of
 the exception is indicative of what's wrong (e.g., a `ValueError` is
 raised because you supplied a bad value). This is not an
-exhaustive list. Check the documentation for more.
+exhaustive list. Check the [documentation](https://docs.python.org/3/library/exceptions.html) for more.
 
 ```python
 ArithmeticError
@@ -341,7 +341,7 @@ As a general rule, it’s usually best to skip such tests and to just
 let the program fail on bad inputs.  The traceback message will point
 at the source of the problem and can assist in debugging.
 
-The main reason for adding the above check to avoid running the code
+The main reason for adding the above check is to avoid running the code
 in a non-sensical mode (e.g., using a feature that requires column
 headers, but simultaneously specifying that there are no headers).
 

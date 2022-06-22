@@ -29,7 +29,7 @@ Adding 3 4
 
 ### Local Variables
 
-Observe how to inner function refers to variables defined by the outer
+Observe how the inner function refers to variables defined by the outer
 function.
 
 ```python
@@ -86,6 +86,7 @@ Consider a function like this:
 
 ```python
 def after(seconds, func):
+    import time
     time.sleep(seconds)
     func()
 ```
@@ -110,6 +111,7 @@ def add(x, y):
     return do_add
 
 def after(seconds, func):
+    import time
     time.sleep(seconds)
     func()
 

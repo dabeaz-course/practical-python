@@ -147,7 +147,8 @@ A method that has not yet been invoked by the function call operator `()` is kno
 It operates on the instance where it originated.
 
 ```python
->>> s = Stock('GOOG', 100, 490.10) >>> s
+>>> s = Stock('GOOG', 100, 490.10)
+>>> s
 <Stock object at 0x590d0>
 >>> c = s.cost
 >>> c

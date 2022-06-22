@@ -241,7 +241,7 @@ while num_bills * bill_thickness < sears_height:
     day = day + 1
     num_bills = num_bills * 2
 
-print('Number of days', days)
+print('Number of days', day)
 ```
 
 The statements indented below the `while` will execute as long as the expression after the `while` is `true`.
@@ -257,7 +257,7 @@ while num_bills * bill_thickness < sears_height:
     day = day + 1
     num_bills = num_bills * 2
 
-print('Number of days', days)
+print('Number of days', day)
 ```
 
 Indentation groups the following statements together as the operations that repeat:

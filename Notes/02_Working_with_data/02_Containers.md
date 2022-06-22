@@ -195,12 +195,14 @@ unique = set(names)
 Additional set operations:
 
 ```python
-names.add('CAT')        # Add an item
-names.remove('YHOO')    # Remove an item
+unique.add('CAT')        # Add an item
+unique.remove('YHOO')    # Remove an item
 
-s1 | s2                 # Set union
-s1 & s2                 # Set intersection
-s1 - s2                 # Set difference
+s1 = { 'a', 'b', 'c'}
+s2 = { 'c', 'd' }
+s1 | s2                 # Set union { 'a', 'b', 'c', 'd' }
+s1 & s2                 # Set intersection { 'c' }
+s1 - s2                 # Set difference { 'a', 'b' }
 ```
 
 ## Exercises
