@@ -12,12 +12,12 @@ extra_payment = 1000
 
 while principal > 0:
     numberOfMonths += 1
-    principal = principal * (1 + rate/12) - (payment + extra_payment * int(extra_payment_start_month <= numberOfMonths <= extra_payment_end_month))
-    total_paid = total_paid + payment + (extra_payment * int(extra_payment_start_month <= numberOfMonths <= extra_payment_end_month))
+    principal = principal * (1 + rate/12) - (payment + extra_payment * (extra_payment_start_month <= numberOfMonths <= extra_payment_end_month))
+    total_paid = total_paid + payment + (extra_payment * (extra_payment_start_month <= numberOfMonths <= extra_payment_end_month))
     if (principal < 0):
         total_paid = total_paid - principal
         principal = 0
-    print(numberOfMonths, round(total_paid, 2), round(principal, 2))
+    print (f'{numberOfMonths} {total_paid:0.2f}  {principal:0.2f}')
 
-print('Total paid', round(total_paid, 2))
-print('Number of months', numberOfMonths)
+print(f'Total paid: {total_paid:0.2f}')
+print(f'Number of months {numberOfMonths}')
