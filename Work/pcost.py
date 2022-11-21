@@ -9,10 +9,10 @@ def portfolio_cost(filename):
         with open(filename) as f:
             rows = csv.reader(f)
             headers = next(rows)
-            for row in rows:
+            for name, shares, price in rows:
                 try:
                     counterOfLines += 1
-                    Total_cost += int(row[1]) * float(row[2])
+                    Total_cost += int(shares) * float(price)
                 except IndexError:
                     print('Проблема со строкой', counterOfLines, ': не хватает информации')
                     pass    
