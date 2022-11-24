@@ -1,24 +1,19 @@
 # pcost.py
 #
 # Exercise 1.27 + 1.30 + 1.31 + 1.32
-def portfolio_cost(filename):
-    import csv
-    counterOfLines = 0
-    Total_cost = 0.00
-    try:
-        with open(filename) as f:
-            rows = csv.reader(f)
-            headers = next(rows)
-            for name, shares, price in rows:
-                try:
-                    counterOfLines += 1
-                    Total_cost += int(shares) * float(price)
-                except IndexError:
-                    print('Проблема со строкой', counterOfLines, ': не хватает информации')
-                    pass    
-        return Total_cost
-    except FileNotFoundError:
-        print('Ну ты чего, братишка? Такого файла нет!')
+import csv
 
-cost = portfolio_cost('Data/portfolioTest.csv')
+def portfolio_cost(filename):
+    total_cost = 0.0
+
+    with open(filename, 'rt') as f:
+        rows = csv.reader(f)
+        headers = next(rows)
+        for row in rows:
+            shares = int(row[1])
+            price = float(row[2])
+            total_cost += shares * price
+    return total_cost
+
+cost = portfolio_cost('Data/portfolio.csv')
 print('Total cost:', cost)
