@@ -35,6 +35,16 @@ def read_prices(filename):
                 pass
     return prices_dict
 
+def report_formatted_out(report):
+    headers = ('Name', 'Shares', 'Price', 'Change')
+    print('%10s %10s %10s %10s' % headers)
+    for e in headers:
+        print('-' * 10, end =' ')
+    print()
+    for name, shares, price, change in report:
+        temp_price = '$' + f'{price:>0.2f}'
+        print(f'{name:>10s} {shares:>10d} {temp_price:>10s} {change:>10.2f}')
+
 def gain_loss_calculator(portfolio_filename, prices_filename):
     portfolio = read_portfolio_dict(portfolio_filename)
     prices = read_prices(prices_filename)
@@ -43,12 +53,8 @@ def gain_loss_calculator(portfolio_filename, prices_filename):
 
     for temp in portfolio:
         current_price = prices[temp['name']]
-        print (temp['name'], 'current price is', current_price)
-        print (temp['name'], 'price was', temp['price'])
         whole_portfolio_price += current_price * temp['shares']
-        print(temp['name'], 'Difference is', (current_price - temp['price']) * temp['shares'])
         Total_gain += (current_price - temp['price']) * temp['shares']
-    print('Whole portfolio price is', whole_portfolio_price)
 
     if (Total_gain > 0):
         print('Total gain is',Total_gain)
@@ -57,4 +63,18 @@ def gain_loss_calculator(portfolio_filename, prices_filename):
     else:
         print('There is no gain or loss')
 
-gain_loss_calculator('Data/portfolio.csv', 'Data/prices.csv')
+def make_report(portfolio_filename, prices_filename):
+    portfolio = read_portfolio_dict(portfolio_filename)
+    prices = read_prices(prices_filename)
+    result = []
+    for temp in portfolio:
+        name = temp['name']
+        shares = temp['shares']
+        price = prices[temp['name']]
+        change = float(price) - float(temp['price'])
+        cur_tuple = (name, shares, price, change)
+        result.append(cur_tuple)
+    return result
+
+report = make_report('Data/portfolio.csv', 'Data/prices.csv')
+report_formatted_out(report)
