@@ -614,7 +614,7 @@ you can change the internal implementation to work in any way that you
 want.  You can write all-custom code.  You can use someone's third
 party package.  You swap out one third-party package for a different
 package when you find a better one.  It doesn't matter--none of
-your application code will break as long as you preserve keep the
+your application code will break as long as you preserve the
 interface.   That's a powerful idea and it's one of the reasons why
 you might consider inheritance for something like this.
 
