@@ -117,6 +117,8 @@ modeled after the C `printf()` as well.
 ```python
 >>> b'%s has %d messages' % (b'Dave', 37)
 b'Dave has 37 messages'
+>>> b'%b has %d messages' % (b'Dave', 37)  # %b may be used instead of %s
+b'Dave has 37 messages'
 >>>
 ```
 
