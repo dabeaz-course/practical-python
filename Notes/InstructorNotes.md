@@ -47,7 +47,7 @@ topics.  For example, scientists/engineers might want to know about
 data analysis or plotting.  So, you can show them how to make a plot
 using matplotlib. Web programmers might want to know how to present
 stock market data on a web-page.  So, you can talk about template
-engines.  Syadmins might want to do something with log files.  So, you
+engines.  Sysadmins might want to do something with log files.  So, you
 can point them at a log file of real-time streaming stock data.
 Software engineers might want to know about design.  So, you can have
 them look at ways to encapsulate stock data inside an object or making

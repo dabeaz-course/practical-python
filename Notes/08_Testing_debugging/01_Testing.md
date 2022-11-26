@@ -270,7 +270,7 @@ Ran 1 tests in 0.000s
 OK
 ```
 
-Once you're satisifed that it works, write additional unit tests that
+Once you're satisfied that it works, write additional unit tests that
 check for the following:
 
 - Make sure the `s.cost` property returns the correct value (49010.0)

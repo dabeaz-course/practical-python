@@ -241,7 +241,7 @@ in your `report.py` program.  It should look something like this:
 ```python
 def print_report(reportdata):
     '''
-    Print a nicely formated table from a list of (name, shares, price, change) tuples.
+    Print a nicely formatted table from a list of (name, shares, price, change) tuples.
     '''
     headers = ('Name','Shares','Price','Change')
     print('%10s %10s %10s %10s' % headers)
@@ -312,7 +312,7 @@ the output.  For example, like this:
 
 def print_report(reportdata, formatter):
     '''
-    Print a nicely formated table from a list of (name, shares, price, change) tuples.
+    Print a nicely formatted table from a list of (name, shares, price, change) tuples.
     '''
     formatter.headings(['Name','Shares','Price','Change'])
     for name, shares, price, change in reportdata:

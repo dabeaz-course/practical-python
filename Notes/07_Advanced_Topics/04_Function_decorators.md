@@ -118,7 +118,7 @@ If you define a function, its name and module are stored in the
 
 ```python
 >>> def add(x,y):
-     return x+y
+        return x+y
 
 >>> add.__name__
 'add'
@@ -145,9 +145,9 @@ Here is an example of how your decorator should work:
 >>> from timethis import timethis
 >>> @timethis
 def countdown(n):
-        while n > 0:
-             n -= 1
-
+    while n > 0:
+        n -= 1
+	
 >>> countdown(10000000)
 __main__.countdown : 0.076562
 >>>
