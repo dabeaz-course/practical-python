@@ -338,7 +338,7 @@ follows:
 >>>
 ```
 
-An example of a column selector was given in [Exercise 2.23](../02_Working_with_data/06_List_comprehension).
+An example of a column selector was given in [Exercise 2.23](../02_Working_with_data/06_List_comprehension.md).
 However, here’s one way to do it:
 
 ```python
@@ -431,7 +431,7 @@ type-conversions to be applied to the returned data.  For example:
 >>>
 ```
 
-You already explored this in [Exercise 2.24](../02_Working_with_data/07_Objects).
+You already explored this in [Exercise 2.24](../02_Working_with_data/07_Objects.md).
 You'll need to insert the following fragment of code into your solution:
 
 ```python
