@@ -72,8 +72,8 @@ Exceptions can be caught and handled.
 To catch, use the `try - except` statement.
 
 ```python
-for line in f:
-    fields = line.split()
+for line in file:
+    fields = line.split(',')
     try:
         shares = int(fields[1])
     except ValueError:
