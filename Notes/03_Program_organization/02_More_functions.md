@@ -209,7 +209,7 @@ of the function, it's better to use a class instead (more on this later).
 
 When you call a function, the argument variables are names that refer
 to the passed values. These values are NOT copies (see [section
-2.7](../02_Working_with_data/07_Objects)). If mutable data types are
+2.7](../02_Working_with_data/07_Objects.md)). If mutable data types are
 passed (e.g. lists, dicts), they can be modified *in-place*.
 
 ```python
