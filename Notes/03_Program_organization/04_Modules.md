@@ -316,6 +316,8 @@ and `read_prices()` functions to use the `parse_csv()` function.
 Use the interactive example at the start of this exercise as a guide.
 Afterwards, you should get exactly the same output as before.
 
+### Exercise 3.13: Intentionally left blank (skip)
+
 ### Exercise 3.14: Using more library imports
 
 In section 1, you wrote a program `pcost.py` that read a portfolio and computed its cost.
