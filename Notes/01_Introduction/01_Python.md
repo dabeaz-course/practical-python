@@ -145,6 +145,11 @@ the class by typing in code slowly and thinking about it--not cut and pasting.
 
 ### Exercise 1.4: Where is My Bus?
 
+Note: This was a whimsical example that was a real crowd-pleaser when
+I taught this course in my office.  You could query the bus and then
+literally watch it pass by the window out front.  Sadly, APIs rarely live
+forever and it seems that this one has now ridden off into the sunset. --Dave
+
 Try something more advanced and type these statements to find out how
 long people waiting on the corner of Clark street and Balmoral in
 Chicago will have to wait for the next northbound CTA \#22 bus:
