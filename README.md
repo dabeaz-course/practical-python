@@ -8,11 +8,15 @@ treatment of Python that has been actively taught to more than 400
 in-person groups since 2007.  Traders, systems admins, astronomers,
 tinkerers, and even a few hundred rocket scientists who used Python to
 help land a rover on Mars--they've all taken this course. Now, I'm
-pleased to make it available under a Creative Commons license. Enjoy!
+pleased to make it available under a Creative Commons license--completely
+free of spam, signups, and other nonsense. Enjoy!
 
 [GitHub Pages](https://dabeaz-course.github.io/practical-python) | [GitHub Repo](https://github.com/dabeaz-course/practical-python).
 
---David Beazley ([https://dabeaz.com](https://dabeaz.com)), [@dabeaz](https://twitter.com/dabeaz)
+--David Beazley ([https://dabeaz.com](https://dabeaz.com)), [@dabeaz](https://mastodon.social/@dabeaz)
+
+(P.S. This course is about Python. If you want a Python course that's about programming,
+you might consider [Advanced Programming with Python](https://www.dabeaz.com/advprog.html))
 
 ## What is This?
 
@@ -132,9 +136,10 @@ not learning the names of commands in tools.
 
 ### Q: Is this course being maintained or updated?
 
-This course represents a "finished product" that was taught and developed
-for more than decade.  I have no plans to revise the material at this time, but
-will occasionally fix bugs and add clarification.
+This course represents a "finished product" that was taught and
+developed for more than decade.  I have no plans to significantly
+revise the material at this time, but will occasionally fix bugs and
+add clarification.
 
 ### Q: Do you accept pull requests?
 
