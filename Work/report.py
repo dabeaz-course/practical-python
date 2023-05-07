@@ -83,9 +83,10 @@ headers = ('Name', 'Shares', 'Price', 'Change')
 for n in headers:
     print(f"{n:>10s} ", end='')
 print()
-# follow header names with dashes separating columns with a space
+# print dashes below header names separating columns with a space
 print(f"{'-'*10:>10s} " * 4)
 # Format our report output with f-strings
 for name, shares, price, change in report:
-    print(f"{name:>10s} {shares:>10d} {price:10.2f} {change:>10.2f}")
+    priceString = "${:,.2f}".format(price)
+    print(f"{name:>10s} {shares:>10d} {priceString:>10s} {change:10.2f}")
 
