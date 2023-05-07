@@ -78,6 +78,13 @@ prices = read_prices(price_file)
 portfolio = read_portfolio('Data/portfolio.csv')
 prices = read_prices('Data/prices.csv')
 report = make_report(portfolio, prices)
+# Print some headers at top of report
+headers = ('Name', 'Shares', 'Price', 'Change')
+for n in headers:
+    print(f"{n:>10s} ", end='')
+print()
+# follow header names with dashes separating columns with a space
+print(f"{'-'*10:>10s} " * 4)
 # Format our report output with f-strings
 for name, shares, price, change in report:
     print(f"{name:>10s} {shares:>10d} {price:10.2f} {change:>10.2f}")
