@@ -16,14 +16,20 @@
 
 def portfolio_cost(filename):
     total_cost = 0.0
+    ctr = 0
     with open(filename, 'rt') as f:
         headers = next(f)
         for line in f:
+            ctr += 1
             row = line.split(',')
-            shares = int(row[1])
-            price = float(row[2])
-            total_cost += round((shares * price), ndigits=2)
-    return total_cost
+            try:
+                shares = int(row[1])
+                price = float(row[2])
+                total_cost += shares * price
+            except ValueError:
+                print('ValueError at row', ctr)
 
-cost = portfolio_cost('Data/portfolio.csv')
+        return total_cost
+
+cost = portfolio_cost('Data/missing.csv')
 print('Total cost is', cost)
