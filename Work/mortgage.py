@@ -27,7 +27,6 @@ principal = 0
 
 print(month, total_paid, principal)
 
-print('Total paid', total_paid)
-print('Months', month)
+print('The total paid is ' f'${total_paid:0.2f} over {month} months')
 
 # The answer to Ex 1.9 is: Total paid 880074.0999999964
