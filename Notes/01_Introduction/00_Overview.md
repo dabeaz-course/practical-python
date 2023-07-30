@@ -1,6 +1,6 @@
 [Contents](../Contents.md) \| [Next (2 Working With Data)](../02_Working_with_data/00_Overview.md)
 
-## 1. Introduction to Python
+# 1. Introduction to Python
 
 The goal of this first section is to introduce some Python basics from
 the ground up.  Starting with nothing, you'll learn how to edit, run,
