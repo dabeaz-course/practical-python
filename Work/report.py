@@ -4,7 +4,7 @@
 
 import csv
 import sys
-
+from pprint import pprint
 
 def read_portfolio(filename):
     portfolio = []
@@ -23,4 +23,4 @@ else:
     filename = 'Data/portfolio.csv'
 
 portfolio = read_portfolio(filename)
-print(portfolio)
+pprint(portfolio)
