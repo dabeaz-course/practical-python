@@ -17,7 +17,6 @@ def print_day(day, num_bills, height):
             f'num_bills: {num_bills}',
             f'height: {height}',
             f'height_remaining: {round(remaining_height, 2)}'))
-    
 
 while num_bills * bill_thickness < sears_height:
     print_day(day, num_bills, num_bills * bill_thickness)
