@@ -12,13 +12,15 @@ def read_portfolio(filename):
         rows = csv.reader(f)
         headers = next(rows)
         for row in rows:
-            holding = (row[0], int(row[1]), float(row[2]))
+            holding = {'name': row[0], 'shares': int(row[1]), 'price': float(row[2])}
             portfolio.append(holding)
         return portfolio
+
 
 if len(sys.argv) == 2:
     filename = sys.argv[1]
 else:
     filename = 'Data/portfolio.csv'
 
-print(read_portfolio(filename))
+portfolio = read_portfolio(filename)
+print(portfolio)
