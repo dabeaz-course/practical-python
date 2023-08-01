@@ -11,6 +11,7 @@ def mortgage(extra_payment_start_month=0,
     paid = 0.0
     month = 0
 
+    print(f'{"Mo":>3} {f"Paid":>11} {f"Principal":>11}')
     while principal > 0:
         month += 1
         payment = default_payment
@@ -25,12 +26,12 @@ def mortgage(extra_payment_start_month=0,
             principal = principal * (1 + rate / 12) - payment
         
         paid = paid + payment
-        print(month, paid, principal)
+        print(f'{month:>3} {f"${paid:,.2f}":>11} {f"${principal:,.2f}":>11}')
     
-    print('Total paid', round(paid, 2))
-    print('Months', month)
+    print('------------------')
+    print(f'Total paid: ${round(paid, 2):,.2f}')
+    print('Months:    ', month)
+    print('------------------')
     return round(paid, 2)
 
-print('1.7', mortgage())
-print('1.8', mortgage(1, 12, 1000))
-print('1.9', mortgage(61, 108, 1000))
+mortgage(61, 108, 1000)
