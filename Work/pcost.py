@@ -17,5 +17,3 @@ def pcost(filename):
             except ValueError:
                 print(f'Could not parse {fields}')
     return cost
-
-print(f'Total cost ${pcost("Data/portfolio.csv"):,.2f}')
