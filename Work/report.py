@@ -32,21 +32,36 @@ def read_prices(filename):
 portfolio = read_portfolio('Data/portfolio.csv')
 prices = read_prices('Data/prices.csv')
 
-total_cost = 0.0
-for line in portfolio:
-    total_cost += line['shares'] * line['price']
+# total_cost = 0.0
+# for line in portfolio:
+#     total_cost += line['shares'] * line['price']
+#
+# current_value = 0.0
+# for line in portfolio:
+#     n = line['name']
+#     current_value += line['shares'] * prices[n]
+#
+#
+# print('Original cost', total_cost)
+# print('Current value', current_value)
+# gain = current_value - total_cost
+# print('Gain', gain)
+# if gain > 0:
+#     print('Hooray!')
+# else:
+#     print('Oh no')
 
-current_value = 0.0
-for line in portfolio:
-    n = line['name']
-    current_value += line['shares'] * prices[n]
+def make_report(portfolio, prices):
+    stonks = []
+    for s in portfolio:
+        name = s['name']
+        shares = s['shares']
+        price = prices[s['name']]
+        change = price - s['price']
+        line = (name, shares, price, change)
+        stonks.append(line)
+    return stonks
 
-
-print('Original cost', total_cost)
-print('Current value', current_value)
-gain = current_value - total_cost
-print('Gain', gain)
-if gain > 0:
-    print('Hooray!')
-else:
-    print('Oh no')
+report = make_report(portfolio, prices)
+for line in report:
+    print(line)
