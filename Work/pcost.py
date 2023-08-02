@@ -2,15 +2,19 @@
 #
 # Exercise 1.27
 
-def pcost():
-    with open('Data/portfolio.csv', 'rt') as f:
+def pcost(filename):
+    '''Returns the total cost of the portfolio'''
+    with open(filename, 'rt') as f:
         next(f) # skip header
         cost = 0.0
         for line in f:
-            row = line.split(',')
-            shares = int(row[1])
-            stock_cost = float(row[2])
-            cost += shares * stock_cost
+            try:
+                fields = line.split(',')
+                shares = int(fields[1])
+                stock_cost = float(fields[2])
+                cost += shares * stock_cost
+            except ValueError:
+                print(f'Could not parse {line}')
     return cost
 
-print(f'Total cost ${pcost():,.2f}')
+print(f'Total cost ${pcost("Data/portfolio.csv"):,.2f}')
