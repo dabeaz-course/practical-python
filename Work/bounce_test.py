@@ -1,4 +1,4 @@
-from bounce import *
+from bounce import bounce
 
 def test_main(capfd):
     bounce()

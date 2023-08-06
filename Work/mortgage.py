@@ -11,7 +11,7 @@ def mortgage(extra_payment_start_month=0,
     paid = 0.0
     month = 0
 
-    print(f'{"Mo":>3} {f"Paid":>11} {f"Principal":>11}')
+    print(f'{"Mo":>3} {"Paid":>11} {"Principal":>11}')
     while principal > 0:
         month += 1
         payment = default_payment

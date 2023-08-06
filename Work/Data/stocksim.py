@@ -112,13 +112,23 @@ class StockTrack(object):
     def incr(self,dt):
         self.time += dt
         if self.index < (len(self.history) - 2):
-            while self.index < (len(self.history) - 2) and self.time >= self.history[self.index+1][3]:
+            while self.index < (len(self.history) - 2) and \
+                self.time >= self.history[self.index+1][3]:
                 self.index += 1
         self.update()
 
     def make_record(self):
-        return [self.name,round(self.price,2),self.date,minutes_to_str(self.time),round(self.change,2),self.open,round(self.high,2),
-                round(self.low,2),self.volume]
+        return [
+            self.name,
+            round(self.price, 2),
+            self.date,
+            minutes_to_str(self.time),
+            round(self.change, 2),
+            self.open,
+            round(self.high, 2),
+            round(self.low, 2),
+            self.volume
+        ]
 
 class MarketSimulator(object):
     def __init__(self):
