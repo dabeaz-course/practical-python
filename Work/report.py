@@ -2,7 +2,7 @@
 #
 # Exercise 2.4
 import csv
-from pprint import pprint
+from currency import usd
 
 def read_portfolio(filename):
     portfolio = []
@@ -48,7 +48,7 @@ def read_prices_2_6(filename):
             except ValueError:
                 print(f'Could not parse {row}')
 
-    pprint(prices)
+    # pprint(prices)
     return prices
 
 def get_gainloss_2_7(stocksFilename, pricesFilename):
@@ -57,20 +57,33 @@ def get_gainloss_2_7(stocksFilename, pricesFilename):
 
     total_value = 0.0
     total_market_value = 0.0
-    total_gain_loss = 0.0
+    total_gain = 0.0
+
     for stock in stocks:
+        market_price = prices[stock['name']]
+        stock['change'] = market_price - stock['price']
         stock['current_value'] = stock['price'] * stock['shares']
-        stock['market_value'] = prices[stock['name']] * stock['shares']
-        stock['gain_loss'] = stock['market_value'] - stock['current_value']
+        stock['market_value'] = market_price * stock['shares']
+        stock['value_gain'] = stock['market_value'] - stock['current_value']
 
         total_value += stock['current_value']
         total_market_value += stock['market_value']
-        total_gain_loss += stock['gain_loss']
+        total_gain += stock['value_gain']
 
-        print('{name:s} {gain_loss:,.2f}'.format_map(stock))
+    return (total_gain, stocks)
 
-    print(f'Total value: {total_value:,.2f}')
-    print(f'Total market value: {total_market_value:,.2f}')
-    print(f'Total gain/loss: {total_gain_loss:,.2f}')
+def make_report_2_9(
+    stocksFilename,
+    pricesFilename):
+    
+    (_, stocks) = get_gainloss_2_7(
+        stocksFilename,
+        pricesFilename)
 
-    return total_gain_loss
+    print()
+    print(' '.join([f'{h:>10s}' for h in ['Name', 'Shares', 'Price', 'Change']]))
+    print(' '.join(['----------' for _ in range(4)]))
+
+    for stock in stocks:
+        (name, shares, price, change, _, _, _) = stock.values()
+        print(f'{name:>10s} {shares:>10d} {usd(price):>10s} {usd(change):>10s}')

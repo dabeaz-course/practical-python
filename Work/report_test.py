@@ -35,7 +35,7 @@ def test_read_prices_2_6():
     assert prices['MSFT'] == 20.89
 
 def test_get_gainloss_2_7():
-    gain_loss = get_gainloss_2_7(
+    (gain_loss, _) = get_gainloss_2_7(
         path.join(data_dir, 'portfolio.csv'),
         path.join(data_dir, 'prices.csv'))
     assert round(gain_loss, 2) == -15985.05
