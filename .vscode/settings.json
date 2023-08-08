@@ -1,0 +1,8 @@
+{
+    "python.testing.pytestArgs": [
+        "Work",
+        "--rootdir=Work",
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
