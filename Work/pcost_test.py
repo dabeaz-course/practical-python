@@ -8,3 +8,6 @@ def test_pcost_1_27():
 
 def test_pcost_1_31():
     assert pcost(path.join(data_dir, 'missing.csv')) == 27381.15
+
+def test_pcost_2_16():
+    assert pcost(path.join(data_dir, 'portfoliodate.csv')) == 44671.15

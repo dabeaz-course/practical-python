@@ -4,7 +4,7 @@
 import csv
 from currency import usd
 
-def read_portfolio(filename):
+def read_portfolio_2_4(filename):
     portfolio = []
     with open(filename, 'rt') as f:
         rows = csv.reader(f)
@@ -21,17 +21,18 @@ def read_portfolio_2_5(filename):
     portfolio = []
     with open(filename, 'rt') as f:
         rows = csv.reader(f)
-        next(rows) # skip header
-        for fields in rows:
+        header = next(rows) # skip header
+        for row_no, fields in enumerate(rows):
             try:
+                record = dict(zip(header, fields))
                 holding = {
-                    'name': fields[0],
-                    'shares': int(fields[1]),
-                    'price': float(fields[2])
+                    'name': record['name'],
+                    'shares': int(record['shares']),
+                    'price': float(record['price'])
                 }
                 portfolio.append(holding)
             except ValueError:
-                print(f'Could not parse {fields}')
+                print(f'Could not parse row {row_no} with data {fields}')
     return portfolio
 
 def read_prices_2_6(filename):
