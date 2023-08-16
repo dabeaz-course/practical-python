@@ -1,33 +1,28 @@
 # fileparse.py
 #
 # Exercise 3.3
-
 import csv
 
 
-def parse_csv(filename, select: list = [], types: list = []):
+def parse_csv(
+    filename: str, select: list = [], types: list = [], has_headers: bool = True
+) -> list:
     """
     Parse a CSV file into a list of records
     """
     with open(filename) as f:
         rows = csv.reader(f)
-
-        # Read the file headers
-        file_headers = next(rows)
-        headers = select if select else file_headers
-        indices = (
-            [headers.index(name) for name in select]
-            if select
-            else [i for i in range(len(headers))]
-        )
+        if has_headers:
+            orig_headers = next(rows)
+            headers = select if select else orig_headers
+            indices = [headers.index(name) for name in headers]
         records = []
-        for row in rows:
-            if not row:  # Skip rows with no data
+        for orig_row in rows:
+            if not orig_row:
                 continue
-            select_row = [row[col] for col in indices]
+            row = [orig_row[i] for i in indices] if has_headers else orig_row
             if types:
-                select_row = [func(col) for func, col in zip(types, select_row)]
-            record = dict(zip(headers, select_row))
+                row = [func(field) for func, field in zip(types, row)]
+            record = dict(zip(headers, row)) if has_headers else tuple(row)
             records.append(record)
-
     return records
