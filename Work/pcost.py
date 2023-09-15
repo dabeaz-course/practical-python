@@ -16,14 +16,17 @@ import csv
 def portfolio_cost(file_name):
     total_cost = 0.0
     try:
-        file = open('../Work/Data/' + file_name)
+        file = open(file_name)
         rows = csv.reader(file)
         header = next(rows)
-        for row in rows:
+        for rowno, row in enumerate(rows):
+            record = dict(zip(header,row))
             try:
-                total_cost += int(row[1]) * float(row[2])
+                nshares = int(record['shares'])
+                price = float(record['price'])
+                total_cost += nshares * price
             except ValueError:
-                print("Couldn't parse", row)
+                print(f'{rowno:>10d}: Could not parse {row:}')
         file.close()
     except FileNotFoundError:
         print(f"Invalid: Couldn't find {file_name}")

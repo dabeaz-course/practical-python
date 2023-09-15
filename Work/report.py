@@ -37,20 +37,22 @@ def read_portfolio_dict(file_name):
         with open(file_name, 'rt') as file:
             rows = csv.reader(file)
             header = next(rows)
-            for row in rows:
-                holding = {'name': row[0], 'shares': int(row[1]), 'prices': float(row[2])}
-                portfolio.append(holding)
+            for rowno, row in enumerate(rows):
+                record = dict(zip(header,row))
+                portfolio.append(record)
     except FileNotFoundError:
         print(f"Invalid: Couldn't find {file_name}")
     return portfolio
 
-portfolio =  read_portfolio_dict('Data/portfolio.csv')
-prices =  read_prices('Data/prices.csv')
+portfolio =  read_portfolio_dict('Work/Data/portfoliodate.csv')
+prices =  read_prices('Work/Data/prices.csv')
 selling_value = 0.0
 purchase_value = 0.0
 
-for item in portfolio:
-    selling_value += item['shares'] * item['prices']
-    purchase_value += item['shares'] * prices[item['name']]
+for record in portfolio:
+    nshares = int(record['shares'])
+    price = float(record['price'])
+    selling_value += nshares * price
+    purchase_value += nshares * prices[record['name']]
 
 print("Purchase Value:", purchase_value, "Selling Value:", selling_value, "Gain:", purchase_value-selling_value)
