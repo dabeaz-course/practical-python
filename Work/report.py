@@ -44,8 +44,8 @@ def read_portfolio_dict(file_name):
         print(f"Invalid: Couldn't find {file_name}")
     return portfolio
 
-portfolio =  read_portfolio_dict('Work/Data/portfoliodate.csv')
-prices =  read_prices('Work/Data/prices.csv')
+portfolio =  read_portfolio_dict('Data/portfoliodate.csv')
+prices =  read_prices('Data/prices.csv')
 selling_value = 0.0
 purchase_value = 0.0
 
@@ -56,3 +56,6 @@ for record in portfolio:
     purchase_value += nshares * prices[record['name']]
 
 print("Purchase Value:", purchase_value, "Selling Value:", selling_value, "Gain:", purchase_value-selling_value)
+
+cost = sum([int(s['shares']) * float(s['price']) for s in portfolio])
+print(cost)
