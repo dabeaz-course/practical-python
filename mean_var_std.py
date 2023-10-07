@@ -2,10 +2,9 @@ import numpy as np
 
 def calculate(list_num):
 	calculations = {"mean":[], "variance":[], "standard deviation":[], "max":[], "min":[], "sum":[]}
-	if len(list_num) < 9:
-			raise ValueError("List must contain nine numbers.")
-		
-	list_num = np.array(list_num).reshape(3,3)
+	x = int(input("enter row: "))
+	y = int(input("enter column: "))
+	list_num = np.array(list_num).reshape(x,y)
 	for i in range(3):
 		if i < 2:
 			calculations["mean"].append(list(list_num.mean(axis=i)))
@@ -24,3 +23,5 @@ def calculate(list_num):
 
 	return calculations
 
+
+print(calculate([1,2,3,4,5,6,7,8,9]))
