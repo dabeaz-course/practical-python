@@ -38,7 +38,7 @@ Any attribute name with leading `_` is considered to be *private*.
 ```python
 class Person(object):
     def __init__(self, name):
-        self._name = 0
+        self._name = name
 ```
 
 As mentioned earlier, this is only a programming style. You can still
